@@ -12,15 +12,3 @@ CREATE TABLE users(
     is_host BOOLEAN
 );
 
--- Table users {
---   id integer [primary key]
---   first_name varchar [not null]
---   last_name varchar [not null]
---   organisation_name varchar
---   email varchar [unique, not null]
---   phone int
---   photo varchar
---   description text
---   is_host boolean
-  
--- }
