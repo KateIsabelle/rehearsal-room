@@ -2,12 +2,12 @@
 
 ## Routes Handled by React's Router
 
-|Prioritize?| HTTP method | URL pattern       | Usage                                          |
-|-----------|-------------|-------------------|------------------------------------------------|
-|⭐         | GET         | /                 | Landing page, select a city                    |
-|⭐         | GET         | /:city            | Browse/search/filter Spaces for specified city |
-|⭐         | GET         | /:city/spaces/:id | View an individual Space                       |
-|           | GET         | /dashboard        | User views their profile page                  |
+|Prioritize?| URL pattern       | Usage                                          |
+|-----------|-------------------|------------------------------------------------|
+|⭐         | /                 | Landing page, select a city                    |
+|⭐         | /spaces/:city     | Browse/search/filter Spaces for specified city |
+|⭐         | /space/:space_id  | View an individual Space                       |
+|           | /dashboard        | User views their profile page                  |
 
 ## Routes Handled by Express
 
