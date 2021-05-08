@@ -2,14 +2,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+// db represents our entry point into our database.
 const db = require('./db')
+// dbHelpers consumes our db entry point to create the helper functions.
+// Each router consumes dbHelpers and extracts the functions it needs.
+const dbHelpers = require('./helpers/dbHelpers')(db);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-const dbHelpers = require('./helpers/dbHelpers')(db);
 
 app.use(logger('dev'));
 app.use(express.json());
