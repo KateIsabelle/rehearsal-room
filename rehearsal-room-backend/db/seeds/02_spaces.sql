@@ -14,7 +14,7 @@ INSERT INTO spaces (user_id, title, description, thumbnail_photo_url, cover_phot
   piano,
   natural_light,
   air_conditioning,
-  10_ft_plus_ceiling,
+  ten_ft_plus_ceiling,
   private,
   semi_private,
   wheelchair_accessible,
@@ -22,7 +22,7 @@ INSERT INTO spaces (user_id, title, description, thumbnail_photo_url, cover_phot
   
   active
   )
-VALUES (1, 'PL1422','description that is detailed', 'https://images.thumbnail_photo_url- 7892.jpeg', 'https://images.cover_photo_url- 7892.jpeg', 'Canada', '1422 William St', 'Vancouver', 'BC', 'V5L 2P7' 190, 40,
+VALUES (1, 'PL1422','description that is detailed', 'https://images.thumbnail_photo_url- 7892.jpeg', 'https://images.cover_photo_url- 7892.jpeg', 'Canada', '1422 William St', 'Vancouver', 'BC', 'V5L 2P7', 190, 40,
    TRUE, --wifi
    TRUE, --sound_proofing
    TRUE, --sprung_floor
@@ -46,8 +46,7 @@ VALUES (1, 'PL1422','description that is detailed', 'https://images.thumbnail_ph
   
    TRUE --active
 ),
-(3, 'Dusty Flower Shop',"A Mini Black-Box Rehearsal Theatre in
-Vancouver's Beautiful Mount Pleasant Neighbourhood", 'https://images.thumbnail_photo_url- 23456.jpeg', 'https://images.cover_photo_url- 2340956.jpeg','Canada', '345 Prior Street', 'Vancouver', 'BC', 'V5K1G9', 100, 15,
+(3, 'Dusty Flower Shop','description that is detailed', 'https://images.thumbnail_photo_url- 23456.jpeg', 'https://images.cover_photo_url- 2340956.jpeg','Canada', '345 Prior Street', 'Vancouver', 'BC', 'V5K1G9', 100, 15,
    TRUE, --wifi
    FALSE, --sound_proofing
    TRUE, --sprung_floor

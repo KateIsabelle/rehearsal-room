@@ -2,12 +2,12 @@ DROP TABLE IF EXISTS spaces CASCADE;
 
 CREATE TABLE spaces(
     id SERIAL PRIMARY KEY NOT NULL,
-    user_id INTEGER REFERENCES users(id)
+    user_id INTEGER REFERENCES users(id),
 
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    thumbnail_photo_url VARCHAR(255)
-    cover_photo_url VARCHAR(255) 
+    thumbnail_photo_url VARCHAR(255),
+    cover_photo_url VARCHAR(255), 
 
     country VARCHAR(255) NOT NULL, 
     street VARCHAR(255) NOT NULL, 
@@ -33,7 +33,7 @@ CREATE TABLE spaces(
     piano BOOLEAN DEFAULT FALSE,
     natural_light BOOLEAN DEFAULT FALSE,
     air_conditioning BOOLEAN DEFAULT FALSE,
-    10_ft_plus_ceiling BOOLEAN DEFAULT FALSE,
+    ten_ft_plus_ceiling BOOLEAN DEFAULT FALSE,
     private BOOLEAN DEFAULT FALSE,
     semi_private BOOLEAN DEFAULT FALSE,
     wheelchair_accessible BOOLEAN DEFAULT FALSE,
