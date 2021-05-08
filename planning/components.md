@@ -8,27 +8,14 @@
 # Components
 
 - Button
+- Header
+  - Nav
+    - NavItem
 - App
-  - Navbar
-    - NavBarItem
-  - SpaceList
+  - Spaces
     - SearchForm
-    - SpaceListItem
+    - SpaceList
+      - SpaceListItem
   - Space
-    - MODE: NEW
-      - Spaceform
-    - MODE: EDIT
-      - SpaceForm
-    - MODE: SHOW
-      - Map
-      - PhotoCarousel
-        - Photo
-  - RequestForm
+  - Request
   - User
-    - Photo
-    - RequestList
-      - RequestListItem
-    - BookingList
-      - BookingListItem
-    - UpcomingList
-      - UpcomingListItem
