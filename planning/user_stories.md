@@ -68,14 +68,22 @@ City specific bubbles.
 
 - As an Artist, I would like to be able to change my general site preferences.
 
+- As an Artist, I would like to be able to change which city I'm looking for spaces in.
+
 - As an artist, I am given the option to automatically sync bookings with my Google calendar.
 
 - As an artist, I would like to "star" properties that I would like to bookmark for later.
+
+- Reapeted bookings for artist
 
 - (PAYMENT) Artist can perform a transaction to reserve the space.
 
 ## Host
 - As a host i can manipulate a calendar showing booking dates. (add, edit or delete exisiting)
+
+- Organize host dashboard into tabs
+
+- Blocking off days
 
 - As a host i can see a history of artists who have booked with me
 
