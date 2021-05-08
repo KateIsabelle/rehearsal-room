@@ -1,13 +1,12 @@
 module.exports = (db) => {
   const getUsers = () => {
-      const query = {
-          text: 'SELECT * FROM users',
-      };
-
-      return db
-          .query(query)
-          .then((result) => result.rows)
-          .catch((err) => err);
+    const query = {
+        text: 'SELECT * FROM users',
+    };
+    return db
+        .query(query)
+        .then((result) => result.rows)
+        .catch((err) => err);
   };
 
   const getUserByEmail = email => {
@@ -21,7 +20,7 @@ module.exports = (db) => {
           .query(query)
           .then(result => result.rows[0])
           .catch((err) => err);
-  }
+  };
 
   const addUser = (firstName, lastName, email, password) => {
       const query = {
@@ -32,7 +31,7 @@ module.exports = (db) => {
       return db.query(query)
           .then(result => result.rows[0])
           .catch(err => err);
-  }
+  };
 
   const getUsersPosts = () => {
       const query = {
@@ -46,12 +45,12 @@ module.exports = (db) => {
           .then(result => result.rows)
           .catch(err => err);
 
-  }
+  };
 
   return {
-      getUsers,
-      getUserByEmail,
-      addUser,
-      getUsersPosts
+    getUsers,
+    getUserByEmail,
+    addUser,
+    getUsersPosts
   };
 };
