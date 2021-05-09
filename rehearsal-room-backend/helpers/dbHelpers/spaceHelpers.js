@@ -1,35 +1,3 @@
-// Dummy data for testing/dev
-const spaces = [
-  {
-    "this data": "is placeholder",
-    "paul will": "update this page to use the actual DB"
-  },
-  {
-    name: "space 1",
-    id: "1"
-  },
-  {
-    name: "space 2",
-    id: "2"
-  }
-];
-
-const spacesByCity = [
-  {
-    "this data": "is also placeholder",
-    "paul will": "update this page to use the actual DB",
-    "it will": "be a list of all spaces for the specified city"
-  },
-  {
-    name: "space 1",
-    id: "1"
-  },
-  {
-    name: "space 2",
-    id: "2"
-  }
-];
-
 module.exports = (db) => {
   const getSpaces = () => {
     const query = {
