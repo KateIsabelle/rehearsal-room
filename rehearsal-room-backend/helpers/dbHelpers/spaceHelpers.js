@@ -44,9 +44,9 @@ module.exports = (db) => {
     const queryString = `
       SELECT *
       FROM spaces
-      WHERE city LIKE $1
+      WHERE LOWER(city) LIKE $1
     `
-    const queryParams = [city]
+    const queryParams = [`%${city.toLowerCase()}%`]
 
     return db.query(queryString, queryParams)
       .then(result => result.rows)
@@ -68,13 +68,14 @@ module.exports = (db) => {
   }
 
   const addSpace = (spaceData) => {
-    // TODO: Add an actual DB query to add a new space
-    const dummyPromise = new Promise( (resolve, reject) => {
-      spaces.push(spaceData)
-      const resolveFunc = () => resolve(spaces)
-      setTimeout(resolveFunc, 200)
-    })
-    return dummyPromise;
+    // TODO: Test that addSpace actually works the way I think it should.
+    return db.insert('spaces', spaceData)
+      .then(result => result.rows)
+      .catch(err => err);
+  }
+
+  const updateSpace = (spaceData) => {
+    // TODO: Actually make this function work.
   }
 
   return {

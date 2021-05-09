@@ -9,8 +9,7 @@ module.exports = ({
 }) => {
   // GET spaces
   router.get('/', (req, res) => {
-    const { keyword } = req.query
-    getSpacesByKeyword(keyword)
+    getSpaces()
       .then(spaces => res.json(spaces))
       .catch(err => res.json({error: err.message}));
   });
@@ -23,12 +22,17 @@ module.exports = ({
       .catch(err => res.json({error: err.message}));
   });
 
-  // PUT a new space in the db
+  // POST a new space in the db
   router.post('/', (req, res) => {
     const { spaceData } = req.body
     addSpace(spaceData)
       .then(space => res.json(space))
       .catch(err => res.json({error: err.message}));
+  })
+
+  // PUT update an existing space
+  router.put('/:id', (req, res) => {
+    res.json({"PUT req for space id":`${req.params.id}`})
   })
 
   return router;
