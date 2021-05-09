@@ -7,27 +7,15 @@ const {
 module.exports = ({
     getUsers,
     getUserByEmail,
-    addUser,
-    getUsersPosts
+    addUser
 }) => {
     /* GET users listing. */
     router.get('/', (req, res) => {
-        getUsers()
-            .then((users) => res.json(users))
-            .catch((err) => res.json({
-                error: err.message
-            }));
-    });
-
-    router.get('/posts', (req, res) => {
-        getUsersPosts()
-            .then((usersPosts) => {
-                const formattedPosts = getPostsByUsers(usersPosts);
-                res.json(formattedPosts);
-            })
-            .catch((err) => res.json({
-                error: err.message
-            }));
+      getUsers()
+          .then((users) => res.json(users))
+          .catch((err) => res.json({
+              error: err.message
+          }));
     });
 
     router.post('/', (req, res) => {
