@@ -32,26 +32,21 @@ const spacesByCity = [
 
 module.exports = (db) => {
   const getSpaces = () => {
-    // TODO: Add an actual DB query to get spaces
-    const dummyPromise = new Promise( (resolve, reject) => {
-      const resolveFunc = () => resolve(spaces)
-      setTimeout(resolveFunc, 200)
-    })
-    return dummyPromise;
+    const query = {
+      text: 'SELECT * FROM spaces',
+    }
+    return db.query(query)
+      .then(result => result.rows)
+      .catch(err => err);
   }
 
   const getSpacesByCity = (city) => {
-    // TODO: Add an actual DB query to get spaces
-    const dummyPromise = new Promise( (resolve, reject) => {
-      const spaces = [
-        {"here's": "the city you wanted:",
-        city},
-        ...spacesByCity
-      ]
-      const resolveFunc = () => resolve(spaces)
-      setTimeout(resolveFunc, 200)
-    })
-    return dummyPromise;
+    const queryString = 'SELECT * FROM spaces WHERE city LIKE $1'
+    const queryParams = [city]
+
+    return db.query(queryString, queryParams)
+      .then(result => result.rows)
+      .catch(err => err);
   }
 
   const addSpace = (spaceData) => {
