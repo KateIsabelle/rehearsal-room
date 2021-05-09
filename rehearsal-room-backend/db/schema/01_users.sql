@@ -5,7 +5,7 @@ CREATE TABLE users(
     last_name VARCHAR(255) NOT NULL,
     organization_name VARCHAR(255),
     email VARCHAR(255) NOT NULL UNIQUE,
-    phone INTEGER,
+    phone VARCHAR(50),
     password VARCHAR(255) NOT NULL,
     photo VARCHAR,
     description TEXT,

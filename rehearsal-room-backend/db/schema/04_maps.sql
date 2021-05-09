@@ -5,7 +5,7 @@ CREATE TABLE maps(
     space_id INTEGER REFERENCES spaces(id) ON DELETE CASCADE,
     title VARCHAR(255) NOT NULL,
     content TEXT,
-    zoom INTEGER DEFAULT 13
+    zoom INTEGER DEFAULT 13,
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
