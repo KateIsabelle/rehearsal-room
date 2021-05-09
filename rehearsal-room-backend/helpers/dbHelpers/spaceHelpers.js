@@ -53,8 +53,20 @@ module.exports = (db) => {
     })
     return dummyPromise;
   }
+
+  const addSpace = (spaceData) => {
+    // TODO: Add an actual DB query to add a new space
+    const dummyPromise = new Promise( (resolve, reject) => {
+      spaces.push(spaceData)
+      const resolveFunc = () => resolve(spaces)
+      setTimeout(resolveFunc, 200)
+    })
+    return dummyPromise;
+  }
+
   return {
     getSpaces,
-    getSpacesByCity
+    getSpacesByCity,
+    addSpace
   };
 }
