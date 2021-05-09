@@ -56,6 +56,15 @@ const space1 =
   "self_entry": false,
   "active": true
   }
+ 
+  const map1 =  
+  {
+    id: 1,
+    space_id: 1,
+    zoom: 13,
+    latitude: 49.273790,
+    longitude: -123.075260
+  }
 
 export const SpaceComponent = () => {
   return <Space 
