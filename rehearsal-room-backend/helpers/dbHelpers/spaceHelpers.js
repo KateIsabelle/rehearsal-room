@@ -41,8 +41,26 @@ module.exports = (db) => {
   }
 
   const getSpacesByCity = (city) => {
-    const queryString = 'SELECT * FROM spaces WHERE city LIKE $1'
+    const queryString = `
+      SELECT *
+      FROM spaces
+      WHERE city LIKE $1
+    `
     const queryParams = [city]
+
+    return db.query(queryString, queryParams)
+      .then(result => result.rows)
+      .catch(err => err);
+  }
+
+  const getSpacesByKeyword = (keyword) => {
+    const queryString = `
+      SELECT *
+      FROM spaces
+      WHERE title LIKE $1
+        OR description LIKE $1
+    `
+    const queryParams = [`%${keyword}%`]
 
     return db.query(queryString, queryParams)
       .then(result => result.rows)
@@ -62,6 +80,7 @@ module.exports = (db) => {
   return {
     getSpaces,
     getSpacesByCity,
+    getSpacesByKeyword,
     addSpace
   };
 }

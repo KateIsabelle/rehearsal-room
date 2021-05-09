@@ -4,11 +4,13 @@ const router = express.Router();
 module.exports = ({
   getSpaces,
   getSpacesByCity,
+  getSpacesByKeyword,
   addSpace
 }) => {
   // GET spaces
   router.get('/', (req, res) => {
-    getSpaces()
+    const { keyword } = req.query
+    getSpacesByKeyword(keyword)
       .then(spaces => res.json(spaces))
       .catch(err => res.json({error: err.message}));
   });
