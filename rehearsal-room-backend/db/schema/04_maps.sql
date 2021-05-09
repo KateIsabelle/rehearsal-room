@@ -3,8 +3,6 @@ DROP TABLE IF EXISTS maps CASCADE;
 CREATE TABLE maps(
     id SERIAL PRIMARY KEY NOT NULL,
     space_id INTEGER REFERENCES spaces(id) ON DELETE CASCADE,
-    title VARCHAR(255) NOT NULL,
-    content TEXT,
     zoom INTEGER DEFAULT 13,
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,

@@ -142,7 +142,7 @@ VALUES (1, 'PL1422','description that is detailed', 'https://images.thumbnail_ph
   
    TRUE --active
 ),
-(3, 'Elm Park Field House','in park space', 'https://images.thumbnail_photo_url- 09832.jpeg', 'https://images.cover_photo_url- 09832.jpeg', 'Canada', '500 Elm St', 'Vancouver', 'BC', 'V6N1A7', 60, 10,
+(3, 'Elm Park Field House','in park space', 'https://images.thumbnail_photo_url- 09832.jpeg', 'https://images.cover_photo_url- 09832.jpeg', 'Canada', 'Elm Park, Elm St', 'Vancouver', 'BC', 'V6N1A7', 60, 10,
    FALSE, --wifi
    FALSE, --sound_proofing
    FALSE, --sprung_floor
