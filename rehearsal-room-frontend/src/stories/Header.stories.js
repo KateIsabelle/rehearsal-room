@@ -28,7 +28,7 @@ export const HeaderComponent = () => {
 }
 
 export default {
-  title: 'Components/Space',
+  title: 'Components/Header',
   component: HeaderComponent,
 }
 

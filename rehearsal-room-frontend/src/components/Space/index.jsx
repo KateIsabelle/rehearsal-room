@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 
+import Map from './Map'
+
 const requestButton = () => {
   alert("Request")
 }
@@ -99,11 +101,15 @@ export default function Space(props) {
         { props.wheelchair_accessible && <tr>
           <td>Wheelchair Accessible</td>
         </tr>}
-    </table>
+    </table
+         
+    <Map latitude={props.latitude} longitude={props.longitude}/>
+  
           <h3>Data from axios request:</h3>
           <ul>
             {dataList}
           </ul>
+
         </article>
 
   )
