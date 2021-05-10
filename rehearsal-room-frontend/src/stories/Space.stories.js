@@ -4,6 +4,8 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
 import Space from '../components/Space/index'
+import Map from '../components/Space/Map'
+
 
 const user1 = 
 {
@@ -75,6 +77,12 @@ export const SpaceComponent = () => {
   organization_name={user1.organization_name} 
   />
 }
+
+export const MapComponent = () =>  
+<Map 
+latitude={49.273790}
+longitude={-123.075260}
+/>
 
 
 export default {
