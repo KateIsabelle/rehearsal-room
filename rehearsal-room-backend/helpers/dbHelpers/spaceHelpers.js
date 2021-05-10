@@ -36,7 +36,7 @@ module.exports = (db) => {
   }
 
   //to display for space/:id
-  const getSpaceById = (city) => {
+  const getSpaceById = (id) => {
     const queryString = `
       SELECT users.first_name, 
              users.last_name, 
@@ -87,9 +87,9 @@ module.exports = (db) => {
       FROM spaces
       JOIN users ON users.id = spaces.user_id
       JOIN maps ON maps.space_id = spaces.id
-      WHERE LOWER(city) LIKE $1
+      WHERE spaces.id = $1
     `
-    const queryParams = [`%${city.toLowerCase()}%`]
+    const queryParams = [id]
 
     return db.query(queryString, queryParams)
       .then(result => result.rows)
