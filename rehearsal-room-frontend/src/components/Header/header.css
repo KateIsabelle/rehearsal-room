@@ -2,6 +2,13 @@
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,6 +26,20 @@ h1 {
   margin: 6px 0 6px 10px;
   display: inline-block;
   vertical-align: top;
+}
+
+h3 {
+    font-weight: 100;
+    font-size: 16px;
+    margin: 6px 0 6px 10px;
+}
+
+.user-greeting-logout {
+  display: flex;
+}
+
+.user-greeting-logout p {
+  margin-right: 8px;
 }
 
 button + button {
