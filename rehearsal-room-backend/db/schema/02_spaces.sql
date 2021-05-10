@@ -6,8 +6,8 @@ CREATE TABLE spaces(
 
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    thumbnail_photo_url VARCHAR(255),
-    cover_photo_url VARCHAR(255), 
+    thumbnail_photo_url TEXT,
+    cover_photo_url TEXT, 
 
     country VARCHAR(255) NOT NULL, 
     street VARCHAR(255) NOT NULL, 
