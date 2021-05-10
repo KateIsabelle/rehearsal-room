@@ -7,35 +7,35 @@ const requestButton = () => {
 }
 
 export default function Space(props) {
-  const [data, setdata] = useState({})
-  const { spaceId } = useParams();
+  const [data, setData] = useState({})
+  const { space_id } = useParams();
   useEffect(() => {
     axios({
       method: 'GET',
-      url: `/api/space/${spaceId}`,
+      url: `/api/space/${space_id}`,
     })
     .then(({ data }) => {
-      console.log(data);
-      setdata(data)
+      console.log("Data from space page:", data);
+      setData(data[0])
     })
     .catch((err) => console.log(err));
-  }, [spaceId]);
+  }, [space_id]);
 
   const dataList = Object.keys(data).map(key => (
-    <li><strong>{key}</strong>: {data[key]}</li>
+    <li><strong>{key}</strong>: {`${data[key]}`}</li>
   ))
   return (
 
     <article className="">
 
       <h1>{data.title}</h1>
-      <p>{props.city}, {props.province}, {props.country}</p>
+      <p>{data.city}, {data.province}, {data.country}</p>
       <img src={data.cover_photo_url} alt="property" width="600" height="400"></img>
       <p>{data.description}</p>
       <div>Price per day: ${data.price_per_day / 100}</div>
       <div>Price per hour: ${data.price_per_hour / 100}</div>
       {data.organization_name && <div>Affiliated organization: {data.organization_name}</div>}
-      <div>Contact {data.host_name}: {data.host_email}</div>
+      <div>Contact: {data.first_name} {data.last_name}, {data.email}</div>
       <button onClick={requestButton}>Make a request</button>
 
       <table>
