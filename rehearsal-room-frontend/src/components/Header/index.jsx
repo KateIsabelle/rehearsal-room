@@ -6,7 +6,6 @@ import './header.css'
 
 
 export default function Header(props) {
-  
   return (
 
     <header>
@@ -23,8 +22,20 @@ export default function Header(props) {
         </div>
       </div>
       <div>
+        {props.id ? (
+            <tag className="user-greeting-logout">
+              <p>Hi, {props.first_name}</p>
+              <Button size="small" label="Log out" />
+            </tag>
+          ) : (
+            <>
+              <Button size="small" label="Log in" />
+              <Button primary size="small" label="Sign up" />
+            </>
+          )}
+{/* 
             <Button size="small" label="Log in" />
-            <Button primary size="small"  label="Logout" />
+            <Button primary size="small"  label="Logout" /> */}
       </div>
     </div>
   </header>

@@ -34,6 +34,14 @@ h3 {
     margin: 6px 0 6px 10px;
 }
 
+.user-greeting-logout {
+  display: flex;
+}
+
+.user-greeting-logout p {
+  margin-right: 8px;
+}
+
 button + button {
   margin-left: 10px;
 }
