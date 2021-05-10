@@ -102,9 +102,8 @@ export default function Space(props) {
           <td>Wheelchair Accessible</td>
         </tr>}
     </table>
-         
-    <Map latitude={props.latitude} longitude={props.longitude}/>
-  
+    <Map latitude={data.latitude} longitude={data.longitude}/>
+
           <h3>Data from axios request:</h3>
           <ul>
             {dataList}
