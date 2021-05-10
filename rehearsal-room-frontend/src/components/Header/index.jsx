@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from '../Button/Button';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './header.css'
 
 
@@ -13,12 +13,9 @@ export default function Header(props) {
     <div className="wrapper">
       <div>
       <div className="header-list">
-        <Link to="/" component={Logo} />
+        <NavLink to="/" component={Logo} />
 
-
-          <h3>Browse</h3>
-
-          <h3>About us</h3>
+        <h3>About us</h3>
         </div>
       </div>
       <div>
@@ -48,7 +45,7 @@ function Logo() {
     <>
     <img src='https://www.flaticon.com/svg/vstatic/svg/386/386107.svg?token=exp=1620604584~hmac=584f6d47c262f7eaa45cf32d56fbaea5' width="32" height="32"></img>
     <h1>
-      <Link to='/'>Rehearsal Room</Link>
+      <NavLink to='/'>Rehearsal Room</NavLink>
     </h1>
     </>
   )
