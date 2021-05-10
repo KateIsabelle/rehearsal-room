@@ -6,6 +6,7 @@ import { action } from "@storybook/addon-actions";
 import SpaceListItem from '../components/Spaces/SpaceListItem'
 import SpaceList from '../components/Spaces/SpaceList'
 import Spaces from '../components/Spaces/index'
+import SearchForm from '../components/Spaces/SearchForm'
 
 const spacesData = [
   {
@@ -53,6 +54,10 @@ export const SpacesComponent = () => {
   return <Spaces 
     spacesData={spacesData}
    />
+ }
+
+ export const SearchFormComponent = () => {
+  return <SearchForm />
  }
 
 export default {
