@@ -1,6 +1,7 @@
 //Spaces is the main page
 
 import React from "react";
+import { Fragment } from "react";
 import SpaceList from './SpaceList'
 
 // const spacesData = [
@@ -30,8 +31,13 @@ export default function Spaces(props) {
   const { spacesData } = props
 
   return (
-    <SpaceList 
-    spaces={spacesData}
-    />
+    <Fragment>
+      <form>
+        <input type="text"></input>
+      </form>
+      <SpaceList 
+      spaces={spacesData}
+      />
+    </Fragment>
   )
 }
