@@ -75,6 +75,8 @@ export const SpaceComponent = () => {
   host_name={user1.first_name + " " + user1.last_name}
   host_email={user1.email}
   organization_name={user1.organization_name} 
+  latitude={map1.latitude}
+  longitude={map1.longitude}
   />
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Map from './Map'
 
 const requestButton = () => {
   alert("Request")
@@ -84,6 +85,7 @@ export default function Space(props) {
         </tr>}
     </table>
 
+    <Map latitude={props.latitude} longitude={props.longitude}/>
     
 
         </article>
@@ -91,3 +93,5 @@ export default function Space(props) {
   )
 
 }
+
+// <Map latitude={49.273790} longitude={-123.075260}/>
