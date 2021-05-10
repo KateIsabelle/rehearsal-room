@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
+import axios from 'axios'
+
 import Map from './Map'
 
 const requestButton = () => {
@@ -6,22 +9,37 @@ const requestButton = () => {
 }
 
 export default function Space(props) {
-  const { title, description, cover_photo_url } = props
+  const [data, setdata] = useState({})
+  const { spaceId } = useParams();
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: `/api/space/${spaceId}`,
+    })
+    .then(({ data }) => {
+      console.log(data);
+      setdata(data)
+    })
+    .catch((err) => console.log(err));
+  }, [spaceId]);
+
+  const dataList = Object.keys(data).map(key => (
+    <li><strong>{key}</strong>: {data[key]}</li>
+  ))
   return (
 
     <article className="">
 
-      <h1>{title}</h1>
+      <h1>{data.title}</h1>
       <p>{props.city}, {props.province}, {props.country}</p>
-      <img src={cover_photo_url} alt="property" width="600" height="400"></img>
-      <p>{description}</p>
-      <div>Price per day: ${props.price_per_day / 100}</div>
-      <div>Price per hour: ${props.price_per_hour / 100}</div>
-      {props.organization_name && <div>Affiliated organization: {props.organization_name}</div>}
-      <div>Contact {props.host_name}: {props.host_email}</div>
+      <img src={data.cover_photo_url} alt="property" width="600" height="400"></img>
+      <p>{data.description}</p>
+      <div>Price per day: ${data.price_per_day / 100}</div>
+      <div>Price per hour: ${data.price_per_hour / 100}</div>
+      {data.organization_name && <div>Affiliated organization: {data.organization_name}</div>}
+      <div>Contact {data.host_name}: {data.host_email}</div>
       <button onClick={requestButton}>Make a request</button>
 
-     
       <table>
         <tr>
           <th>Features</th>
@@ -83,15 +101,17 @@ export default function Space(props) {
         { props.wheelchair_accessible && <tr>
           <td>Wheelchair Accessible</td>
         </tr>}
-    </table>
-
+    </table
+         
     <Map latitude={props.latitude} longitude={props.longitude}/>
-    
+  
+          <h3>Data from axios request:</h3>
+          <ul>
+            {dataList}
+          </ul>
 
         </article>
 
   )
 
 }
-
-// <Map latitude={49.273790} longitude={-123.075260}/>
