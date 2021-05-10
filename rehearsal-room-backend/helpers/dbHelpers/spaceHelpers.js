@@ -36,7 +36,7 @@ module.exports = (db) => {
   }
 
   //to display for space/:id
-  const getSpaceDetails = (city) => {
+  const getSpaceById = (city) => {
     const queryString = `
       SELECT users.first_name, 
              users.last_name, 
@@ -111,7 +111,7 @@ module.exports = (db) => {
     getSpaces,
     getSpacesByCity,
     getSpacesByKeyword,
-    getSpaceDetails,
+    getSpaceById,
     addSpace
   };
 }
