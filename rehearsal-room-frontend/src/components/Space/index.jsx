@@ -101,7 +101,7 @@ export default function Space(props) {
         { props.wheelchair_accessible && <tr>
           <td>Wheelchair Accessible</td>
         </tr>}
-    </table
+    </table>
          
     <Map latitude={props.latitude} longitude={props.longitude}/>
   
