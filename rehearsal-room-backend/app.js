@@ -13,6 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var spacesRouter = require('./routes/spaces');
 var bookingsRouter = require('./routes/bookings');
+var spaceRouter = require('./routes/space');
 
 var app = express();
 
@@ -27,5 +28,7 @@ app.use('/', indexRouter);
 app.use('/api/users', usersRouter(dbHelpers));
 app.use('/api/spaces', spacesRouter(dbHelpers));
 app.use('/api/bookings', bookingsRouter(dbHelpers));
+app.use('/api/space', spaceRouter(dbHelpers));
+
 
 module.exports = app;
