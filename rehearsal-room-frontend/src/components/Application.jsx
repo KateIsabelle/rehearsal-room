@@ -3,8 +3,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useParams
 } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 // Components
 import Header from './Header'
@@ -15,7 +18,7 @@ import logo from '../../src/logo.svg';
 // CSS
 import './App.css';
 
-// Hooks
+// Custom hooks
 import useApplicationData from '../hooks/useApplicationData'
 
 export default function App() {
@@ -30,14 +33,40 @@ export default function App() {
     <Router>
       <div className="App" >
         <Header />
+        <Switch>
+          <Route path="/spaces/:city">
+            <SpaceList />
+          </Route>
+
+          <Route path="/">
+            <CityList />
+          </Route>
+        </Switch>
       </div >
-      <Route path="/">
-        <Home />
-      </Route>
     </Router>
   );
 }
 
-function Home() {
-  return <Link to="/vancouver">Vancouver</Link>
+
+// We can later replace this with a proper component that lists all available cities.
+function CityList() {
+  return <Link to="/spaces/vancouver">Vancouver</Link>
+}
+
+// Similarly, we can move this into the SpaceList component
+function SpaceList() {
+  let { city } = useParams();
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: `/api/spaces/${city}`,
+      })
+      .then(({ data }) => {
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  }, [city]);
+  return (
+    <h1>SpaceList rendered!</h1>
+  )
 }
