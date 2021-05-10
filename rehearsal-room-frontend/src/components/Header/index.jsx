@@ -1,11 +1,11 @@
 import React from "react";
 import { Button } from '../Button/Button';
-import './navbar.css'
+import './header.css'
 
 
 
 
-export default function Navbar(props) {
+export default function Header(props) {
   
   return (
 
