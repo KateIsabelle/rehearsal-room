@@ -29,7 +29,7 @@ export default function App() {
     <Router>
       <div className="App" >
         <Header />
-        <h2>Route tester:</h2>
+        <h2>Route tester (can remove once general site navigation works):</h2>
         <ul>
           <li>
             <Link to="/">Root</Link>
@@ -39,6 +39,9 @@ export default function App() {
           </li>
           <li>
             <Link to="/register">Register</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
           </li>
         </ul>
 
@@ -54,6 +57,9 @@ export default function App() {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route path="/">
             <CityList />
@@ -103,4 +109,8 @@ function Login() {
 
 function Register() {
   return (<h1>Registration form goes here!</h1>)
+}
+
+function Dashboard() {
+  return (<h1>Dashboard page goes here!</h1>)
 }
