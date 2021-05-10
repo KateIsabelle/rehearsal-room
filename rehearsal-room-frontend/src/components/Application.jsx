@@ -50,7 +50,7 @@ export default function App() {
           <Route path="/spaces/:city">
             <SpaceList />
           </Route>
-          <Route path="/space/:id">
+          <Route path="/space/:space_id">
             <Space />
           </Route>
           <Route path="/login">
