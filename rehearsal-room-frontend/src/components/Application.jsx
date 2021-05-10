@@ -12,6 +12,7 @@ import axios from "axios";
 // Components
 import Header from './Header'
 import Space from './Space'
+import SpaceList from './Spaces'
 
 // Images
 import logo from '../../src/logo.svg';
@@ -80,23 +81,6 @@ function CityList() {
     <ul>
       <li>
        <Link to="/spaces/vancouver">Vancouver</Link>
-      </li>
-    </ul>
-    </ >
-  )
-}
-
-// Similarly, we can move this into the SpaceList component
-function SpaceList() {
-  let { city } = useParams();
-  return (
-    <>
-    <h1>SpaceList for {city} rendered! Send a GET req to /api/spaces/vancouver to get the data.</h1>
-    <h1>It might make sense to store the resulting array of Spaces in the state of SpaceList, so that we can just pass the data to Space components as props</h1>
-    <h2>Here's a hard-coded link to a space:</h2>
-    <ul>
-      <li>
-        <Link to="/space/1">Space #1</Link>
       </li>
     </ul>
     </ >
