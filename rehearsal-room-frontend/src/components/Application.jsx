@@ -6,7 +6,7 @@ import {
   Link,
   useParams
 } from "react-router-dom";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import axios from "axios";
 
 // Components
@@ -49,9 +49,34 @@ export default function App() {
           </li>
         </ul>
 
-        <Switch>
-          <Route path="/spaces/:city">
+        <Switch> 
+        { false ? /* is logged in ? state */
+        <Fragment>
+          <Route path="/">
             <HeroV1 />
+            <CityList />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/spaces/:city">
+            <SearchForm />
+            <Spaces />
+          </Route>
+          <Route path="/space/:space_id">
+            <Space />
+          </Route>
+        </Fragment> 
+        :
+        <Fragment>
+          <Route path="/">
+            <HeroV1 />
+            <CityList />
+          </Route>
+          <Route path="/spaces/:city">
             <SearchForm />
             <Spaces />
           </Route>
@@ -61,17 +86,13 @@ export default function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/">
-            <HeroV1 />
-            <CityList />
-          </Route>
-        </Switch>
+         
+          </Fragment> }
+        </Switch> 
+        
       </div >
     </Router>
   );
