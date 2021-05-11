@@ -32,9 +32,6 @@ export default function Spaces(props) {
 
   return (
     <Fragment>
-      <form>
-        <input type="text"></input>
-      </form>
       <SpaceList 
       spaces={spacesData}
       />
