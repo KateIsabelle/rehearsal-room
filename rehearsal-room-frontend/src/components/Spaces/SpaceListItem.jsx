@@ -11,7 +11,7 @@ export default function SpaceListItem(props) {
   return (
     <li onClick={() => console.log("clicked on space", spaceId, title)}>
       <div>{spaceId} <Link to={"/space/" + spaceId}>{title}</Link></div>
-      <img src={photoUrl} style={picStyle}/>
+      <img src={photoUrl} style={picStyle} alt=""/>
     </li>
   )
 }

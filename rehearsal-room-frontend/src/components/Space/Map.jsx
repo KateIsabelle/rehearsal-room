@@ -15,7 +15,7 @@ export default function Map(props) {
 
   return (
     <div>
-      <img src={url}/>
+      <img src={url} alt=""/>
     </div>
   )
 }

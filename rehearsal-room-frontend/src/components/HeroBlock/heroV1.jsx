@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Transformation } from "cloudinary-react";
 
-export function HeroV1(props) {
+export default function HeroV1(props) {
   return (
     <tag>
 
