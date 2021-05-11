@@ -11,6 +11,7 @@ import axios from "axios";
 
 // Components
 import Header from './Header'
+import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
 import Spaces from './Spaces'
 
@@ -48,6 +49,7 @@ export default function App() {
 
         <Switch>
           <Route path="/spaces/:city">
+            <HeroV1 />
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
@@ -63,6 +65,7 @@ export default function App() {
             <Dashboard />
           </Route>
           <Route path="/">
+            <HeroV1 />
             <CityList />
           </Route>
         </Switch>

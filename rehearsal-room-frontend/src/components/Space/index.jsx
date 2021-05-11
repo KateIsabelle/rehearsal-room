@@ -16,9 +16,9 @@ export default function Space(props) {
       method: 'GET',
       url: `/api/space/${space_id}`,
     })
-    .then(({ spaceData }) => {
-      console.log("Data from space page:", spaceData);
-      setSpaceData(spaceData[0])
+    .then(({ data }) => {
+      console.log("Data from space page:", data);
+      setSpaceData(data[0])
     })
     .catch((err) => console.log("ERROR", err));
   }, [space_id]);
