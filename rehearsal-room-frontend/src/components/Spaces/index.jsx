@@ -3,7 +3,6 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 
 // Components
 import SpaceList from './SpaceList'

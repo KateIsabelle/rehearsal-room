@@ -2,7 +2,7 @@ import React from "react";
 
 
 export default function SearchForm(props) {
-  const { register, onSubmit, handleSubmit, amenities, showAdvanced } = props;
+  const { register, amenities, showAdvanced } = props;
   const amenitiesList = Object.keys(amenities).map(key => {
     return(
       <li key={key}>
