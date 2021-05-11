@@ -26,14 +26,34 @@ export default function Spaces() {
     .then(({ data }) => {
       console.log("get city data: ", data);
       setSpaces(data)
+      setFilteredSpaces(data)
     })
     .catch((err) => console.log("get city data ERROR", err));
   }, [city]);
 
   watch((data, {name, type}) => {
-    name === "showAdvanced" && setAdvancedToggle(data.showAdvanced)
-    console.log(data, name, type)
+    if (name === "showAdvanced") {
+      setAdvancedToggle(data.showAdvanced)
+    } else if (type === "change") {
+      setFilteredSpaces(filterResults(data))
+    }
   })
+
+  const filterResults = (parameters) => {
+    // Create regex based on search keyword
+    const regex = new RegExp(parameters.keyword, 'i')
+    const filtered = spaces.filter(space => {
+      if(!space.title.match(regex) && !space.description.match(regex)) {
+        // Filter if the title or description don't match what's entered.
+        return false;
+      }
+
+
+      return true
+    })
+    console.log(filtered)
+    return filtered;
+  };
 
   const amenities = {
     "wifi": "Wifi",
@@ -68,7 +88,7 @@ export default function Spaces() {
         amenities={amenities}
       />
       <SpaceList
-      spaces={spaces}
+      spaces={filteredSpaces}
       />
     </>
   )
