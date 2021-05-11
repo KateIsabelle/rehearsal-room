@@ -64,7 +64,6 @@ export default function App() {
             <Login setBookings={setBookings}/>
           </Route>
           <Route path="/spaces/:city">
-            <SearchForm />
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
@@ -81,7 +80,6 @@ export default function App() {
             <CityList />
           </Route>
           <Route path="/spaces/:city">
-            <SearchForm />
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
