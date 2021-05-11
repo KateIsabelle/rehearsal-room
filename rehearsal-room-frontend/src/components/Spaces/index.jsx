@@ -1,40 +1,102 @@
 //Spaces is the main page
 
-import React from "react";
-import { Fragment } from "react";
+import axios from 'axios';
+import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+
+// Components
 import SpaceList from './SpaceList'
+import SearchForm from '../SearchForm'
 
-// const spacesData = [
-//   {
-//     id: 1,
-//     user_id: 1,
-//     thumbnail_photo_url: "http://cdn.home-designing.com/wp-content/uploads/2015/08/simple-interior-design.jpg"
-//   },
-//   {
-//     id: 1,
-//     user_id: 1,
-//     thumbnail_photo_url: "https://images.dwell.com/photos-6242537032151076864/6495845600185012224-medium/luckdrops-studio-is-a-one-bedroom-one-bathroom-shipping-container-home-with-287-square-feet-of-living-space-the-dollar38000-home-features-light-bright-and-modern-interiors-that-are-miles-away-from-what-you-might-expect-the-inside-of-a-shipping-container-t.jpg"
-//   },
-//   {
-//     id: 1,
-//     user_id: 1,
-//     thumbnail_photo_url: "https://snobette.com/wp-content/uploads/2020/04/drake-toronto-home-interior-1024x752.jpg"
-//   },
-//   {
-//     id: 1,
-//     user_id: 1,
-//     thumbnail_photo_url: "https://i.pinimg.com/originals/00/1a/40/001a40069ceb074d63c3702e70c416c2.jpg"
-//   },
-// ]
+export default function Spaces() {
+  // This list of amenities is used in two places:
+  // 1. To help filter the search results by amenity
+  // 2. To build the list of toggleable buttons in the SearchForm component
+  const amenities = {
+    "wifi": "Wifi",
+    "sound_proofing": "Sound proofing",
+    "sprung_floor": "Sprung floor",
+    "kitchenette": "Kitchenette",
+    "mirrors": "Mirrors",
+    "sound_system": "Sound system",
+    "bathroom": "Bathroom",
+    "indoor_space": "Indoor space",
+    "outdoor_space": "Outdoor space",
+    "bike_parking": "Bike parking",
+    "street_parking": "Street parking",
+    "private_parking": "Private parking",
+    "piano": "Piano",
+    "natural_light": "Natural light",
+    "air_conditioning": "Air conditioning",
+    "ten_ft_plus_ceiling": "10 ft plus ceiling",
+    "private": "Private",
+    "semi_private": "Semi-private",
+    "wheelchair_accessible": "Wheelchair-accessible",
+    "self_entry": "Self-entry"
+  }
 
-export default function Spaces(props) {
-  const { spacesData } = props
+
+  const { city } = useParams();
+  const { register, handleSubmit, watch } = useForm();
+  const onSubmit = data => console.log(data);
+
+  //spaces = array of objects
+  const [spaces, setSpaces] = useState([])
+  const [filteredSpaces, setFilteredSpaces] = useState([])
+  const [advancedToggle, setAdvancedToggle] = useState(false)
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: `/api/spaces/${city}`,
+    })
+    .then(({ data }) => {
+      console.log("get city data: ", data);
+      setSpaces(data)
+      setFilteredSpaces(data)
+    })
+    .catch((err) => console.log("get city data ERROR", err));
+  }, [city]);
+
+  watch((data, {name, type}) => {
+    if (name === "showAdvanced") {
+      setAdvancedToggle(data.showAdvanced)
+    } else if (type === "change") {
+      setFilteredSpaces(filterResults(data))
+    }
+  })
+
+  const filterResults = (parameters) => {
+    // Create regex based on search keyword
+    const regex = new RegExp(parameters.keyword, 'i')
+    const filtered = spaces.filter(space => {
+      if(!space.title.match(regex) && !space.description.match(regex)) {
+        // Filter if the title or description don't match what's entered.
+        return false;
+      }
+      for (const key of Object.keys(amenities)) {
+        if(parameters[key] === true && space[key] === false) {
+          return false
+        }
+      }
+      return true
+    })
+    console.log(filtered)
+    return filtered;
+  };
 
   return (
-    <Fragment>
-      <SpaceList 
-      spaces={spacesData}
+    <>
+      <SearchForm 
+        register={register}
+        onSubmit={onSubmit}
+        handleSubmit={handleSubmit}
+        showAdvanced={advancedToggle}
+        amenities={amenities}
       />
-    </Fragment>
+      <SpaceList
+      spaces={filteredSpaces}
+      />
+    </>
   )
 }
