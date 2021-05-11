@@ -12,6 +12,7 @@ import axios from "axios";
 // Components
 import Header from './Header'
 import Space from './Space'
+import Spaces from './Spaces'
 import SpaceList from './Spaces'
 
 // Images

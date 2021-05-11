@@ -14,7 +14,7 @@ export default function Space(props) {
   useEffect(() => {
     axios({
       method: 'GET',
-      url: `/api/space/1`,
+      url: `/api/space/${space_id}`,
     })
     .then(({ spaceData }) => {
       console.log("Data from space page:", spaceData);
