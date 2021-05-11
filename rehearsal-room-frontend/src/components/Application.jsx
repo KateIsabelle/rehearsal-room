@@ -51,7 +51,7 @@ export default function App() {
         </ul>
 
         <Switch> 
-        { false ? /* is logged in ? state */
+        { true ? /* 1st: non-logged in; 2nd: logged in user */
         <Fragment>
           <Route path="/">
             <HeroV1 />
@@ -69,6 +69,9 @@ export default function App() {
           </Route>
           <Route path="/space/:space_id">
             <Space />
+          </Route>
+          <Route path="/dashboard">
+            <p>No dashboard for you. Get outta here</p>
           </Route>
         </Fragment> 
         :
