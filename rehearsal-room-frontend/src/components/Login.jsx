@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export default function Login(props) {
+export default function Login({setBookings}) {
   
   return (
     <form>
@@ -14,7 +14,7 @@ export default function Login(props) {
         <input type="password" />
       </label>
       <div>
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={()=> setBookings(2)}>Submit</button>
       </div>
     </form>
   

@@ -28,7 +28,7 @@ import './App.css';
 import useApplicationData from '../hooks/useApplicationData'
 
 export default function App() {
-  const { state, dispatch } = useApplicationData();
+  const { state, dispatch, setBookings } = useApplicationData();
 
   return (
     <Router>
@@ -61,7 +61,7 @@ export default function App() {
             <Register />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login setBookings={setBookings}/>
           </Route>
           <Route path="/spaces/:city">
             <SearchForm />
