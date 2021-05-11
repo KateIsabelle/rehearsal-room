@@ -15,7 +15,6 @@ import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
 
 import Spaces from './Spaces'
-import SearchForm from './Spaces/SearchForm'
 import Login from './Login'
 
 // Images
