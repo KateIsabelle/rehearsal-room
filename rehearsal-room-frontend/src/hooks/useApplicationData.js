@@ -16,7 +16,8 @@ const useApplicationData = () => {
       bookings: {}
   });
 
-  const setBookings = bookings => dispatch( {type: SET_BOOKINGS, bookings } )
+  const setBookings = userId => dispatch( { type: SET_BOOKINGS, userId } )
+
 
   useEffect(() => {
     Promise.all([
@@ -43,7 +44,7 @@ const useApplicationData = () => {
           //         users: data
           //     });
           // })
-          .catch((err) => console.log(err));
+          // .catch((err) => console.log(err));
   }, []);
 
   return {
