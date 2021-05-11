@@ -4,7 +4,8 @@ import {
 } from 'react';
 import dataReducer, {
   SET_USERS,
-  SET_BOOKINGS
+  SET_BOOKINGS,
+  SET_APPLICATION_DATA
 } from '../reducer/data_reducer';
 import axios from 'axios';
 
@@ -19,20 +20,16 @@ const useApplicationData = () => {
 
   useEffect(() => {
     Promise.all([
-      axios.get("api/users")
+      axios.get("/api/users"),
+      axios.get("/api/bookings/2")
     ])
-    .then(([users]) => {
-      console.log("USERS.DATA", users.data);
+    .then(([usersResponse, bookingsResponse]) => {
       dispatch({
-        type: SET_USERS,
-        users: users.data
+        type: SET_APPLICATION_DATA,
+        users: usersResponse.data,
+        bookings: bookingsResponse.data
       })
     })
-          // Promise.all([
-          //   axios.get("/api/days"),
-          //   axios.get("/api/appointments"),
-          //   axios.get("/api/interviewers")
-          // ])
           // axios({
           //         method: 'GET',
           //         url: '/api/users',
@@ -52,6 +49,7 @@ const useApplicationData = () => {
   return {
       state,
       dispatch,
+      setBookings
   };
 };
 
