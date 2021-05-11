@@ -32,8 +32,8 @@ VALUES (1,
    'Vancouver', 
    'BC', 
    'V5L 2P7', 
-   190, 
-   40,
+   19000, 
+   4000,
    TRUE, --wifi
    TRUE, --sound_proofing
    TRUE, --sprung_floor
@@ -67,8 +67,8 @@ VALUES (1,
    'Vancouver', 
    'BC', 
    'V5K1G9', 
-   100, 
-   15,
+   10000, 
+   1500,
    TRUE, --wifi
    FALSE, --sound_proofing
    TRUE, --sprung_floor
@@ -101,7 +101,7 @@ VALUES (1,
    '524 Main St.', 
    'Vancouver', 
    'BC', 
-   'V6A2T9', 200, 25,
+   'V6A2T9', 20000, 2500,
    TRUE, --wifi
    TRUE, --sound_proofing
    FALSE, --sprung_floor
@@ -170,8 +170,8 @@ VALUES (1,
    'Vancouver', 
    'BC', 
    'V5T2V7', 
-   80, 
-   10,
+   8000, 
+   1000,
    FALSE, --wifi
    FALSE, --sound_proofing
    FALSE, --sprung_floor
@@ -205,8 +205,8 @@ VALUES (1,
    'Vancouver', 
    'BC', 
    'V6N1A7', 
-   60, 
-   10,
+   6000, 
+   1000,
    FALSE, --wifi
    FALSE, --sound_proofing
    FALSE, --sprung_floor
@@ -240,8 +240,8 @@ VALUES (1,
    'Vancouver', 
    'BC', 
    'V5L1M5', 
-   80, 
-   20,
+   8000, 
+   2000,
    TRUE, --wifi
    FALSE, --sound_proofing
    TRUE, --sprung_floor
@@ -274,8 +274,8 @@ VALUES (1,
    '207 W Hastings St', 
    'Vancouver', 
    'BC', 'V6B2N4', 
-   80, 
-   20,
+   8000, 
+   2000,
    TRUE, --wifi
    TRUE, --sound_proofing
    TRUE, --sprung_floor
@@ -309,8 +309,8 @@ VALUES (1,
    'Vancouver', 
    'BC', 
    'V5T1W5', 
-   250, 
-   35,
+   25000, 
+   3500,
    TRUE, --wifi
    FALSE, --sound_proofing
    TRUE, --sprung_floor
