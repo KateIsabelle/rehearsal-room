@@ -16,6 +16,7 @@ import Space from './Space'
 
 import Spaces from './Spaces'
 import SearchForm from './Spaces/SearchForm'
+import Login from './Login'
 
 // Images
 import logo from '../../src/logo.svg';
@@ -83,8 +84,11 @@ export default function App() {
           <Route path="/space/:space_id">
             <Space />
           </Route>
+          <Route path="/register">
+            <p>Register route: You're already logged in!</p>
+          </Route>
           <Route path="/login">
-            <Login />
+            <p>Logged in route: You're already logged in!</p>
           </Route>
           <Route path="/dashboard">
             <Dashboard />
@@ -103,20 +107,17 @@ export default function App() {
 // We can later replace this with a proper component that lists all available cities.
 function CityList() {
   return (
-    <>
+    <Fragment>
     <h2>Please select a city:</h2>
     <ul>
       <li>
        <Link to="/spaces/vancouver">Vancouver</Link>
       </li>
     </ul>
-    </ >
+    </Fragment>
   )
 }
 
-function Login() {
-  return (<h1>Login form goes here!</h1>)
-}
 
 function Register() {
   return (<h1>Registration form goes here!</h1>)
