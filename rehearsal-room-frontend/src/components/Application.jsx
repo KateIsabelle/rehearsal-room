@@ -49,6 +49,7 @@ export default function App() {
 
         <Switch>
           <Route path="/spaces/:city">
+            <HeroV1 />
             <SpaceList />
           </Route>
           <Route path="/space/:space_id">
