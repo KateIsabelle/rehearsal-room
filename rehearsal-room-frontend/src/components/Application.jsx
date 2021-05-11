@@ -13,7 +13,7 @@ import axios from "axios";
 import Header from './Header'
 import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
-import SpaceList from './Spaces'
+import Spaces from './Spaces'
 
 // Images
 import logo from '../../src/logo.svg';
@@ -50,7 +50,7 @@ export default function App() {
         <Switch>
           <Route path="/spaces/:city">
             <HeroV1 />
-            <SpaceList />
+            <Spaces />
           </Route>
           <Route path="/space/:space_id">
             <Space />

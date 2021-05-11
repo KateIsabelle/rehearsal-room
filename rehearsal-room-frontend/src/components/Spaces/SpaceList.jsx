@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect }from "react";
+import React, { useState, useEffect }from "react";
 import { useParams } from 'react-router-dom'
 import SpaceListItem from './SpaceListItem'
 import axios from 'axios'
@@ -14,13 +14,13 @@ export default function SpaceList(props) {
       url: `/api/spaces/${city}`,
     })
     .then(({ data }) => {
-      console.log(data);
+      console.log("get city data: ", data);
       setSpaces(data)
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("get city data ERROR", err));
   }, [city]);
 
-  const spaceL = spaces.map(s => 
+  const list = spaces.map(s => 
     <SpaceListItem 
       key={s.id}
       spaceId={s.id}
@@ -28,11 +28,10 @@ export default function SpaceList(props) {
       photoUrl={s.thumbnail_photo_url}
     />
     )
-    console.log("SPACE LIST--", spaceL)
 
   return (
     <ul>
-    {spaceL}
+    {list}
     </ul>
   )
 }
