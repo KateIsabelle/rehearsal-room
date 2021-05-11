@@ -11,6 +11,7 @@ import axios from "axios";
 
 // Components
 import Header from './Header'
+import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
 import SpaceList from './Spaces'
 
@@ -63,6 +64,7 @@ export default function App() {
             <Dashboard />
           </Route>
           <Route path="/">
+            <HeroV1 />
             <CityList />
           </Route>
         </Switch>
