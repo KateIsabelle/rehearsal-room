@@ -12,7 +12,7 @@ import axios from "axios";
 // Components
 import Header from './Header'
 import Space from './Space'
-import SpaceList from './Spaces'
+import Spaces from './Spaces'
 
 // Images
 import logo from '../../src/logo.svg';
@@ -48,7 +48,7 @@ export default function App() {
 
         <Switch>
           <Route path="/spaces/:city">
-            <SpaceList />
+            <Spaces />
           </Route>
           <Route path="/space/:space_id">
             <Space />

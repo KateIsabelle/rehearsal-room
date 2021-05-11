@@ -43,7 +43,7 @@ export default function Header(props) {
 function Logo() {
   return (
     <>
-    <img src='https://www.flaticon.com/svg/vstatic/svg/386/386107.svg?token=exp=1620604584~hmac=584f6d47c262f7eaa45cf32d56fbaea5' width="32" height="32"></img>
+    <img src='https://www.flaticon.com/svg/vstatic/svg/386/386107.svg?token=exp=1620604584~hmac=584f6d47c262f7eaa45cf32d56fbaea5' width="32" height="32" alt=""></img>
     <h1>
       <NavLink to='/'>Rehearsal Room</NavLink>
     </h1>
