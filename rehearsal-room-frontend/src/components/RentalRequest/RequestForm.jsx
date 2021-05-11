@@ -12,12 +12,14 @@ export default function RequestForm(props) {
       
       <h1>Rental Request Form</h1>
 
-      <p>Brief description of activity: </p>
       <form>
-          <TextField value={value} onChange={handleChange} id="outlined-basic" variant="outlined" />
-      </form>
+      
+      <label>
+        Brief description of activity:
+      </label>
+          <TextField value={value} onChange={handleChange} label="Brief description of activity:" id="outlined-basic" variant="outlined" />
 
-      <form noValidate>
+      
         <TextField
           id="date"
           label="Birthday"
@@ -27,10 +29,10 @@ export default function RequestForm(props) {
             shrink: true,
           }}
         />
-      </form>
+    
 
 
-      <form noValidate>
+      
         <TextField
           id="time"
           label="Start Time"
@@ -43,9 +45,9 @@ export default function RequestForm(props) {
             step: 300, // 5 min
           }}
         />
-      </form>
+      
 
-      <form noValidate>
+      
         <TextField
           id="time"
           label="End Time"
@@ -58,9 +60,9 @@ export default function RequestForm(props) {
             step: 300, // 5 min
           }}
         />
-      </form>
+      
 
-      <form>
+      
           <label>
             Have you rented this space before?
             <Checkbox
@@ -69,33 +71,35 @@ export default function RequestForm(props) {
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
           </label>
-        </form>
+        
 
-      <form>
+      
         <label>
           Is this a multi-day rental?
           <input type="checkbox"/>
         </label>
-      </form>
+      
 
 
-      <form>
+     
           <label>
           Host (insert-host-name-here), acknowledges the diverse realities of local artists. If you are interested in future alternative workexchange options to offset space rental rates please check here.
           <input type="checkbox"/>
           </label>
-        </form>
+        
 
       
-      <p>Please confirm your email below (required): </p>
-      <form>
-          <TextField value={value} onChange={handleChange} id="outlined-basic" variant="outlined" />
-      </form>
+      <label for="email">
+        Please confirm your email below (required):
+      </label>
+            <TextField name="email" value={value} onChange={handleChange} id="outlined-basic" variant="outlined" />
 
       <Button variant="contained" color="primary">
          Submit
       </Button>
+      
 
+      </form>
     </tag>
     
     
