@@ -13,6 +13,7 @@ import axios from "axios";
 import Header from './Header'
 import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
+import RentalRequest from './RentalRequest'
 
 import Spaces from './Spaces'
 import SearchForm from './SearchForm'
@@ -66,10 +67,14 @@ export default function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
+          <Route path="/request">
+            <RentalRequest /> 
+          </Route>
           <Route path="/">
             <HeroV1 />
             <CityList />
           </Route>
+
         </Switch>
       </div >
     </Router>
