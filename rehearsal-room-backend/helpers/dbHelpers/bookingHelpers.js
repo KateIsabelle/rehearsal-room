@@ -21,6 +21,20 @@ module.exports = (db) => {
       .catch(err => err);
   }
 
+  const getHostBookings = (userId) => {
+    const queryString = `
+    SELECT *  FROM bookings
+    WHERE space_id = ANY
+    ( SELECT id FROM spaces
+      WHERE id = $1 )
+      `
+    const queryParams = [userId]
+
+    return db.query(queryString, queryParams)
+    .then(result => result.rows)
+    // .catch(err => err)
+  }
+
   const addBooking = (bookingData) => {
     // TODO: Test that addBooking actually works the way I think it should.
     return db.insert('bookings', bookingData)
@@ -31,6 +45,7 @@ module.exports = (db) => {
   return {
     getBookings,
     getBookingsByUser,
+    getHostBookings,
     addBooking
   };
 }
