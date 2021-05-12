@@ -36,6 +36,7 @@ export default function RentalRequest(props) {
     setFormState( prev => ( {
       ...prev,
       [event.target.name]:event.target.value || event.target.checked
+      //timestamp
     }))
     }
   return (
