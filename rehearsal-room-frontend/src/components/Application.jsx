@@ -13,7 +13,6 @@ import axios from "axios";
 import Header from './Header'
 import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
-import RentalRequest from './RentalRequest'
 
 import Spaces from './Spaces'
 import Login from './Login'
@@ -51,7 +50,7 @@ export default function App() {
         </ul>
 
         <Switch> 
-        { !state.user ? /* 1st: non-logged in; 2nd: logged in user */
+        { !state.user ? /* 1st: non-logged in user path */
         <Fragment>
           <Route path="/">
             <HeroV1 />
@@ -67,13 +66,13 @@ export default function App() {
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
-            <Space />
+            <Space user_id={null} />
           </Route>
           <Route path="/dashboard">
             <p>No dashboard for you. Get outta here</p>
           </Route>
         </Fragment> 
-        :
+        : /* 2nd: logged-in user path */
         <Fragment>
           <Route path="/">
             <HeroV1 />
@@ -83,7 +82,7 @@ export default function App() {
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
-            <Space />
+            <Space user_id={state.user.id}/>
           </Route>
           <Route path="/register">
             <p>Register route: You're already logged in!</p>
@@ -93,9 +92,6 @@ export default function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
-          </Route>
-          <Route path="/request">
-            <RentalRequest user_id={state.user.id}/> 
           </Route>
          
           </Fragment> }
