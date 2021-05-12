@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import Map from './Map'
 import RentalRequest from '../RentalRequest/index'
+import { Button } from '../Button/Button'
 
 const requestButton = () => {
   alert("Request")
@@ -41,7 +42,8 @@ export default function Space(props) {
       <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
       {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
       <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
-      <Link to="/request">Make a request</Link>
+      <Button size="small" label="Make a Request" onClick={() => setVisualMode("REQUEST_FORM")}/>
+
 
       <table>
         <thead>
