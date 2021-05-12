@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from '../Button/Button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './header.css'
 
 
@@ -15,7 +15,12 @@ export default function Header(props) {
       <div className="header-list">
         <NavLink to="/" component={Logo} />
 
-        <h3>About us</h3>
+        <Link to='/dashboard'><h3> Dashboard </h3></Link>
+
+        <Link><h3>About us</h3></Link>
+
+        <Link to='/login'><h3> Login </h3></Link>
+
         </div>
       </div>
       <div>
