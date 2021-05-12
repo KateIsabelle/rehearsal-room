@@ -50,7 +50,7 @@ export default function App() {
         </ul>
 
         <Switch> 
-        { true ? /* 1st: non-logged in; 2nd: logged in user */
+        { !state.user ? /* 1st: non-logged in; 2nd: logged in user */
         <Fragment>
           <Route path="/">
             <HeroV1 />
