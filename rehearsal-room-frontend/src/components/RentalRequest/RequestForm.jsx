@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { TextField, Button, Checkbox, DatePicker } from '@material-ui/core';
+import React from "react";
+import { TextField, Button, Checkbox } from '@material-ui/core';
+
 
 export default function RequestForm(props) {
    const { formState, handleChange } = props;
@@ -9,6 +10,7 @@ export default function RequestForm(props) {
       
       <h1>Rental Request Form</h1>
 
+      
       <form>
       
         <label for="usage_decript">
@@ -17,13 +19,19 @@ export default function RequestForm(props) {
             <TextField name="usage_descript" value={formState.usage_descript} onChange={handleChange} id="outlined-basic" variant="outlined" />
 
 
-        <label>Select a date: </label>
+
+        <label for="date">Select a date: </label>
           <TextField
             id="date"
+            name="date"
             type="date"
-            defaultValue="2017-05-24"
+            value={formState.date}
+            onChange={handleChange}
             InputLabelProps={{
               shrink: true,
+            }}
+            inputProps={{
+              min: "2020-10-10"
             }}
           />
         
@@ -36,6 +44,8 @@ export default function RequestForm(props) {
             label="Start Time"
             type="time"
             defaultValue="10:30"
+            value={formState.start_time}
+            onChange={handleChange}
             InputLabelProps={{
               shrink: true,
             }}
@@ -51,7 +61,9 @@ export default function RequestForm(props) {
             name="end_time"
             label="End Time"
             type="time"
-            defaultValue="17:30"
+            defaultValue="9:30"
+            value={formState.end_time}
+            onChange={handleChange}
             InputLabelProps={{
               shrink: true,
             }}
@@ -84,12 +96,9 @@ export default function RequestForm(props) {
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
           
-        
-
-
       
           <label for="alternative_payment"> 
-            Host (insert-host-name-here), acknowledges the diverse realities of local artists. If you are interested in future alternative workexchange options to offset space rental rates please check here.
+            This host acknowledges the diverse realities of local artists. If you are interested in future alternative workexchange options to offset space rental rates please check here.
           </ label>
           <Checkbox
             name="alternative_payment"
