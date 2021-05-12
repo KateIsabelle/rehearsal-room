@@ -7,7 +7,8 @@ const {
 module.exports = ({
     getUsers,
     getUserByEmail,
-    addUser
+    addUser, 
+    getBookingsByUser
 }) => {
     /* GET users listing. */
     router.get('/', (req, res) => {
@@ -17,6 +18,18 @@ module.exports = ({
               error: err.message
           }));
     });
+
+    router.get('/login/:email', (req, res) => {
+        getUserByEmail(req.params.email)
+        .then(user => {
+            getBookingsByUser(user.id)
+            .then(bookings => res.json({user, bookings}))
+        })
+        .catch(err => res.json({
+            error: err.message
+        }))
+    });
+
 
     router.post('/', (req, res) => {
 
