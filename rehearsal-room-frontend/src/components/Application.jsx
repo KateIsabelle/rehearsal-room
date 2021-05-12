@@ -60,7 +60,7 @@ export default function App() {
             <Register />
           </Route>
           <Route path="/login">
-            <Login setUserInfo={setUserInfo}/>
+            <Login onLogin={setUserInfo}/>
           </Route>
           <Route path="/spaces/:city">
             <Spaces />

@@ -5,14 +5,14 @@ import {
 import dataReducer, {
   SET_USERS,
   SET_BOOKINGS,
-  SET_USER,
+  SET_USER_INFO,
   SET_APPLICATION_DATA
 } from '../reducer/data_reducer';
 import axios from 'axios';
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
-      user: null, //set to id num
+      user: null, //set to user obj
       users: [],
       loading: true,
       bookings: []
@@ -22,11 +22,10 @@ const useApplicationData = () => {
     console.log("In setUserInfo function...")
     return axios.post(`/api/users/login/${userEmail}`)
     .then(loginStateObj => {
-      console.log("axios.post to login/:email returns this object:", loginStateObj)
       dispatch({
-        type:SET_APPLICATION_DATA,
-        user: loginStateObj.user,
-        bookings: loginStateObj.bookings
+        type:SET_USER_INFO,
+        user: loginStateObj.data.user,
+        bookings: loginStateObj.data.bookings
       })
    
     })
