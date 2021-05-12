@@ -1,4 +1,8 @@
 export const SET_USERS = 'SET_USERS';
+export const SET_USER_INFO = 'SET_USER';
+export const SET_BOOKINGS = 'SET_BOOKINGS';
+export const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA';
+
 
 const dataReducer = (state, action) => {
     switch (action.type) {
@@ -7,6 +11,24 @@ const dataReducer = (state, action) => {
                 ...state,
                 users: action.users,
                     loading: false,
+            };
+        case SET_BOOKINGS:
+            return {
+                ...state, 
+                bookings: action.bookings
+            };
+        case SET_USER_INFO: // on login
+            return {
+                ...state,
+                user: action.user,
+                bookings: action.bookings,
+                hostBookings: action.hostBookings
+            };
+        case SET_APPLICATION_DATA:
+            return {
+                ...state,
+                users: action.users,
+                // bookings: action.bookings 
             };
         default:
             return state;

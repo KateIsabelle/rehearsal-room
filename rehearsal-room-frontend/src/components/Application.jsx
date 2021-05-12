@@ -6,7 +6,7 @@ import {
   Link,
   useParams
 } from "react-router-dom";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import axios from "axios";
 
 // Components
@@ -16,7 +16,7 @@ import Space from './Space'
 import RentalRequest from './RentalRequest'
 
 import Spaces from './Spaces'
-import SearchForm from './SearchForm'
+import Login from './Login'
 
 // Images
 import logo from '../../src/logo.svg';
@@ -28,7 +28,7 @@ import './App.css';
 import useApplicationData from '../hooks/useApplicationData'
 
 export default function App() {
-  const { state, dispatch } = useApplicationData();
+  const { state, dispatch, setUserInfo } = useApplicationData();
 
   return (
     <Router>
@@ -50,32 +50,57 @@ export default function App() {
           </li>
         </ul>
 
-        <Switch>
-          <Route path="/spaces/:city">
+        <Switch> 
+        { !state.user ? /* 1st: non-logged in; 2nd: logged in user */
+        <Fragment>
+          <Route path="/">
             <HeroV1 />
+            <CityList />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/login">
+            <Login onLogin={setUserInfo}/>
+          </Route>
+          <Route path="/spaces/:city">
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
             <Space />
           </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
           <Route path="/dashboard">
-            <Dashboard />
+            <p>No dashboard for you. Get outta here</p>
           </Route>
           <Route path="/request">
             <RentalRequest /> 
           </Route>
+        </Fragment> 
+        :
+        <Fragment>
           <Route path="/">
             <HeroV1 />
             <CityList />
           </Route>
-
-        </Switch>
+          <Route path="/spaces/:city">
+            <Spaces />
+          </Route>
+          <Route path="/space/:space_id">
+            <Space />
+          </Route>
+          <Route path="/register">
+            <p>Register route: You're already logged in!</p>
+          </Route>
+          <Route path="/login">
+            <p>Logged in route: You're already logged in!</p>
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+         
+          </Fragment> }
+        </Switch> 
+        
       </div >
     </Router>
   );
@@ -86,20 +111,17 @@ export default function App() {
 // We can later replace this with a proper component that lists all available cities.
 function CityList() {
   return (
-    <>
+    <Fragment>
     <h2>Please select a city:</h2>
     <ul>
       <li>
        <Link to="/spaces/vancouver">Vancouver</Link>
       </li>
     </ul>
-    </ >
+    </Fragment>
   )
 }
 
-function Login() {
-  return (<h1>Login form goes here!</h1>)
-}
 
 function Register() {
   return (<h1>Registration form goes here!</h1>)

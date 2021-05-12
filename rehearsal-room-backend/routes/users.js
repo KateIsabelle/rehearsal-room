@@ -7,7 +7,9 @@ const {
 module.exports = ({
     getUsers,
     getUserByEmail,
-    addUser
+    addUser, 
+    getBookingsByUser, 
+    getHostBookings
 }) => {
     /* GET users listing. */
     router.get('/', (req, res) => {
@@ -17,6 +19,30 @@ module.exports = ({
               error: err.message
           }));
     });
+
+    router.post('/login/:email', (req, res) => {
+
+        getUserByEmail(req.params.email)
+        .then(user => {
+            if(user) {
+            Promise.all([
+                getBookingsByUser(user.id),
+                getHostBookings(user.id)
+            ])
+            .then(([bookings, hostBookings]) => {
+                res.json({user: user, bookings: bookings, hostBookings: hostBookings})
+            })
+            } else {
+                res.json({
+                    msg: 'Can\'t find email blahblahblah'
+                })
+            }
+        })
+        .catch(err => res.json({
+            error: err.message
+        }))
+    });
+
 
     router.post('/', (req, res) => {
 
@@ -48,3 +74,21 @@ module.exports = ({
 
     return router;
 };
+
+// router.post('/login/:email', (req, res) => {
+
+//     getUserByEmail(req.params.email)
+//     .then(user => {
+//         if(user) {
+//         getBookingsByUser(user.id)
+//         .then(bookings => res.json({user: user, bookings: bookings})) 
+//         } else {
+//             res.json({
+//                 msg: 'Can\'t find email blahblahblah'
+//             })
+//         }
+//     })
+//     .catch(err => res.json({
+//         error: err.message
+//     }))
+// });
