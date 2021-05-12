@@ -89,7 +89,7 @@ export default function RequestForm(props) {
         <Checkbox
           name="alternative_payment"
           color="primary"
-          checked={formState.multi_day_rental} 
+          checked={formState.alternative_payment} 
           onChange={handleChange}
           inputProps={{ 'aria-label': 'secondary checkbox' }}
         />
