@@ -1,16 +1,15 @@
-
 import React from "react";
 import { Image, Transformation } from "cloudinary-react";
 
-export function HeroV1(props) {
+export default function HeroV1(props) {
   return (
     <tag>
 
-    <Image cloudName="dyo7gkw5s" publicId="mostafa-meraji-Jby30ALhnms-unsplash_olrgbs.jpg">
-      <Transformation quality="auto" fetchFormat="auto" />
-      <Transformation flags="ignore_aspect_ratio" height="800" crop="crop" />
-      <Transformation overlay={{fontFamily: "Arial", fontSize: 120, fontWeight: "bold", text: "Artists Looking For Space. Spaces Available for Artists."}} effect="colorize" color="#F5F9FC" />
-    </Image>
+      <Image cloudName="dyo7gkw5s" publicId="mostafa-meraji-Jby30ALhnms-unsplash_olrgbs.jpg">
+        <Transformation quality="auto" fetchFormat="auto" />
+        <Transformation flags="ignore_aspect_ratio" height="300" width="900" crop="fill" />
+        <Transformation overlay={{fontFamily: "Arial", fontSize: 30, fontWeight: "bold", text: "Artists Looking For Space. Spaces Available for Artists."}} effect="colorize" color="#F5F9FC" />
+      </Image>
     </tag>
   )
 
