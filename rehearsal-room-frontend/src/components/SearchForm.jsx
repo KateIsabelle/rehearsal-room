@@ -12,7 +12,8 @@ export default function SearchForm(props) {
     formState,
     onChange,
     advancedState,
-    onAdvancedClick
+    onAdvancedClick,
+    onClearClick
   } = props;
   const amenitiesList = Object.keys(AMENITIES).map(key => {
     return(
@@ -43,6 +44,13 @@ export default function SearchForm(props) {
           onClick={onAdvancedClick}
         >
           {advancedState.text}
+        </Button>
+        <Button 
+          id="clear-filters"
+          name="clear-filters"
+          label="Clear all filters"
+          onClick={onClearClick}>
+          Clear all filters
         </Button>
         {advancedState.show && <ul>{amenitiesList}</ul>}
       </form>

@@ -14,12 +14,12 @@ export default function useAmenityToggle() {
     if (advancedState.show) {
       newState = {
         show: false,
-        text: "Show amenities filter"
+        text: "Show advanced search"
       }
     } else {
       newState = {
         show: true,
-        text: "Hide amenities filter"
+        text: "Hide advanced search"
       }
     }
     setAdvancedState(newState);
