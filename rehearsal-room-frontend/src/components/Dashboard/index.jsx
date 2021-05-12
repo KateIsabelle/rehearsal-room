@@ -19,7 +19,7 @@ const dummyBookings = [
     start_time: "05/10/2021 12:00:00",
     end_time: "05/10/2021 2:00:00",
     status: "pending",
-    usage_description: "i'm gonna wreck it",
+    usage_description: "I would like to throw a sick rave party for me and all my cool friends",
     used_before: true,
   },
   {
@@ -136,11 +136,18 @@ function BookingList(props) {
 }
 
 function BookingListItem(props) {
+  const shortenedUsageDesc = (desc) => {
+    if (desc.length > 40) {
+      return `${desc.slice(0, 40).trim()}...`
+    } else {
+      return desc
+    }
+  }
   return (
     <li>
-      <p><strong>Requester:</strong>{props.requester_name}</p> |
-    For: {props.space_name} |
-    Start time: {props.start_time} |
-    End time: {props.end_time}</li>
+    <strong> From: </strong>{props.requester_name} |
+    <strong> Space: </strong>{props.space_name} |
+    <strong> Description: </strong>{shortenedUsageDesc(props.usage_description)} |
+    <strong> Time: </strong>{props.start_time} to {props.end_time}</li>
   )
 }
