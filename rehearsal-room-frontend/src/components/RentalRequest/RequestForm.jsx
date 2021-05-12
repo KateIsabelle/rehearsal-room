@@ -94,7 +94,7 @@ export default function RequestForm(props) {
           inputProps={{ 'aria-label': 'secondary checkbox' }}
         />
 
-      <Button onClick={() => { alert('Your booking request has been submitted. [The host] will be in touch with confirmation.') }} variant="contained" color="primary">
+      <Button onClick={() => props.setVisualMode("SPACE_SHOW")} variant="contained" color="primary">
         Submit
       </Button>
         

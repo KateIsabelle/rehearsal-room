@@ -81,6 +81,7 @@ export default function RentalRequest(props) {
       <RequestForm 
         formState={formState}
         handleChange={handleChange}
+        setVisualMode={props.setVisualMode}
       />
     </>
   )
