@@ -1,23 +1,47 @@
 import React from "react";
-
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 export default function SearchForm(props) {
-  const { register, amenities, showAdvanced } = props;
+  const { 
+    formState,
+    onChange,
+    amenities,
+    advancedState,
+    onAdvancedClick
+  } = props;
   const amenitiesList = Object.keys(amenities).map(key => {
     return(
-      <li key={key}>
-        <label for={key}>{amenities[key]}</label>
-        <input type="checkbox" {...register(key)} />
-      </li>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={formState[key]}
+            onChange={onChange}
+            name={key}
+          />}
+        label={amenities[key]}
+      />
     );
   })
   return (
       <form>
-        <label for="keyword">Keyword Search:</label>
-        <input type="text" {...register("keyword")} />
-        <label for="showAdvanced">Advanced Search</label>
-        <input type="checkbox" {...register("showAdvanced")} />
-        {showAdvanced && <ul>{amenitiesList}</ul>}
+        <TextField 
+          id="keyword"
+          name="keyword"
+          label="Search"
+          variant="filled"
+          value={formState.keyword}
+          onChange={onChange}
+        />
+        <Button
+          color="primary"
+          onClick={onAdvancedClick}
+        >
+          {advancedState.text}
+        </Button>
+        {advancedState.show && <ul>{amenitiesList}</ul>}
       </form>
 
 

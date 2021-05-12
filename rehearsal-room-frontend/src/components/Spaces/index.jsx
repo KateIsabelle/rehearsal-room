@@ -34,16 +34,55 @@ export default function Spaces() {
     "wheelchair_accessible": "Wheelchair-accessible",
     "self_entry": "Self-entry"
   }
-
+  // Create an object of key/value pairs for each amenity to 
+  // set their initial state to "false" (or "unchecked")
+  const amenitiesState = {}
+  Object.keys(amenities).forEach(key => {
+    amenitiesState[key] = false;
+  })
 
   const { city } = useParams();
-  const { register, handleSubmit, watch } = useForm();
-  const onSubmit = data => console.log(data);
 
   //spaces = array of objects
   const [spaces, setSpaces] = useState([])
   const [filteredSpaces, setFilteredSpaces] = useState([])
-  const [advancedToggle, setAdvancedToggle] = useState(false)
+  const [advancedState, setAdvancedState] = useState({
+    show: false,
+    text: "Show amenities filter"
+  })
+  const [formState, setFormState] = useState({
+    keyword: "",
+    ...amenitiesState
+  })
+
+  const handleChange = (event) => {
+    console.log(event.target.name, event.target.value)
+    const newState = {
+      ...formState,
+      [event.target.name]: event.target.value || event.target.checked
+    }
+    console.log(newState.keyword)
+    setFormState(newState)
+    setFilteredSpaces(filterResults(newState))
+  }
+
+  const toggleAdvanced = (event) => {
+    event.preventDefault();
+    let newState = {};
+    if (advancedState.show) {
+      newState = {
+        show: false,
+        text: "Show amenities filter"
+      }
+    } else {
+      newState = {
+        show: true,
+        text: "Hide amenities filter"
+      }
+    }
+    setAdvancedState(newState);
+  }
+
   useEffect(() => {
     axios({
       method: 'GET',
@@ -57,24 +96,17 @@ export default function Spaces() {
     .catch((err) => console.log("get city data ERROR", err));
   }, [city]);
 
-  watch((data, {name, type}) => {
-    if (name === "showAdvanced") {
-      setAdvancedToggle(data.showAdvanced)
-    } else if (type === "change") {
-      setFilteredSpaces(filterResults(data))
-    }
-  })
-
-  const filterResults = (parameters) => {
+  const filterResults = (params) => {
     // Create regex based on search keyword
-    const regex = new RegExp(parameters.keyword, 'i')
+    const regex = new RegExp(params.keyword, 'i')
     const filtered = spaces.filter(space => {
       if(!space.title.match(regex) && !space.description.match(regex)) {
         // Filter if the title or description don't match what's entered.
         return false;
       }
       for (const key of Object.keys(amenities)) {
-        if(parameters[key] === true && space[key] === false) {
+        if(params[key] === true && space[key] === false) {
+          console.log(`filtering ${space.title}: search param is ${key}, search value ${params[key]}, space value ${space[key]}`)
           return false
         }
       }
@@ -86,11 +118,11 @@ export default function Spaces() {
 
   return (
     <>
-      <SearchForm 
-        register={register}
-        onSubmit={onSubmit}
-        handleSubmit={handleSubmit}
-        showAdvanced={advancedToggle}
+      <SearchForm
+        onChange={handleChange}
+        onAdvancedClick={toggleAdvanced}
+        advancedState={advancedState}
+        formState={formState}
         amenities={amenities}
       />
       <SpaceList
