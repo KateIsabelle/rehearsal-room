@@ -4,15 +4,17 @@ import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+// Constants
+import { AMENITIES } from '../constants'
+
 export default function SearchForm(props) {
   const { 
     formState,
     onChange,
-    amenities,
     advancedState,
     onAdvancedClick
   } = props;
-  const amenitiesList = Object.keys(amenities).map(key => {
+  const amenitiesList = Object.keys(AMENITIES).map(key => {
     return(
       <FormControlLabel
         key={key}
@@ -22,7 +24,7 @@ export default function SearchForm(props) {
             onChange={onChange}
             name={key}
           />}
-        label={amenities[key]}
+        label={AMENITIES[key]}
       />
     );
   })
