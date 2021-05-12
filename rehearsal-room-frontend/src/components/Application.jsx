@@ -95,7 +95,7 @@ export default function App() {
             <Dashboard />
           </Route>
           <Route path="/request">
-            <RentalRequest /> 
+            <RentalRequest user_id={state.user.id}/> 
           </Route>
          
           </Fragment> }

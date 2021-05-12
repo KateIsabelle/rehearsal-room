@@ -15,10 +15,8 @@ import RentalSpace from "./RentalSpace";
 //   space_id INTEGER NOT NULL REFERENCES spaces(id) ON DELETE CASCADE,
 //   start_time TIMESTAMP NOT NULL,
 //   end_time TIMESTAMP NOT NULL,
-//   num_hours INTEGER NOT NULL, *** helper function to minus military end_time from start_time!!! <<REMOVE?
 //   status VARCHAR(255) DEFAULT 'pending', --pending,confirmed,rejected
 //   usage_description TEXT,
-//   special_requests TEXT, <<REMOVE
 //   used_before BOOLEAN
 // );
 
@@ -46,8 +44,9 @@ const space = {
 
 export default function RentalRequest(props) {
   const [formState, setFormState] = useState({
+    user_id: props.user_id,
+    // space_id: --- need to work on to grab from space component
     usage_descript: "",
-    email:"",
     date: new Date(),
     start_time: "10:30:00",
     end_time: "21:30:00",
