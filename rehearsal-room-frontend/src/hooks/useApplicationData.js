@@ -19,9 +19,10 @@ const useApplicationData = () => {
   });
 
   const setUserInfo = userEmail => {
+    console.log("In setUserInfo function...")
     return axios.post(`/api/users/login/${userEmail}`)
     .then(loginStateObj => {
-      
+      console.log("axios.post to login/:email returns this object:", loginStateObj)
       dispatch({
         type:SET_APPLICATION_DATA,
         user: loginStateObj.user,

@@ -16,7 +16,7 @@ export default function Login({setUserInfo}) {
         <input type="password" />
       </label>
       <div>
-        <button onClick={() => setUserInfo(email)}>Submit</button>
+        <button onClick={() => setUserInfo('dv1234@gmail.com')}>Submit</button>
       </div>
     </form>
   

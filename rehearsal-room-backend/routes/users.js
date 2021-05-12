@@ -20,6 +20,9 @@ module.exports = ({
     });
 
     router.get('/login/:email', (req, res) => {
+        console.log("in login/:email get route")
+        console.log("email:", req.params.email)
+
         getUserByEmail(req.params.email)
         .then(user => {
             getBookingsByUser(user.id)
