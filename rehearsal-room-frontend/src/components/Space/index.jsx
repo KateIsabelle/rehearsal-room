@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios'
 
 import Map from './Map'
+import RentalRequest from '../RentalRequest/index'
 
 const requestButton = () => {
   alert("Request")
@@ -10,6 +11,7 @@ const requestButton = () => {
 
 export default function Space(props) {
   const [spaceData, setSpaceData] = useState({})
+  const [visualMode, setVisualMode] = useState("SPACE_SHOW")
   const { space_id } = useParams();
   useEffect(() => {
     axios({
@@ -29,7 +31,8 @@ export default function Space(props) {
   return (
 
     <article className="">
-
+  { visualMode === "SPACE_SHOW" &&
+    <Fragment>
       <h1>{spaceData.title}</h1>
       <p>{spaceData.city}, {spaceData.province}, {spaceData.country}</p>
       <img src={spaceData.cover_photo_url} alt="property" width="600" height="400"></img>
@@ -105,14 +108,18 @@ export default function Space(props) {
             <td>Wheelchair Accessible</td>
           </tr>}
           </tbody>
-    </table>
-    <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
+      </table>
+      <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
 
           <h3>Data from axios request:</h3>
           <ul>
             {dataList}
           </ul>
-
+    </Fragment>
+  }
+  {visualMode === "REQUEST_FORM" &&
+    <RentalRequest user_id={props.userId} space_id={space_id} setVisualMode={setVisualMode}/>
+}
         </article>
 
   )

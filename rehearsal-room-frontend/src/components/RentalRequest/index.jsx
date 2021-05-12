@@ -45,7 +45,7 @@ const space = {
 export default function RentalRequest(props) {
   const [formState, setFormState] = useState({
     user_id: props.user_id,
-    // space_id: --- need to work on to grab from space component
+    space_id: props.space_id,
     usage_descript: "",
     date: new Date(),
     start_time: "10:30:00",
