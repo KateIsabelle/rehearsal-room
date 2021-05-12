@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-export default function Login({setUserInfo}) {
+import {Button} from '../components/Button/Button'
+
+export default function Login(props) {
   const [email, setEmail] = useState("");
   
+  const handleSubmit = () => {
+    
+  }
 
   return (
     <form>
@@ -16,7 +21,7 @@ export default function Login({setUserInfo}) {
         <input type="password" />
       </label>
       <div>
-        <button onClick={() => setUserInfo('dv1234@gmail.com')}>Submit</button>
+        <Button size="small" label="Login"  onClick={()=> props.onLogin('dv1234@gmail.com')} ></Button>
       </div>
     </form>
   
