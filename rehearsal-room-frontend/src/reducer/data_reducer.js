@@ -1,6 +1,7 @@
 export const SET_USERS = 'SET_USERS';
+export const SET_USER = 'SET_USER';
 export const SET_BOOKINGS = 'SET_BOOKINGS';
-export const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
+export const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA';
 
 
 const dataReducer = (state, action) => {
@@ -16,11 +17,16 @@ const dataReducer = (state, action) => {
                 ...state, 
                 bookings: action.bookings
             };
-            case SET_APPLICATION_DATA:
+        case SET_USER:
             return {
+                ...state,
+                user: action.user
+            };
+        case SET_APPLICATION_DATA:
+            return {
+                ...state,
                 users: action.users,
-                loading: false,
-                bookings: action.bookings
+                // bookings: action.bookings 
             };
         default:
             return state;
