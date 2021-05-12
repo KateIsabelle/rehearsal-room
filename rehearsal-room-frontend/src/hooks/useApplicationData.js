@@ -15,7 +15,8 @@ const useApplicationData = () => {
       user: null, //set to user obj
       users: [],
       loading: true,
-      bookings: []
+      bookings: [],
+      hostBookings: []
   });
 
   const setUserInfo = userEmail => {
