@@ -25,7 +25,8 @@ const useApplicationData = () => {
       dispatch({
         type:SET_USER_INFO,
         user: loginStateObj.data.user,
-        bookings: loginStateObj.data.bookings
+        bookings: loginStateObj.data.bookings,
+        hostBookings: loginStateObj.data.hostBookings
       })
    
     })

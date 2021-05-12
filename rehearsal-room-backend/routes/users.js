@@ -8,7 +8,8 @@ module.exports = ({
     getUsers,
     getUserByEmail,
     addUser, 
-    getBookingsByUser
+    getBookingsByUser, 
+    getHostBookings
 }) => {
     /* GET users listing. */
     router.get('/', (req, res) => {
@@ -24,8 +25,13 @@ module.exports = ({
         getUserByEmail(req.params.email)
         .then(user => {
             if(user) {
-            getBookingsByUser(user.id)
-            .then(bookings => res.json({user: user, bookings: bookings})) 
+            Promise.all([
+                getBookingsByUser(user.id),
+                getHostBookings(user.id)
+            ])
+            .then(([bookings, hostBookings]) => {
+                res.json({user: user, bookings: bookings, hostBookings: hostBookings})
+            })
             } else {
                 res.json({
                     msg: 'Can\'t find email blahblahblah'
@@ -68,3 +74,21 @@ module.exports = ({
 
     return router;
 };
+
+// router.post('/login/:email', (req, res) => {
+
+//     getUserByEmail(req.params.email)
+//     .then(user => {
+//         if(user) {
+//         getBookingsByUser(user.id)
+//         .then(bookings => res.json({user: user, bookings: bookings})) 
+//         } else {
+//             res.json({
+//                 msg: 'Can\'t find email blahblahblah'
+//             })
+//         }
+//     })
+//     .catch(err => res.json({
+//         error: err.message
+//     }))
+// });

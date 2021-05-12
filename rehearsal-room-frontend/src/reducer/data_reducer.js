@@ -21,7 +21,8 @@ const dataReducer = (state, action) => {
             return {
                 ...state,
                 user: action.user,
-                bookings: action.bookings
+                bookings: action.bookings,
+                hostBookings: action.hostBookings
             };
         case SET_APPLICATION_DATA:
             return {

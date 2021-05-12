@@ -5,10 +5,7 @@ import {Button} from '../components/Button/Button'
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
-  
-  const handleSubmit = () => {
-    
-  }
+ 
 
   return (
     <form>
