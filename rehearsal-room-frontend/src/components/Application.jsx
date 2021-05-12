@@ -13,7 +13,6 @@ import axios from "axios";
 import Header from './Header'
 import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
-import RentalRequest from './RentalRequest'
 
 import Spaces from './Spaces'
 import Login from './Login'
@@ -30,10 +29,25 @@ export default function App() {
   return (
     <Router>
       <div className="App" >
-        <Header />
+        <Header user={state.user}/>
+        <h2>Route tester (can remove once general site navigation works):</h2>
+        <ul>
+          <li>
+            <Link to="/">Root</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+        </ul>
 
         <Switch> 
-        { !state.user ? /* 1st: non-logged in; 2nd: logged in user */
+        { !state.user ? /* 1st: non-logged in user path */
         <Fragment>
           <Route path="/">
             <HeroV1 />
@@ -49,16 +63,13 @@ export default function App() {
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
-            <Space />
+            <Space user_id={null} />
           </Route>
           <Route path="/dashboard">
             <p>No dashboard for you. Get outta here</p>
           </Route>
-          <Route path="/request">
-            <RentalRequest /> 
-          </Route>
         </Fragment> 
-        :
+        : /* 2nd: logged-in user path */
         <Fragment>
           <Route path="/">
             <HeroV1 />
@@ -68,7 +79,7 @@ export default function App() {
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
-            <Space />
+            <Space user_id={state.user.id}/>
           </Route>
           <Route path="/register">
             <p>Register route: You're already logged in!</p>

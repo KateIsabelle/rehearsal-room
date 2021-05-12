@@ -24,13 +24,14 @@ export default function Header(props) {
         </div>
       </div>
       <div>
-        {props.id ? (
+        {props.user ? (
             <tag className="user-greeting-logout">
-              <p>Hi, {props.first_name}</p>
-              <Button size="small" label="Log out" />
+              <p>Hi, {props.user.first_name}</p>
+                <Button onClick={() => { alert('Your booking request has been submitted. [The host] will be in touch with confirmation.') }}size="small" label="Log out" />
             </tag>
           ) : (
             <>
+              {/* <Link to="/login" className="btn btn-primary">Login</Link> */}
               <Button size="small" label="Log in" />
               <Button primary size="small" label="Sign up" />
             </>
