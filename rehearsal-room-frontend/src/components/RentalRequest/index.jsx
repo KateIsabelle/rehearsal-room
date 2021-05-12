@@ -5,8 +5,6 @@ import axios from 'axios';
 
 import RequestForm from "./RequestForm";
 import RentalSpace from "./RentalSpace";
-import RentalReply from "./RequestReply";
-import RequestReply from "./RequestReply";
 
 //user(renter) info to match email form input
 
@@ -73,9 +71,6 @@ export default function RentalRequest(props) {
         formState={formState}
         handleChange={handleChange}
       />
-      if(true) { //onClick onSubmit
-        <RequestReply />
-      } 
     </>
   )
 }

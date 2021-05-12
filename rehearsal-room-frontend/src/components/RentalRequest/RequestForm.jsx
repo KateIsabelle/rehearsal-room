@@ -97,7 +97,7 @@ export default function RequestForm(props) {
       <label for="email"> Please confirm your email below (required): </label>
             <TextField name="email" value={formState.email} onChange={handleChange} id="outlined-margin-dense" variant="outlined" size="small" />
 
-      <Button variant="contained" color="primary">
+      <Button onClick={() => { alert('Your booking request has been submitted. [The host] will be in touch with confirmation.') }} variant="contained" color="primary">
         Submit
       </Button>
         
