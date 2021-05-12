@@ -18,9 +18,6 @@ import RentalRequest from './RentalRequest'
 import Spaces from './Spaces'
 import Login from './Login'
 
-// Images
-import logo from '../../src/logo.svg';
-
 // CSS
 import './App.css';
 
