@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Button, Checkbox } from '@material-ui/core';
+import { TextField, Button, Checkbox, Grid } from '@material-ui/core';
 
 
 export default function RequestForm(props) {
@@ -7,15 +7,12 @@ export default function RequestForm(props) {
 
   return (
     <>
-    
       <form>
       
         <label for="usage_decript">
           Brief description of activity:
         </label>
             <TextField name="usage_descript" value={formState.usage_descript} onChange={handleChange} id="outlined-basic" variant="outlined" />
-
-
 
         <label for="date">Select a date: </label>
           <TextField
@@ -32,8 +29,6 @@ export default function RequestForm(props) {
             }}
           />
         
-
-
         <label for="start_time">Select a start time: </label>
           <TextField
             id="time"
@@ -49,8 +44,7 @@ export default function RequestForm(props) {
             inputProps={{
               step: 300, // 5 min
             }}
-          />
-        
+          />     
 
         <label for="end_time">Select an end time: </label>
           <TextField
@@ -69,53 +63,44 @@ export default function RequestForm(props) {
             }}
           />
         
-
-        
-            <label for="used_before"> Have you rented this space before? </label>
-              <Checkbox
-                name="used_before"
-                color="primary"
-                checked={formState.used_before} 
-                onChange={handleChange}
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-              />
-          
-          
-
-        
-          <label for="multi_day_rental">Is this a multi-day rental?</label>
-            
-            <Checkbox
-              name="multi_day_rental"
-              color="primary"
-              checked={formState.multi_day_rental} 
-              onChange={handleChange}
-              inputProps={{ 'aria-label': 'secondary checkbox' }}
-            />
-          
-      
-          <label for="alternative_payment"> 
-            This host acknowledges the diverse realities of local artists. If you are interested in future alternative workexchange options to offset space rental rates please check here.
-          </ label>
+        <label for="used_before"> Have you rented this space before? </label>
           <Checkbox
-            name="alternative_payment"
+            name="used_before"
+            color="primary"
+            checked={formState.used_before} 
+            onChange={handleChange}
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
+          />
+          
+        <label for="multi_day_rental">Is this a multi-day rental?</label>
+          
+          <Checkbox
+            name="multi_day_rental"
             color="primary"
             checked={formState.multi_day_rental} 
             onChange={handleChange}
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
-          
-          
-
         
-        <label for="email"> Please confirm your email below (required): </label>
-              <TextField name="email" value={formState.email} onChange={handleChange} id="outlined-margin-dense" variant="outlined" size="small" />
+    
+        <label for="alternative_payment"> 
+          This host acknowledges the diverse realities of local artists. If you are interested in future alternative workexchange options to offset space rental rates please check here.
+        </ label>
+        <Checkbox
+          name="alternative_payment"
+          color="primary"
+          checked={formState.multi_day_rental} 
+          onChange={handleChange}
+          inputProps={{ 'aria-label': 'secondary checkbox' }}
+        />
+              
+      <label for="email"> Please confirm your email below (required): </label>
+            <TextField name="email" value={formState.email} onChange={handleChange} id="outlined-margin-dense" variant="outlined" size="small" />
 
-        <Button variant="contained" color="primary">
-          Submit
-        </Button>
+      <Button variant="contained" color="primary">
+        Submit
+      </Button>
         
-
       </form>
     </>
     
