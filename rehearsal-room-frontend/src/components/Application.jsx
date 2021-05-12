@@ -33,7 +33,7 @@ export default function App() {
   return (
     <Router>
       <div className="App" >
-        <Header />
+        <Header user={state.user}/>
         <h2>Route tester (can remove once general site navigation works):</h2>
         <ul>
           <li>
