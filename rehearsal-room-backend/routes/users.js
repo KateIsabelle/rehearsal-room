@@ -19,15 +19,13 @@ module.exports = ({
           }));
     });
 
-    router.get('/login/:email', (req, res) => {
-        console.log("in login/:email get route")
-        console.log("email:", req.params.email)
+    router.post('/login/:email', (req, res) => {
 
         getUserByEmail(req.params.email)
         .then(user => {
             if(user) {
             getBookingsByUser(user.id)
-            .then(bookings => res.json({user, bookings})) 
+            .then(bookings => res.json({user: user, bookings: bookings})) 
             } else {
                 res.json({
                     msg: 'Can\'t find email blahblahblah'
