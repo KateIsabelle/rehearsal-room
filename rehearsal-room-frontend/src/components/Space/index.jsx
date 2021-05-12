@@ -38,7 +38,7 @@ export default function Space(props) {
       <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
       {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
       <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
-      <Link to={"/request"}>Make a request</Link>
+      <Link to="/request">Make a request</Link>
 
       <table>
         <thead>
