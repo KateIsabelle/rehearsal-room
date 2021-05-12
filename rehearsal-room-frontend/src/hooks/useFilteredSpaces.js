@@ -81,11 +81,23 @@ export default function useFilteredSpaces(city) {
   // Called when the search inputs (keyword search OR amenity filters) change.
   const handleFormChange = (event) => {
     // Create the new state for the form.
+    console.log(event.target, `${event.target.value}`)
+    let newValue
+    switch (event.target.type) {
+      case "text":
+        newValue = event.target.value;
+        break;
+      case "checkbox":
+        newValue = event.target.checked;
+        break;
+      default:
+        break;
+    }
     const newFormState = {
       ...formState,
       // Set the changed key to either the value (for textbox) or checked status
       // (if it's a checkbox)
-      [event.target.name]: event.target.value || event.target.checked
+      [event.target.name]:  newValue
     }
     setFormState(newFormState)
 
