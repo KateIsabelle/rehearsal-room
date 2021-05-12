@@ -3,9 +3,10 @@ import { useState } from "react";
 import axios from 'axios';
 
 
-import RequestForm from "./RequestForm"
+import RequestForm from "./RequestForm";
+import RentalSpace from "./RentalSpace"
 
-//user info to match email
+//user(renter) info to match email form input
 
 
 //CREATE TABLE bookings(
@@ -24,7 +25,23 @@ import RequestForm from "./RequestForm"
 
 //needs to match space.id
 
-//where do you come from, where do you go? (onSubmit)
+//where do you come from, where do you go? (onSubmit) axioooos??
+
+const space = {
+  id: 9,
+  user_id: 4,
+  title: "Capoeira Ache Brazil Academy",
+  description: "description",
+  thumbnail_photo_url: "https://cdn-prod.thisopenspace.com/photos/files/000/041/727/small/20170901_135729.jpg?1516992233",
+  cover_photo_url: "https://cdn-prod.thisopenspace.com/photos/files/000/041/721/banner/20170709_151933.jpg?1516991647",
+  country: "Canada",
+  street: "341 E Broadway",
+  city: "Vancouver",
+  province: "BC",
+  post_code: "V5T1W5",
+  price_per_day: 25000,
+  price_per_hour: 3500
+  }
 
 
 export default function RentalRequest(props) {
@@ -47,7 +64,9 @@ export default function RentalRequest(props) {
     }
   return (
     <>
-      <h1>I am a rental request page compiled</h1>
+      <RentalSpace 
+      space={space}
+      />
       <RequestForm 
         formState={formState}
         handleChange={handleChange}

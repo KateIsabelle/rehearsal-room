@@ -7,10 +7,7 @@ export default function RequestForm(props) {
 
   return (
     <>
-      
-      <h1>Rental Request Form</h1>
-
-      
+    
       <form>
       
         <label for="usage_decript">
