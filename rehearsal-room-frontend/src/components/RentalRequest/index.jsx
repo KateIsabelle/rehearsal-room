@@ -4,7 +4,9 @@ import axios from 'axios';
 
 
 import RequestForm from "./RequestForm";
-import RentalSpace from "./RentalSpace"
+import RentalSpace from "./RentalSpace";
+import RentalReply from "./RequestReply";
+import RequestReply from "./RequestReply";
 
 //user(renter) info to match email form input
 
@@ -15,10 +17,10 @@ import RentalSpace from "./RentalSpace"
 //   space_id INTEGER NOT NULL REFERENCES spaces(id) ON DELETE CASCADE,
 //   start_time TIMESTAMP NOT NULL,
 //   end_time TIMESTAMP NOT NULL,
-//   num_hours INTEGER NOT NULL, *** helper function to minus military end_time from start_time!!!
+//   num_hours INTEGER NOT NULL, *** helper function to minus military end_time from start_time!!! <<REMOVE?
 //   status VARCHAR(255) DEFAULT 'pending', --pending,confirmed,rejected
 //   usage_description TEXT,
-//   special_requests TEXT,
+//   special_requests TEXT, <<REMOVE
 //   used_before BOOLEAN
 // );
 
@@ -70,7 +72,10 @@ export default function RentalRequest(props) {
       <RequestForm 
         formState={formState}
         handleChange={handleChange}
-      /> 
+      />
+      if(true) { //onClick onSubmit
+        <RequestReply />
+      } 
     </>
   )
 }
