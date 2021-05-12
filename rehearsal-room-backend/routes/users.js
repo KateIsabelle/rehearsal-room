@@ -25,8 +25,14 @@ module.exports = ({
 
         getUserByEmail(req.params.email)
         .then(user => {
+            if(user) {
             getBookingsByUser(user.id)
-            .then(bookings => res.json({user, bookings}))
+            .then(bookings => res.json({user, bookings})) 
+            } else {
+                res.json({
+                    msg: 'Can\'t find email blahblahblah'
+                })
+            }
         })
         .catch(err => res.json({
             error: err.message
