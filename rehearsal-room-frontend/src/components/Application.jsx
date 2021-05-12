@@ -13,6 +13,7 @@ import axios from "axios";
 import Header from './Header'
 import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
+import RentalRequest from './RentalRequest'
 
 import Spaces from './Spaces'
 import Login from './Login'
@@ -70,6 +71,9 @@ export default function App() {
           </Route>
           <Route path="/dashboard">
             <p>No dashboard for you. Get outta here</p>
+          </Route>
+          <Route path="/request">
+            <RentalRequest /> 
           </Route>
         </Fragment> 
         :
