@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios'
 
 import Map from './Map'
@@ -38,7 +38,7 @@ export default function Space(props) {
       <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
       {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
       <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
-      <button onClick={requestButton}>Make a request</button>
+      <Link to={"/request"}>Make a request</Link>
 
       <table>
         <thead>
