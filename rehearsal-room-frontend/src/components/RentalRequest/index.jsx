@@ -55,11 +55,23 @@ export default function RentalRequest(props) {
     multi_day_rental: false,
     alternative_payment: false
   })
+
   const handleChange = event => {
     console.log(event.target.name)
+
+    let newValue
+    switch (event.target.type) {
+      case "checkbox":
+        newValue = event.target.checked;
+        break;
+      default:
+        newValue = event.target.value;
+        break;
+    }
+
     setFormState( prev => ( {
       ...prev,
-      [event.target.name]:event.target.value || event.target.checked
+      [event.target.name]:newValue
     }))
     }
   return (
