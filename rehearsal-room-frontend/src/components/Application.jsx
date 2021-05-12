@@ -33,7 +33,7 @@ export default function App() {
   return (
     <Router>
       <div className="App" >
-        <Header />
+        <Header user={state.user}/>
         <h2>Route tester (can remove once general site navigation works):</h2>
         <ul>
           <li>
@@ -72,9 +72,6 @@ export default function App() {
           <Route path="/dashboard">
             <p>No dashboard for you. Get outta here</p>
           </Route>
-          <Route path="/request">
-            <RentalRequest /> 
-          </Route>
         </Fragment> 
         :
         <Fragment>
@@ -96,6 +93,9 @@ export default function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/request">
+            <RentalRequest user_id={state.user.id}/> 
           </Route>
          
           </Fragment> }
