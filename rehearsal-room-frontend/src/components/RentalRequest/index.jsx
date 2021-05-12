@@ -28,7 +28,10 @@ import RequestForm from "./RequestForm"
 export default function RentalRequest(props) {
   const [formState, setFormState] = useState({
     usage_descript: "",
-    used_before: false
+    email:"",
+    used_before: false,
+    multi_day_rental: false,
+    alternative_payment: false
     //set for all
   })
   const handleChange = event => {
