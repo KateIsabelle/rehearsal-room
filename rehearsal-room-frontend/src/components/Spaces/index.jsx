@@ -3,6 +3,7 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import useAmenityToggle from '../../hooks/useAmenityToggle'
 
 // Components
 import SpaceList from './SpaceList'
@@ -46,10 +47,8 @@ export default function Spaces() {
   //spaces = array of objects
   const [spaces, setSpaces] = useState([])
   const [filteredSpaces, setFilteredSpaces] = useState([])
-  const [advancedState, setAdvancedState] = useState({
-    show: false,
-    text: "Show amenities filter"
-  })
+  const [advancedState, toggleAdvanced] = useAmenityToggle()
+
   const [formState, setFormState] = useState({
     keyword: "",
     ...amenitiesState
@@ -64,23 +63,6 @@ export default function Spaces() {
     console.log(newState.keyword)
     setFormState(newState)
     setFilteredSpaces(filterResults(newState))
-  }
-
-  const toggleAdvanced = (event) => {
-    event.preventDefault();
-    let newState = {};
-    if (advancedState.show) {
-      newState = {
-        show: false,
-        text: "Show amenities filter"
-      }
-    } else {
-      newState = {
-        show: true,
-        text: "Hide amenities filter"
-      }
-    }
-    setAdvancedState(newState);
   }
 
   useEffect(() => {

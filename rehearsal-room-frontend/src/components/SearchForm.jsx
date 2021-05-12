@@ -15,6 +15,7 @@ export default function SearchForm(props) {
   const amenitiesList = Object.keys(amenities).map(key => {
     return(
       <FormControlLabel
+        key={key}
         control={
           <Checkbox
             checked={formState[key]}
@@ -27,7 +28,7 @@ export default function SearchForm(props) {
   })
   return (
       <form>
-        <TextField 
+        <TextField
           id="keyword"
           name="keyword"
           label="Search"
