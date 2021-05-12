@@ -5,30 +5,45 @@ import {
 import dataReducer, {
   SET_USERS,
   SET_BOOKINGS,
+  SET_USER,
   SET_APPLICATION_DATA
 } from '../reducer/data_reducer';
 import axios from 'axios';
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
+      user: null, //set to id num
       users: [],
       loading: true,
-      bookings: {}
+      bookings: []
   });
 
-  const setBookings = userId => dispatch( { type: SET_BOOKINGS, userId } )
+  const setUserInfo = userEmail => {
+    return axios.post(`/api/users/login/${userEmail}`)
+    .then(loginStateObj => {
+      
+      dispatch({
+        type:SET_APPLICATION_DATA,
+        user: loginStateObj.user,
+        bookings: loginStateObj.bookings
+      })
+   
+    })
+    
+  }
+
 
 
   useEffect(() => {
     Promise.all([
       axios.get("/api/users"),
-      axios.get("/api/bookings/2")
+      // axios.get(`/api/bookings/${2}`)
     ])
-    .then(([usersResponse, bookingsResponse]) => {
+    .then(([usersResponse]) => {
       dispatch({
         type: SET_APPLICATION_DATA,
         users: usersResponse.data,
-        bookings: bookingsResponse.data
+        // bookings: bookingsResponse.data
       })
     })
           // axios({
@@ -50,7 +65,7 @@ const useApplicationData = () => {
   return {
       state,
       dispatch,
-      setBookings
+      setUserInfo
   };
 };
 
