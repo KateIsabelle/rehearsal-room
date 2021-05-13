@@ -1,11 +1,13 @@
 import React from "react";
 import { TextField, Button, Checkbox } from '@material-ui/core';
+import axios from "axios";
 
 
 export default function RequestForm(props) {
    const { formState, handleChange } = props;
 
    const handleSubmit = () => {
+    axios.post('/bookings')
     props.setVisualMode("SPACE_SHOW")
     props.setPopUp(true)
    }
@@ -14,10 +16,10 @@ export default function RequestForm(props) {
     <>
       <form>
       
-        <label for="usage_decript">
+        <label for="usage_description">
           Brief description of activity:
         </label>
-            <TextField name="usage_descript" value={formState.usage_descript} onChange={handleChange} id="outlined-basic" variant="outlined" />
+            <TextField name="usage_description" value={formState.usage_descript} onChange={handleChange} id="outlined-basic" variant="outlined" />
 
         <label for="date">Select a date: </label>
           <TextField
