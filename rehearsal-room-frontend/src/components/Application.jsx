@@ -18,6 +18,7 @@ import Space from './Space'
 
 import Spaces from './Spaces'
 import Login from './Login'
+import Dashboard from './Dashboard'
 
 // Images
 import logo from '../../src/logo.svg';
@@ -93,7 +94,7 @@ export default function App() {
             <p>Logged in route: You're already logged in!</p>
           </Route>
           <Route path="/dashboard">
-            <Dashboard />
+            <Dashboard user={state.user} />
           </Route>
          
           </Fragment> }
@@ -123,8 +124,4 @@ function CityList() {
 
 function Register() {
   return (<h1>Registration form goes here!</h1>)
-}
-
-function Dashboard() {
-  return (<h1>Dashboard page goes here!</h1>)
 }
