@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from '../Button/Button';
 import { useHistory, NavLink, Link } from 'react-router-dom';
-import './header.css'
+import './_Header.scss'
 
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, Transformation } from "cloudinary-react";
-import './hero.css'
+import './_Hero.scss'
 
 export default function HeroV1(props) {
   return (
