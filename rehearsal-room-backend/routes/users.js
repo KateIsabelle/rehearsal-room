@@ -26,8 +26,7 @@ module.exports = ({
         .then(user => {
             if(user) {
             Promise.all([
-                getBookingsByUser(user.id),
-                getHostBookings(user.id)
+                getBookingsByUser(user.id)
             ])
             .then(([bookings, hostBookings]) => {
                 res.json({user: user, bookings: bookings, hostBookings: hostBookings})

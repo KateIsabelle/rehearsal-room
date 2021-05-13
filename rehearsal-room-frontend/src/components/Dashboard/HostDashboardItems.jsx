@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 // Custom components
 import BookingList from './BookingList'
@@ -60,41 +61,43 @@ const dummyHostBookings = [
 ]
 
 export default function HostDashboardItems(props) {
+  const { hostId } = props
+
   const [bookings, setBookings] = useState([])
   useEffect(() => {
-    setBookings(dummyHostBookings)
-  }, [])
+    axios.get(`/api/bookings/host/${hostId}`)
+      .then(res => setBookings(res.data))
+      .catch(err => console.log(err))
+  }, [hostId])
 
   return (
-    <Grid
-      container
-      direction="column"
-      justify="flex-start"
-      xs={9}
-      spacing={2}
-    >
+    <>
       <Grid item>
-        <Paper>My Spaces
+        <Paper><h2>My Spaces</h2>
         </Paper>
       </Grid>
       <Grid item>
         <Paper>
-          Pending Booking Requests
-          <BookingList 
-            bookings={bookings}
-            bookingType="pending"
-          />
-        </Paper>
-      </Grid>
-      <Grid item>
-        <Paper>
-          Confirmed Bookings
+          <h2>Pending Booking Requests</h2>
           <BookingList
             bookings={bookings}
-            bookingType="confirmed"
+            userType="host"
+            bookingType="pending"
+            emptyMessage="No pending requests!"
           />
         </Paper>
       </Grid>
-    </Grid>
+      <Grid item>
+        <Paper>
+          <h2>Confirmed Bookings</h2>
+          <BookingList
+            bookings={bookings}
+            userType="host"
+            bookingType="confirmed"
+            emptyMessage="No bookings currently confirmed!"
+          />
+        </Paper>
+      </Grid>
+    </>
   )
 }

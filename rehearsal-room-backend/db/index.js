@@ -33,7 +33,6 @@ module.exports = {
    *
    */
   query: function(queryString, queryParams) {
-    console.log("in query")
     return pool.query(queryString, queryParams)
       .then(res => res)
       .catch(err => console.error(err));
