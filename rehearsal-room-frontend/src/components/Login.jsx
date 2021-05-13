@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {Button} from '../components/Button/Button'
 import CloudinaryUpload from './CloudinaryUpload';
@@ -7,8 +7,15 @@ import CloudinaryUpload from './CloudinaryUpload';
 export default function Login(props) {
   const [email, setEmail] = useState("");
 
+  const history = useHistory();
+  const routeChange = () =>{ 
+    let path = `/spaces/vancouver`; 
+    history.push(path);
+  }
+
   const handleSubmit = function(txt) {
     props.onLogin(txt);
+    routeChange();
 };
 const handleChange = function(e) {
     const value = e.target.value;
