@@ -301,9 +301,13 @@ VALUES (1,
 ),
 (  4, 
    'Capoeira Ache Brazil Academy',
-   'description', 
+   'Beautiful, spacious and well lit space. Fully equipped, great for workshops, dance, fitness, martial arts, etc.
+   For weekdays before 5 pm, the fee is $30. For weeknights or bigger gatherings the fee is higher. Please inquire.
+   We offer 2 floors: Main level with wood floors and lower level floor with hard mats laid out. See photos.
+   Must follow Covid-19 protocols as per health officials.
+   No high heels or tap shoes.', 
    'https://cdn-prod.thisopenspace.com/photos/files/000/041/727/small/20170901_135729.jpg?1516992233', 
-   'https://cdn-prod.thisopenspace.com/photos/files/000/041/721/banner/20170709_151933.jpg?1516991647', 
+   'https://cdn-prod.thisopenspace.com/photos/files/000/041/727/small/20170901_135729.jpg?1516992233', 
    'Canada', 
    '341 E Broadway', 
    'Vancouver', 
