@@ -10,9 +10,12 @@ module.exports = (db) => {
 
   const getBookingsByUser = (userID) => {
     const queryString = `
-      SELECT *
+      SELECT
+        bookings.*,
+        spaces.title AS space_name
       FROM bookings
-      WHERE user_id = $1
+      JOIN spaces ON bookings.space_id = spaces.id
+      WHERE bookings.user_id = $1
     `
     const queryParams = [userID]
 
