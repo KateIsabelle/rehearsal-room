@@ -66,7 +66,7 @@ export default function HostDashboardItems(props) {
   const [bookings, setBookings] = useState([])
   useEffect(() => {
     axios.get(`/api/bookings/host/${hostId}`)
-      .then(res => console.log("DONE WITH REQ: ", res))
+      .then(res => setBookings(res.data))
       .catch(err => console.log(err))
   }, [hostId])
 
