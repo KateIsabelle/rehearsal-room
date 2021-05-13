@@ -1,6 +1,12 @@
 import { Button } from '../Button/Button'
+import useReadableTimes from '../../hooks/useReadableTimes'
 
 export default function BookingListItem(props) {
+  const [
+    date,
+    start_time,
+    end_time
+  ] = useReadableTimes(props.start_time, props.end_time)
   const shortenedUsageDesc = (desc) => {
     if (desc.length > 40) {
       return `${desc.slice(0, 40).trim()}...`
@@ -8,21 +14,6 @@ export default function BookingListItem(props) {
       return desc
     }
   }
-
-  const timestampToDate = (timestamp) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const dateObj = new Date(timestamp)
-    return dateObj.toLocaleDateString(undefined, options)
-  }
-
-  const timestampToTime = (timestamp) => {
-    const dateObj = new Date(timestamp)
-    return dateObj.toLocaleTimeString()
-  }
-
-  const date = timestampToDate(props.start_time)
-  const start_time = timestampToTime(props.start_time)
-  const end_time = timestampToTime(props.end_time)
 
   return (
     <div onClick={() => props.handleClick(props.id)}>
