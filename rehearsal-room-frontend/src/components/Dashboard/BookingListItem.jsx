@@ -1,8 +1,9 @@
 import { Button } from '../Button/Button'
 import useReadableTimes from '../../hooks/useReadableTimes'
+import axios from 'axios'
 
 export default function BookingListItem(props) {
-  const { selected, host } = props
+  const { selected, host} = props
   const [
     date,
     start_time,
@@ -17,6 +18,20 @@ export default function BookingListItem(props) {
     }
   }
   const shortDesc = shortenedUsageDesc(props.usage_description)
+
+  const handleConfirm = () => {
+    
+  }
+  const handleReject = () => {
+
+  }
+  const handleCancel = () => {
+
+  }
+  const handleDelete = () => {
+
+  }
+
 
   return (
     <div
