@@ -10,9 +10,12 @@ module.exports = (db) => {
 
   const getBookingsByUser = (userID) => {
     const queryString = `
-      SELECT *
+      SELECT
+        bookings.*,
+        spaces.title AS space_name
       FROM bookings
-      WHERE user_id = $1
+      JOIN spaces ON bookings.space_id = spaces.id
+      WHERE bookings.user_id = $1
     `
     const queryParams = [userID]
 
@@ -49,10 +52,37 @@ module.exports = (db) => {
       .catch(err => err);
   }
 
+  const updateBookingStatus = (newStatus, bookingId) => {
+    const queryString = `
+      UPDATE bookings
+      SET status = $1
+      WHERE id = $2
+    `
+    const queryParams = [newStatus, bookingId];
+    return db.query(queryString, queryParams)
+      .then(result => result.rows)
+      .catch(err => err)
+  }
+
+  const deleteBooking = (id) => {
+    const queryString = `
+      DELETE
+      FROM bookings
+      WHERE id = $1
+      RETURNING *
+    `
+    const queryParams = [id]
+    return db.query(queryString, queryParams)
+      .then(result => result.rows)
+      .catch(err => err);
+  }
+
   return {
     getBookings,
     getBookingsByUser,
     getHostBookings,
-    addBooking
+    addBooking,
+    updateBookingStatus,
+    deleteBooking
   };
 }

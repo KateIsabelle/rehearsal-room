@@ -7,7 +7,8 @@ export default function RequestForm(props) {
    const { formState, handleChange } = props;
 
    const handleSubmit = () => {
-    axios.post('/bookings')
+    const bookingData = {...formState}
+    axios.post('/api/bookings', { bookingData })
     props.setVisualMode("SPACE_SHOW")
     props.setPopUp(true)
    }
