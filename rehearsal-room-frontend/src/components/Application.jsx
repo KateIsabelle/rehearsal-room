@@ -36,7 +36,7 @@ export default function App() {
         <Switch> 
         { !state.user ? /* 1st: non-logged in user path */
         <Fragment>
-          <Route path="/">
+          <Route exact path="/">
             <HeroV1 />
             <CityList />
           </Route>
@@ -47,6 +47,7 @@ export default function App() {
             <Login onLogin={setUserInfo}/>
           </Route>
           <Route path="/spaces/:city">
+            <HeroV1 />
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
@@ -58,11 +59,12 @@ export default function App() {
         </Fragment> 
         : /* 2nd: logged-in user path */
         <Fragment>
-          <Route path="/">
+          <Route exact path="/">
             <HeroV1 />
             <CityList />
           </Route>
           <Route path="/spaces/:city">
+            <HeroV1 />
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
