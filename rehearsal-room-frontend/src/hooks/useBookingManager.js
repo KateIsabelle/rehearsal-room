@@ -5,6 +5,8 @@ export default function useBookingManager(host, userId) {
   const [bookings, setBookings] = useState([])
   const [selectedBooking, setSelectedBooking] = useState(0)
 
+
+  // Handlers for various buttons in each booking item
   const confirm = (id) => {
     console.log("confirmed!", id)
   }
