@@ -14,6 +14,14 @@ module.exports = ({
       .catch(err => res.json({error: err.message}));
   });
 
+  // GET spaces for a specific user
+  router.get('/user/:userId', (req, res) => {
+    const userId = req.params.userId
+    getSpacesByUserId(userId)
+      .then(spaces => res.json(spaces))
+      .catch(err => res.json({error: err.message}));
+  })
+
   // GET spaces for a specific city
   router.get('/:city', (req, res) => {
     const city = req.params.city
