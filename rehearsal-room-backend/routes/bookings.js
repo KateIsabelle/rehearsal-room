@@ -45,6 +45,8 @@ module.exports = ({
     const { status } = req.body;
     const bookingId = req.params.booking_id
     updateBookingStatus(status, bookingId)
+      .then(result => res.json(result))
+      .catch(err => res.json({error: err.message}));
   })
 
   // DELETE a booking from the db

@@ -10,18 +10,20 @@ export default function useBookingManager(host, userId) {
   const confirm = (id) => {
     console.log("confirmed!", id)
     axios.put(`/api/bookings/${id}`, {status: 'confirmed'})
-    .catch(err => console.log(err))
+      .then(refreshBookings)
+      .catch(err => console.log(err))
   }
   const reject = (id) => {
     console.log("rejected!", id)
     axios.put(`/api/bookings/${id}`, {status: 'rejected'})
+    .then(refreshBookings)
     .catch(err => console.log(err))
   }
   const cancel = (id) => {
     console.log("cancelled!", id)
     axios.delete(`/api/bookings/${id}`)
-      .then(res => refreshBookings())
-      .catch(err => console.log(err))
+    .then(refreshBookings)
+    .catch(err => console.log(err))
   }
 
   // Handler for selecting bookings
