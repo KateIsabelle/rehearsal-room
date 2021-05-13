@@ -14,7 +14,6 @@ export default function HeroV1(props) {
 
 }
 
-
 //reminder: AN has aspirations to build 3 Hero versions that roate
 export function HeroV2(props) {
   return (
