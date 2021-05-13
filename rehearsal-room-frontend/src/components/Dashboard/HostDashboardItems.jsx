@@ -26,22 +26,22 @@ export default function HostDashboardItems(props) {
       </Grid>
       <Grid item>
         <Paper>
-          <h2>Pending Booking Requests</h2>
           <BookingList
             bookings={bookings}
             host={true}
             bookingType="pending"
+            title="Pending Booking Requests"
             emptyMessage="No pending requests!"
           />
         </Paper>
       </Grid>
       <Grid item>
         <Paper>
-          <h2>Confirmed Bookings</h2>
           <BookingList
             bookings={bookings}
             host={true}
             bookingType="confirmed"
+            title="Confirmed Bookings"
             emptyMessage="No bookings currently confirmed!"
           />
         </Paper>

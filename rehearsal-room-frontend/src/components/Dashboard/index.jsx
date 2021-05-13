@@ -25,7 +25,7 @@ export default function Dashboard(props) {
           <Paper >{user.first_name} {user.last_name}
             <img src={user.photo} width="90%" alt="profile"/>
             <p>{user.description}</p>
-            <p><strong>{user.organization_name}</strong></p>
+            { user.organization_name && <p><strong>{user.organization_name}</strong></p>}
           </Paper>
         </Grid>
 

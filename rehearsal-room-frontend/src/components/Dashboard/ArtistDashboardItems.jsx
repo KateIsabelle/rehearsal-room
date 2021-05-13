@@ -21,11 +21,11 @@ export default function ArtistDashboardItems(props) {
   return (
     <Grid item>
       <Paper>
-        <h2>My Bookings</h2>
         <BookingList
           bookings={bookings}
           host={false}
           bookingType="all"
+          title="My Bookings"
           emptyMessage="No booking requests!"
         />
       </Paper>

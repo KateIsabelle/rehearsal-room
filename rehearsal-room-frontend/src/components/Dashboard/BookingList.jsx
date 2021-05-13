@@ -25,7 +25,8 @@ export default function BookingList(props) {
         {...booking} />
     ))
   return (
-    <div>
+    <div class="booking-list">
+      <h2>{props.title}</h2>
       {bookingList.length > 0 ? bookingList : <strong>{props.emptyMessage}</strong>}
     </div>
   )

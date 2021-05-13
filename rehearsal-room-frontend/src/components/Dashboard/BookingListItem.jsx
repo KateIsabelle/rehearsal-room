@@ -19,7 +19,10 @@ export default function BookingListItem(props) {
   const shortDesc = shortenedUsageDesc(props.usage_description)
 
   return (
-    <div onClick={() => props.handleClick(props.id)}>
+    <div
+      className="booking-list-item"
+      onClick={() => props.handleClick(props.id)}
+    >
     {/* If this component is not the currently-selected component,
         we show a shortened listing with no buttons. */}
     { !selected && host &&

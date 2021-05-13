@@ -7,3 +7,11 @@
 .opening-hours-table table, .opening-hours-table th, .opening-hours-table td {
   border: 1px solid black;
 }
+
+.booking-list {
+  background-color: whitesmoke;
+}
+
+.booking-list-item:hover {
+  background-color: #cbddff;
+}
