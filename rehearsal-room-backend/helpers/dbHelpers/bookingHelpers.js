@@ -23,11 +23,18 @@ module.exports = (db) => {
 
   const getHostBookings = (userId) => {
     const queryString = `
-    SELECT *  FROM bookings
-    WHERE space_id = ANY
+    SELECT
+      bookings.*,
+      users.id AS requester_id,
+      spaces.title AS space_name,
+      CONCAT(users.first_name, ' ', users.last_name) AS requester_name
+    FROM bookings
+    JOIN users ON bookings.user_id = users.id
+    JOIN spaces ON bookings.space_id = spaces.id
+    WHERE bookings.space_id = ANY
     ( SELECT id FROM spaces
-      WHERE id = $1 )
-      `
+      WHERE user_id = $1 )
+    `
     const queryParams = [userId]
 
     return db.query(queryString, queryParams)
