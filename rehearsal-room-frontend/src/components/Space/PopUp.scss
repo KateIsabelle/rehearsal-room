@@ -1,10 +1,14 @@
 .modal {
-  display: block; // toggle none
+  // display: block; 
   position: fixed;
   z-index: 1;
   background-color: blue;
+  width: 500px;
   height: 200px;
-  width: 200px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px; /* Negative half of height. */
+  margin-left: -250px; /* Negative half of width. */
 }
 
 .modal_content {
