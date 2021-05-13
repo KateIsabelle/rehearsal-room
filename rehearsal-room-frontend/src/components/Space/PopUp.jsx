@@ -5,12 +5,12 @@ export default function PopUp(props) {
    };
   return (
 
-    <div className="modal">
-    <div className="modal_content">
-    <span className="close" onClick={handleClick}>&times;</span>
-    <p>I'm A Pop Up!!!</p>
-   </div>
-  </div>
+    <div className="popup">
+      <div className="">
+        <div className="close" onClick={handleClick}>&times;</div>
+        <p className="popup-content">Request Made!</p>
+      </div>
+    </div>
 
   )
 }

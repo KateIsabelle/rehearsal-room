@@ -16,7 +16,7 @@ const requestButton = () => {
 
 export default function Space(props) {
   const [spaceData, setSpaceData] = useState({})
-  const [popUp, setPopUp] = useState(false)
+  const [popUp, setPopUp] = useState(true)
   const [visualMode, setVisualMode] = useState("SPACE_SHOW")
   const { space_id } = useParams();
 

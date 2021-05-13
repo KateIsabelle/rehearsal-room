@@ -1,7 +1,8 @@
-.modal {
+.popup {
   position: fixed;
   z-index: 1;
-  background-color: blue;
+  background-color: white;
+  border: 5px solid #e6a2f2;
   width: 500px;
   height: 200px;
   top: 50%;
@@ -10,7 +11,12 @@
   margin-left: -250px; /* Negative half of width. */
 }
 
-.modal_content {
-  background-color: red;
+.popup-content {
+  background-color: white;
+  // position: absolute;
+}
+
+.close {
   position: absolute;
+  margin: 10px
 }
