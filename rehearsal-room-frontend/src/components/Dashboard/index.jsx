@@ -1,6 +1,7 @@
 
 // Custom Components
 import HostDashboardItems from './HostDashboardItems'
+import ArtistDashboardItems from './ArtistDashboardItems'
 
 // Material UI Components
 import { palette } from '@material-ui/system';
@@ -13,7 +14,7 @@ export default function Dashboard(props) {
 
   return (
     <Container maxWidth="lg">
-      <Grid 
+      <Grid
         container
         direction="row"
         justify="flex-start"
@@ -21,20 +22,28 @@ export default function Dashboard(props) {
         spacing={2}
       >
         <Grid item xs={3}>
-          <Paper bgcolor={palette.main} color="primary.contrastText">{user.first_name} {user.last_name}
+          <Paper >{user.first_name} {user.last_name}
             <img src={user.photo} width="90%" alt="profile"/>
             <p>{user.description}</p>
             <p><strong>{user.organization_name}</strong></p>
           </Paper>
         </Grid>
-        { user.is_host && <HostDashboardItems />}
 
+        <Grid
+          container
+          direction="column"
+          justify="flex-start"
+          xs={9}
+          spacing={2}
+        >
+          { user.is_host && <HostDashboardItems hostId={user.id} />}
+          <ArtistDashboardItems artistId={user.id} />
+        </Grid>
 
       </Grid>
     </Container>
   )
 }
-
 
 
 
