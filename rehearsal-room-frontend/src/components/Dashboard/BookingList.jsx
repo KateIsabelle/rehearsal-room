@@ -1,6 +1,3 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-
 // Custom components
 import BookingListItem from './BookingListItem'
 
@@ -12,13 +9,8 @@ export default function BookingList(props) {
   const {
     bookings,
     selectedBooking,
-    bookingHandlers,
-    refreshBookings
+    bookingHandlers
   } = useBookingManager(host, userId);
-
-  useEffect(() => {
-    refreshBookings();
-  }, [refreshBookings])
 
   const bookingList =
     bookings
@@ -33,7 +25,7 @@ export default function BookingList(props) {
     ))
 
   return (
-    <div class="booking-list">
+    <div className="booking-list">
       <h2>{props.title}</h2>
       {bookingList.length > 0 ? bookingList : <strong>{props.emptyMessage}</strong>}
     </div>

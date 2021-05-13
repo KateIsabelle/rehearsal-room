@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function useBookingManager(host, userId) {
   const [bookings, setBookings] = useState([])
@@ -13,6 +13,9 @@ export default function useBookingManager(host, userId) {
   }
   const cancel = (id) => {
     console.log("cancelled!", id)
+    axios.delete(`/api/bookings/${id}`)
+      .then(res => refreshBookings())
+      .catch(err => console.log(err))
   }
   const select = (id) => {
     console.log("handleClick fired")
@@ -20,10 +23,17 @@ export default function useBookingManager(host, userId) {
   }
 
   const refreshBookings = () => {
+    console.log("IN REFRESH")
     axios.get(`/api/bookings/${host ? "host/" : ""}${userId}`)
       .then(res => setBookings(res.data))
       .catch(err => console.log(err))
   }
+
+  useEffect(() => {
+    axios.get(`/api/bookings/${host ? "host/" : ""}${userId}`)
+    .then(res => setBookings(res.data))
+    .catch(err => console.log(err))
+  }, [host, userId])
 
   return {
     bookings,
