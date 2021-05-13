@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import {Button} from '../components/Button/Button'
-// import './Login.scss'
+import CloudinaryUpload from './CloudinaryUpload';
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
@@ -34,6 +34,7 @@ const handleChange = function(e) {
         <Button size="small" label="Login as Petunia"  onClick={() => handleSubmit("petty_s123@gmail.com")} ></Button>
       </div>
       <div className="playing"></div>
+      <CloudinaryUpload />
     </form>
   
   )
