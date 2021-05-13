@@ -28,9 +28,17 @@ export default function Dashboard(props) {
             <p><strong>{user.organization_name}</strong></p>
           </Paper>
         </Grid>
-        { user.is_host && <HostDashboardItems hostId={user.id} />}
-        <ArtistDashboardItems artistId={user.id} />
 
+        <Grid
+          container
+          direction="column"
+          justify="flex-start"
+          xs={9}
+          spacing={2}
+        >
+          { user.is_host && <HostDashboardItems hostId={user.id} />}
+          <ArtistDashboardItems artistId={user.id} />
+        </Grid>
 
       </Grid>
     </Container>

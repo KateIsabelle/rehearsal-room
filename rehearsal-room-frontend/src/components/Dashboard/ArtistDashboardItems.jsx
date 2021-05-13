@@ -19,37 +19,15 @@ export default function ArtistDashboardItems(props) {
   }, [artistId])
 
   return (
-    <Grid
-      container
-      direction="column"
-      justify="flex-start"
-      xs={9}
-      spacing={2}
-    >
-      <Grid item>
-        <Paper><h2>My Spaces</h2>
-        </Paper>
-      </Grid>
-      <Grid item>
-        <Paper>
-          <h2>Pending Booking Requests</h2>
-          <BookingList
-            bookings={bookings}
-            bookingType="pending"
-            emptyMessage="No pending requests!"
-          />
-        </Paper>
-      </Grid>
-      <Grid item>
-        <Paper>
-          <h2>Confirmed Bookings</h2>
-          <BookingList
-            bookings={bookings}
-            bookingType="confirmed"
-            emptyMessage="No bookings currently confirmed!"
-          />
-        </Paper>
-      </Grid>
+    <Grid item>
+      <Paper>
+        <h2>My Bookings</h2>
+        <BookingList
+          bookings={bookings}
+          bookingType="all"
+          emptyMessage="No booking requests!"
+        />
+      </Paper>
     </Grid>
   )
 }

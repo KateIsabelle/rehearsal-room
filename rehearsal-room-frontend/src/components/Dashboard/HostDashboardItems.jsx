@@ -71,13 +71,7 @@ export default function HostDashboardItems(props) {
   }, [hostId])
 
   return (
-    <Grid
-      container
-      direction="column"
-      justify="flex-start"
-      xs={9}
-      spacing={2}
-    >
+    <>
       <Grid item>
         <Paper><h2>My Spaces</h2>
         </Paper>
@@ -102,6 +96,6 @@ export default function HostDashboardItems(props) {
           />
         </Paper>
       </Grid>
-    </Grid>
+    </>
   )
 }

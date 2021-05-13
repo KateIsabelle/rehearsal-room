@@ -14,7 +14,7 @@ export default function BookingList(props) {
 
   const bookingList =
     bookings
-    .filter(booking => booking.status === bookingType)
+    .filter(booking => booking.status === bookingType || bookingType === "all")
     .map(booking => (
       <BookingListItem
         key={booking.id}
