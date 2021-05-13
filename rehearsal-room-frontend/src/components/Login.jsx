@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import {Button} from '../components/Button/Button'
+// import './Login.scss'
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
@@ -27,6 +28,7 @@ const handleChange = function(e) {
       <div>
         <Button size="small" label="Login"  onClick={() => handleSubmit(email)} ></Button>
       </div>
+      <div className="playing"></div>
     </form>
   
   )

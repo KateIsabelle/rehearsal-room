@@ -9,6 +9,8 @@ import {
 import { Fragment, useEffect } from "react";
 import axios from "axios";
 
+import '../Sass/App.scss'
+
 // Components
 import Header from './Header'
 import HeroV1 from './HeroBlock/heroV1'
