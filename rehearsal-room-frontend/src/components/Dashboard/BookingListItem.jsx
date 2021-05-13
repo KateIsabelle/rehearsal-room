@@ -1,5 +1,6 @@
 import { Button } from '../Button/Button'
 import useReadableTimes from '../../hooks/useReadableTimes'
+import upcase from '../../helpers/upcase'
 import axios from 'axios'
 
 export default function BookingListItem(props) {
@@ -24,7 +25,7 @@ export default function BookingListItem(props) {
 
   return (
     <div
-      className="booking-list-item"
+      className={"booking-list-item " + props.status}
       onClick={() => handlers.select(props.id)}
     >
     {/* If this component is not the currently-selected component,
@@ -42,7 +43,7 @@ export default function BookingListItem(props) {
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{shortDesc} |
       <strong> Time: </strong>{date} from {start_time} to {end_time} |
-      <strong> Status: </strong>{props.status}
+      <strong> Status: </strong>{upcase(props.status)}
       </>
     }
     { selected && host &&
@@ -66,10 +67,10 @@ export default function BookingListItem(props) {
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{props.usage_description} |
       <strong> Time: </strong>{date} from {start_time} to {end_time} |
-      <strong> Status: </strong>{props.status}
+      <strong> Status: </strong>{upcase(props.status)}
       <Button
         onClick={() => handlers.cancel(props.id)}
-        label={props.status === "Rejected" ? "Delete" : "Cancel" }
+        label={props.status === "rejected" ? "Delete" : "Cancel" }
       ></Button>
       </>
     }
