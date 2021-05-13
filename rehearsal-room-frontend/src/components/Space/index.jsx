@@ -6,6 +6,7 @@ import Map from './Map'
 import RentalRequest from '../RentalRequest/index'
 import { Button } from '../Button/Button'
 import AmenitiesList from './AmenitiesList'
+import OpeningHoursTable from "./OpeningHoursTable";
 
 
 const requestButton = () => {
@@ -48,6 +49,7 @@ export default function Space(props) {
 
       <h3>Features:</h3>
       <AmenitiesList spaceData={spaceData}/>
+      <OpeningHoursTable/>
 
       <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
 
@@ -60,6 +62,7 @@ export default function Space(props) {
   {visualMode === "REQUEST_FORM" &&
     <RentalRequest user_id={props.userId} space_id={space_id} setVisualMode={setVisualMode}/>
 }
+
         </article>
 
   )

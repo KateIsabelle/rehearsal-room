@@ -1,12 +1,13 @@
 import React from "react";
 import { Button } from '../Button/Button';
-import { NavLink, Link } from 'react-router-dom';
-import './header.css'
+import { useHistory, NavLink, Link } from 'react-router-dom';
+import './_Header.scss'
 
 
 
 
 export default function Header(props) {
+  let history = useHistory()
   return (
 
     <header>
@@ -14,26 +15,27 @@ export default function Header(props) {
       <div>
       <div className="header-list">
         <NavLink to="/" component={Logo} />
+        
+        <Link style={{textDecoration: 'none'}}><h3>About us</h3></Link>
 
-        <h3>About us</h3>
+        
+
+
         </div>
       </div>
       <div>
         {props.user ? (
             <tag className="user-greeting-logout">
-              <p>Hi, {props.user.first_name}</p>
-                <Button onClick={() => { alert('Your booking request has been submitted. [The host] will be in touch with confirmation.') }}size="small" label="Log out" />
+                <Link to={'/dashboard'} style={{paddingRight: 13, textDecoration: 'none'}}><h3>{props.user.first_name}'s Profile</h3></Link>
+                <Button primary size="small" label="Log out" />
             </tag>
           ) : (
             <>
-              {/* <Link to="/login" className="btn btn-primary">Login</Link> */}
-              <Button size="small" label="Log in" />
+              <Button primary onClick={()=>{history.push('/login')}}size="small" label="Log in" />
               <Button primary size="small" label="Sign up" />
             </>
           )}
-{/* 
-            <Button size="small" label="Log in" />
-            <Button primary size="small"  label="Logout" /> */}
+
       </div>
     </div>
   </header>
@@ -44,9 +46,9 @@ export default function Header(props) {
 function Logo() {
   return (
     <>
-    <img src='https://www.flaticon.com/svg/vstatic/svg/386/386107.svg?token=exp=1620604584~hmac=584f6d47c262f7eaa45cf32d56fbaea5' width="32" height="32" alt=""></img>
+    <Link to={'/'}><img src='https://www.flaticon.com/svg/vstatic/svg/386/386107.svg?token=exp=1620604584~hmac=584f6d47c262f7eaa45cf32d56fbaea5' width="32" height="32" alt="" /></Link>
     <h1>
-      <NavLink to='/'>Rehearsal Room</NavLink>
+      Rehearsal Room
     </h1>
     </>
   )

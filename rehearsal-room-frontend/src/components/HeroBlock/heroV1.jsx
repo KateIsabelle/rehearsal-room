@@ -1,15 +1,14 @@
 import React from "react";
 import { Image, Transformation } from "cloudinary-react";
+import './_Hero.scss'
 
 export default function HeroV1(props) {
   return (
     <tag>
+      <div id="container">
+        <img id="image" sizes="100vw" src="https://res.cloudinary.com/dyo7gkw5s/image/upload/w_auto,c_fill,ar_3:1,g_center/l_text:Arial_120_bold:Artists Looking For Space. Spaces Available for Artists.,co_rgb:FFF/v1620667456/mostafa-meraji-Jby30ALhnms-unsplash_olrgbs.jpg"/>
+      </div>
 
-      <Image cloudName="dyo7gkw5s" publicId="mostafa-meraji-Jby30ALhnms-unsplash_olrgbs.jpg">
-        <Transformation quality="auto" fetchFormat="auto" />
-        <Transformation flags="ignore_aspect_ratio" height="300" width="900" crop="fill" />
-        <Transformation overlay={{fontFamily: "Arial", fontSize: 30, fontWeight: "bold", text: "Artists Looking For Space. Spaces Available for Artists."}} effect="colorize" color="#F5F9FC" />
-      </Image>
     </tag>
   )
 
@@ -19,13 +18,10 @@ export default function HeroV1(props) {
 export function HeroV2(props) {
   return (
     <tag>
+      <div id="container">
+        <img id="image" sizes="100vw" src="https://res.cloudinary.com/dyo7gkw5s/image/upload/w_auto,c_fill,ar_3:1,g_center/l_text:Arial_120_bold:Artists Looking For Space. Spaces Available for Artists.,co_rgb:FFF/v1620667456/elijah-m-henderson-xgT3iQDIijU-unsplash_lmqcd5.jpg"/>
+      </div>
 
-
-    <Image cloudName="dyo7gkw5s" publicId="elijah-m-henderson-KoQxb6taoLA-unsplash_ojouty.jpg" >
-      <Transformation quality="auto" fetchFormat="auto" />
-      <Transformation flags="ignore_aspect_ratio" height="800" crop="crop" />
-      <Transformation overlay={{fontFamily: "Arial", fontSize: 120, fontWeight: "bold", text: "Artists Looking For Space. Spaces Available for Artists."}} effect="colorize" color="#F5F9FC" />
-    </Image>
     </tag>
   )
 

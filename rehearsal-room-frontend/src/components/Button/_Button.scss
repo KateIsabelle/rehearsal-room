@@ -6,6 +6,11 @@
   cursor: pointer;
   display: inline-block;
   line-height: 1;
+  visibility: visible;
+
+  @media screen and (max-width: 555px) {
+    visibility: hidden;
+  }
 }
 .storybook-button--primary {
   color: white;

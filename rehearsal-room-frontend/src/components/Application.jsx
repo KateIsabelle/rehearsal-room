@@ -20,9 +20,6 @@ import Spaces from './Spaces'
 import Login from './Login'
 import Dashboard from './Dashboard'
 
-// Images
-import logo from '../../src/logo.svg';
-
 // CSS
 import './App.css';
 
@@ -36,22 +33,6 @@ export default function App() {
     <Router>
       <div className="App" >
         <Header user={state.user}/>
-        <h2>Route tester (can remove once general site navigation works):</h2>
-        <ul>
-          <li>
-            <Link to="/">Root</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-
         <Switch> 
         { !state.user ? /* 1st: non-logged in user path */
         <Fragment>
