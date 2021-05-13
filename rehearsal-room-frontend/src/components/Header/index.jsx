@@ -27,7 +27,7 @@ export default function Header(props) {
         {props.user ? (
             <tag className="user-greeting-logout">
                 <Link to={'/dashboard'} style={{paddingRight: 13, textDecoration: 'none'}}><h3>{props.user.first_name}'s Profile</h3></Link>
-                <Button primary onClick={() => { alert('Your booking request has been submitted. [The host] will be in touch with confirmation.') }}size="small" label="Log out" />
+                <Button primary size="small" label="Log out" />
             </tag>
           ) : (
             <>
