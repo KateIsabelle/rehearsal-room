@@ -1,0 +1,13 @@
+.modal {
+  display: block; // toggle none
+  position: fixed;
+  z-index: 1;
+  background-color: blue;
+  height: 200px;
+  width: 200px;
+}
+
+.modal_content {
+  background-color: red;
+  position: absolute;
+}

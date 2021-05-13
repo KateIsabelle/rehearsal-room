@@ -7,6 +7,7 @@ import RentalRequest from '../RentalRequest/index'
 import { Button } from '../Button/Button'
 import AmenitiesList from './AmenitiesList'
 import OpeningHoursTable from "./OpeningHoursTable";
+import PopUp from './PopUp'
 
 
 const requestButton = () => {
@@ -15,8 +16,14 @@ const requestButton = () => {
 
 export default function Space(props) {
   const [spaceData, setSpaceData] = useState({})
+  const [popUp, setPopUp] = useState(true)
   const [visualMode, setVisualMode] = useState("SPACE_SHOW")
   const { space_id } = useParams();
+
+  const togglePop = () => {
+    setPopUp(false)
+   };
+
   useEffect(() => {
     axios({
       method: 'GET',
@@ -37,6 +44,7 @@ export default function Space(props) {
     <article className="">
   { visualMode === "SPACE_SHOW" &&
     <Fragment>
+      { popUp && <PopUp toggle={togglePop}/> }
       <h1>{spaceData.title}</h1>
       <p>{spaceData.city}, {spaceData.province}, {spaceData.country}</p>
       <img src={spaceData.cover_photo_url} alt="property" width="600" height="400"></img>
