@@ -16,7 +16,7 @@ const requestButton = () => {
 
 export default function Space(props) {
   const [spaceData, setSpaceData] = useState({})
-  const [popUp, setPopUp] = useState(true)
+  const [popUp, setPopUp] = useState(false)
   const [visualMode, setVisualMode] = useState("SPACE_SHOW")
   const { space_id } = useParams();
 
@@ -68,7 +68,7 @@ export default function Space(props) {
     </Fragment>
   }
   {visualMode === "REQUEST_FORM" &&
-    <RentalRequest user_id={props.userId} space_id={space_id} setVisualMode={setVisualMode}/>
+    <RentalRequest user_id={props.userId} space_id={space_id} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
 }
 
         </article>

@@ -5,6 +5,11 @@ import { TextField, Button, Checkbox } from '@material-ui/core';
 export default function RequestForm(props) {
    const { formState, handleChange } = props;
 
+   const handleSubmit = () => {
+    props.setVisualMode("SPACE_SHOW")
+    props.setPopUp(true)
+   }
+
   return (
     <>
       <form>
@@ -94,7 +99,7 @@ export default function RequestForm(props) {
           inputProps={{ 'aria-label': 'secondary checkbox' }}
         />
 
-      <Button onClick={() => props.setVisualMode("SPACE_SHOW")} variant="contained" color="primary">
+      <Button onClick={handleSubmit} variant="contained" color="primary">
         Submit
       </Button>
         

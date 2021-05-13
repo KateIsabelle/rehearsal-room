@@ -82,6 +82,7 @@ export default function RentalRequest(props) {
         formState={formState}
         handleChange={handleChange}
         setVisualMode={props.setVisualMode}
+        setPopUp={props.setPopUp}
       />
     </>
   )
