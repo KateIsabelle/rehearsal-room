@@ -19,18 +19,7 @@ export default function BookingListItem(props) {
   }
   const shortDesc = shortenedUsageDesc(props.usage_description)
 
-  const handleConfirm = () => {
-    
-  }
-  const handleReject = () => {
 
-  }
-  const handleCancel = () => {
-
-  }
-  const handleDelete = () => {
-
-  }
 
 
   return (
@@ -63,12 +52,12 @@ export default function BookingListItem(props) {
       <strong> Time: </strong>{date} from {start_time} to {end_time}
       {props.status === "pending" &&
         <>
-        <Button label="Confirm"></Button>
-        <Button label="Reject"></Button>
+        <Button onClick={handleConfirm} label="Confirm"></Button>
+        <Button onClick={handleReject} label="Reject"></Button>
         </>
       }
       {props.status === "confirmed" &&
-        <Button label="Delete"></Button>
+        <Button onClick={handleDelete} label="Delete"></Button>
       }
       </>
     }
@@ -76,7 +65,7 @@ export default function BookingListItem(props) {
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{props.usage_description} |
       <strong> Time: </strong>{date} from {start_time} to {end_time}
-      <Button label="Cancel"></Button>
+      <Button onClick={handleCancel} label="Cancel"></Button>
       </>
     }
     </div>
