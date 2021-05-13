@@ -44,12 +44,12 @@ const space = {
 
 export default function RentalRequest(props) {
   const [formState, setFormState] = useState({
-    user_id: props.user_id,
+    user_id: props.user_id, 
     space_id: props.space_id,
     usage_descript: "",
-    date: new Date(),
-    start_time: "10:30:00",
-    end_time: "21:30:00",
+    date: "2021-05-20",
+    start_time: "10:30",
+    end_time: "21:30",
     used_before: false,
     multi_day_rental: false,
     alternative_payment: false
