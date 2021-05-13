@@ -2,6 +2,7 @@ import { Button } from '../Button/Button'
 import useReadableTimes from '../../hooks/useReadableTimes'
 
 export default function BookingListItem(props) {
+  const { userType } = props
   const [
     date,
     start_time,
@@ -15,19 +16,43 @@ export default function BookingListItem(props) {
     }
   }
 
+  const selected = props.selected === props.id;
+  const host = props.userType === "host"
+
   return (
     <div onClick={() => props.handleClick(props.id)}>
     {/* If this component is not the currently-selected component,
         we show a shortened listing with no buttons. */}
-    { props.selected !== props.id && <>
+    { !selected && host && <>
       <strong> From: </strong>{props.requester_name} |
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{shortenedUsageDesc(props.usage_description)} |
       <strong> Time: </strong>{date} from {start_time} to {end_time}
       </>
     }
-    { props.selected === props.id && <>
+    { !selected && !host && <>
+      <strong> Space: </strong>{props.space_name} |
+      <strong> Description: </strong>{shortenedUsageDesc(props.usage_description)} |
+      <strong> Time: </strong>{date} from {start_time} to {end_time}
+      </>
+    }
+    { selected && host && <>
       <strong> From: </strong>{props.requester_name} |
+      <strong> Space: </strong>{props.space_name} |
+      <strong> Description: </strong>{props.usage_description} |
+      <strong> Time: </strong>{date} from {start_time} to {end_time}
+      {props.status === "pending" &&
+        <>
+        <Button label="Confirm"></Button>
+        <Button label="Reject"></Button>
+        </>
+      }
+      {props.status === "confirmed" &&
+        <Button label="Delete"></Button>
+      }
+      </>
+    }
+    { selected && !host && <>
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{props.usage_description} |
       <strong> Time: </strong>{date} from {start_time} to {end_time}

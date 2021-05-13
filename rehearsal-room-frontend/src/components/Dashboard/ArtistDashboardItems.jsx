@@ -24,6 +24,7 @@ export default function ArtistDashboardItems(props) {
         <h2>My Bookings</h2>
         <BookingList
           bookings={bookings}
+          userType="artist"
           bookingType="all"
           emptyMessage="No booking requests!"
         />
