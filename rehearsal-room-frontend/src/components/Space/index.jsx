@@ -6,6 +6,7 @@ import Map from './Map'
 import RentalRequest from '../RentalRequest/index'
 import { Button } from '../Button/Button'
 import AmenitiesList from './AmenitiesList'
+import OpeningHoursTable from "./OpeningHoursTable";
 
 
 const requestButton = () => {
@@ -60,6 +61,8 @@ export default function Space(props) {
   {visualMode === "REQUEST_FORM" &&
     <RentalRequest user_id={props.userId} space_id={space_id} setVisualMode={setVisualMode}/>
 }
+
+    <OpeningHoursTable/>
         </article>
 
   )
