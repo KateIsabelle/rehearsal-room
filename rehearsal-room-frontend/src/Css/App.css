@@ -3,3 +3,7 @@
   width: 200px;
   background-color: blue;
 }
+
+.opening-hours-table table, .opening-hours-table th, .opening-hours-table td {
+  border: 1px solid black;
+}
