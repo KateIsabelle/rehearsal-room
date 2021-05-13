@@ -21,13 +21,13 @@ export default function Dashboard(props) {
         spacing={2}
       >
         <Grid item xs={3}>
-          <Paper bgcolor={palette.main} color="primary.contrastText">{user.first_name} {user.last_name}
+          <Paper >{user.first_name} {user.last_name}
             <img src={user.photo} width="90%" alt="profile"/>
             <p>{user.description}</p>
             <p><strong>{user.organization_name}</strong></p>
           </Paper>
         </Grid>
-        { user.is_host && <HostDashboardItems />}
+        { user.is_host && <HostDashboardItems hostId={user.id} />}
 
 
       </Grid>

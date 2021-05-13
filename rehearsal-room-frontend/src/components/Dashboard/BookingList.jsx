@@ -24,7 +24,7 @@ export default function BookingList(props) {
     ))
   return (
     <div>
-      {bookingList}
+      {bookingList.length > 0 ? bookingList : <strong>{props.emptyMessage}</strong>}
     </div>
   )
 }
