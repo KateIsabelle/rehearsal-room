@@ -52,6 +52,18 @@ module.exports = (db) => {
       .catch(err => err);
   }
 
+  const updateBookingStatus = (newStatus, bookingId) => {
+    const queryString = `
+      UPDATE bookings
+      SET status = $1
+      WHERE id = $2
+    `
+    const queryParams = [newStatus, bookingId];
+    return db.query(queryString, queryParams)
+      .then(result => result.rows)
+      .catch(err => err)
+  }
+
   const deleteBooking = (id) => {
     const queryString = `
       DELETE
@@ -70,6 +82,7 @@ module.exports = (db) => {
     getBookingsByUser,
     getHostBookings,
     addBooking,
+    updateBookingStatus,
     deleteBooking
   };
 }

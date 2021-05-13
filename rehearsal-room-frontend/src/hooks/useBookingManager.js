@@ -6,12 +6,16 @@ export default function useBookingManager(host, userId) {
   const [selectedBooking, setSelectedBooking] = useState(0)
 
 
-  // Handlers for various buttons in each booking item
+  // Handlers for confirming/rejecting/cancelling bookings
   const confirm = (id) => {
     console.log("confirmed!", id)
+    axios.put(`/api/bookings/${id}`, {status: 'confirmed'})
+    .catch(err => console.log(err))
   }
   const reject = (id) => {
     console.log("rejected!", id)
+    axios.put(`/api/bookings/${id}`, {status: 'rejected'})
+    .catch(err => console.log(err))
   }
   const cancel = (id) => {
     console.log("cancelled!", id)
@@ -19,6 +23,8 @@ export default function useBookingManager(host, userId) {
       .then(res => refreshBookings())
       .catch(err => console.log(err))
   }
+
+  // Handler for selecting bookings
   const select = (id) => {
     console.log("handleClick fired")
     id !== selectedBooking ? setSelectedBooking(id) : setSelectedBooking(0)
