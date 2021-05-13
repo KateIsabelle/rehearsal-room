@@ -7,6 +7,7 @@ import RentalRequest from '../RentalRequest/index'
 import { Button } from '../Button/Button'
 import AmenitiesList from './AmenitiesList'
 import OpeningHoursTable from "./OpeningHoursTable";
+import PopUp from './PopUp'
 
 
 const requestButton = () => {
@@ -15,8 +16,14 @@ const requestButton = () => {
 
 export default function Space(props) {
   const [spaceData, setSpaceData] = useState({})
+  const [popUp, setPopUp] = useState(false)
   const [visualMode, setVisualMode] = useState("SPACE_SHOW")
   const { space_id } = useParams();
+
+  const togglePop = () => {
+    setPopUp(false)
+   };
+
   useEffect(() => {
     axios({
       method: 'GET',
@@ -29,14 +36,17 @@ export default function Space(props) {
     .catch((err) => console.log("ERROR", err));
   }, [space_id]);
 
-  const dataList = Object.keys(spaceData).map(key => (
-    <li><strong>{key}</strong>: {`${spaceData[key]}`}</li>
+  const dataList = Object.keys(spaceData).map((key, index) => (
+    <li key={index}>
+      <strong>{key}</strong>: {`${spaceData[key]}`}
+    </li>
   ))
   return (
 
     <article className="">
   { visualMode === "SPACE_SHOW" &&
     <Fragment>
+      { popUp && <PopUp toggle={togglePop}/> }
       <h1>{spaceData.title}</h1>
       <p>{spaceData.city}, {spaceData.province}, {spaceData.country}</p>
       <img src={spaceData.cover_photo_url} alt="property" width="600" height="400"></img>
@@ -60,7 +70,7 @@ export default function Space(props) {
     </Fragment>
   }
   {visualMode === "REQUEST_FORM" &&
-    <RentalRequest user_id={props.userId} space_id={space_id} setVisualMode={setVisualMode}/>
+    <RentalRequest user_id={props.user_id} space_id={space_id} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
 }
 
         </article>
