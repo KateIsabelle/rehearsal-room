@@ -1,17 +1,17 @@
-.playing {
-  height: 200px;
-  width: 200px;
-  background-color: blue;
-}
+/* Error: expected "{".
+ *   ,
+ * 6 | @import '../components/Dashboard/BookingList';
+ *   |                                              ^
+ *   '
+ *   src/Sass/App.scss 6:46  root stylesheet */
 
-.opening-hours-table table, .opening-hours-table th, .opening-hours-table td {
-  border: 1px solid black;
-}
-
-.booking-list {
-  background-color: whitesmoke;
-}
-
-.booking-list-item:hover {
-  background-color: #cbddff;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: expected \"{\".\a   \2577 \a 6 \2502  @import '../components/Dashboard/BookingList';\a   \2502                                               ^\a   \2575 \a   src/Sass/App.scss 6:46  root stylesheet";
 }
