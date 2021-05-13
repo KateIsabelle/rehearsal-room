@@ -1,6 +1,7 @@
 
 // Custom Components
 import HostDashboardItems from './HostDashboardItems'
+import ArtistDashboardItems from './ArtistDashboardItems'
 
 // Material UI Components
 import { palette } from '@material-ui/system';
@@ -13,7 +14,7 @@ export default function Dashboard(props) {
 
   return (
     <Container maxWidth="lg">
-      <Grid 
+      <Grid
         container
         direction="row"
         justify="flex-start"
@@ -28,13 +29,13 @@ export default function Dashboard(props) {
           </Paper>
         </Grid>
         { user.is_host && <HostDashboardItems hostId={user.id} />}
+        <ArtistDashboardItems artistId={user.id} />
 
 
       </Grid>
     </Container>
   )
 }
-
 
 
 

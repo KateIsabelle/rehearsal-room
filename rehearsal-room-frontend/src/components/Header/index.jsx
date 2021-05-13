@@ -15,10 +15,10 @@ export default function Header(props) {
       <div>
       <div className="header-list">
         <NavLink to="/" component={Logo} />
-        
+
         <Link style={{textDecoration: 'none'}}><h3>About us</h3></Link>
 
-        
+
 
 
         </div>
