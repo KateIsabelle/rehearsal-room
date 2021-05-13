@@ -36,8 +36,10 @@ export default function Space(props) {
     .catch((err) => console.log("ERROR", err));
   }, [space_id]);
 
-  const dataList = Object.keys(spaceData).map(key => (
-    <li><strong>{key}</strong>: {`${spaceData[key]}`}</li>
+  const dataList = Object.keys(spaceData).map((key, index) => (
+    <li key={index}>
+      <strong>{key}</strong>: {`${spaceData[key]}`}
+    </li>
   ))
   return (
 
@@ -68,7 +70,7 @@ export default function Space(props) {
     </Fragment>
   }
   {visualMode === "REQUEST_FORM" &&
-    <RentalRequest user_id={props.userId} space_id={space_id} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
+    <RentalRequest user_id={props.user_id} space_id={space_id} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
 }
 
         </article>
