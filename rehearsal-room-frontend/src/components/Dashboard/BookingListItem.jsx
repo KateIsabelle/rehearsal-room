@@ -9,7 +9,9 @@ export default function BookingListItem(props) {
     }
   }
   return (
-    <div onclick={props.onClick}>
+    <div onClick={() => props.handleClick(props.id)}>
+    {/* If this component is not the currently-selected component,
+        we show a shortened listing with no buttons. */}
     { props.selected !== props.id && <>
       <strong> From: </strong>{props.requester_name} |
       <strong> Space: </strong>{props.space_name} |

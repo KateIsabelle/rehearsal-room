@@ -74,12 +74,12 @@ export default function HostDashboardItems(props) {
       spacing={2}
     >
       <Grid item>
-        <Paper>My Spaces
+        <Paper><h2>My Spaces</h2>
         </Paper>
       </Grid>
       <Grid item>
         <Paper>
-          Pending Booking Requests
+          <h2>Pending Booking Requests</h2>
           <BookingList 
             bookings={bookings}
             bookingType="pending"
@@ -88,7 +88,7 @@ export default function HostDashboardItems(props) {
       </Grid>
       <Grid item>
         <Paper>
-          Confirmed Bookings
+          <h2>Confirmed Bookings</h2>
           <BookingList
             bookings={bookings}
             bookingType="confirmed"

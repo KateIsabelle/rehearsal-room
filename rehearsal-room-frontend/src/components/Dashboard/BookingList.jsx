@@ -18,7 +18,7 @@ export default function BookingList(props) {
     .map(booking => (
       <BookingListItem
         key={booking.id}
-        onClick={() => handleClick(booking.id)}
+        handleClick={handleClick}
         selected={selectedBooking}
         {...booking} />
     ))
