@@ -9,13 +9,13 @@ export default function useBookingManager(host, userId) {
   // Handlers for confirming/rejecting/cancelling bookings
   const confirm = (id) => {
     console.log("confirmed!", id)
-    axios.put(`/api/bookings/${id}`, {status: 'confirmed'})
+    axios.put(`/api/bookings/${id}`, {status: 'Confirmed'})
       .then(refreshBookings)
       .catch(err => console.log(err))
   }
   const reject = (id) => {
     console.log("rejected!", id)
-    axios.put(`/api/bookings/${id}`, {status: 'rejected'})
+    axios.put(`/api/bookings/${id}`, {status: 'Rejected'})
     .then(refreshBookings)
     .catch(err => console.log(err))
   }

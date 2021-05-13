@@ -41,7 +41,8 @@ export default function BookingListItem(props) {
       <>
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{shortDesc} |
-      <strong> Time: </strong>{date} from {start_time} to {end_time}
+      <strong> Time: </strong>{date} from {start_time} to {end_time} |
+      <strong> Status: </strong>{props.status}
       </>
     }
     { selected && host &&
@@ -64,8 +65,12 @@ export default function BookingListItem(props) {
     { selected && !host && <>
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{props.usage_description} |
-      <strong> Time: </strong>{date} from {start_time} to {end_time}
-      <Button onClick={() => handlers.cancel(props.id)} label="Cancel"></Button>
+      <strong> Time: </strong>{date} from {start_time} to {end_time} |
+      <strong> Status: </strong>{props.status}
+      <Button
+        onClick={() => handlers.cancel(props.id)}
+        label={props.status === "Rejected" ? "Delete" : "Cancel" }
+      ></Button>
       </>
     }
     </div>
