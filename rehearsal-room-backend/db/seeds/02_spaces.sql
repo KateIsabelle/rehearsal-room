@@ -1,4 +1,4 @@
-INSERT INTO spaces (user_id, title, description, thumbnail_photo_url, cover_photo_url, country, street, city, province, post_code,  price_per_day, price_per_hour,  
+  INSERT INTO spaces (user_id, title, description, thumbnail_photo_url, cover_photo_url, country, street, city, province, post_code,  price_per_day, price_per_hour,  
   wifi,
   sound_proofing,
   sprung_floor,
@@ -24,9 +24,16 @@ INSERT INTO spaces (user_id, title, description, thumbnail_photo_url, cover_phot
   )
 VALUES (1, 
    'PL1422',
-   'description that is detailed', 
-   'http://cdn.home-designing.com/wp-content/uploads/2015/08/simple-interior-design.jpg', 
-   'http://cdn.home-designing.com/wp-content/uploads/2015/08/simple-interior-design.jpg', 
+   '42′ x 42′ rehearsal hall ||
+    sprung wood floor ||
+    dance floor negotiable ||
+    20′ ceilings ||
+    18′ grid: 1′ box truss in 1/2 the space, pipe in the other 1/2 || 
+    lighting, sound system, rigging points negotiable || 
+    kitchen + Rumpus Room access || 
+    flexible hours upon request', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620929315/Spaces/PL1422_zd6wyi.jpg', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620929315/Spaces/PL1422_zd6wyi.jpg', 
    'Canada', 
    '1422 William St', 
    'Vancouver', 
@@ -59,9 +66,13 @@ VALUES (1,
 ),
 (  3, 
    'Dusty Flower Shop',
-   'description that is detailed', 
-   'https://images.dwell.com/photos-6242537032151076864/6495845600185012224-medium/luckdrops-studio-is-a-one-bedroom-one-bathroom-shipping-container-home-with-287-square-feet-of-living-space-the-dollar38000-home-features-light-bright-and-modern-interiors-that-are-miles-away-from-what-you-might-expect-the-inside-of-a-shipping-container-t.jpg', 
-   'https://images.dwell.com/photos-6242537032151076864/6495845600185012224-medium/luckdrops-studio-is-a-one-bedroom-one-bathroom-shipping-container-home-with-287-square-feet-of-living-space-the-dollar38000-home-features-light-bright-and-modern-interiors-that-are-miles-away-from-what-you-might-expect-the-inside-of-a-shipping-container-t.jpg',
+   'The Dusty Flower Shop is a Mini Black-Box Theatre
+    Surrounded by Floor-to-Ceiling Black Curtains || 400 Square Foot
+    Sprung Dance Floor || Full Length Mirror || Movable Wings & Risers
+    Mats & Stage Furniture || Track Lighting & 
+    Simple Threatrical Lighting || Stereo System || Costume Library || Wheelchair Accessible', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620929540/Spaces/Dusty_Flower_Shop_intlzc.webp', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620929540/Spaces/Dusty_Flower_Shop_intlzc.webp',
    'Canada', 
    '345 Prior Street', 
    'Vancouver', 
@@ -94,9 +105,9 @@ VALUES (1,
 ),
 (  3, 
    'China Cloud',
-   'description', 
-   'https://snobette.com/wp-content/uploads/2020/04/drake-toronto-home-interior-1024x752.jpg', 
-   'https://snobette.com/wp-content/uploads/2020/04/drake-toronto-home-interior-1024x752.jpg', 
+   'China Cloud Studios is a multifunctional space, housing a diverse collective of artists and musicians. A flexible space for a quick practice. Daytime use only.', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620929852/Spaces/China_Cloud_xcezyz.jpg', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620929852/Spaces/China_Cloud_xcezyz.jpg', 
    'Canada', 
    '524 Main St.', 
    'Vancouver', 
@@ -128,8 +139,8 @@ VALUES (1,
 (  4, 
    'Mount Pleasant Legion',
    'basement space', 
-   'https://i.pinimg.com/originals/00/1a/40/001a40069ceb074d63c3702e70c416c2.jpg', 
-   'https://i.pinimg.com/originals/00/1a/40/001a40069ceb074d63c3702e70c416c2.jpg', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620930195/Spaces/Mount_Pleasant_Legion_pixrik.jpg', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620930195/Spaces/Mount_Pleasant_Legion_pixrik.jpg', 
    'Canada', 
    '2655 Main St.', 
    'Vancouver', 
@@ -163,8 +174,8 @@ VALUES (1,
 (  4, 
    'Trinity Grace United Church',
    'congregation space', 
-   'https://static.giggster.com/images/location/fe135fbe-78f8-414f-b678-f9d71af96644/d079a02c-6315-4f70-b441-f2ad44dc0883/full_hd_retina.jpeg', 
-   'https://static.giggster.com/images/location/fe135fbe-78f8-414f-b678-f9d71af96644/d079a02c-6315-4f70-b441-f2ad44dc0883/full_hd_retina.jpeg', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620930277/Spaces/Trinity_grace_united_church_cavp42.jpg', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620930277/Spaces/Trinity_grace_united_church_cavp42.jpg', 
    'Canada', 
    '803 E 16th Ave', 
    'Vancouver', 
@@ -198,8 +209,8 @@ VALUES (1,
 (  3, 
    'Elm Park Field House',
    'in park space', 
-   'https://d4qwptktddc5f.cloudfront.net/Interior-Design-Carol-Kurth-Architecture-Laura-Bohn-Design-Associates-idx191102_lb01_3-WHOMES19.jpg', 
-   'https://d4qwptktddc5f.cloudfront.net/Interior-Design-Carol-Kurth-Architecture-Laura-Bohn-Design-Associates-idx191102_lb01_3-WHOMES19.jpg', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620930436/Spaces/hadden-park-21_nwrvaq.jpg', 
+   'https://res.cloudinary.com/dyo7gkw5s/image/upload/v1620930436/Spaces/hadden-park-21_nwrvaq.jpg', 
    'Canada', 
    'Elm Park, Elm St', 
    'Vancouver', 
@@ -233,8 +244,8 @@ VALUES (1,
 (  4, 
    'Whatlab',
    'description ceiling fans', 
-   'https://i.pinimg.com/originals/96/e4/8b/96e48b7a56ef991978dc4a9dc0746d3d.jpg', 
-   'https://i.pinimg.com/originals/96/e4/8b/96e48b7a56ef991978dc4a9dc0746d3d.jpg', 
+   'https://cdn-prod.thisopenspace.com/photos/files/000/069/378/small/IMG-20190522-WA0012.jpg?1558646273', 
+   'https://cdn-prod.thisopenspace.com/photos/files/000/069/378/small/IMG-20190522-WA0012.jpg?1558646273', 
    'Canada', 
    '1814 Pandora St', 
    'Vancouver', 
@@ -267,9 +278,9 @@ VALUES (1,
 ),
 (  3, 
    'GoldSaucer',
-   'description', 
-   'https://images.designtrends.com/wp-content/uploads/2016/09/30145835/Square-Backyard-Garden-Design1.jpg', 
-   'https://images.designtrends.com/wp-content/uploads/2016/09/30145835/Square-Backyard-Garden-Design1.jpg', 
+   'descriptionIn vel quam orci. Suspendisse potenti. Curabitur eget aliquam ex. Praesent ullamcorper scelerisque egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum viverra magna, ut gravida massa lacinia at. Fusce blandit quis lectus ac iaculis.', 
+   'https://cdn-prod.thisopenspace.com/photos/files/000/097/060/small/Screen_Shot_2020-12-13_at_6.17.21_PM.png?1607912256', 
+   'https://cdn-prod.thisopenspace.com/photos/files/000/097/060/small/Screen_Shot_2020-12-13_at_6.17.21_PM.png?1607912256', 
    'Canada', 
    '207 W Hastings St', 
    'Vancouver', 
@@ -338,3 +349,10 @@ VALUES (1,
   
    TRUE --active
 );
+
+
+
+
+
+
+
