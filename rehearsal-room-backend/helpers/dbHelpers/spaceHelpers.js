@@ -35,6 +35,19 @@ module.exports = (db) => {
       .catch(err => err);
   }
 
+  const getSpacesByUserId = userId => {
+    const queryString = `
+      SELECT *
+      FROM spaces
+      WHERE user_id = $1
+    `
+    const queryParams = [userId]
+
+    return db.query(queryString, queryParams)
+      .then(result => result.rows)
+      .catch(err => err);
+  }
+
   //to display for space/:id
   const getSpaceById = (id) => {
     const queryString = `
