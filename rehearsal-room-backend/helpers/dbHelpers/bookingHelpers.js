@@ -26,8 +26,8 @@ module.exports = (db) => {
     SELECT
       bookings.*,
       users.id AS requester_id,
-      CONCAT(users.first_name, ' ', users.last_name) AS requester_name
-      spaces.title AS space_name,
+      CONCAT(users.first_name, ' ', users.last_name) AS requester_name,
+      spaces.title AS space_name
     FROM bookings
     JOIN users ON bookings.user_id = users.id
     JOIN spaces ON bookings.space_id = spaces.id
@@ -39,7 +39,7 @@ module.exports = (db) => {
 
     return db.query(queryString, queryParams)
     .then(result => result.rows)
-    // .catch(err => err)
+    .catch(err => err)
   }
 
   const addBooking = (bookingData) => {
