@@ -3,7 +3,7 @@ import useReadableTimes from '../../hooks/useReadableTimes'
 import axios from 'axios'
 
 export default function BookingListItem(props) {
-  const { selected, host} = props
+  const { selected, host, handlers } = props
   const [
     date,
     start_time,
@@ -25,7 +25,7 @@ export default function BookingListItem(props) {
   return (
     <div
       className="booking-list-item"
-      onClick={() => props.handleClick(props.id)}
+      onClick={() => handlers.select(props.id)}
     >
     {/* If this component is not the currently-selected component,
         we show a shortened listing with no buttons. */}
@@ -52,12 +52,12 @@ export default function BookingListItem(props) {
       <strong> Time: </strong>{date} from {start_time} to {end_time}
       {props.status === "pending" &&
         <>
-        <Button onClick={handleConfirm} label="Confirm"></Button>
-        <Button onClick={handleReject} label="Reject"></Button>
+        <Button onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
+        <Button onClick={() => handlers.reject(props.id)} label="Reject"></Button>
         </>
       }
       {props.status === "confirmed" &&
-        <Button onClick={handleDelete} label="Delete"></Button>
+        <Button onClick={() => handlers.cancel(props.id)} label="Cancel"></Button>
       }
       </>
     }
@@ -65,7 +65,7 @@ export default function BookingListItem(props) {
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{props.usage_description} |
       <strong> Time: </strong>{date} from {start_time} to {end_time}
-      <Button onClick={handleCancel} label="Cancel"></Button>
+      <Button onClick={() => handlers.cancel(props.id)} label="Cancel"></Button>
       </>
     }
     </div>

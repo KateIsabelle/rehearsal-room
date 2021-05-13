@@ -4,22 +4,21 @@ import axios from 'axios'
 // Custom components
 import BookingListItem from './BookingListItem'
 
+// Custom hooks
+import useBookingManager from '../../hooks/useBookingManager'
+
 export default function BookingList(props) {
   const { bookingType, userId, host } = props;
-  const [selectedBooking, setSelectedBooking] = useState(0)
+  const {
+    bookings,
+    selectedBooking,
+    bookingHandlers,
+    refreshBookings
+  } = useBookingManager(host, userId);
 
-  const handleClick = (id) => {
-    console.log("handleClick fired")
-    id !== selectedBooking ? setSelectedBooking(id) : setSelectedBooking(0)
-  }
-
-
-  const [bookings, setBookings] = useState([])
   useEffect(() => {
-    axios.get(`/api/bookings/${host ? "host/" : ""}${userId}`)
-      .then(res => setBookings(res.data))
-      .catch(err => console.log(err))
-  }, [userId, host])
+    refreshBookings();
+  }, [refreshBookings])
 
   const bookingList =
     bookings
@@ -28,7 +27,7 @@ export default function BookingList(props) {
       <BookingListItem
         key={booking.id}
         host={host}
-        handleClick={handleClick}
+        handlers={bookingHandlers}
         selected={selectedBooking === booking.id}
         {...booking} />
     ))

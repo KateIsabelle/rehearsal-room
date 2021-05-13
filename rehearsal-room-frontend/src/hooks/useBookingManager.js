@@ -1,22 +1,40 @@
-export default function useBookingManager() {
-  const handleConfirm = (id) => {
+import axios from 'axios'
+import { useState } from 'react'
+
+export default function useBookingManager(host, userId) {
+  const [bookings, setBookings] = useState([])
+  const [selectedBooking, setSelectedBooking] = useState(0)
+
+  const confirm = (id) => {
     console.log("confirmed!", id)
   }
-  const handleReject = (id) => {
+  const reject = (id) => {
     console.log("rejected!", id)
   }
-  const handleCancel = (id) => {
+  const cancel = (id) => {
     console.log("cancelled!", id)
   }
-  const handleDelete = (id) => {
-    console.log("deleted!", id)
+  const select = (id) => {
+    console.log("handleClick fired")
+    id !== selectedBooking ? setSelectedBooking(id) : setSelectedBooking(0)
+  }
+
+  const refreshBookings = () => {
+    axios.get(`/api/bookings/${host ? "host/" : ""}${userId}`)
+      .then(res => setBookings(res.data))
+      .catch(err => console.log(err))
   }
 
   return {
-    handleConfirm,
-    handleReject,
-    handleCancel,
-    handleDelete
+    bookings,
+    selectedBooking,
+    bookingHandlers: {
+      confirm,
+      reject,
+      cancel,
+      select
+    },
+    refreshBookings,
   }
 }
 
