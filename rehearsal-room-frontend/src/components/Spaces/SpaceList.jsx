@@ -1,4 +1,5 @@
 import SpaceListItem from './SpaceListItem'
+import './_Spaces.scss'
 
 export default function SpaceList(props) {
 
@@ -13,8 +14,8 @@ export default function SpaceList(props) {
     )
 
   return (
-    <ul>
-    {list}
-    </ul>
+    <div className="space_list">
+      {list}
+    </div>
   )
 }

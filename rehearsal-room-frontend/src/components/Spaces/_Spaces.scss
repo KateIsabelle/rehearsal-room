@@ -1,0 +1,18 @@
+.space_list { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap;
+  
+}
+
+.item {
+  border: 1px solid black;
+  padding: 2px;
+  margin-top: 8px;
+}
+
+.pict {
+  height: "200px";
+  width: "200px";
+}
