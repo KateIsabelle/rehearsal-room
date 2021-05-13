@@ -1,9 +1,15 @@
+import { Fragment } from "react";
 
 export default function OpeningHoursTable(props) {
 
 return (
-<table>
+<Fragment>
+
+<table class="opening-hours-table">
     <thead>
+        <tr>
+            <th colspan="7">Available Hours:</th>
+        </tr>
         <tr>
             <th colspan="1">Monday</th>
             <th colspan="1">Tuesday</th>
@@ -27,5 +33,6 @@ return (
         </tr>
     </tbody>
 </table>
+</Fragment>
   )
 }

@@ -49,6 +49,7 @@ export default function Space(props) {
 
       <h3>Features:</h3>
       <AmenitiesList spaceData={spaceData}/>
+      <OpeningHoursTable/>
 
       <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
 
@@ -62,7 +63,6 @@ export default function Space(props) {
     <RentalRequest user_id={props.userId} space_id={space_id} setVisualMode={setVisualMode}/>
 }
 
-    <OpeningHoursTable/>
         </article>
 
   )
