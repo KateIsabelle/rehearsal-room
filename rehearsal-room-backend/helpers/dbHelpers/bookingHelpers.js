@@ -52,10 +52,24 @@ module.exports = (db) => {
       .catch(err => err);
   }
 
+  const deleteBooking = (id) => {
+    const queryString = `
+      DELETE
+      FROM bookings
+      WHERE id = $1
+      RETURNING *
+    `
+    const queryParams = [id]
+    return db.query(queryString, queryParams)
+      .then(result => result.rows)
+      .catch(err => err);
+  }
+
   return {
     getBookings,
     getBookingsByUser,
     getHostBookings,
-    addBooking
+    addBooking,
+    deleteBooking
   };
 }

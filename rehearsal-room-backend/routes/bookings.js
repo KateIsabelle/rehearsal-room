@@ -5,7 +5,8 @@ module.exports = ({
   getBookings,
   getBookingsByUser,
   getHostBookings,
-  addBooking
+  addBooking,
+  deleteBooking
 }) => {
   // GET bookings
   router.get('/', (req, res) => {
@@ -34,6 +35,14 @@ module.exports = ({
   router.post('/', (req, res) => {
     const { bookingData } = req.body
     addBooking(bookingData)
+      .then(booking => res.json(booking))
+      .catch(err => res.json({error: err.message}));
+  })
+
+  // DELETE a booking from the db
+  router.delete('/:booking_id', (req, res) => {
+    const booking_id = req.params.booking_id
+    deleteBooking(booking_id)
       .then(booking => res.json(booking))
       .catch(err => res.json({error: err.message}));
   })
