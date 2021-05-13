@@ -29,7 +29,7 @@ export default function HostDashboardItems(props) {
           <h2>Pending Booking Requests</h2>
           <BookingList
             bookings={bookings}
-            userType="host"
+            host={true}
             bookingType="pending"
             emptyMessage="No pending requests!"
           />
@@ -40,7 +40,7 @@ export default function HostDashboardItems(props) {
           <h2>Confirmed Bookings</h2>
           <BookingList
             bookings={bookings}
-            userType="host"
+            host={true}
             bookingType="confirmed"
             emptyMessage="No bookings currently confirmed!"
           />

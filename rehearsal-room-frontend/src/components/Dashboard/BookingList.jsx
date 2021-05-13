@@ -4,7 +4,7 @@ import { useState } from 'react'
 import BookingListItem from './BookingListItem'
 
 export default function BookingList(props) {
-  const { bookings, bookingType, userType } = props;
+  const { bookings, bookingType, userType, host } = props;
   const [selectedBooking, setSelectedBooking] = useState(0)
 
   const handleClick = (id) => {
@@ -18,9 +18,10 @@ export default function BookingList(props) {
     .map(booking => (
       <BookingListItem
         key={booking.id}
+        host={host}
         userType={userType}
         handleClick={handleClick}
-        selected={selectedBooking}
+        selected={selectedBooking === booking.id}
         {...booking} />
     ))
   return (
