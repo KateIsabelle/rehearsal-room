@@ -19,9 +19,6 @@ import Space from './Space'
 import Spaces from './Spaces'
 import Login from './Login'
 
-// Images
-import logo from '../../src/logo.svg';
-
 // CSS
 import './App.css';
 
@@ -35,31 +32,6 @@ export default function App() {
     <Router>
       <div className="App" >
         <Header user={state.user}/>
-        <h2>Route tester (can remove once general site navigation works):</h2>
-        <ul>
-          <li>
-            <Link to="/">Root</Link>
-          </li>
-          <li>
-            <Link to="/login">Login page</Link>
-          </li>
-          <li>
-            <span>Quick login as:
-            <a onClick={() => setUserInfo("mabel.g@ythecultch.ca")}> Mabel</a> |
-            <a onClick={() => setUserInfo("dv1234@gmail.com")}> Declan</a> |
-            <a onClick={() => setUserInfo("the_man422@hotmail.com")}> Bob</a> |
-            <a onClick={() => setUserInfo("blue.steel@gmail.com")}> Zoolander</a> |
-            <a onClick={() => setUserInfo("petty_s123@gmail.com")}> Petunia</a> |
-            </span>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-
         <Switch> 
         { !state.user ? /* 1st: non-logged in user path */
         <Fragment>

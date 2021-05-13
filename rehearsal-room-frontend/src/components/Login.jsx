@@ -27,6 +27,11 @@ const handleChange = function(e) {
       </label>
       <div>
         <Button size="small" label="Login"  onClick={() => handleSubmit(email)} ></Button>
+        <Button size="small" label="Login as Mabel"  onClick={() => handleSubmit("mabel.g@ythecultch.ca")} ></Button>
+        <Button size="small" label="Login as Declan"  onClick={() => handleSubmit("dv1234@gmail.com")} ></Button>
+        <Button size="small" label="Login as Bob"  onClick={() => handleSubmit("the_man422@hotmail.com")} ></Button>
+        <Button size="small" label="Login as Derrick"  onClick={() => handleSubmit("blue.steel@gmail.com")} ></Button>
+        <Button size="small" label="Login as Petunia"  onClick={() => handleSubmit("petty_s123@gmail.com")} ></Button>
       </div>
       <div className="playing"></div>
     </form>
