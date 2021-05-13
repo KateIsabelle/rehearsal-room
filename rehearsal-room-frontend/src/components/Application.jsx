@@ -34,55 +34,32 @@ export default function App() {
     <Router>
       <div className="App" >
         <Header user={state.user}/>
-        <Switch> 
-        { !state.user ? /* 1st: non-logged in user path */
-        <Fragment>
+        <Switch>
           <Route exact path="/">
             <HeroV1 />
             <CityList />
           </Route>
           <Route path="/register">
-            <Register />
+            { !state.user && <Register /> }
+            { state.user && <Redirect to="/dashboard" /> }
           </Route>
           <Route path="/login">
-            <Login onLogin={setUserInfo}/>
+            { !state.user && <Login onLogin={setUserInfo}/> }
+            { state.user && <Redirect to="/dashboard" /> }
           </Route>
           <Route path="/spaces/:city">
             <HeroV1 />
             <Spaces />
           </Route>
           <Route path="/space/:space_id">
-            <Space user_id={null} />
+            { !state.user && <Space user_id={null} /> }
+            { state.user && <Space user_id={state.user.id}/> }
           </Route>
           <Route path="/dashboard">
-            <p>No dashboard for you. Get outta here</p>
+            { !state.user && <Redirect to="/login"/> }
+            { state.user && <Dashboard user={state.user} /> }
           </Route>
-        </Fragment> 
-        : /* 2nd: logged-in user path */
-        <Fragment>
-          <Route exact path="/">
-            <HeroV1 />
-            <CityList />
-          </Route>
-          <Route path="/spaces/:city">
-            <HeroV1 />
-            <Spaces />
-          </Route>
-          <Route path="/space/:space_id">
-            <Space user_id={state.user.id}/>
-          </Route>
-          <Route path="/register">
-            <p>Register route: You're already logged in!</p>
-          </Route>
-          <Route path="/login">
-            <Redirect to="/dashboard" />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard user={state.user} />
-          </Route>
-         
-          </Fragment> }
-        </Switch> 
+        </Switch>
         
       </div >
     </Router>
