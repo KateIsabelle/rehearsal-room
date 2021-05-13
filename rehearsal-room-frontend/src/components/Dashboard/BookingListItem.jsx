@@ -5,12 +5,13 @@ import axios from 'axios'
 
 export default function BookingListItem(props) {
   const { selected, host, handlers } = props
-  const [
+  // Custom hook, probably made obsolete by schema changes
+/*   const [
     date,
     start_time,
     end_time
   ] = useReadableTimes(props.start_time, props.end_time)
-
+ */
   const shortenedUsageDesc = (desc) => {
     if (desc.length > 40) {
       return `${desc.slice(0, 40).trim()}...`
@@ -35,14 +36,14 @@ export default function BookingListItem(props) {
       <strong> From: </strong>{props.requester_name} |
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{shortDesc} |
-      <strong> Time: </strong>{date} from {start_time} to {end_time}
+      <strong> Time: </strong>{props.date} from {props.start_time} to {props.end_time}
       </>
     }
     { !selected && !host &&
       <>
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{shortDesc} |
-      <strong> Time: </strong>{date} from {start_time} to {end_time} |
+      <strong> Time: </strong>{props.date} from {props.start_time} to {props.end_time} |
       <strong> Status: </strong>{upcase(props.status)}
       </>
     }
@@ -51,7 +52,7 @@ export default function BookingListItem(props) {
       <strong> From: </strong>{props.requester_name} |
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{props.usage_description} |
-      <strong> Time: </strong>{date} from {start_time} to {end_time}
+      <strong> Time: </strong>{props.date} from {props.start_time} to {props.end_time}
       {props.status === "pending" &&
         <>
         <Button onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
@@ -66,7 +67,7 @@ export default function BookingListItem(props) {
     { selected && !host && <>
       <strong> Space: </strong>{props.space_name} |
       <strong> Description: </strong>{props.usage_description} |
-      <strong> Time: </strong>{date} from {start_time} to {end_time} |
+      <strong> Time: </strong>{props.date} from {props.start_time} to {props.end_time} |
       <strong> Status: </strong>{upcase(props.status)}
       <Button
         onClick={() => handlers.cancel(props.id)}
