@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
   Link,
+  Redirect,
   useParams
 } from "react-router-dom";
 import { Fragment, useEffect } from "react";
@@ -74,7 +75,7 @@ export default function App() {
             <p>Register route: You're already logged in!</p>
           </Route>
           <Route path="/login">
-            <p>Logged in route: You're already logged in!</p>
+            <Redirect to="/dashboard" />
           </Route>
           <Route path="/dashboard">
             <Dashboard user={state.user} />
