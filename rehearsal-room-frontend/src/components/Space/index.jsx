@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios'
 
 import Map from './Map'
@@ -19,12 +19,6 @@ export default function Space(props) {
   const [popUp, setPopUp] = useState(false)
   const [visualMode, setVisualMode] = useState("SPACE_SHOW")
   const { space_id } = useParams();
-
-  const history = useHistory();
-  const routeChange = () =>{ 
-    let path = `/spaces/vancouver`; 
-    history.push(path);
-  }
 
   const togglePop = () => {
     setPopUp(false)
@@ -52,9 +46,10 @@ export default function Space(props) {
     <article className="">
   { visualMode === "SPACE_SHOW" &&
     <Fragment>
-    <Button size="small" label="Browse Spaces"  onClick={routeChange} ></Button>
-
-      { popUp && <PopUp toggle={togglePop}/> }
+      { popUp &&
+        <PopUp toggle={togglePop}>
+          <p className="popup-content">Request Made!</p>
+        </PopUp> }
       <h1>{spaceData.title}</h1>
       <p>{spaceData.city}, {spaceData.province}, {spaceData.country}</p>
       <img src={spaceData.cover_photo_url} alt="property" width="600" height="400"></img>

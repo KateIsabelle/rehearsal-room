@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import BookingList from './BookingList'
 import SpaceList from '../Spaces/SpaceList'
 import { Button } from '../Button/Button'
+import PopUp from '../Space/PopUp'
+import SpaceCreateForm from '../Space/SpaceCreateForm'
 
 // Custom hooks
 import useBookingManager from '../../hooks/useBookingManager'
@@ -18,6 +20,8 @@ import axios from 'axios';
 
 export default function Dashboard(props) {
   const { user } = props;
+  const [createSpace, setCreateSpace] = useState(false)
+  const [popUp, setPopUp] = useState(false)
 
   // All bookings on the dashboard page are stored in the bookings state.
   // selectedBooking controls which booking is "expanded" currently.
@@ -38,85 +42,103 @@ export default function Dashboard(props) {
       .catch(err => console.log(err))
   }, [user.id])
 
-  return (
-    <Container maxWidth="lg">
-      <Grid
-        container
-        direction="row"
-        justify="flex-start"
-        align-items="center"
-        spacing={2}
-      >
-        <Grid item xs={3}>
-          <Paper >
-            {user.first_name} {user.last_name}
-            { user.organization_name && <p><strong>Organization: </strong>{user.organization_name}</p>}
-            <img src={user.photo} width="90%" alt="profile"/>
-            <p>{user.description}</p>
-          </Paper>
-        </Grid>
+  const handleCreateSpaceSubmit = () => {
+    setCreateSpace(false)
+    setPopUp(true)
+  }
 
+  return (
+    <>
+    {popUp && <PopUp toggle={() => setPopUp(false)}>New space created!</PopUp>}
+    {createSpace &&
+      <SpaceCreateForm 
+        onSubmit={handleCreateSpaceSubmit}
+      />}
+    {!createSpace &&
+      <Container maxWidth="lg">
         <Grid
           container
-          item
-          direction="column"
+          direction="row"
           justify="flex-start"
-          xs={9}
+          align-items="center"
           spacing={2}
         >
-          { user.is_host && 
-            <>
-              <Grid item>
-                <Paper><h2>My Spaces</h2>
-                  <Button label="Add a new Space"></Button>
-                  <SpaceList spaces={spaces} />
-                </Paper>
-              </Grid>
-              <Grid item>
-                <Paper>
-                  <BookingList
-                    host={true}
-                    bookings={bookings.host}
-                    bookingHandlers={bookingHandlers}
-                    selectedBooking={selectedBooking}
-                    bookingType="pending"
-                    title="Pending Booking Requests"
-                    emptyMessage="No pending requests!"
-                  />
-                </Paper>
-              </Grid>
-              <Grid item>
-                <Paper>
-                  <BookingList
-                    host={true}
-                    bookings={bookings.host}
-                    bookingHandlers={bookingHandlers}
-                    selectedBooking={selectedBooking}
-                    bookingType="confirmed"
-                    title="Confirmed Bookings"
-                    emptyMessage="No bookings currently confirmed!"
-                  />
-                </Paper>
-              </Grid>
-            </>
-          }
-          <Grid item>
-            <Paper>
-              <BookingList
-                host={false}
-                bookings={bookings.artist}
-                bookingHandlers={bookingHandlers}
-                selectedBooking={selectedBooking}
-                bookingType="all"
-                title="My Bookings"
-                emptyMessage="No booking requests!"
-              />
+          <Grid item xs={3}>
+            <Paper >
+              {user.first_name} {user.last_name}
+              { user.organization_name && <p><strong>Organization: </strong>{user.organization_name}</p>}
+              <img src={user.photo} width="90%" alt="profile"/>
+              <p>{user.description}</p>
             </Paper>
           </Grid>
-        </Grid>
 
-      </Grid>
-    </Container>
+          <Grid
+            container
+            item
+            direction="column"
+            justify="flex-start"
+            xs={9}
+            spacing={2}
+          >
+            { user.is_host && 
+              <>
+                <Grid item>
+                  <Paper>
+                    <h2>My Spaces</h2>
+                    <Button
+                      onClick={() => setCreateSpace(true)}
+                      label="Add a new Space"
+                    ></Button>
+                    <SpaceList spaces={spaces} />
+                  </Paper>
+                </Grid>
+                <Grid item>
+                  <Paper>
+                    <BookingList
+                      host={true}
+                      bookings={bookings.host}
+                      bookingHandlers={bookingHandlers}
+                      selectedBooking={selectedBooking}
+                      bookingType="pending"
+                      title="Pending Booking Requests"
+                      emptyMessage="No pending requests!"
+                    />
+                  </Paper>
+                </Grid>
+                <Grid item>
+                  <Paper>
+                    <BookingList
+                      host={true}
+                      bookings={bookings.host}
+                      bookingHandlers={bookingHandlers}
+                      selectedBooking={selectedBooking}
+                      bookingType="confirmed"
+                      title="Confirmed Bookings"
+                      emptyMessage="No bookings currently confirmed!"
+                    />
+                  </Paper>
+                </Grid>
+              </>
+            }
+            <Grid item>
+              <Paper>
+                <BookingList
+                  host={false}
+                  bookings={bookings.artist}
+                  bookingHandlers={bookingHandlers}
+                  selectedBooking={selectedBooking}
+                  bookingType="all"
+                  title="My Bookings"
+                  emptyMessage="No booking requests!"
+                />
+              </Paper>
+            </Grid>
+          </Grid>
+
+        </Grid>
+      </Container>
+    }
+    </>
   )
 }
 

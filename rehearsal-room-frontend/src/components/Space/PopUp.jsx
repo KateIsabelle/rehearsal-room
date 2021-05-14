@@ -8,7 +8,7 @@ export default function PopUp(props) {
     <div className="popup">
       <div className="">
         <div className="close" onClick={handleClick}>&times;</div>
-        <p className="popup-content">Request Made!</p>
+        {props.children}
       </div>
     </div>
 
