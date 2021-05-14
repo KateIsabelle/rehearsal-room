@@ -310,7 +310,7 @@ VALUES (1,
   
    TRUE --active
 ),
-(  4, 
+(  1, 
    'Capoeira Ache Brazil Academy',
    'Beautiful, spacious and well lit space. Fully equipped, great for workshops, dance, fitness, martial arts, etc.
    For weekdays before 5 pm, the fee is $30. For weeknights or bigger gatherings the fee is higher. Please inquire.
