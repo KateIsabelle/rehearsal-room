@@ -3,7 +3,27 @@ import axios from 'axios'
 
 export default function CloudinaryUpload() {
   //previewSource is a base-64 encoded string that represents the image 
-  const [previewSource, setPreviewSource] = useState()
+  const [previewSource, setPreviewSource] = useState("")
+
+  //dummy data for form stand-in:
+  const spaceData = {
+    user_id: 1,
+    title: 'The most awesomest',
+    description: 'Very awesome place',
+    // thumbnail_photo_url: url,
+    // cover_photo_url: url,
+    country: 'Canada',
+    street: '1895 Venables',
+    city: 'Vancouver',
+    province: 'BC',
+    post_code: 'BC V5L 2H6',
+    price_per_day: 18000,
+    price_per_hour: 4000
+  }
+  const mapData = {
+    latitude: 49.276700,
+    longitude: -123.066109
+  }
 
   //sets previewSource when file chosen
   const previewFile = file => {
@@ -20,7 +40,7 @@ export default function CloudinaryUpload() {
   }
   //makes post request to backend
   const uploadImage = base64EncodedImage => {
-    axios.post('/api/upload', {data: base64EncodedImage})
+    axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData, mapData})
   }
   //on submit, calls uploadImage with previewSource
   const handleSubmitFile = e => {
