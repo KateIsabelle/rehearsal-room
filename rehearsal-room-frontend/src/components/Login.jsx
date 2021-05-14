@@ -23,6 +23,7 @@ const handleChange = function(e) {
 };
  
   return (
+    <>
     <form onSubmit={event => event.preventDefault()}>
       <label>
         <p>Username</p>
@@ -41,12 +42,12 @@ const handleChange = function(e) {
         <Button size="small" label="Login as Petunia"  onClick={() => handleSubmit("petty_s123@gmail.com")} ></Button>
       </div>
       <div className="playing"></div>
+      </form>
       <CloudinaryUpload />
-    </form>
-  
+    </>
   )
 }
 
-// 'dv1234@gmail.com'
+
 
 

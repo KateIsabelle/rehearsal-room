@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios'
 
 export default function CloudinaryUpload() {
   const [fileInput, setFileInput] = useState("")
@@ -14,6 +15,18 @@ export default function CloudinaryUpload() {
     }
   }
 
+  const handleSubmitFile = e => {
+    console.log("submitting")
+    e.preventDefault();
+    if(!previewSource) return;
+    uploadImage(previewSource);
+
+  }
+
+  const uploadImage = base64EncodedImage => {
+    axios.post('/api/upload', {})
+  }
+
   const handleFileInputChange = e => {
     const file = e.target.files[0] // just takes one file
     previewFile(file)
@@ -22,7 +35,7 @@ export default function CloudinaryUpload() {
   return (
     <div className="cloudinary-upload">
       <h1>Upload</h1>
-      <form>
+      <form onSubmit={handleSubmitFile}>
         <input 
           type="file" 
           name="image" 
