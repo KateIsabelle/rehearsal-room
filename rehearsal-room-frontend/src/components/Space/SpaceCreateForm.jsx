@@ -1,6 +1,10 @@
 import React from "react";
 import { TextField, Checkbox } from '@material-ui/core';
 import { Button as ButtonS } from '../Button/Button'
+import { makeStyles } from '@material-ui/core/styles';
+
+import './_SpaceCreateForm.scss';
+
 
 
 
@@ -22,71 +26,73 @@ export default function SpaceCreateForm(props) {
       <form>
         <h1>Create A New Space Listing</h1>
 
-        <label for="title">
-          Title for space listing:
-        </label>
-        <TextField name="title" id="keyword" name="keyword" variant="outlined" />
+        <div className="text-inputs">
+          <label for="title">
+            Title for space listing:
+          </label>
+          <input name='title'></input>
 
-        <label for="description">
-          Details to describe the space (Hint: this would be a good place to add a couple guidelines):
-        </label>
-            <TextField name="description" id="outlined-basic" style={{ width: "500px" }} variant="outlined" />
-        
-
-        <h2>Photos</h2>
-
-        <label for="thumbnail_photo_url">
-          Input url link for main listing page thumbnail photo:
-        </label>
-        <TextField name="thumbnail_photo_url" id="keyword" name="keyword" variant="outlined" />
-
-        <label for="cover_photo_url">
-          Input url link for space specific cover photo photo:
-        </label>
-        <TextField name="cover_photo_url" id="keyword" name="keyword" variant="outlined" />
+          <label for="description">
+            Details to describe the space (Hint: this would be a good place to add a couple guidelines):
+          </label>
+            <input name='description'></input>
+            
 
 
-        <h2>Address of listing</h2>
+          <h2>Photos</h2>
 
-        <label for="street">
-          Street number:
-        </label>
-        <TextField name="street" id="keyword" name="keyword" variant="outlined" />
+          <label for="thumbnail_photo_url">
+            Input url link for main listing page thumbnail photo:
+          </label>
+          <TextField name="thumbnail_photo_url" id="keyword" name="keyword" variant="outlined" />
 
-        <label for="city">
-          City:
-        </label>
-        <TextField name="city" id="keyword" name="keyword" variant="outlined" />
+          <label for="cover_photo_url">
+            Input url link for space specific cover photo photo:
+          </label>
+          <TextField name="cover_photo_url" id="keyword" name="keyword" variant="outlined" />
 
-        <label for="province">
-          Province:
-        </label>
-        <TextField name="province" id="keyword" name="keyword" variant="outlined" />
 
-        <label for="postal_code">
-          Postal Code:
-        </label>
-        <TextField name="postal_code" id="keyword" name="keyword" variant="outlined" />
-        
-        <label for="country">
-          Country:
-        </label>
-        <TextField name="country" id="keyword" name="keyword" variant="outlined" />
+          <h2>Address of listing</h2>
 
-        
-        <h2>Rates</h2>
-        <p>Rehearsal Room was built in the spirit of sharing resources. If you have an unused or extra space avaiable, consider listing it for free. Consider this a contribution to the cultivation of local Arts and Culture! We encourage conversations for alternative forms of payment (eg. workexchange, goods, services, etc.)</p>
+          <label for="street">
+            Street number:
+          </label>
+          <TextField name="street" id="keyword" name="keyword" variant="outlined" />
 
-        <label for="price_per_hour">
-          Hourly Rate: 
-        </label>
-        <TextField name="price_per_hour" id="keyword" name="keyword" variant="outlined" />
+          <label for="city">
+            City:
+          </label>
+          <TextField name="city" id="keyword" name="keyword" variant="outlined" />
 
-        <label for="price_per_day">
-          Daily Rate: 
-        </label>
-        <TextField name="price_per_day" id="keyword" name="keyword" variant="outlined" />
+          <label for="province">
+            Province:
+          </label>
+          <TextField name="province" id="keyword" name="keyword" variant="outlined" />
 
+          <label for="postal_code">
+            Postal Code:
+          </label>
+          <TextField name="postal_code" id="keyword" name="keyword" variant="outlined" />
+          
+          <label for="country">
+            Country:
+          </label>
+          <TextField name="country" id="keyword" name="keyword" variant="outlined" />
+
+          
+          <h2>Rates</h2>
+          <p>Rehearsal Room was built in the spirit of sharing resources. If you have an unused or extra space avaiable, consider listing it for free. Consider this a contribution to the cultivation of local Arts and Culture! We encourage conversations for alternative forms of payment (eg. workexchange, goods, services, etc.)</p>
+
+          <label for="price_per_hour">
+            Hourly Rate: 
+          </label>
+          <TextField name="price_per_hour" id="keyword" name="keyword" variant="outlined" />
+
+          <label for="price_per_day">
+            Daily Rate: 
+          </label>
+          <TextField name="price_per_day" id="keyword" name="keyword" variant="outlined" />
+        </div>
         
       <h2>Amenities</h2>
 
