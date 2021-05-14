@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react'
+
 // Custom components
 import BookingList from './BookingList'
+import SpaceList from '../Spaces/SpaceList'
 
 // Custom hooks
 import useBookingManager from '../../hooks/useBookingManager'
@@ -9,15 +12,30 @@ import { palette } from '@material-ui/system';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import axios from 'axios';
 
 
 export default function Dashboard(props) {
   const { user } = props;
+
+  // All bookings on the dashboard page are stored in the bookings state.
+  // selectedBooking controls which booking is "expanded" currently.
+  // bookingHandlers contains four functions: confirm, reject, cancel, and select
+  // "select" is fired when you click a booking, and sets it as the new selectedBooking
+  // "confirm", "reject", and "cancel" are fired when you click the corresponding button,
+  // and will update the database appropriately, and then refresh the bookings list.
   const {
     bookings,
     selectedBooking,
     bookingHandlers
   } = useBookingManager(user.is_host, user.id);
+
+  const [spaces, setSpaces] = useState([])
+  useEffect(() => {
+    axios.get(`/api/spaces/user/${user.id}`)
+      .then(res => setSpaces(res.data))
+      .catch(err => console.log(err))
+  }, [user.id])
 
   return (
     <Container maxWidth="lg">
@@ -49,6 +67,7 @@ export default function Dashboard(props) {
             <>
               <Grid item>
                 <Paper><h2>My Spaces</h2>
+                  <SpaceList spaces={spaces} />
                 </Paper>
               </Grid>
               <Grid item>
