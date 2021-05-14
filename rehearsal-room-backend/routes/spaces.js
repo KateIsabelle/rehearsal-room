@@ -49,7 +49,7 @@ module.exports = ({
       addSpace({...spaceData, thumbnail_photo_url: url, cover_photo_url: url} )
         .then(spaceRes => {
           //add accompanying map to maps table
-          addMap({...mapData, space_id: spaceRes.id})
+          addMap({...mapData, space_id: spaceRes[0].id})
         //   .then(map => {
         // })
       })
