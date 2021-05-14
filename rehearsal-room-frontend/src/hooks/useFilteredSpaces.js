@@ -49,14 +49,22 @@ export default function useFilteredSpaces(city) {
   // set the amenity checkboxes to "false" (which means "unchecked").
   // This makes sure that the page isn't *already* filtering any spaces
   // when it loads.
-  const amenitiesState = {}
+  const blankAmenitiesState = {}
   Object.keys(AMENITIES).forEach(key => {
-    amenitiesState[key] = false;
+    blankAmenitiesState[key] = false;
   })
-  const [formState, setFormState] = useState({
+
+  const blankFormState = {
     keyword: "",
-    ...amenitiesState
-  })
+    ...blankAmenitiesState
+  }
+
+  const [formState, setFormState] = useState(blankFormState)
+
+  const clearForm = () => {
+    setFormState(blankFormState)
+    filterResults(blankFormState)
+  }
 
   const filterResults = (params) => {
     // Create regex based on search keyword
@@ -110,5 +118,6 @@ export default function useFilteredSpaces(city) {
     formState,
     filteredSpaces,
     handleFormChange,
+    clearForm
   ]
 }
