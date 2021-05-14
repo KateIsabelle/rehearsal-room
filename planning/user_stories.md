@@ -10,21 +10,23 @@ CLASS HOST EXTENDS ARTIST
 "Artist Looking For Space. Spaces Available for Artists"
 City specific bubbles.
 
-- As a general visitor, I would like to see all details of a space by selecting it from anywhere in the site. --???
+- As a general visitor, I would like to see all details of a space by selecting it from list if spaces -- 👍
 
 - As a visitor, I would like to be able to browse/filter available spaces so I can see how the site works -- 👍
 
 - As a visitor, I can find a "register" or "log in" button from any page  -- 👍
 
-- As a visitor who tries to reserve a space, I should be prompted to log in or register for an account.()
+- As a visitor who tries to reserve a space, I should be prompted to log in or register for an account.() ~~
+
+- Vistor can go back to search list after viewing a space -- 👨‍💻 [KATE - useHistory react-router-dom]
 
 
 
 ## Artist
 
-- As an artist, I can input profile pict, name, descript
+- As an artist, I can input profile pict, name, descript ~~
 
-- As an artist, I can see my profile and upcoming bookings -- 👨‍💻
+- As an artist, I can see my profile and upcoming bookings -- 👍
 
 - As an Artist, I can see space owner contact info -- 👍
 
@@ -32,23 +34,25 @@ City specific bubbles.
 
 - As an artist, I can submit a reservation request -- 👍
 
-- Artist gets notified when request approved
+- Artist gets notified when request approved ~~
 
-- Can upgrade to host with button -- 👨‍💻
+- Can upgrade to host with button -- 👨‍💻 [PAUL]
 
 ## Host
 
-- As a host, I can list a new property
+- As a host, I can list a new property [NEEDED: upload photo feature] -- 👨‍💻 [ADELE loop in Kate at photo upload]
 
-- As a host, I can see a dashboard with my general info -- 👨‍💻
+- As a host, when I create a listing for a space, I am immediately taken to that space's listing to see how it looks, and edit (if needed) -- 👨‍💻 [ADELE]
 
-- As a host, I can see an overview of the space I have listed. -- 👨‍💻
+- As a host, I can see a dashboard with my general info -- 👍
+
+- As a host, I can see an overview of the space I have listed. -- 👨‍💻 [PAUL]
 
 - As a host I can add, edit or delete my property listing. -- 👨‍💻
 
-- As a host, when I create a listing for a space, I am immediately taken to that space's listing to see how it looks, and edit (if needed)
 
-- As a host, I see a list of reservation request and can approve/reject -- 👨‍💻
+
+- As a host, I see a list of reservation request and can approve/reject -- 👍
 
 
 
