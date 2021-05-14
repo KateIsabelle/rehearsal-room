@@ -19,7 +19,7 @@ import axios from 'axios';
 
 
 export default function Dashboard(props) {
-  const { user } = props;
+  const { user, updateUser } = props;
   const [createSpace, setCreateSpace] = useState(false)
   const [popUp, setPopUp] = useState(false)
 
@@ -41,8 +41,24 @@ export default function Dashboard(props) {
       .then(res => setSpaces(res.data))
       .catch(err => console.log(err))
   }, [user.id])
+
+
+  const makeUserHost = () => {
+    axios.put(`/api/users/${user.id}`, {is_host: true})
+      .then(res => updateUser(user.email))
+      .then(() => setPopUp(true))
+  }
+
   return (
     <>
+    {popUp &&
+      <PopUp>
+        <h3>Your account is now a Host account!</h3>
+        <p class="popup-content">
+          You can list new Spaces and manage incoming booking requests from this page.
+        </p>
+      </PopUp>
+    }
     {createSpace &&
       <SpaceCreateForm
         user={user}
@@ -62,6 +78,10 @@ export default function Dashboard(props) {
               { user.organization_name && <p><strong>Organization: </strong>{user.organization_name}</p>}
               <img src={user.photo} width="90%" alt="profile"/>
               <p>{user.description}</p>
+              <Button
+                onClick={makeUserHost}
+                label="Become a Host"
+              ></Button>
             </Paper>
           </Grid>
 
