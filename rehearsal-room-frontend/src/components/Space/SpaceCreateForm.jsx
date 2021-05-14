@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { Checkbox, FormControlLabel } from '@material-ui/core';
 import { Button as ButtonS } from '../Button/Button';
 
+import axios from 'axios'
+
 
 
 import './_SpaceCreateForm.scss';
@@ -16,7 +18,10 @@ import { AMENITIES } from '../../constants'
 
 
 export default function SpaceCreateForm(props) {
+  //previewSource is a base-64 encoded string that represents the image 
+  const [previewSource, setPreviewSource] = useState("")
 
+  //Paul's amenities constant
   const amenitiesState = {}
   Object.keys(AMENITIES).forEach(key => {
     amenitiesState[key] = false;
@@ -27,8 +32,6 @@ export default function SpaceCreateForm(props) {
 
     title: "",
     description: "",
-    thumbnail_photo_url: "",
-    cover_photo_url: "", 
 
     country:"", 
     street:"", 
@@ -41,6 +44,15 @@ export default function SpaceCreateForm(props) {
 
     ...amenitiesState
   })
+
+  const [mapData, setMapData] = useState(
+    {
+      latitude: 49.276700,
+      longitude: -123.066109
+    }
+  )
+
+
 
   const handleChange = event => {
     console.log(event.target.name)
@@ -61,6 +73,21 @@ export default function SpaceCreateForm(props) {
     }))
     }
 
+    const amenitiesList = Object.keys(AMENITIES).map(key => {
+      return(
+              <FormControlLabel
+                key={key}
+                control={
+                  <Checkbox
+                    name={key}
+                    checked={spaceFormState[key]}
+                    onChange={handleChange}
+                  />}
+                label={AMENITIES[key] + "?"}
+              />
+            );
+      })
+
     //Intent: path == /space/:[new space id generated]
     const history = useHistory();
     const routeChange = () =>{ 
@@ -71,24 +98,41 @@ export default function SpaceCreateForm(props) {
   //  const handleSubmit = () => {
   //   const newSpaceData = {...spaceFormState}
   //   axios.post('/api/spaces', { newSpaceData })
+
   //   props.setVisualMode("SPACE_SHOW")
   //   routeChange();
   //  }
+  /// -- QUESTION: are we creating a dead space (id but no content only photo)?
 
-  const amenitiesList = Object.keys(AMENITIES).map(key => {
-    return(
-            <FormControlLabel
-              key={key}
-              control={
-                <Checkbox
-                  name={key}
-                  checked={spaceFormState[key]}
-                  onChange={handleChange}
-                />}
-              label={AMENITIES[key] + "?"}
-            />
-          );
-        })
+
+  ////////FOR PHOTO UPLOAD///////////
+   //sets previewSource when file chosen
+   const previewFile = file => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result)
+    }
+  }
+  //calls previewFile with file chosen
+  const handleFileInputChange = e => {
+    const file = e.target.files[0] // just takes one file
+    previewFile(file)
+  }
+  //makes post request to backend
+  const uploadImage = base64EncodedImage => {
+    const newSpaceData = {...spaceFormState}
+    axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData: newSpaceData, mapData})
+  }
+  //on submit, calls uploadImage with previewSource
+  const handleSubmit = e => {
+    console.log("submitting")
+    e.preventDefault();
+    if(!previewSource) return; 
+    uploadImage(previewSource);
+  }
+
+
 
   return ( 
     <>
@@ -117,22 +161,13 @@ export default function SpaceCreateForm(props) {
 
           <h2>Photos</h2>
 
-          <label for="thumbnail_photo_url">
-            Input url link for main listing page thumbnail photo:
-          </label>
+          <label for="image">
+            Upload pictures:
+          </label>  
           <input 
-            name="thumbnail_photo_url" 
-            value={spaceFormState.thumbnail_photo_url}
-            onChange={handleChange}
-          />
-
-          <label for="cover_photo_url">
-            Input url link for space specific cover photo photo:
-          </label>
-          <input 
-            name="cover_photo_url" 
-            value={spaceFormState.cover_photo_url}
-            onChange={handleChange}
+            name="image" 
+            type="file"
+            onChange={handleFileInputChange}
           />
 
 
@@ -212,9 +247,10 @@ export default function SpaceCreateForm(props) {
 
         {<ul>{amenitiesList}</ul>}
 
-        <ButtonS primary label="Submit" /> 
+        <ButtonS primary label="Submit" onClick={handleSubmit} /> 
       
       </form>
+      {previewSource && <img src={previewSource} alt="" style={{height: '100px'}}/>}
     </>
  
   );
