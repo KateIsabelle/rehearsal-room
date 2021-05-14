@@ -13,6 +13,7 @@ module.exports = (db) => {
       SELECT *
       FROM spaces
       WHERE LOWER(city) LIKE $1
+      ORDER BY id DESC
     `
     const queryParams = [`%${city.toLowerCase()}%`]
 
