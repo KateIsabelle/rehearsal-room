@@ -45,7 +45,7 @@ export default function App() {
           </Route>
           <Route path="/login">
             { !state.user && <Login onLogin={setUserInfo}/> }
-            { state.user && <Redirect to="/dashboard" /> }
+            { state.user && <Redirect to="/" /> }
           </Route>
           <Route path="/spaces/:city">
             <HeroV1 />
