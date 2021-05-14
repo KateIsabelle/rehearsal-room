@@ -40,13 +40,13 @@ City specific bubbles.
 
 ## Host
 
-- As a host, I can list a new property [NEEDED: upload photo feature] -- 👨‍💻 [ADELE loop in Kate at photo upload]
+- As a host, I can list a new property [NEEDED: upload photo feature] -- 👍
 
-- As a host, when I create a listing for a space, I am immediately taken to that space's listing to see how it looks, and edit (if needed) -- 👨‍💻 [ADELE]
+- As a host, when I create a listing for a space, I am immediately taken to that space's listing to see how it looks, and edit (if needed) -- 👨‍💻 [PAUL]
 
 - As a host, I can see a dashboard with my general info -- 👍
 
-- As a host, I can see an overview of the space I have listed. -- 👨‍💻 [PAUL]
+- As a host, I can see an overview of the space I have listed. -- 👍
 
 - As a host I can add, edit or delete my property listing. -- 👨‍💻
 

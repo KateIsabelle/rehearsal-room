@@ -1,24 +1,138 @@
 import React from "react";
-import { TextField, Checkbox } from '@material-ui/core';
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { Checkbox, FormControlLabel } from '@material-ui/core';
 import { Button as ButtonS } from '../Button/Button';
+
+import axios from 'axios'
+
+
 
 import './_SpaceCreateForm.scss';
 
-
+// Constants
+import { AMENITIES } from '../../constants'
 
 
 // user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 
 
 export default function SpaceCreateForm(props) {
-  //  const { formState, handleChange } = props;
+  //previewSource is a base-64 encoded string that represents the image 
+  const [previewSource, setPreviewSource] = useState("")
+
+  //Paul's amenities constant
+  const amenitiesState = {}
+  Object.keys(AMENITIES).forEach(key => {
+    amenitiesState[key] = false;
+  })
+
+  const [spaceFormState, setSpaceFormState] = useState({
+    user_id: 4, //global state
+
+    title: "",
+    description: "",
+
+    country:"", 
+    street:"", 
+    city: "", 
+    province: "", 
+    post_code: "",
+
+    price_per_day: 0,
+    price_per_hour: 0,
+
+    ...amenitiesState
+  })
+
+  const [mapData, setMapData] = useState(
+    {
+      latitude: 49.276700,
+      longitude: -123.066109
+    }
+  )
+
+
+
+  const handleChange = event => {
+    console.log(event.target.name)
+
+    let newValue
+    switch (event.target.type) {
+      case "checkbox":
+        newValue = event.target.checked;
+        break;
+      default:
+        newValue = event.target.value;
+        break;
+    }
+
+    setSpaceFormState( prev => ( {
+      ...prev,
+      [event.target.name]:newValue
+    }))
+    }
+
+    const amenitiesList = Object.keys(AMENITIES).map(key => {
+      return(
+              <FormControlLabel
+                key={key}
+                control={
+                  <Checkbox
+                    name={key}
+                    checked={spaceFormState[key]}
+                    onChange={handleChange}
+                  />}
+                label={AMENITIES[key] + "?"}
+              />
+            );
+      })
+
+    //Intent: path == /space/:[new space id generated]
+    const history = useHistory();
+    const routeChange = () =>{ 
+    let path = `/space/`; 
+    history.push(path);
+  }
 
   //  const handleSubmit = () => {
-  //   const bookingData = {...formState}
-  //   axios.post('/api/bookings', { bookingData })
+  //   const newSpaceData = {...spaceFormState}
+  //   axios.post('/api/spaces', { newSpaceData })
+
   //   props.setVisualMode("SPACE_SHOW")
-  //   props.setPopUp(true)
+  //   routeChange();
   //  }
+
+
+  ////////FOR PHOTO UPLOAD///////////
+   //sets previewSource when file chosen
+   const previewFile = file => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result)
+    }
+  }
+  //calls previewFile with file chosen
+  const handleFileInputChange = e => {
+    const file = e.target.files[0] // just takes one file
+    previewFile(file)
+  }
+  //makes post request to backend, updates spaces and maps
+  const uploadImage = base64EncodedImage => {
+    console.log("Base64:", base64EncodedImage)
+    const newSpaceData = {...spaceFormState}
+    axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData: newSpaceData, mapData})
+  }
+  //on submit, calls uploadImage with previewSource// WHERE DO WE GO, PAUL?!?!?! 
+  const handleSubmit = e => {
+    console.log("submitting")
+    e.preventDefault();
+    if(!previewSource) return; 
+    uploadImage(previewSource);
+  }
+
+
 
   return ( 
     <>
@@ -29,26 +143,33 @@ export default function SpaceCreateForm(props) {
           <label for="title">
             Title for space listing:
           </label>
-          <input name='title'></input>
+          <input 
+            name='title' 
+            value={spaceFormState.title}
+            onChange={handleChange} 
+          />
 
           <label for="description">
             Details to describe the space (Hint: this would be a good place to add a couple guidelines):
           </label>
-            <input name='description'></input>
+            <input 
+            name='description'
+            value={spaceFormState.description}
+            onChange={handleChange} 
+          />
             
-
 
           <h2>Photos</h2>
 
-          <label for="thumbnail_photo_url">
-            Input url link for main listing page thumbnail photo:
-          </label>
-          <TextField name="thumbnail_photo_url" id="keyword" name="keyword" variant="outlined" />
-
-          <label for="cover_photo_url">
-            Input url link for space specific cover photo photo:
-          </label>
-          <TextField name="cover_photo_url" id="keyword" name="keyword" variant="outlined" />
+          <label for="image">
+            Upload pictures:
+          </label>  
+          <input 
+            name="image" 
+            type="file"
+            onChange={handleFileInputChange}
+          />
+          {previewSource && <img src={previewSource} alt="" style={{height: '100px', width: '100px'}}/>}
 
 
           <h2>Address of listing</h2>
@@ -56,27 +177,47 @@ export default function SpaceCreateForm(props) {
           <label for="street">
             Street number:
           </label>
-          <TextField name="street" id="keyword" name="keyword" variant="outlined" />
+          <input 
+            name="street"
+            value={spaceFormState.street}
+            onChange={handleChange} 
+          />
 
           <label for="city">
             City:
           </label>
-          <TextField name="city" id="keyword" name="keyword" variant="outlined" />
+          <input 
+            value={spaceFormState.city}
+            onChange={handleChange}
+            name="city" 
+          />
 
           <label for="province">
             Province:
           </label>
-          <TextField name="province" id="keyword" name="keyword" variant="outlined" />
+          <input 
+            name="province"
+            value={spaceFormState.province}
+            onChange={handleChange}
+          />
 
-          <label for="postal_code">
+          <label for="post_code">
             Postal Code:
           </label>
-          <TextField name="postal_code" id="keyword" name="keyword" variant="outlined" />
+          <input 
+            name="post_code" 
+            value={spaceFormState.post_code}
+            onChange={handleChange}
+          />
           
           <label for="country">
             Country:
           </label>
-          <TextField name="country" id="keyword" name="keyword" variant="outlined" />
+          <input 
+            name="country"
+            value={spaceFormState.country}
+            onChange={handleChange}
+          />
 
           
           <h2>Rates</h2>
@@ -85,161 +226,32 @@ export default function SpaceCreateForm(props) {
           <label for="price_per_hour">
             Hourly Rate: 
           </label>
-          <TextField name="price_per_hour" id="keyword" name="keyword" variant="outlined" />
+          <input 
+            name="price_per_hour" 
+            value={spaceFormState.price_per_hour}
+            onChange={handleChange}
+          />
 
           <label for="price_per_day">
             Daily Rate: 
           </label>
-          <TextField name="price_per_day" id="keyword" name="keyword" variant="outlined" />
+          <input 
+            name="price_per_day" 
+            value={spaceFormState.price_per_day}
+            onChange={handleChange} 
+          />
         </div>
         
-      <h2>Amenities</h2>
+        <h2>Amenities</h2>
 
-      <p>Does your space include any of the following? Check if yes:</p>
+        <p>Does your space include any of the following? Check if yes:</p>
 
-      <label for="wifi"> Wifi? </label>
-        <Checkbox
-          name="wifi"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-        
-        <label for="sound_proofing"> Soundproofing? </label>
-        <Checkbox
-          name="sound_proofing"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
+        {<ul>{amenitiesList}</ul>}
 
-        <label for="sprung_floor"> Sprung Floor? </label>
-        <Checkbox
-          name="sprung_floor"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="kitchenette"> Kitchenette? </label>
-        <Checkbox
-          name="kitchenette"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="mirrors"> Mirrors? </label>
-        <Checkbox
-          name="mirrors"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="sound_system"> Sound System? </label>
-        <Checkbox
-          name="sound_system"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="bathroom"> Bathroom? </label>
-        <Checkbox
-          name="bathroom"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="indoor_space"> Indoor Space? </label>
-        <Checkbox
-          name="indoor_space"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="outdoor_space"> Outdoor Space? </label>
-        <Checkbox
-          name="outdoor_space"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="bike_parking"> Bike Parking? </label>
-        <Checkbox
-          name="bike_parking"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="street_parking"> Street Parking? </label>
-        <Checkbox
-          name="street_parking"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="private_parking"> Private Parking? </label>
-        <Checkbox
-          name="private_parking"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="piano"> Piano? </label>
-        <Checkbox
-          name="piano"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="natural_light"> Natural Light? </label>
-        <Checkbox
-          name="natural_light"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="air_conditioning"> Air Conditioning? </label>
-        <Checkbox
-          name="air_conditioning"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="ten_ft_plus_ceiling"> 10 ft plus ceiling? </label>
-        <Checkbox
-          name="ten_ft_plus_ceiling"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="private"> Complete privacy? </label>
-        <Checkbox
-          name="private"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="semi_private"> Limited Privacy? </label>
-        <Checkbox
-          name="semi_private"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="wheelchair_accessible"> Wheelchair Accessible? </label>
-        <Checkbox
-          name="wheelchair_accessible"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <label for="self_entry"> Self-Entry? </label>
-        <Checkbox
-          name="self_entry"
-          color="primary"
-          inputProps={{ 'aria-label': 'secondary checkbox' }}
-        />
-
-        <ButtonS primary label="Submit" />
+        <ButtonS primary label="Submit" onClick={handleSubmit} /> 
       
       </form>
+      
     </>
  
   );
