@@ -1,0 +1,8 @@
+.spinner {
+  animation: 1s infinite spin linear;
+
+  @keyframes spin {
+    from {transform: rotate(0turn)}
+    to {transform: rotate(1turn)}
+  }
+}

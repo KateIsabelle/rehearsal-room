@@ -6,6 +6,8 @@ import { Button as ButtonS } from '../Button/Button';
 
 import axios from 'axios'
 
+import Spinner from '../Spinner'
+
 
 
 import './_SpaceCreateForm.scss';
@@ -137,7 +139,7 @@ export default function SpaceCreateForm(props) {
 
 
   return ( 
-    <>
+    <><Spinner />
       <form>
         <h1>Create A New Space Listing</h1>
 
