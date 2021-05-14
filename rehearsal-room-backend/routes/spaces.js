@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 //import configured cloudinary api:
 const {cloudinary} = require('../utils/cloudinary')
 
@@ -37,9 +38,9 @@ module.exports = ({
       const url = `https://res.cloudinary.com/davik/image/upload/v${res.version}/${res.public_id}.png`
       //add new space to spaces table
       addSpace({...spaceData, thumbnail_photo_url: url, cover_photo_url: url} )
-        .then(space => {
+        .then(spaceRes => {
           //add accompanying map to maps table
-          addMap({...mapData, space_id: space.id})
+          addMap({...mapData, space_id: spaceRes.id})
         //   .then(map => {
         // })
       })
