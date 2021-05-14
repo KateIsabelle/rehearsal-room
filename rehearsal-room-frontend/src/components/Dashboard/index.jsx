@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 // Custom components
 import BookingList from './BookingList'
 import SpaceList from '../Spaces/SpaceList'
+import { Button } from '../Button/Button'
 
 // Custom hooks
 import useBookingManager from '../../hooks/useBookingManager'
@@ -67,6 +68,7 @@ export default function Dashboard(props) {
             <>
               <Grid item>
                 <Paper><h2>My Spaces</h2>
+                  <Button label="Add a new Space"></Button>
                   <SpaceList spaces={spaces} />
                 </Paper>
               </Grid>
