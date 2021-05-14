@@ -18,9 +18,10 @@ import { AMENITIES } from '../../constants'
 
 
 export default function SpaceCreateForm(props) {
-  const { user, formCloser } = props
+  const { user } = props
   //previewSource is a base-64 encoded string that represents the image 
   const [previewSource, setPreviewSource] = useState("")
+  const history = useHistory();
 
   //Paul's amenities constant
   const amenitiesState = {}
@@ -72,27 +73,26 @@ export default function SpaceCreateForm(props) {
       ...prev,
       [event.target.name]:newValue
     }))
-    }
+  }
 
-    const amenitiesList = Object.keys(AMENITIES).map(key => {
-      return(
-              <FormControlLabel
-                key={key}
-                control={
-                  <Checkbox
-                    name={key}
-                    checked={spaceFormState[key]}
-                    onChange={handleChange}
-                  />}
-                label={AMENITIES[key] + "?"}
-              />
-            );
-      })
+  const amenitiesList = Object.keys(AMENITIES).map(key => {
+    return(
+            <FormControlLabel
+              key={key}
+              control={
+                <Checkbox
+                  name={key}
+                  checked={spaceFormState[key]}
+                  onChange={handleChange}
+                />}
+              label={AMENITIES[key] + "?"}
+            />
+          );
+    })
 
     //Intent: path == /space/:[new space id generated]
-    const history = useHistory();
-    const routeChange = () =>{ 
-    let path = `/space/`; 
+  const routeChange = (space_id) => {
+    let path = `/space/${space_id}`; 
     history.push(path);
   }
 
@@ -131,7 +131,7 @@ export default function SpaceCreateForm(props) {
     e.preventDefault();
     if(!previewSource) return; 
     uploadImage(previewSource)
-      .then(formCloser);
+      .then(res => routeChange(res.data[0].space_id));
   }
 
 

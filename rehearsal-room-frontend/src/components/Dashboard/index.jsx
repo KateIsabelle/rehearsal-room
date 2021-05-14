@@ -41,19 +41,10 @@ export default function Dashboard(props) {
       .then(res => setSpaces(res.data))
       .catch(err => console.log(err))
   }, [user.id])
-
-  const closeFormAndOpenPopup = () => {
-    console.log("closing form")
-    setCreateSpace(false)
-    setPopUp(true)
-  }
-
   return (
     <>
-    {popUp && <PopUp toggle={() => setPopUp(false)}>New space created!</PopUp>}
     {createSpace &&
-      <SpaceCreateForm 
-        formCloser={closeFormAndOpenPopup}
+      <SpaceCreateForm
         user={user}
       />}
     {!createSpace &&
