@@ -19,16 +19,18 @@ export default function Spaces() {
   const [
     formState,
     filteredSpaces,
-    handleFormChange
+    handleFormChange,
+    clearForm
   ] = useFilteredSpaces(city)
 
   return (
     <>
       <SearchForm
-        onChange={handleFormChange}
-        onAdvancedClick={toggleAdvanced}
-        advancedState={advancedState}
         formState={formState}
+        onChange={handleFormChange}
+        advancedState={advancedState}
+        onAdvancedClick={toggleAdvanced}
+        onClearClick={clearForm}
       />
       <SpaceList
       spaces={filteredSpaces}
