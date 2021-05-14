@@ -46,15 +46,14 @@ module.exports = ({
       //public url where image is saved:
       const url = `https://res.cloudinary.com/davik/image/upload/v${res.version}/${res.public_id}.png`
       //add new space to spaces table
-      addSpace({...spaceData, thumbnail_photo_url: url, cover_photo_url: url} )
-        .then(spaceRes => {
-          //add accompanying map to maps table
-          addMap({...mapData, space_id: spaceRes[0].id})
-        //   .then(map => {
-        // })
-      })
+      return addSpace({...spaceData, thumbnail_photo_url: url, cover_photo_url: url} )
     })
-      .catch(err => res.json({error: err.message}));
+    .then(spaceRes => {
+      //add accompanying map to maps table
+      return addMap({...mapData, space_id: spaceRes[0].id})
+    })
+    .then(mapRes => res.json(mapRes))
+    .catch(err => res.json({error: err.message}));
   })
 
   // PUT update an existing space

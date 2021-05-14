@@ -42,7 +42,8 @@ export default function Dashboard(props) {
       .catch(err => console.log(err))
   }, [user.id])
 
-  const handleCreateSpaceSubmit = () => {
+  const closeFormAndOpenPopup = () => {
+    console.log("closing form")
     setCreateSpace(false)
     setPopUp(true)
   }
@@ -52,7 +53,8 @@ export default function Dashboard(props) {
     {popUp && <PopUp toggle={() => setPopUp(false)}>New space created!</PopUp>}
     {createSpace &&
       <SpaceCreateForm 
-        onSubmit={handleCreateSpaceSubmit}
+        formCloser={closeFormAndOpenPopup}
+        user={user}
       />}
     {!createSpace &&
       <Container maxWidth="lg">

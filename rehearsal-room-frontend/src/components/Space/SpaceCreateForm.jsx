@@ -18,6 +18,7 @@ import { AMENITIES } from '../../constants'
 
 
 export default function SpaceCreateForm(props) {
+  const { user, formCloser } = props
   //previewSource is a base-64 encoded string that represents the image 
   const [previewSource, setPreviewSource] = useState("")
 
@@ -28,7 +29,7 @@ export default function SpaceCreateForm(props) {
   })
 
   const [spaceFormState, setSpaceFormState] = useState({
-    user_id: 4, //global state
+    user_id: user.id, //global state
 
     title: "",
     description: "",
@@ -55,7 +56,7 @@ export default function SpaceCreateForm(props) {
 
 
   const handleChange = event => {
-    console.log(event.target.name)
+    //console.log(event.target.name)
 
     let newValue
     switch (event.target.type) {
@@ -120,16 +121,17 @@ export default function SpaceCreateForm(props) {
   }
   //makes post request to backend, updates spaces and maps
   const uploadImage = base64EncodedImage => {
-    console.log("Base64:", base64EncodedImage)
+    //console.log("Base64:", base64EncodedImage)
     const newSpaceData = {...spaceFormState}
-    axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData: newSpaceData, mapData})
+    return axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData: newSpaceData, mapData})
   }
   //on submit, calls uploadImage with previewSource// WHERE DO WE GO, PAUL?!?!?! 
   const handleSubmit = e => {
     console.log("submitting")
     e.preventDefault();
     if(!previewSource) return; 
-    uploadImage(previewSource);
+    uploadImage(previewSource)
+      .then(formCloser);
   }
 
 
