@@ -24,7 +24,7 @@ export default function CloudinaryUpload() {
   }
 
   const uploadImage = base64EncodedImage => {
-    axios.post('/api/upload', {})
+    axios.post('/api/upload', {data: base64EncodedImage})
   }
 
   const handleFileInputChange = e => {

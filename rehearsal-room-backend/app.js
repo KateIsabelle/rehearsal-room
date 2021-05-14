@@ -14,6 +14,7 @@ var usersRouter = require('./routes/users');
 var spacesRouter = require('./routes/spaces');
 var bookingsRouter = require('./routes/bookings');
 var spaceRouter = require('./routes/space');
+var uploadRouter = require('./routes/upload');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/api/users', usersRouter(dbHelpers));
 app.use('/api/spaces', spacesRouter(dbHelpers));
 app.use('/api/bookings', bookingsRouter(dbHelpers));
 app.use('/api/space', spaceRouter(dbHelpers));
+app.use('/api/upload', uploadRouter(dbHelpers));
 
 
 module.exports = app;
