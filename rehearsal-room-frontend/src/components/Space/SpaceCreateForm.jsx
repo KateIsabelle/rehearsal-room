@@ -1,7 +1,6 @@
 import React from "react";
 import { TextField, Checkbox } from '@material-ui/core';
-import { Button as ButtonS } from '../Button/Button'
-import { makeStyles } from '@material-ui/core/styles';
+import { Button as ButtonS } from '../Button/Button';
 
 import './_SpaceCreateForm.scss';
 
