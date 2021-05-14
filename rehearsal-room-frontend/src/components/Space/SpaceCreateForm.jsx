@@ -7,6 +7,7 @@ import { Button as ButtonS } from '../Button/Button';
 import axios from 'axios'
 
 import Spinner from '../Spinner'
+import PopUp from '../Space/PopUp'
 
 
 
@@ -23,6 +24,7 @@ export default function SpaceCreateForm(props) {
   const { user } = props
   //previewSource is a base-64 encoded string that represents the image 
   const [previewSource, setPreviewSource] = useState("")
+  const [popUp, setPopUp] = useState(false)
   const history = useHistory();
 
   //Paul's amenities constant
@@ -129,8 +131,9 @@ export default function SpaceCreateForm(props) {
   }
   //on submit, calls uploadImage with previewSource// WHERE DO WE GO, PAUL?!?!?! 
   const handleSubmit = e => {
-    console.log("submitting")
     e.preventDefault();
+    console.log("submitting")
+    setPopUp(true)
     if(!previewSource) return; 
     uploadImage(previewSource)
       .then(res => routeChange(res.data[0].space_id));
@@ -139,7 +142,12 @@ export default function SpaceCreateForm(props) {
 
 
   return ( 
-    <><Spinner />
+    <>
+      {popUp && 
+      <PopUp>
+        <p className="popup-content">Saving...</p>
+        <Spinner />
+      </PopUp>}
       <form>
         <h1>Create A New Space Listing</h1>
 
