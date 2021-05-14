@@ -1,0 +1,12 @@
+.text-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+
+input {
+  height: 1.5rem;
+  width: auto;
+  border-radius: 3px;
+}

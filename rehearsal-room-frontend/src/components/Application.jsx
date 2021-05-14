@@ -17,6 +17,8 @@ import Header from './Header'
 import HeroV1 from './HeroBlock/heroV1'
 import Space from './Space'
 
+import SpaceCreateForm from "./Space/SpaceCreateForm";
+
 import Spaces from './Spaces'
 import Login from './Login'
 import Dashboard from './Dashboard'
@@ -39,6 +41,11 @@ export default function App() {
             <HeroV1 />
             <CityList />
           </Route>
+
+          <Route exact path="/space/create">
+            <SpaceCreateForm />
+          </Route>
+
           <Route path="/register">
             { !state.user && <Register /> }
             { state.user && <Redirect to="/dashboard" /> }

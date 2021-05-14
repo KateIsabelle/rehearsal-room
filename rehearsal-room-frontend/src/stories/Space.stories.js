@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions";
 
 import Space from '../components/Space/index'
 import Map from '../components/Space/Map'
+import SpaceCreateForm from '../components/Space/SpaceCreateForm'
 
 
 const user1 = 
@@ -86,6 +87,9 @@ latitude={49.273790}
 longitude={-123.075260}
 />
 
+export const SpaceCreateFormComponent = () =>  {
+return <SpaceCreateForm /> 
+}
 
 export default {
   title: 'Components/Space',
