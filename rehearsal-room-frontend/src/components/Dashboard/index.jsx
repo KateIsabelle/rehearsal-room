@@ -41,18 +41,11 @@ export default function Dashboard(props) {
       .then(res => setSpaces(res.data))
       .catch(err => console.log(err))
   }, [user.id])
-
-  const handleCreateSpaceSubmit = () => {
-    setCreateSpace(false)
-    setPopUp(true)
-  }
-
   return (
     <>
-    {popUp && <PopUp toggle={() => setPopUp(false)}>New space created!</PopUp>}
     {createSpace &&
-      <SpaceCreateForm 
-        onSubmit={handleCreateSpaceSubmit}
+      <SpaceCreateForm
+        user={user}
       />}
     {!createSpace &&
       <Container maxWidth="lg">

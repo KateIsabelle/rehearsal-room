@@ -18,8 +18,10 @@ import { AMENITIES } from '../../constants'
 
 
 export default function SpaceCreateForm(props) {
+  const { user } = props
   //previewSource is a base-64 encoded string that represents the image 
   const [previewSource, setPreviewSource] = useState("")
+  const history = useHistory();
 
   //Paul's amenities constant
   const amenitiesState = {}
@@ -28,7 +30,7 @@ export default function SpaceCreateForm(props) {
   })
 
   const [spaceFormState, setSpaceFormState] = useState({
-    user_id: 4, //global state
+    user_id: user.id, //global state
 
     title: "",
     description: "",
@@ -55,7 +57,7 @@ export default function SpaceCreateForm(props) {
 
 
   const handleChange = event => {
-    console.log(event.target.name)
+    //console.log(event.target.name)
 
     let newValue
     switch (event.target.type) {
@@ -71,27 +73,26 @@ export default function SpaceCreateForm(props) {
       ...prev,
       [event.target.name]:newValue
     }))
-    }
+  }
 
-    const amenitiesList = Object.keys(AMENITIES).map(key => {
-      return(
-              <FormControlLabel
-                key={key}
-                control={
-                  <Checkbox
-                    name={key}
-                    checked={spaceFormState[key]}
-                    onChange={handleChange}
-                  />}
-                label={AMENITIES[key] + "?"}
-              />
-            );
-      })
+  const amenitiesList = Object.keys(AMENITIES).map(key => {
+    return(
+            <FormControlLabel
+              key={key}
+              control={
+                <Checkbox
+                  name={key}
+                  checked={spaceFormState[key]}
+                  onChange={handleChange}
+                />}
+              label={AMENITIES[key] + "?"}
+            />
+          );
+    })
 
     //Intent: path == /space/:[new space id generated]
-    const history = useHistory();
-    const routeChange = () =>{ 
-    let path = `/space/`; 
+  const routeChange = (space_id) => {
+    let path = `/space/${space_id}`; 
     history.push(path);
   }
 
@@ -120,16 +121,17 @@ export default function SpaceCreateForm(props) {
   }
   //makes post request to backend, updates spaces and maps
   const uploadImage = base64EncodedImage => {
-    console.log("Base64:", base64EncodedImage)
+    //console.log("Base64:", base64EncodedImage)
     const newSpaceData = {...spaceFormState}
-    axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData: newSpaceData, mapData})
+    return axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData: newSpaceData, mapData})
   }
   //on submit, calls uploadImage with previewSource// WHERE DO WE GO, PAUL?!?!?! 
   const handleSubmit = e => {
     console.log("submitting")
     e.preventDefault();
     if(!previewSource) return; 
-    uploadImage(previewSource);
+    uploadImage(previewSource)
+      .then(res => routeChange(res.data[0].space_id));
   }
 
 
