@@ -28,7 +28,7 @@ export default function SpaceCreateForm(props) {
   })
 
   const [spaceFormState, setSpaceFormState] = useState({
-    user_id: 4, //global state
+    user_id: 4, //needs to be prop drilled based on where it is called
 
     title: "",
     description: "",
