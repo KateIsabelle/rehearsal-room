@@ -1,15 +1,42 @@
+import { useEffect, useState } from 'react'
+
 // Custom components
 import BookingList from './BookingList'
+import SpaceList from '../Spaces/SpaceList'
+import { Button } from '../Button/Button'
+
+// Custom hooks
+import useBookingManager from '../../hooks/useBookingManager'
 
 // Material UI Components
 import { palette } from '@material-ui/system';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import axios from 'axios';
 
 
 export default function Dashboard(props) {
   const { user } = props;
+
+  // All bookings on the dashboard page are stored in the bookings state.
+  // selectedBooking controls which booking is "expanded" currently.
+  // bookingHandlers contains four functions: confirm, reject, cancel, and select
+  // "select" is fired when you click a booking, and sets it as the new selectedBooking
+  // "confirm", "reject", and "cancel" are fired when you click the corresponding button,
+  // and will update the database appropriately, and then refresh the bookings list.
+  const {
+    bookings,
+    selectedBooking,
+    bookingHandlers
+  } = useBookingManager(user.is_host, user.id);
+
+  const [spaces, setSpaces] = useState([])
+  useEffect(() => {
+    axios.get(`/api/spaces/user/${user.id}`)
+      .then(res => setSpaces(res.data))
+      .catch(err => console.log(err))
+  }, [user.id])
 
   return (
     <Container maxWidth="lg">
@@ -21,15 +48,17 @@ export default function Dashboard(props) {
         spacing={2}
       >
         <Grid item xs={3}>
-          <Paper >{user.first_name} {user.last_name}
+          <Paper >
+            {user.first_name} {user.last_name}
+            { user.organization_name && <p><strong>Organization: </strong>{user.organization_name}</p>}
             <img src={user.photo} width="90%" alt="profile"/>
             <p>{user.description}</p>
-            { user.organization_name && <p><strong>{user.organization_name}</strong></p>}
           </Paper>
         </Grid>
 
         <Grid
           container
+          item
           direction="column"
           justify="flex-start"
           xs={9}
@@ -39,13 +68,17 @@ export default function Dashboard(props) {
             <>
               <Grid item>
                 <Paper><h2>My Spaces</h2>
+                  <Button label="Add a new Space"></Button>
+                  <SpaceList spaces={spaces} />
                 </Paper>
               </Grid>
               <Grid item>
                 <Paper>
                   <BookingList
-                    userId={user.id}
                     host={true}
+                    bookings={bookings.host}
+                    bookingHandlers={bookingHandlers}
+                    selectedBooking={selectedBooking}
                     bookingType="pending"
                     title="Pending Booking Requests"
                     emptyMessage="No pending requests!"
@@ -55,8 +88,10 @@ export default function Dashboard(props) {
               <Grid item>
                 <Paper>
                   <BookingList
-                    userId={user.id}
                     host={true}
+                    bookings={bookings.host}
+                    bookingHandlers={bookingHandlers}
+                    selectedBooking={selectedBooking}
                     bookingType="confirmed"
                     title="Confirmed Bookings"
                     emptyMessage="No bookings currently confirmed!"
@@ -68,8 +103,10 @@ export default function Dashboard(props) {
           <Grid item>
             <Paper>
               <BookingList
-                userId={user.id}
                 host={false}
+                bookings={bookings.artist}
+                bookingHandlers={bookingHandlers}
+                selectedBooking={selectedBooking}
                 bookingType="all"
                 title="My Bookings"
                 emptyMessage="No booking requests!"
