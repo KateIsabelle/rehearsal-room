@@ -123,6 +123,7 @@ module.exports = (db) => {
   return {
     getSpaces,
     getSpacesByCity,
+    getSpacesByUserId,
     getSpacesByKeyword,
     getSpaceById,
     addSpace

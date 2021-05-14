@@ -3,6 +3,7 @@ const router = express.Router();
 
 module.exports = ({
   getSpaces,
+  getSpacesByUserId,
   getSpacesByCity,
   getSpacesByKeyword,
   addSpace
