@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import BookingList from './BookingList'
 import SpaceList from '../Spaces/SpaceList'
 import { Button } from '../Button/Button'
+import PopUp from '../Space/PopUp'
 
 // Custom hooks
 import useBookingManager from '../../hooks/useBookingManager'
@@ -18,6 +19,7 @@ import axios from 'axios';
 
 export default function Dashboard(props) {
   const { user } = props;
+  const [popUp, setPopUp] = useState(false)
 
   // All bookings on the dashboard page are stored in the bookings state.
   // selectedBooking controls which booking is "expanded" currently.
@@ -39,6 +41,11 @@ export default function Dashboard(props) {
   }, [user.id])
 
   return (
+    <>
+    {popUp &&
+      <PopUp toggle={()=>{setPopUp(false)}}>
+        HIIII
+      </PopUp>}
     <Container maxWidth="lg">
       <Grid
         container
@@ -67,8 +74,12 @@ export default function Dashboard(props) {
           { user.is_host && 
             <>
               <Grid item>
-                <Paper><h2>My Spaces</h2>
-                  <Button label="Add a new Space"></Button>
+                <Paper>
+                  <h2>My Spaces</h2>
+                  <Button
+                    onClick={() => setPopUp(true)}
+                    label="Add a new Space"
+                  ></Button>
                   <SpaceList spaces={spaces} />
                 </Paper>
               </Grid>
@@ -117,6 +128,7 @@ export default function Dashboard(props) {
 
       </Grid>
     </Container>
+    </>
   )
 }
 
