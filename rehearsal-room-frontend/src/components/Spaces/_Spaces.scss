@@ -1,0 +1,25 @@
+.space_list { 
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap;
+  
+}
+
+.item {
+  background-color: whitesmoke;
+  border-radius: 2px;
+  padding: 2px;
+  margin-top: 10px;
+}
+
+.text {
+  display: flex;
+  justify-content:space-between;
+}
+
+.item:hover {
+  box-shadow: 0 0 10px;
+  font-weight: 400;
+}
