@@ -102,7 +102,6 @@ export default function SpaceCreateForm(props) {
   //   props.setVisualMode("SPACE_SHOW")
   //   routeChange();
   //  }
-  /// -- QUESTION: are we creating a dead space (id but no content only photo)?
 
 
   ////////FOR PHOTO UPLOAD///////////
@@ -119,12 +118,13 @@ export default function SpaceCreateForm(props) {
     const file = e.target.files[0] // just takes one file
     previewFile(file)
   }
-  //makes post request to backend
+  //makes post request to backend, updates spaces and maps
   const uploadImage = base64EncodedImage => {
+    console.log("Base64:", base64EncodedImage)
     const newSpaceData = {...spaceFormState}
     axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData: newSpaceData, mapData})
   }
-  //on submit, calls uploadImage with previewSource
+  //on submit, calls uploadImage with previewSource// WHERE DO WE GO, PAUL?!?!?! 
   const handleSubmit = e => {
     console.log("submitting")
     e.preventDefault();
@@ -169,6 +169,7 @@ export default function SpaceCreateForm(props) {
             type="file"
             onChange={handleFileInputChange}
           />
+          {previewSource && <img src={previewSource} alt="" style={{height: '100px', width: '100px'}}/>}
 
 
           <h2>Address of listing</h2>
@@ -250,7 +251,7 @@ export default function SpaceCreateForm(props) {
         <ButtonS primary label="Submit" onClick={handleSubmit} /> 
       
       </form>
-      {previewSource && <img src={previewSource} alt="" style={{height: '100px'}}/>}
+      
     </>
  
   );
