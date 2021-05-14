@@ -14,13 +14,15 @@ var usersRouter = require('./routes/users');
 var spacesRouter = require('./routes/spaces');
 var bookingsRouter = require('./routes/bookings');
 var spaceRouter = require('./routes/space');
+var uploadRouter = require('./routes/upload');
 
 var app = express();
 
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+//set limit higher for uploading images:
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //here we call the function created, with a dbHelpers parameter
@@ -29,6 +31,7 @@ app.use('/api/users', usersRouter(dbHelpers));
 app.use('/api/spaces', spacesRouter(dbHelpers));
 app.use('/api/bookings', bookingsRouter(dbHelpers));
 app.use('/api/space', spaceRouter(dbHelpers));
+app.use('/api/upload', uploadRouter(dbHelpers));
 
 
 module.exports = app;

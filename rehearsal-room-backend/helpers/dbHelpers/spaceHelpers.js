@@ -13,6 +13,7 @@ module.exports = (db) => {
       SELECT *
       FROM spaces
       WHERE LOWER(city) LIKE $1
+      ORDER BY id DESC
     `
     const queryParams = [`%${city.toLowerCase()}%`]
 
@@ -116,6 +117,12 @@ module.exports = (db) => {
       .catch(err => err);
   }
 
+  const addMap = (mapData) => {
+    return db.insert('maps', mapData)
+    .then(result => result.rows)
+    .catch(err => err)
+  }
+
   const updateSpace = (spaceData) => {
     // TODO: Actually make this function work.
   }
@@ -126,6 +133,7 @@ module.exports = (db) => {
     getSpacesByUserId,
     getSpacesByKeyword,
     getSpaceById,
-    addSpace
+    addSpace,
+    addMap
   };
 }
