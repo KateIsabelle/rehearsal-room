@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
+//import configured cloudinary api:
+const {cloudinary} = require('../utils/cloudinary')
 
 module.exports = ({
   getSpaces,
   getSpacesByCity,
   getSpacesByKeyword,
-  addSpace
+  addSpace,
+  addMap,
 }) => {
   // GET spaces
   router.get('/', (req, res) => {
@@ -22,11 +25,25 @@ module.exports = ({
       .catch(err => res.json({error: err.message}));
   });
 
-  // POST a new space in the db
+  // POST a new space & accompanying map in the db
   router.post('/', (req, res) => {
-    const { spaceData } = req.body
-    addSpace(spaceData)
-      .then(space => res.json(space))
+    //imageData is the base64 encoded string representing image file uploaded
+    const { imageData, spaceData, mapData } = req.body
+    //upload image to cloudinary
+    cloudinary.uploader.upload(imageData, { upload_preset: 'rehearsal_room' })
+    .then(res => {
+      console.log("cloudinary response**", res)
+      //public url where image is saved:
+      const url = `https://res.cloudinary.com/davik/image/upload/v${res.version}/${res.public_id}.png`
+      //add new space to spaces table
+      addSpace({...spaceData, thumbnail_photo_url: url, cover_photo_url: url} )
+        .then(space => {
+          //add accompanying map to maps table
+          addMap({...mapData, space_id: space.id})
+        //   .then(map => {
+        // })
+      })
+    })
       .catch(err => res.json({error: err.message}));
   })
 
