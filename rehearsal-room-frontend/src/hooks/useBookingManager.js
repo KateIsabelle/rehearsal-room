@@ -1,12 +1,15 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 
 export default function useBookingManager(host, userId) {
-  const [bookings, setBookings] = useState([])
+  const [bookings, setBookings] = useState({
+    host: [],
+    artist: []
+  })
   const [selectedBooking, setSelectedBooking] = useState(0)
 
-
-  // Handlers for confirming/rejecting/cancelling bookings
+  // Handlers for confirming/rejecting/cancelling bookings.
+  // Put these on the buttons for individual bookings!
   const confirm = (id) => {
     console.log("confirmed!", id)
     axios.put(`/api/bookings/${id}`, {status: 'confirmed'})
@@ -32,18 +35,39 @@ export default function useBookingManager(host, userId) {
     id !== selectedBooking ? setSelectedBooking(id) : setSelectedBooking(0)
   }
 
+  // Refreshes the list of bookings.
   const refreshBookings = () => {
-    console.log("IN REFRESH")
-    axios.get(`/api/bookings/${host ? "host/" : ""}${userId}`)
-      .then(res => setBookings(res.data))
+    // Get bookings for spaces this user owns if they are a host
+    if (host) {
+      axios.get(`/api/bookings/host/${userId}`)
+      .then(res => setBookings(prev => ({
+        ...prev,
+        host: res.data
+      })))
       .catch(err => console.log(err))
+    }
+
+    // Get booking requests submitted by this user
+    axios.get(`/api/bookings/${userId}`)
+    .then(res => setBookings(prev => ({
+      ...prev,
+      artist: res.data
+    })))
+    .catch(err => console.log(err))
   }
 
+  const memoizedRefresh = useCallback(
+    () => {
+      console.log("in memo")
+      refreshBookings();
+    },
+    []
+  );
+
   useEffect(() => {
-    axios.get(`/api/bookings/${host ? "host/" : ""}${userId}`)
-    .then(res => setBookings(res.data))
-    .catch(err => console.log(err))
-  }, [host, userId])
+    // Get bookings for spaces this user owns if they are a host
+    memoizedRefresh()
+  }, [memoizedRefresh])
 
   return {
     bookings,

@@ -1,16 +1,11 @@
 // Custom components
 import BookingListItem from './BookingListItem'
 
-// Custom hooks
-import useBookingManager from '../../hooks/useBookingManager'
+
 
 export default function BookingList(props) {
-  const { bookingType, userId, host } = props;
-  const {
-    bookings,
-    selectedBooking,
-    bookingHandlers
-  } = useBookingManager(host, userId);
+  const { bookingHandlers, selectedBooking, bookings, bookingType, host } = props;
+
 
   const bookingList =
     bookings
