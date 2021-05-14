@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { TextField, Checkbox, FormControlLabel } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
+import { Checkbox, FormControlLabel } from '@material-ui/core';
 import { Button as ButtonS } from '../Button/Button';
+
 
 
 import './_SpaceCreateForm.scss';
@@ -14,11 +16,6 @@ import { AMENITIES } from '../../constants'
 
 
 export default function SpaceCreateForm(props) {
-
-  const { 
-    formState,
-    onChange,
-  } = props;
 
   const amenitiesState = {}
   Object.keys(AMENITIES).forEach(key => {
@@ -64,11 +61,18 @@ export default function SpaceCreateForm(props) {
     }))
     }
 
+    //Intent: path == /space/:[new space id generated]
+    const history = useHistory();
+    const routeChange = () =>{ 
+    let path = `/space/`; 
+    history.push(path);
+  }
+
   //  const handleSubmit = () => {
   //   const newSpaceData = {...spaceFormState}
   //   axios.post('/api/spaces', { newSpaceData })
   //   props.setVisualMode("SPACE_SHOW")
-  //   props.setPopUp(true)
+  //   routeChange();
   //  }
 
   const amenitiesList = Object.keys(AMENITIES).map(key => {
@@ -78,6 +82,8 @@ export default function SpaceCreateForm(props) {
               control={
                 <Checkbox
                   name={key}
+                  checked={spaceFormState[key]}
+                  onChange={handleChange}
                 />}
               label={AMENITIES[key] + "?"}
             />
@@ -200,13 +206,13 @@ export default function SpaceCreateForm(props) {
           />
         </div>
         
-      <h2>Amenities</h2>
+        <h2>Amenities</h2>
 
-      <p>Does your space include any of the following? Check if yes:</p>
+        <p>Does your space include any of the following? Check if yes:</p>
 
-      {<ul>{amenitiesList}</ul>}
+        {<ul>{amenitiesList}</ul>}
 
-        <ButtonS primary label="Submit" />
+        <ButtonS primary label="Submit" /> 
       
       </form>
     </>
