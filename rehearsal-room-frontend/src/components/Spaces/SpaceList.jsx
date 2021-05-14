@@ -1,4 +1,7 @@
+//Component
 import SpaceListItem from './SpaceListItem'
+
+//Styling
 import './_Spaces.scss'
 
 export default function SpaceList(props) {

@@ -1,4 +1,5 @@
 .space_list { 
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,12 +8,23 @@
 }
 
 .item {
-  border: 1px solid black;
+  background-color: whitesmoke;
+  border-radius: 2px;
   padding: 2px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .pict {
   height: "200px";
   width: "200px";
+}
+
+.text {
+  display: flex;
+  justify-content:space-between;
+}
+
+.item:hover {
+  box-shadow: 0 0 10px;
+  font-weight: 400;
 }

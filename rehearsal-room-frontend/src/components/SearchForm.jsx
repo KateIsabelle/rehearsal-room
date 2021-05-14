@@ -34,8 +34,9 @@ export default function SearchForm(props) {
         <TextField
           id="keyword"
           name="keyword"
-          label="Search"
-          variant="filled"
+          label="Keyword Search"
+          variant="outlined"
+          style={{ width: "500px" }}
           value={formState.keyword}
           onChange={onChange}
         />
@@ -43,7 +44,7 @@ export default function SearchForm(props) {
           color="primary"
           onClick={onAdvancedClick}
         >
-          {advancedState.text}
+          Advanced Filters
         </Button>
         <Button 
           id="clear-filters"
