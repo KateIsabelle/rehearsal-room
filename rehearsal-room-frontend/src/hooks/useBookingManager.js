@@ -8,8 +8,8 @@ export default function useBookingManager(host, userId) {
   })
   const [selectedBooking, setSelectedBooking] = useState(0)
 
-
-  // Handlers for confirming/rejecting/cancelling bookings
+  // Handlers for confirming/rejecting/cancelling bookings.
+  // Put these on the buttons for individual bookings!
   const confirm = (id) => {
     console.log("confirmed!", id)
     axios.put(`/api/bookings/${id}`, {status: 'confirmed'})
