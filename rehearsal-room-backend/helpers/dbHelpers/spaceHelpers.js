@@ -104,6 +104,12 @@ module.exports = (db) => {
       .catch(err => err);
   }
 
+  const addMap = (mapData) => {
+    return db.insert('maps', mapData)
+    .then(result => result.rows)
+    .catch(err => err)
+  }
+
   const updateSpace = (spaceData) => {
     // TODO: Actually make this function work.
   }
@@ -113,6 +119,7 @@ module.exports = (db) => {
     getSpacesByCity,
     getSpacesByKeyword,
     getSpaceById,
-    addSpace
+    addSpace,
+    addMap
   };
 }
