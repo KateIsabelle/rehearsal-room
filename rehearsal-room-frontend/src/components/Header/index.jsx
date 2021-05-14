@@ -16,10 +16,8 @@ export default function Header(props) {
       <div className="header-list">
         <NavLink to="/" component={Logo} />
 
+        <Link  to="/spaces/Vancouver" style={{textDecoration: 'none'}}><h3>Browse spaces</h3></Link>
         <Link style={{textDecoration: 'none'}}><h3>About us</h3></Link>
-
-
-
 
         </div>
       </div>
