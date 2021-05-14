@@ -21,15 +21,17 @@ export default function Dashboard(props) {
         spacing={2}
       >
         <Grid item xs={3}>
-          <Paper >{user.first_name} {user.last_name}
+          <Paper >
+            {user.first_name} {user.last_name}
+            { user.organization_name && <p><strong>Organization: </strong>{user.organization_name}</p>}
             <img src={user.photo} width="90%" alt="profile"/>
             <p>{user.description}</p>
-            { user.organization_name && <p><strong>{user.organization_name}</strong></p>}
           </Paper>
         </Grid>
 
         <Grid
           container
+          item
           direction="column"
           justify="flex-start"
           xs={9}
