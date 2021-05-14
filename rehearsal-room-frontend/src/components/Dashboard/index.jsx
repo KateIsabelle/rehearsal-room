@@ -1,6 +1,9 @@
 // Custom components
 import BookingList from './BookingList'
 
+// Custom hooks
+import useBookingManager from '../../hooks/useBookingManager'
+
 // Material UI Components
 import { palette } from '@material-ui/system';
 import Container from '@material-ui/core/Container';
@@ -10,6 +13,11 @@ import Paper from '@material-ui/core/Paper';
 
 export default function Dashboard(props) {
   const { user } = props;
+  const {
+    bookings,
+    selectedBooking,
+    bookingHandlers
+  } = useBookingManager(user.is_host, user.id);
 
   return (
     <Container maxWidth="lg">
@@ -46,8 +54,10 @@ export default function Dashboard(props) {
               <Grid item>
                 <Paper>
                   <BookingList
-                    userId={user.id}
                     host={true}
+                    bookings={bookings.host}
+                    bookingHandlers={bookingHandlers}
+                    selectedBooking={selectedBooking}
                     bookingType="pending"
                     title="Pending Booking Requests"
                     emptyMessage="No pending requests!"
@@ -57,8 +67,10 @@ export default function Dashboard(props) {
               <Grid item>
                 <Paper>
                   <BookingList
-                    userId={user.id}
                     host={true}
+                    bookings={bookings.host}
+                    bookingHandlers={bookingHandlers}
+                    selectedBooking={selectedBooking}
                     bookingType="confirmed"
                     title="Confirmed Bookings"
                     emptyMessage="No bookings currently confirmed!"
@@ -70,8 +82,10 @@ export default function Dashboard(props) {
           <Grid item>
             <Paper>
               <BookingList
-                userId={user.id}
                 host={false}
+                bookings={bookings.artist}
+                bookingHandlers={bookingHandlers}
+                selectedBooking={selectedBooking}
                 bookingType="all"
                 title="My Bookings"
                 emptyMessage="No booking requests!"

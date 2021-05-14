@@ -35,7 +35,8 @@ export default function useBookingManager(host, userId) {
     id !== selectedBooking ? setSelectedBooking(id) : setSelectedBooking(0)
   }
 
-  const refreshBookings = (host, userId) => {
+  // Refreshes the list of bookings.
+  const refreshBookings = () => {
     // Get bookings for spaces this user owns if they are a host
     if (host) {
       axios.get(`/api/bookings/host/${userId}`)
@@ -58,9 +59,9 @@ export default function useBookingManager(host, userId) {
   const memoizedRefresh = useCallback(
     () => {
       console.log("in memo")
-      refreshBookings(host, userId);
+      refreshBookings();
     },
-    [host, userId]
+    []
   );
 
   useEffect(() => {
