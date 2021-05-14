@@ -5,19 +5,19 @@ export default function OpeningHoursTable(props) {
 return (
 <Fragment>
 
-<table class="opening-hours-table">
+<table className="opening-hours-table">
     <thead>
         <tr>
-            <th colspan="7">Available Hours:</th>
+            <th colSpan="7">Available Hours:</th>
         </tr>
         <tr>
-            <th colspan="1">Monday</th>
-            <th colspan="1">Tuesday</th>
-            <th colspan="1">Wednesday</th>
-            <th colspan="1">Thursday</th>
-            <th colspan="1">Friday</th>
-            <th colspan="1">Saturday</th>
-            <th colspan="1">Sunday</th>
+            <th colSpan="1">Monday</th>
+            <th colSpan="1">Tuesday</th>
+            <th colSpan="1">Wednesday</th>
+            <th colSpan="1">Thursday</th>
+            <th colSpan="1">Friday</th>
+            <th colSpan="1">Saturday</th>
+            <th colSpan="1">Sunday</th>
 
         </tr>
     </thead>

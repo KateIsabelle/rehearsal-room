@@ -7,19 +7,19 @@ const picStyle = {
 }
 
 export default function SpaceListItem(props) {
-  const { spaceId, photoUrl, title, price_per_hour } = props
+  const { id, thumbnail_photo_url, title, price_per_hour } = props
   console.log('SPACE LIST ITEM PROPS:',props)
   return (
-    <div className="item" onClick={() => console.log("clicked on space", spaceId, title)}>
+    <div className="item" onClick={() => console.log("clicked on space", id, title)}>
        
 
       <div className="text">
         <h1>{title}</h1>
-        <h2>$ 30 /hr{price_per_hour}</h2>
+        <h2>${price_per_hour / 100}/hr</h2>
       </div>
-      <Link className="pict" to={"/space/" + spaceId}>
+      <Link className="pict" to={"/space/" + id}>
         <div>
-          <img src={photoUrl} style={picStyle} alt=""/>
+          <img src={thumbnail_photo_url} style={picStyle} alt=""/>
           </div>
       </Link>
     </div>
