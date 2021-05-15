@@ -2,9 +2,25 @@
   width: 100%;
 
   .space-banner {
-    height: 400px;
+    height: 300px;
     width: 100%;
     background-color: $light-green;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-bottom: 300px;
+    background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
+
+    h1 {
+      color: white;
+      font-size: 220%;
+      text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4); 
+      // text-shadow: 1px 1px 2px #ccc9c2;
+    }
+    h3 {
+      color: white;
+      font-size: 120%
+    }
   }
   .space-photo-cont {
     height: 400px;
@@ -18,7 +34,38 @@
       border-radius: 8px;
     }
   }
-  .space-cover {
+  .move-down {
+    transform: translateY(50%)
+  }
+  .space-top {
     
   }
+  .mrg-med {
+    margin: 20px;
+  }
+}
+
+
+// <div className="container11"><div className="box11"></div><div className="box11 stack-top11"></div></div>
+
+.container11{
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 20px;
+  border: 2px yellow solid;
+}
+.box11{
+  width: 100%;
+  height: 100%;            
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;  /* for demo purpose  */
+  background-color: pink;
+}
+.stack-top11{
+  z-index: 9;
+  margin: 20px; /* for demo purpose  */
+  background-color: purple;
 }

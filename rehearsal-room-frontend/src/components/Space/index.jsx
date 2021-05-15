@@ -57,11 +57,21 @@ export default function Space(props) {
       <PopUp toggle={togglePop}>
       <p className="popup-content">Request Made!</p>
       </PopUp> }
-      <div className="space-banner"></div>
-    <div>
-      <h1>{spaceData.title}</h1>
-      <p>{spaceData.city}</p>
-      <div className="space-photo-cont"><img className="space-photo" src={spaceData.cover_photo_url} alt="property"></img></div>
+      
+
+      <div className="space-banner">
+
+        <div className="move-down">
+          <h1 className="mrg-med">{spaceData.title}</h1>
+          <h3 className="mrg-med">{spaceData.city}</h3>
+          <div className="space-photo-cont">
+            <img className="space-photo" src={spaceData.cover_photo_url} alt="property"></img>
+          </div>
+        </div>
+        <div className="move-down">
+          <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
+        </div>
+
     </div>
 
       <p>{spaceData.description}</p>
@@ -75,7 +85,6 @@ export default function Space(props) {
       <AmenitiesList spaceData={spaceData}/>
       <OpeningHoursTable/>
 
-      <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
 
           <h3>Data from axios request:</h3>
           <ul>
