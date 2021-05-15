@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios'
 
 import Map from './Map'
@@ -19,6 +19,13 @@ export default function Space(props) {
   const [popUp, setPopUp] = useState(false)
   const [visualMode, setVisualMode] = useState("SPACE_SHOW")
   const { space_id } = useParams();
+
+  const history = useHistory();
+
+  const routeChange = () =>{ 
+    let path = '/spaces/vancouver'; 
+    history.push(path);
+  }
 
   const togglePop = () => {
     setPopUp(false)
@@ -43,33 +50,58 @@ export default function Space(props) {
   ))
   return (
 
-    <article className="">
-  { visualMode === "SPACE_SHOW" &&
+    <article className="space-container">
+    { visualMode === "SPACE_SHOW" &&
     <Fragment>
-      { popUp &&
-        <PopUp toggle={togglePop}>
-          <p className="popup-content">Request Made!</p>
-        </PopUp> }
-      <h1>{spaceData.title}</h1>
-      <p>{spaceData.city}</p>
-      <img src={spaceData.cover_photo_url} alt="property" width="600" height="400"></img>
-      <p>{spaceData.description}</p>
-      <div>Price per day: ${spaceData.price_per_day / 100}</div>
-      <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
-      {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
-      <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
-      <Button size="small" label="Make a Request" onClick={() => setVisualMode("REQUEST_FORM")}/>
+    { popUp &&
+      <PopUp toggle={togglePop}>
+      <p className="popup-content">Request Made!</p>
+      </PopUp> }
+      
 
-      <h3>Features:</h3>
-      <AmenitiesList spaceData={spaceData}/>
+      <div className="space-banner">
+
+        <div className="move-down">
+          <div>
+            <h1 className="mrg-med">{spaceData.title}</h1>
+            <h3 className="mrg-med">{spaceData.city}</h3>
+          </div>
+          <div className="space-photo-cont">
+            <img className="space-photo" src={spaceData.cover_photo_url} alt="property"></img>
+          </div>
+        </div>
+
+        <div className="move-down">
+
+          <div className="price-wrapper">
+            <div className="mrg-med"><Button size="xlarge" label="Make a Request" onClick={() => setVisualMode("REQUEST_FORM")}/></div>
+            <div className="make-flex-col">
+              <div>Price per day: ${spaceData.price_per_day / 100}</div>
+              <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
+            </div>
+          </div>
+          <div className="map-container"><Map className="" latitude={spaceData.latitude} longitude={spaceData.longitude}/></div>
+          {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
+          <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
+
+        </div>
+
+    </div>
+
+    <div className="space-info">
+      <div className="space-desc">
+        <p>{spaceData.description}</p>
+      </div>
+      <div className="space-features">
+        <h3>Features:</h3>
+        <AmenitiesList spaceData={spaceData}/>
+      </div>
+
+      </div>
       <OpeningHoursTable/>
+      <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={routeChange}></Button></div>
 
-      <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
-
-          <h3>Data from axios request:</h3>
-          <ul>
-            {dataList}
-          </ul>
+          
     </Fragment>
   }
   {visualMode === "REQUEST_FORM" &&
