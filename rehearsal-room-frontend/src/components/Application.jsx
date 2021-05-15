@@ -57,7 +57,7 @@ export default function App() {
           </Route>
           <Route path="/dashboard">
             { !state.user && <Redirect to="/login"/> }
-            { state.user && <Dashboard user={state.user} /> }
+            { state.user && <Dashboard user={state.user} updateUser={setUserInfo} /> }
           </Route>
         </Switch>
         
