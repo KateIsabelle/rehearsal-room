@@ -1,4 +1,5 @@
 const express = require('express');
+const db = require('../db');
 const router = express.Router();
 const {
     getPostsByUsers
@@ -8,6 +9,7 @@ module.exports = ({
     getUsers,
     getUserByEmail,
     addUser, 
+    updateUser,
     getBookingsByUser, 
     getHostBookings
 }) => {
@@ -69,6 +71,14 @@ module.exports = ({
                 error: err.message
             }));
 
+    })
+
+    router.put('/:user_id', (req, res) => {
+      const newData = req.body
+      const user_id = req.params.user_id
+      updateUser(user_id, newData)
+        .then(updatedUser => res.json(updatedUser))
+        .catch(err => res.json({ error: err.message }));
     })
 
     return router;

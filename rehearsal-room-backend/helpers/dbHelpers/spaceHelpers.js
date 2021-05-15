@@ -127,6 +127,18 @@ module.exports = (db) => {
     // TODO: Actually make this function work.
   }
 
+  const deleteSpace = id => {
+    const queryString = `
+      DELETE FROM spaces
+      WHERE id = $1
+      RETURNING *
+    `;
+    const queryParams = [id]
+    return db.query(queryString, queryParams)
+    .then(result => result.rows)
+    .catch(err => err)
+  }
+
   return {
     getSpaces,
     getSpacesByCity,
@@ -134,6 +146,7 @@ module.exports = (db) => {
     getSpacesByKeyword,
     getSpaceById,
     addSpace,
+    deleteSpace,
     addMap
   };
 }

@@ -19,9 +19,17 @@ import axios from 'axios';
 
 
 export default function Dashboard(props) {
-  const { user } = props;
+  const { user, updateUser } = props;
   const [createSpace, setCreateSpace] = useState(false)
   const [popUp, setPopUp] = useState(false)
+  const [popUpContent, setPopUpContent] = useState({
+    header: "",
+    body: "",
+    yesButton: "Yes",
+    yesButtonFunc: "",
+    noButton: "No",
+    noButtonFunc: () => {setPopUp(false)},
+  })
 
   // All bookings on the dashboard page are stored in the bookings state.
   // selectedBooking controls which booking is "expanded" currently.
@@ -41,8 +49,73 @@ export default function Dashboard(props) {
       .then(res => setSpaces(res.data))
       .catch(err => console.log(err))
   }, [user.id])
+
+
+  const makeUserHost = () => {
+    axios.put(`/api/users/${user.id}`, {is_host: true})
+      .then(res => updateUser(user.email))
+      .then(() => setPopUpContent ({
+        header: "Your account is now a Host account!",
+        body: "You can now list new Spaces and manage incoming booking requests from your dashboard.",
+        yesButton: "Great!",
+        yesButtonFunc: () => setPopUp(false),
+        noButton: "",
+        noButtonFunc: () => null,
+      }
+      ))
+      .then(() => setPopUp(true))
+  }
+
+  const handleSpaceDelete = (id, space_title) => {
+    setPopUpContent ({
+      header: "Are You Sure?",
+      body: `Unlisting ${space_title} will remove all bookings and data about it.`,
+      yesButton: "Yes, unlist it",
+      yesButtonFunc: () => deleteSpace(id, space_title),
+      noButton: "No, go back",
+      noButtonFunc: () => setPopUp(false),
+    }
+    )
+    setPopUp(true)
+  }
+
+  const deleteSpace = (id, space_title) => {
+    axios.delete(`/api/spaces/${id}`)
+    .then(res => {
+      const newPopUp = {
+        header: "Space Unlisted",
+        body: `${res.data.title} has been successfully unlisted.`,
+        yesButton: "Close",
+        yesButtonFunc: () => setPopUp(false),
+        noButton: "",
+        noButtonFunc: () => setPopUp(false),
+      }
+      setPopUpContent (newPopUp)
+    })
+    .then(() => axios.get(`/api/spaces/user/${user.id}`))
+    .then(res => setSpaces(res.data))
+  }
+
   return (
     <>
+    {popUp &&
+      <PopUp toggle={() => setPopUp(false)}>
+        <h3>{popUpContent.header}</h3>
+        <p class="popup-content">
+          {popUpContent.body}
+        </p>
+        {popUpContent.yesButton && 
+          <Button 
+            label={popUpContent.yesButton}
+            onClick={popUpContent.yesButtonFunc}
+          />}
+        {popUpContent.noButton && 
+          <Button 
+            label={popUpContent.noButton}
+            onClick={popUpContent.noButtonFunc}
+          />}
+      </PopUp>
+    }
     {createSpace &&
       <SpaceCreateForm
         user={user}
@@ -62,6 +135,12 @@ export default function Dashboard(props) {
               { user.organization_name && <p><strong>Organization: </strong>{user.organization_name}</p>}
               <img src={user.photo} width="90%" alt="profile"/>
               <p>{user.description}</p>
+              {!user.is_host &&
+              <Button
+                onClick={makeUserHost}
+                label="Become a Host"
+              ></Button>
+              }
             </Paper>
           </Grid>
 
@@ -82,7 +161,11 @@ export default function Dashboard(props) {
                       onClick={() => setCreateSpace(true)}
                       label="Add a new Space"
                     ></Button>
-                    <SpaceList spaces={spaces} />
+                    <SpaceList 
+                      spaces={spaces}
+                      dashboard={true}
+                      onDeleteClick={handleSpaceDelete}
+                    />
                   </Paper>
                 </Grid>
                 <Grid item>

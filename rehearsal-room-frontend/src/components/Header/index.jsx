@@ -44,7 +44,7 @@ export default function Header(props) {
 function Logo() {
   return (
     <>
-    <Link to={'/'}><img src='https://www.flaticon.com/svg/vstatic/svg/386/386107.svg?token=exp=1620604584~hmac=584f6d47c262f7eaa45cf32d56fbaea5' width="32" height="32" alt="" /></Link>
+    <Link to={'/'}><img src='https://res.cloudinary.com/dyo7gkw5s/image/upload/e_improve/v1621037354/Screen_Shot_2021-05-14_at_5.08.05_PM_dtevak.png' width="32" height="32" alt="" /></Link>
     <h1>
       Rehearsal Room
     </h1>

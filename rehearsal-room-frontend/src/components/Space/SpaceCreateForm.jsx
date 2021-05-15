@@ -10,6 +10,11 @@ import axios from 'axios'
 //for address input box:
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
+import Spinner from '../Spinner'
+import PopUp from '../Space/PopUp'
+
+
+
 import './_SpaceCreateForm.scss';
 
 // Constants
@@ -23,6 +28,7 @@ export default function SpaceCreateForm(props) {
   const { user } = props
   //previewSource is a base-64 encoded string that represents the image 
   const [previewSource, setPreviewSource] = useState("")
+  const [popUp, setPopUp] = useState(false)
   const history = useHistory();
 
   //Paul's amenities constant
@@ -125,8 +131,9 @@ export default function SpaceCreateForm(props) {
   }
   //on submit, calls uploadImage with previewSource// WHERE DO WE GO, PAUL?!?!?! 
   const handleSubmit = e => {
-    console.log("submitting")
     e.preventDefault();
+    console.log("submitting")
+    setPopUp(true)
     if(!previewSource) return; 
     submitInfo(previewSource)
       .then(res => routeChange(res.data[0].space_id));
@@ -156,6 +163,11 @@ export default function SpaceCreateForm(props) {
 
   return ( 
     <>
+      {popUp && 
+      <PopUp>
+        <p className="popup-content">Saving...</p>
+        <Spinner />
+      </PopUp>}
       <form>
         <h1>Create A New Space Listing</h1>
 

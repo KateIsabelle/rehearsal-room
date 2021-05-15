@@ -10,6 +10,7 @@ module.exports = ({
   getSpacesByCity,
   getSpacesByKeyword,
   addSpace,
+  deleteSpace,
   addMap,
 }) => {
   // GET spaces
@@ -45,8 +46,11 @@ module.exports = ({
       console.log("cloudinary response**", res)
       //public url where image is saved:
       const url = `https://res.cloudinary.com/davik/image/upload/v${res.version}/${res.public_id}.png`
+      //formula to ensure new prices are x100
+      const dayPrice = spaceData.price_per_day * 100;
+      const hourPrice = spaceData.price_per_hour * 100;
       //add new space to spaces table
-      return addSpace({...spaceData, thumbnail_photo_url: url, cover_photo_url: url} )
+      return addSpace({...spaceData, price_per_day: dayPrice, price_per_hour: hourPrice, thumbnail_photo_url: url, cover_photo_url: url} )
     })
     .then(spaceRes => {
       //add accompanying map to maps table
@@ -60,6 +64,13 @@ module.exports = ({
   router.put('/:id', (req, res) => {
     res.json({"PUT req for space id":`${req.params.id}`})
   })
+
+  router.delete('/:id', (req, res) => {
+    const space_id = req.params.id
+    deleteSpace(space_id)
+      .then(deletedSpace => res.json(deletedSpace[0]))
+      .catch(err => res.json({error: err.message}));
+    })
 
   return router;
 }
