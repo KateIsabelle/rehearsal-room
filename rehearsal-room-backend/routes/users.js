@@ -9,6 +9,7 @@ module.exports = ({
     getUsers,
     getUserByEmail,
     addUser, 
+    updateUser,
     getBookingsByUser, 
     getHostBookings
 }) => {
