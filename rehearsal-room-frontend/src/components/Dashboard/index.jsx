@@ -55,7 +55,7 @@ export default function Dashboard(props) {
       <PopUp toggle={() => setPopUp(false)}>
         <h3>Your account is now a Host account!</h3>
         <p class="popup-content">
-          You can list new Spaces and manage incoming booking requests from this page.
+          You can now list new Spaces and manage incoming booking requests from your dashboard.
         </p>
       </PopUp>
     }
