@@ -43,8 +43,6 @@ export default function SpaceCreateForm(props) {
     user_id: user.id, //global state
     title: "",
     description: "",
-    country:"", 
-    province: "", 
     city: "", 
     address:"", 
     price_per_day: 0,
