@@ -9,3 +9,17 @@
 @import '../components/AutoComplete';
 @import '../components/Spinner';
 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+// sparefonts {
+//   font-family: 'Lato', sans-serif;
+//   font-family: 'Montserrat', sans-serif;
+//   font-family: 'Roboto Slab', serif;
+// }
