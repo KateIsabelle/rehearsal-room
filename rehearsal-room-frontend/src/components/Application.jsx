@@ -21,8 +21,6 @@ import Spaces from './Spaces'
 import Login from './Login'
 import Dashboard from './Dashboard'
 
-// CSS
-import './App.css';
 
 // Custom hooks
 import useApplicationData from '../hooks/useApplicationData'
