@@ -165,10 +165,8 @@ export default function SpaceCreateForm(props) {
       </PopUp>}
       <form>
         <h1>Create A New Space Listing</h1>
-
+        <br/> 
         <div className="text-inputs">
-
-        <AutoComplete address={spaceFormState.address} handleChange={handleAutocompleteChange} handleSelect={handleAutocompleteSelect}/>
 
           <label for="title">
             Title for space listing:
@@ -178,7 +176,7 @@ export default function SpaceCreateForm(props) {
             value={spaceFormState.title}
             onChange={handleChange} 
           />
-
+          <br/>
           <label for="description">
             Details to describe the space (Hint: this would be a good place to add a couple guidelines):
           </label>
@@ -187,7 +185,8 @@ export default function SpaceCreateForm(props) {
             value={spaceFormState.description}
             onChange={handleChange} 
           />
-            
+
+           <br /> 
 
           <h2>Photos</h2>
 
@@ -203,50 +202,18 @@ export default function SpaceCreateForm(props) {
 
 
           <h2>Address of listing</h2>
-
-          <label for="street">
-            Street number:
+          <label for="address">
+            Space address:
           </label>
-          <input 
-            name="street"
-            value={spaceFormState.street}
-            onChange={handleChange} 
-          />
+          <AutoComplete address={spaceFormState.address} handleChange={handleAutocompleteChange} handleSelect={handleAutocompleteSelect}/>
 
           <label for="city">
-            City:
+            General city area of listing - Vancouver, Toronto, or Montreal:
           </label>
           <input 
             value={spaceFormState.city}
             onChange={handleChange}
             name="city" 
-          />
-
-          <label for="province">
-            Province:
-          </label>
-          <input 
-            name="province"
-            value={spaceFormState.province}
-            onChange={handleChange}
-          />
-
-          <label for="post_code">
-            Postal Code:
-          </label>
-          <input 
-            name="post_code" 
-            value={spaceFormState.post_code}
-            onChange={handleChange}
-          />
-          
-          <label for="country">
-            Country:
-          </label>
-          <input 
-            name="country"
-            value={spaceFormState.country}
-            onChange={handleChange}
           />
 
           
@@ -271,7 +238,7 @@ export default function SpaceCreateForm(props) {
             onChange={handleChange} 
           />
         </div>
-        
+        <br/>
         <h2>Amenities</h2>
 
         <p>Does your space include any of the following? Check if yes:</p>
