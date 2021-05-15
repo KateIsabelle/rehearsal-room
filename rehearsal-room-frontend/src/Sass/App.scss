@@ -1,11 +1,13 @@
 // This is where we will import all of our other .scss files
 
+@import './sass_vars';
 @import '../components/Login';
 @import '../components/Space/OpeningHoursTable';
 @import '../components/Dashboard/BookingList';
 @import '../components/Dashboard/BookingListItem';
-@import '../components/Space/PopUp.scss';
+@import '../components/Space/PopUp';
 @import '../components/CloudinaryUpload';
+@import '../components/AutoComplete';
 @import '../components/Spinner';
 @import '../components/RentalRequest/RentalRequest';
 
@@ -17,9 +19,3 @@
 
   font-family: 'Montserrat', sans-serif;
 }
-
-// sparefonts {
-//   font-family: 'Lato', sans-serif;
-//   font-family: 'Montserrat', sans-serif;
-//   font-family: 'Roboto Slab', serif;
-// }

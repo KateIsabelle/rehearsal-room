@@ -1,0 +1,23 @@
+/* Color variables */
+$dark-maroon: #3b0d11ff; // Dark sienna
+$dark-grey: #2b3239ff; // Gunmetal
+$light-grey: #495159ff; // Charcoal
+$dark-blue: #0078a2ff; // Celadon blue
+$med-blue: #0089b6ff; // Blue NCS
+$light-blue: #a4c0e6ff; // Light steel blue
+$lightest-blue: #c4d5ecff; // Beau blue
+$dark-green: #639e00ff; // Olive drab 3
+$light-green: #d2ff85ff; // Mindaro
+$off-white: #f5f5f5ff; // Cultured
+
+/* Element-specific variables */
+$button-primary: $dark-green;
+$button-yes: $dark-blue;
+$button-no: $dark-maroon;
+
+/* Font variables */
+/* Feel free to rename these, I wasn't positive which one goes where */
+
+$banner-font: 'Lato', sans-serif;
+$header-font: 'Montserrat', sans-serif;
+$body-font: 'Roboto Slab', serif;
