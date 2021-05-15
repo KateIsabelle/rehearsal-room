@@ -10,6 +10,7 @@ module.exports = ({
   getSpacesByCity,
   getSpacesByKeyword,
   addSpace,
+  deleteSpace,
   addMap,
 }) => {
   // GET spaces
@@ -63,6 +64,13 @@ module.exports = ({
   router.put('/:id', (req, res) => {
     res.json({"PUT req for space id":`${req.params.id}`})
   })
+
+  router.delete('/:id', (req, res) => {
+    const space_id = req.params.id
+    deleteSpace(space_id)
+      .then(deletedSpace => res.json(deletedSpace[0]))
+      .catch(err => res.json({error: err.message}));
+    })
 
   return router;
 }
