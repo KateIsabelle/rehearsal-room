@@ -17,29 +17,46 @@ export default function BookingListItem(props) {
   }
   const shortDesc = shortenedUsageDesc(props.usage_description)
 
+  const unselectedBooking = (
+    <>
+      { host &&
+        <div className="booking-list-item-section">
+          <h4 className="booking-list-item-section-header">From</h4>
+          <p></p>
+        </div>
+      }
+      { !host &&
+        <div className="booking-list-item-section">
+          <h4 className="booking-list-item-section-header">Status</h4>
+          <p><strong>{upcase(props.status)}</strong></p>
+        </div>
+      }
+        <div className="booking-list-item-section">
+          <h4 className="booking-list-item-section-header">Space</h4>
+          <p>{props.space_name}</p>
+        </div>
+      <div className="booking-list-item-section">
+        <h4 className="booking-list-item-section-header">Usage Description</h4>
+        <p>{shortDesc}</p>
+      </div>
+      <div className="booking-list-item-section">
+        <h4 className="booking-list-item-section-header">Date</h4>
+        <p>{date}</p>
+        <p>{props.start_time} to {props.end_time}</p>
+      </div>
+    </>
+  )
+
   return (
     <div
       className={"booking-list-item " + props.status}
       onClick={() => handlers.select(props.id)}
     >
+    { !selected &&
+      unselectedBooking
+    }
     {/* If this component is not the currently-selected component,
         we show a shortened listing with no buttons. */}
-    { !selected && host &&
-      <>
-      <strong> From: </strong>{props.requester_name} |
-      <strong> Space: </strong>{props.space_name} |
-      <strong> Description: </strong>{shortDesc} |
-      <strong> Time: </strong>{date} from {props.start_time} to {props.end_time}
-      </>
-    }
-    { !selected && !host &&
-      <>
-      <strong> Space: </strong>{props.space_name} |
-      <strong> Description: </strong>{shortDesc} |
-      <strong> Time: </strong>{date} from {props.start_time} to {props.end_time} |
-      <strong> Status: </strong>{upcase(props.status)}
-      </>
-    }
     { selected && host &&
       <>
       <strong> From: </strong>{props.requester_name} |

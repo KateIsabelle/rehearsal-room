@@ -130,8 +130,8 @@ export default function Dashboard(props) {
         >
           <Grid item xs={3}>
             <div className="dashboard-card dashboard-profile">
-              {user.first_name} {user.last_name}
-              { user.organization_name && <p><strong>Organization: </strong>{user.organization_name}</p>}
+              <h2>{user.first_name} {user.last_name}</h2>
+              { user.organization_name && <h3>Organization: {user.organization_name}</h3>}
               <img src={user.photo} width="90%" alt="profile"/>
               <p>{user.description}</p>
               {!user.is_host &&
