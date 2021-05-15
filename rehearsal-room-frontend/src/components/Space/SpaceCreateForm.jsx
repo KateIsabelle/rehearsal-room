@@ -7,15 +7,12 @@ import AutoComplete from '../AutoComplete'
 
 import axios from 'axios'
 
-//for address input box:
-import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
+//for address input box - PlacesAutocomplete:
+import {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
 import Spinner from '../Spinner'
 import PopUp from '../Space/PopUp'
 
-
-
-import './_SpaceCreateForm.scss';
 
 // Constants
 import { AMENITIES } from '../../constants'
