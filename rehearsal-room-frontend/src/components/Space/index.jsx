@@ -91,8 +91,6 @@ export default function Space(props) {
     <div className="space-info">
       <div className="space-desc">
         <p>{spaceData.description}</p>
-        <h3>Features:</h3>
-        <AmenitiesList spaceData={spaceData}/>
       </div>
       <div className="space-features">
         <h3>Features:</h3>

@@ -11,13 +11,13 @@ return (
             <th colSpan="7">Available Hours:</th>
         </tr>
         <tr>
-            <th colSpan="1">Monday</th>
-            <th colSpan="1">Tuesday</th>
-            <th colSpan="1">Wednesday</th>
-            <th colSpan="1">Thursday</th>
-            <th colSpan="1">Friday</th>
-            <th colSpan="1">Saturday</th>
-            <th colSpan="1">Sunday</th>
+            <th colSpan="1">Mon</th>
+            <th colSpan="1">Tues</th>
+            <th colSpan="1">Weds</th>
+            <th colSpan="1">Thurs</th>
+            <th colSpan="1">Fri</th>
+            <th colSpan="1">Sat</th>
+            <th colSpan="1">Sun</th>
 
         </tr>
     </thead>
