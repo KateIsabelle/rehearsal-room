@@ -25,23 +25,6 @@ import RentalSpace from "./RentalSpace";
 
 //where do you come from, where do you go? (onSubmit) axioooos??
 
-const space = {
-  id: 9,
-  user_id: 4,
-  title: "Capoeira Ache Brazil Academy",
-  description: "description",
-  thumbnail_photo_url: "https://cdn-prod.thisopenspace.com/photos/files/000/041/727/small/20170901_135729.jpg?1516992233",
-  cover_photo_url: "https://cdn-prod.thisopenspace.com/photos/files/000/041/721/banner/20170709_151933.jpg?1516991647",
-  country: "Canada",
-  street: "341 E Broadway",
-  city: "Vancouver",
-  province: "BC",
-  post_code: "V5T1W5",
-  price_per_day: 25000,
-  price_per_hour: 3500
-  }
-
-
 export default function RentalRequest(props) {
   const [formState, setFormState] = useState({
     user_id: props.user_id, 
@@ -79,7 +62,7 @@ export default function RentalRequest(props) {
     <>
       <div className="rental-request-container">
         <RentalSpace 
-        space={space}
+        space={props.space}
         />
         <RequestForm 
           formState={formState}

@@ -73,7 +73,7 @@ export default function Space(props) {
     </Fragment>
   }
   {visualMode === "REQUEST_FORM" &&
-    <RentalRequest user_id={props.user_id} space_id={space_id} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
+    <RentalRequest user_id={props.user_id} space_id={space_id} space={spaceData} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
 }
 
         </article>
