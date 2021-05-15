@@ -5,11 +5,14 @@ export default function RentalSpace (props) {
   console.log(props.space.city)
   return (
     <>
-    <h1> Rental Request for {props.space.title} </h1>
-    <img src={props.space.thumbnail_photo_url}></img>
-    <p>Address: {props.space.street}, {props.space.city}, {props.space.province}.</p>
-    <p>Price per hour: ${props.space.price_per_hour /100}</p>
-    <p>Price per day: ${props.space.price_per_day /100}</p>
+      <div className="rental-space-title-photo">
+        <h1> Rental Request for <strong>{props.space.title}</strong>  </h1>
+        <img className="space-image" src={props.space.thumbnail_photo_url}></img>
+      
+        <p><strong>Address:</strong> {props.space.street}, {props.space.city}, {props.space.province}.</p>
+        <p><strong>Price per hour:</strong> ${props.space.price_per_hour /100}</p>
+        <p><strong>Price per day:</strong> ${props.space.price_per_day /100}</p>
+      </div>
     </>
   )
 }

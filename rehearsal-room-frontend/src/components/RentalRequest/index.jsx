@@ -77,15 +77,17 @@ export default function RentalRequest(props) {
 
   return (
     <>
-      <RentalSpace 
-      space={space}
-      />
-      <RequestForm 
-        formState={formState}
-        handleChange={handleChange}
-        setVisualMode={props.setVisualMode}
-        setPopUp={props.setPopUp}
-      />
+      <div className="rental-request-container">
+        <RentalSpace 
+        space={space}
+        />
+        <RequestForm 
+          formState={formState}
+          handleChange={handleChange}
+          setVisualMode={props.setVisualMode}
+          setPopUp={props.setPopUp}
+        />
+      </div>
     </>
   )
 }
