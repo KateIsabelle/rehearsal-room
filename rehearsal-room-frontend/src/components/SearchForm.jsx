@@ -30,33 +30,37 @@ export default function SearchForm(props) {
     );
   })
   return (
-    <div className="spaces-search-form-container">
-      <form className="spaces-search-form">
-        <TextField
-          id="keyword"
-          name="keyword"
-          label="Keyword Search"
-          variant="outlined"
-          style={{ width: "500px" }}
-          value={formState.keyword}
-          onChange={onChange}
-        />
-        <Button
-          color="primary"
-          onClick={onAdvancedClick}
-        >
-          Advanced Filters
-        </Button>
-        <Button 
-          id="clear-filters"
-          name="clear-filters"
-          label="Clear all filters"
-          onClick={onClearClick}>
-          Clear all filters
-        </Button>
-        {advancedState.show && <ul>{amenitiesList}</ul>}
-      </form>
-    </div>
+    <form className="spaces-search-form">
+      <div className="spaces-search-form-container">
+        <div className="spaces-search-form-top">
+          <TextField
+            id="keyword"
+            name="keyword"
+            label="Keyword Search"
+            variant="outlined"
+            style={{ width: "500px" }}
+            value={formState.keyword}
+            onChange={onChange}
+          />
+          <Button
+            color="primary"
+            onClick={onAdvancedClick}
+          >
+            Advanced Filters
+          </Button>
+          <Button 
+            id="clear-filters"
+            name="clear-filters"
+            label="Clear all"
+            onClick={onClearClick}>
+            Clear all filters
+          </Button>
+        </div>
+        {advancedState.show && 
+          <ul className="spaces-search-form-amenities">{amenitiesList}</ul>
+        }
+      </div>
+    </form>
   )
 
 }
