@@ -14,13 +14,19 @@
 }
 .storybook-button--primary {
   color: white;
-  background-color: #23C296;
+  background-color: #639e00ff;
 }
 .storybook-button--secondary {
-  color: #333;
-  background-color: transparent;
+  color: white;
+  background-color: #0078A2;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
+
+.storybook-button--secondary:hover {
+  color: white;
+  background-color: #0078A2;
+}
+
 .storybook-button--small {
   font-size: 12px;
   padding: 10px 16px;
