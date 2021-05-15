@@ -4,21 +4,20 @@
   margin-bottom: 2em;
 }
 
-.rental-space-title-photo h1 {
-  font-family: 'Roboto Slab', serif;
-  margin-bottom: 2em;
-}
 
 .rental-space-title-photo {
   // border: 2px solid #2B3239;
-  background-color: $light-green;
   display: flex;
   flex-direction: column;
   margin: 1em;
 }
 
+
+
 .rental-request-form-wrapper {
+  background-color: white;
   border: 2px solid #2B3239;
+  box-shadow: 8px solid rgba(245, 245, 245, 0.685);
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -29,6 +28,8 @@
 
 .rental-request-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .alt-payment {

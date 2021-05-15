@@ -1,6 +1,5 @@
 import React from "react";
-import { TextField, Checkbox } from '@material-ui/core';
-import { Button } from '../Button/Button'
+import { TextField, Button, Checkbox } from '@material-ui/core';
 import axios from "axios";
 
 
@@ -15,7 +14,7 @@ export default function RequestForm(props) {
    }
 
   return (
-    <>
+      <>
       <form className="rental-request-form-wrapper">
       
         <label for="usage_description">

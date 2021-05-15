@@ -1,29 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import axios from 'axios';
 
-
+//Components
 import RequestForm from "./RequestForm";
 import RentalSpace from "./RentalSpace";
-
-//user(renter) info to match email form input
-
-
-//CREATE TABLE bookings(
-//   id SERIAL PRIMARY KEY NOT NULL,
-//   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-//   space_id INTEGER NOT NULL REFERENCES spaces(id) ON DELETE CASCADE,
-//   start_time TIMESTAMP NOT NULL,
-//   end_time TIMESTAMP NOT NULL,
-//   status VARCHAR(255) DEFAULT 'pending', --pending,confirmed,rejected
-//   usage_description TEXT,
-//   used_before BOOLEAN
-// );
-
-
-//needs to match space.id
-
-//where do you come from, where do you go? (onSubmit) axioooos??
 
 export default function RentalRequest(props) {
   const [formState, setFormState] = useState({
