@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios'
 
 import Map from './Map'
@@ -19,6 +19,13 @@ export default function Space(props) {
   const [popUp, setPopUp] = useState(false)
   const [visualMode, setVisualMode] = useState("SPACE_SHOW")
   const { space_id } = useParams();
+
+  const history = useHistory();
+
+  const routeChange = () =>{ 
+    let path = `/spaces/vancouver`; 
+    history.push(path);
+  }
 
   const togglePop = () => {
     setPopUp(false)
@@ -43,16 +50,20 @@ export default function Space(props) {
   ))
   return (
 
-    <article className="">
-  { visualMode === "SPACE_SHOW" &&
+    <article className="space-container">
+    { visualMode === "SPACE_SHOW" &&
     <Fragment>
-      { popUp &&
-        <PopUp toggle={togglePop}>
-          <p className="popup-content">Request Made!</p>
-        </PopUp> }
+    { popUp &&
+      <PopUp toggle={togglePop}>
+      <p className="popup-content">Request Made!</p>
+      </PopUp> }
+      <div className="space-banner"></div>
+    <div>
       <h1>{spaceData.title}</h1>
       <p>{spaceData.city}</p>
-      <img src={spaceData.cover_photo_url} alt="property" width="600" height="400"></img>
+      <div className="space-photo-cont"><img className="space-photo" src={spaceData.cover_photo_url} alt="property"></img></div>
+    </div>
+
       <p>{spaceData.description}</p>
       <div>Price per day: ${spaceData.price_per_day / 100}</div>
       <div>Price per hour: ${spaceData.price_per_hour / 100}</div>

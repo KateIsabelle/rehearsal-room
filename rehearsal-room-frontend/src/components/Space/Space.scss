@@ -1,0 +1,24 @@
+.space-container {
+  width: 100%;
+
+  .space-banner {
+    height: 400px;
+    width: 100%;
+    background-color: $light-green;
+  }
+  .space-photo-cont {
+    height: 400px;
+    width: 600px;
+    overflow: hidden;
+
+
+    .space-photo {
+      height: auto;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  }
+  .space-cover {
+    
+  }
+}
