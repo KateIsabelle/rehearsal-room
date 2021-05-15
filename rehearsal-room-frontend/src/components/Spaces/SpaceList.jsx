@@ -9,6 +9,7 @@ export default function SpaceList(props) {
   const list = props.spaces && props.spaces.map(s =>
     <SpaceListItem
       key={s.id}
+      dashboard={props.dashboard}
       {...s}
     />
     )

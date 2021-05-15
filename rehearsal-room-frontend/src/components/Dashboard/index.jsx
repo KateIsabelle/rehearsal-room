@@ -104,7 +104,7 @@ export default function Dashboard(props) {
                       onClick={() => setCreateSpace(true)}
                       label="Add a new Space"
                     ></Button>
-                    <SpaceList spaces={spaces} />
+                    <SpaceList spaces={spaces} dashboard={true} />
                   </Paper>
                 </Grid>
                 <Grid item>
