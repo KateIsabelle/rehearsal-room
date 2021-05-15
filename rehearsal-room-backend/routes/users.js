@@ -1,4 +1,5 @@
 const express = require('express');
+const db = require('../db');
 const router = express.Router();
 const {
     getPostsByUsers
@@ -69,6 +70,14 @@ module.exports = ({
                 error: err.message
             }));
 
+    })
+
+    router.put('/:user_id', (req, res) => {
+      const { newData } = req.body
+      newData[id] = req.params.user_id
+      updateUser(newData)
+        .then(updatedUser => res.json(updatedUser))
+        .catch(err => res.json({ error: err.message }));
     })
 
     return router;
