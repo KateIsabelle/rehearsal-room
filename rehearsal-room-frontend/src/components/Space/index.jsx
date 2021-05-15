@@ -51,7 +51,7 @@ export default function Space(props) {
           <p className="popup-content">Request Made!</p>
         </PopUp> }
       <h1>{spaceData.title}</h1>
-      <p>{spaceData.city}, {spaceData.province}, {spaceData.country}</p>
+      <p>{spaceData.city}</p>
       <img src={spaceData.cover_photo_url} alt="property" width="600" height="400"></img>
       <p>{spaceData.description}</p>
       <div>Price per day: ${spaceData.price_per_day / 100}</div>

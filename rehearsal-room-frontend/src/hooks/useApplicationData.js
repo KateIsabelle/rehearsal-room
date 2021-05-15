@@ -37,31 +37,20 @@ const useApplicationData = () => {
 
 
   useEffect(() => {
-    Promise.all([
-      axios.get("/api/users"),
-      // axios.get(`/api/bookings/${2}`)
-    ])
-    .then(([usersResponse]) => {
-      dispatch({
-        type: SET_APPLICATION_DATA,
-        users: usersResponse.data,
-        // bookings: bookingsResponse.data
-      })
-    })
-          // axios({
-          //         method: 'GET',
-          //         url: '/api/users',
-          //     })
-          // .then(({
-          //     data
-          // }) => {
-          //     console.log(data);
-          //     dispatch({
-          //         type: SET_USERS,
-          //         users: data
-          //     });
-          // })
-          // .catch((err) => console.log(err));
+
+    const scriptTag = document.createElement('script')
+    scriptTag.src=`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_MAPS_API_KEY}&libraries=places`
+    document.body.appendChild(scriptTag)
+
+    // Promise.all([
+    //   axios.get("/api/users"),
+    // ])
+    // .then(([usersResponse]) => {
+    //   dispatch({
+    //     type: SET_APPLICATION_DATA,
+    //     users: usersResponse.data,
+    //   })
+    // })
   }, []);
 
   return {
