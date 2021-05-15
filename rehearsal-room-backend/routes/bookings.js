@@ -6,7 +6,7 @@ module.exports = ({
   getBookingsByUser,
   getHostBookings,
   addBooking,
-  updateBookingStatus,
+  updateBooking,
   deleteBooking
 }) => {
   // GET bookings
@@ -41,11 +41,11 @@ module.exports = ({
       .catch(err => res.json({error: err.message}));
   })
 
-  //PUT (update) a booking in the db
+  //PUT update a booking in the db
   router.put('/:booking_id', (req, res) => {
-    const { status } = req.body;
+    const newData = req.body;
     const bookingId = req.params.booking_id
-    updateBookingStatus(status, bookingId)
+    updateBooking(newData, bookingId)
       .then(result => res.json(result))
       .catch(err => res.json({error: err.message}));
   })
