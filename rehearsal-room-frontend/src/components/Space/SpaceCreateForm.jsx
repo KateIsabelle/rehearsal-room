@@ -7,7 +7,8 @@ import AutoComplete from '../AutoComplete'
 
 import axios from 'axios'
 
-
+//for address input box:
+import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
 import './_SpaceCreateForm.scss';
 
@@ -31,27 +32,24 @@ export default function SpaceCreateForm(props) {
   })
 
   const [spaceFormState, setSpaceFormState] = useState({
-    user_id: user.id, //global state
+    ...amenitiesState,
 
+    user_id: user.id, //global state
     title: "",
     description: "",
-
     country:"", 
-    street:"", 
-    city: "", 
     province: "", 
-    post_code: "",
-
+    city: "", 
+    address:"", 
     price_per_day: 0,
     price_per_hour: 0,
 
-    ...amenitiesState
   })
 
   const [mapData, setMapData] = useState(
     {
-      latitude: 49.276700,
-      longitude: -123.066109
+      latitude: 49.2827,
+      longitude: -123.1207 //google coords for 'Vancouver'
     }
   )
 
@@ -120,9 +118,8 @@ export default function SpaceCreateForm(props) {
     const file = e.target.files[0] // just takes one file
     previewFile(file)
   }
-  //makes post request to backend, updates spaces and maps
-  const uploadImage = base64EncodedImage => {
-    //console.log("Base64:", base64EncodedImage)
+  //makes post request to backend (updates spaces and maps, and calls cloudinary api)
+  const submitInfo = base64EncodedImage => {
     const newSpaceData = {...spaceFormState}
     return axios.post('/api/spaces', {imageData: base64EncodedImage, spaceData: newSpaceData, mapData})
   }
@@ -131,9 +128,29 @@ export default function SpaceCreateForm(props) {
     console.log("submitting")
     e.preventDefault();
     if(!previewSource) return; 
-    uploadImage(previewSource)
+    submitInfo(previewSource)
       .then(res => routeChange(res.data[0].space_id));
   }
+  /////////////////////////////////////////////
+
+  ///////////FOR ADDRESS AUTOCOMPLETE///////////////////
+  const handleAutocompleteChange = address => {
+    setSpaceFormState({...spaceFormState, address});
+  };
+  //upon address selection, sets address and latitude/longitude in state
+  const handleAutocompleteSelect = address => {
+    console.log("address: ", address)
+    setSpaceFormState({...spaceFormState, address})
+    geocodeByAddress(address)
+    .then(results => getLatLng(results[0]))
+    .then(latLng => {
+      console.log('Success, lat/Lng:', latLng)
+      setMapData({latitude: latLng.lat, longitude: latLng.lng})
+  })
+    .catch(error => console.error('Error', error));
+  }
+  
+  /////////////////////////////////////////////
 
 
 
@@ -144,7 +161,7 @@ export default function SpaceCreateForm(props) {
 
         <div className="text-inputs">
 
-        <AutoComplete/>
+        <AutoComplete address={spaceFormState.address} handleChange={handleAutocompleteChange} handleSelect={handleAutocompleteSelect}/>
 
           <label for="title">
             Title for space listing:

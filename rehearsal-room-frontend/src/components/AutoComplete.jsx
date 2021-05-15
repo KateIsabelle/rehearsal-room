@@ -2,29 +2,30 @@ import React, { useState } from 'react';
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
 export default function AutoComplete(props) {
-  const [ address, setAddress ] = useState("")
+  // const [ address, setAddress ] = useState("")
 
-  const handleChange = address => {
-    setAddress(address);
-  };
+  // const handleChange = address => {
+  //   setAddress(address);
+  // };
 
-  const handleSelect = address => {
-    console.log("address: ", address)
-    setAddress(address)
-    geocodeByAddress(address)
-    .then(results => getLatLng(results[0]))
-    .then(latLng => {
-      console.log('Success, lat/Lng:', latLng)
-  })
-    .catch(error => console.error('Error', error));
-  }
+  // const handleSelect = address => {
+  //   console.log("address: ", address)
+  //   // setAddress(address)
+  //   geocodeByAddress(address)
+  //   .then(results => getLatLng(results[0]))
+  //   .then(latLng => {
+  //     console.log('Success, lat/Lng:', latLng)
+  // })
+  //   .catch(error => console.error('Error', error));
+  // }
 
   return (
     <div>
       <PlacesAutocomplete
-      value={address}
-      onChange={handleChange}
-      onSelect={handleSelect}
+      key="autocomplete-address"
+      value={props.address}
+      onChange={props.handleChange}
+      onSelect={props.handleSelect}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <div>
