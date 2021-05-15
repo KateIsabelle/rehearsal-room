@@ -63,11 +63,8 @@ module.exports = (db) => {
              spaces.title, 
              spaces.description, 
              spaces.cover_photo_url, 
-             spaces.country, 
-             spaces.street, 
+             spaces.address, 
              spaces.city, 
-             spaces.province, 
-             spaces.post_code, 
              
              maps.latitude, 
              maps.longitude, 
