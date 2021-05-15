@@ -74,9 +74,9 @@ module.exports = ({
     })
 
     router.put('/:user_id', (req, res) => {
-      const { newData } = req.body
-      newData[id] = req.params.user_id
-      updateUser(newData)
+      const newData = req.body
+      const user_id = req.params.user_id
+      updateUser(user_id, newData)
         .then(updatedUser => res.json(updatedUser))
         .catch(err => res.json({ error: err.message }));
     })

@@ -91,13 +91,8 @@ module.exports = {
       .catch(err => console.error(err));
   },
 
-  // Updates ONE entry in a table. Data object must contain an "id" key
-  // that matches the ID of a row in the "table" input.
-  update: function(table, data) {
-    // Save the id, then remove it from the data object
-    const targetId = data.id;
-    delete data.id;
-    
+  // Updates ONE entry in a table by ID.
+  update: function(table, id, data) {
     // Start the update query
     let queryString = `
       UPDATE ${table}
@@ -121,7 +116,7 @@ module.exports = {
 
     // Add the target ID as the final parameter and add "WHERE id = $[num]"
     // to the query.
-    queryParams.push(targetId)
+    queryParams.push(id)
     queryString += `
       WHERE id = $${varNumber}
       `
