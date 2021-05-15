@@ -7,7 +7,7 @@
     // background: linear-gradient($light-green, $dark-green);
     background-color: $light-green;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-end;
     margin-bottom: 300px;
     background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
@@ -24,14 +24,13 @@
       font-size: 120%
     }
   }
+
   .space-photo-cont {
     height: 400px;
     width: 600px;
     overflow: hidden;
     margin-top: 55px;
    
-
-
     .space-photo {
       height: auto;
       max-width: 100%;
@@ -39,22 +38,33 @@
       border-radius: 8px;
     }
   }
+  .price-wrapper {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    
+  }
+  .make-flex-col {
+    display: flex;
+    flex-direction: column;
+  }
   .map-container {
     border: 5px solid white;
     border-radius: 8px;
   }
   .move-down {
-    transform: translateY(50%)
+    transform: translateY(50%);
   }
   .mrg-med {
     margin: 20px;
   }
- .mrg-top {
-  //  margin-top: 100px
+ .space-info {
+   display: flex;
+   margin: 0 11%;
+   .space-desc {
+     width: 55%;
+   }
  }
-  .space-top {
-    
-  }
 }
 
 

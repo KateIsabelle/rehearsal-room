@@ -70,25 +70,38 @@ export default function Space(props) {
             <img className="space-photo" src={spaceData.cover_photo_url} alt="property"></img>
           </div>
         </div>
+
         <div className="move-down">
-          <div className="mrg-med"><Button size="xlarge" label="Make a Request" onClick={() => setVisualMode("REQUEST_FORM")}/></div>
+
+          <div className="price-wrapper">
+            <div className="mrg-med"><Button size="xlarge" label="Make a Request" onClick={() => setVisualMode("REQUEST_FORM")}/></div>
+            <div className="make-flex-col">
+              <div>Price per day: ${spaceData.price_per_day / 100}</div>
+              <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
+            </div>
+          </div>
           <div className="map-container"><Map className="" latitude={spaceData.latitude} longitude={spaceData.longitude}/></div>
+          {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
+          <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
+
         </div>
 
     </div>
 
-      <p>{spaceData.description}</p>
-      <div>Price per day: ${spaceData.price_per_day / 100}</div>
-      <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
-      {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
-      <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
+    <div className="space-info">
+      <div className="space-desc">
+        <p>{spaceData.description}</p>
+        <h3>Features:</h3>
+        <AmenitiesList spaceData={spaceData}/>
+      </div>
+      <div className="space-features">
+        <h3>Features:</h3>
+        <AmenitiesList spaceData={spaceData}/>
+      </div>
 
-      <h3>Features:</h3>
-      <AmenitiesList spaceData={spaceData}/>
+      </div>
       <OpeningHoursTable/>
       <Button size="small" label="Go Back to Listings" onClick={routeChange}></Button>
-
-
 
           <h3>Data from axios request:</h3>
           <ul>
