@@ -10,6 +10,8 @@
 .input-suggestion {
   width: 400px;
   height: 30px;
-  border: 1px black dotted;
-  border-top: 0
+  border-bottom: 1px black dotted;
+  background-color: white;
+  display: flex;
+  align-items: center
 }
