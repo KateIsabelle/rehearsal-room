@@ -10,6 +10,7 @@ export default function SpaceList(props) {
     <SpaceListItem
       key={s.id}
       dashboard={props.dashboard}
+      onDeleteClick={props.onDeleteClick}
       {...s}
     />
     )

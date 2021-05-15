@@ -8,7 +8,7 @@ const picStyle = {
 }
 
 export default function SpaceListItem(props) {
-  const { id, thumbnail_photo_url, title, price_per_hour, dashboard } = props
+  const { id, thumbnail_photo_url, title, price_per_hour, dashboard, onDeleteClick } = props
   console.log('SPACE LIST ITEM PROPS:',props)
   return (
     <div className="item" onClick={() => console.log("clicked on space", id, title)}>
@@ -25,8 +25,9 @@ export default function SpaceListItem(props) {
       </Link>
       {dashboard &&
         <Button 
-          label="dashboard buton!"
-          
+          label="Unlist This Space"
+          backgroundColor="red"
+          onClick={onDeleteClick}
         />
       }
     </div>

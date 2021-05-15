@@ -22,6 +22,7 @@ export default function Dashboard(props) {
   const { user, updateUser } = props;
   const [createSpace, setCreateSpace] = useState(false)
   const [popUp, setPopUp] = useState(false)
+  const [popUpContent, setPopUpContent] = useState("")
 
   // All bookings on the dashboard page are stored in the bookings state.
   // selectedBooking controls which booking is "expanded" currently.
@@ -47,6 +48,10 @@ export default function Dashboard(props) {
     axios.put(`/api/users/${user.id}`, {is_host: true})
       .then(res => updateUser(user.email))
       .then(() => setPopUp(true))
+  }
+
+  const handleSpaceDelete = () => {
+
   }
 
   return (
@@ -104,7 +109,11 @@ export default function Dashboard(props) {
                       onClick={() => setCreateSpace(true)}
                       label="Add a new Space"
                     ></Button>
-                    <SpaceList spaces={spaces} dashboard={true} />
+                    <SpaceList 
+                      spaces={spaces}
+                      dashboard={true}
+                      onDeleteClick={handleSpaceDelete}
+                    />
                   </Paper>
                 </Grid>
                 <Grid item>
