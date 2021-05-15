@@ -33,6 +33,11 @@ module.exports = (db) => {
           .catch(err => err);
   };
 
+  const updateUser = (data) => {
+    return db.update('users', data)
+      .then(result => result.rows[0])
+  }
+
   return {
     getUsers,
     getUserByEmail,
