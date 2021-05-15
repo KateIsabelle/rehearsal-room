@@ -84,7 +84,7 @@ export default function Dashboard(props) {
     .then(res => {
       const newPopUp = {
         header: "Space Unlisted",
-        body: `${res.title} has been successfully unlisted.`,
+        body: `${res.data.title} has been successfully unlisted.`,
         yesButton: "Close",
         yesButtonFunc: () => setPopUp(false),
         noButton: "",
