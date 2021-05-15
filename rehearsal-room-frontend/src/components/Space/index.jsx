@@ -23,7 +23,7 @@ export default function Space(props) {
   const history = useHistory();
 
   const routeChange = () =>{ 
-    let path = `/spaces/vancouver`; 
+    let path = '/spaces/vancouver'; 
     history.push(path);
   }
 
@@ -69,6 +69,7 @@ export default function Space(props) {
           </div>
         </div>
         <div className="move-down">
+          <Button size="small" label="Go Back to Listings" onClick={routeChange}></Button>
           <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
         </div>
 
