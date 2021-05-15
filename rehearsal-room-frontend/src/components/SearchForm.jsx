@@ -30,7 +30,8 @@ export default function SearchForm(props) {
     );
   })
   return (
-      <form>
+    <div className="spaces-search-form-container">
+      <form className="spaces-search-form">
         <TextField
           id="keyword"
           name="keyword"
@@ -55,8 +56,7 @@ export default function SearchForm(props) {
         </Button>
         {advancedState.show && <ul>{amenitiesList}</ul>}
       </form>
-
-
+    </div>
   )
 
 }
