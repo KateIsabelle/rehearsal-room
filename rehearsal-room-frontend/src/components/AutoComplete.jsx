@@ -9,9 +9,13 @@ export default function AutoComplete(props) {
   };
 
   const handleSelect = address => {
+    console.log("address: ", address)
+    setAddress(address)
     geocodeByAddress(address)
     .then(results => getLatLng(results[0]))
-    .then(latLng => console.log('Success', latLng))
+    .then(latLng => {
+      console.log('Success, lat/Lng:', latLng)
+  })
     .catch(error => console.error('Error', error));
   }
 
@@ -41,9 +45,8 @@ export default function AutoComplete(props) {
                 ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                 : { backgroundColor: '#ffffff', cursor: 'pointer' };
               return (
-                <div
+                <div className="input-suggestion"
                   {...getSuggestionItemProps(suggestion, {
-                    className,
                     style,
                   })}
                 >
