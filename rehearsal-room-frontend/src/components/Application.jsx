@@ -68,21 +68,6 @@ export default function App() {
 
 // DUMMY "COMPONENTS" JUST TO MAKE THE ROUTING WORK
 
-// We can later replace this with a proper component that lists all available cities.
-// function CityList() {
-//   return (
-//     <Fragment>
-//     <h2>Please select a city:</h2>
-//     <ul>
-//       <li>
-//        <Link to="/spaces/vancouver">Vancouver</Link>
-//       </li>
-//     </ul>
-//     </Fragment>
-//   )
-// }
-
-
 function Register() {
   return (<h1>Registration form goes here!</h1>)
 }
