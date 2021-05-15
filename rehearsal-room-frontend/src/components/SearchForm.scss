@@ -1,5 +1,33 @@
+.spaces-search-form {
+  margin: .2em;
+  width: 80%;
+}
+
 .spaces-search-form-container {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.spaces-search-form-top {
+  display: flex;
   width: 80%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spaces-search-form-amenities {
+  background-color: $off-white;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  margin: 1em;
+  border-radius: 3px;
+
+  label {
+    margin: .08em;
+    width: 210px;
+  }
 }
