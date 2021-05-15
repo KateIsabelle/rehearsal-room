@@ -9,11 +9,8 @@ CREATE TABLE spaces(
     thumbnail_photo_url TEXT,
     cover_photo_url TEXT, 
 
-    country VARCHAR(255) NOT NULL, 
-    street VARCHAR(255) NOT NULL, 
+    address VARCHAR(255) NOT NULL, 
     city VARCHAR(255) NOT NULL, 
-    province VARCHAR(255) NOT NULL, 
-    post_code VARCHAR(255) NOT NULL, -- NOTE: could change to proper postal_code
 
     price_per_day INTEGER NOT NULL,
     price_per_hour INTEGER NOT NULL,
