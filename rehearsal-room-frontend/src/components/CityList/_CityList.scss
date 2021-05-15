@@ -1,0 +1,19 @@
+.container {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+
+}
+.city-list {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+.city-item {
+  font-weight: 900;
+  color: white;
+  padding:1em 5em 1em 5em;
+  border-radius: 3em;
+  background-color: #e64b67;
+}
