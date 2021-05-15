@@ -1,4 +1,6 @@
 import React from "react";
+import SpaceListItem from '../Spaces/SpaceListItem';
+
 
 export default function RentalSpace (props) {
   const {title, thumbnail_photo_url, street, city, province, price_per_day, price_per_hour} = props;
@@ -13,6 +15,10 @@ export default function RentalSpace (props) {
         <p><strong>Address:</strong> {props.space.street}, {props.space.city}, {props.space.province}.</p>
         <p><strong>Price per hour:</strong> ${props.space.price_per_hour /100}</p>
         <p><strong>Price per day:</strong> ${props.space.price_per_day /100}</p> */}
+          
+          <SpaceListItem
+        space={props.space}
+          />
       </div>
     </>
   )

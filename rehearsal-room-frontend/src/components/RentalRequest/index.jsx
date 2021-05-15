@@ -44,6 +44,7 @@ export default function RentalRequest(props) {
         <RentalSpace 
         space={props.space}
         />
+
         <RequestForm 
           formState={formState}
           handleChange={handleChange}

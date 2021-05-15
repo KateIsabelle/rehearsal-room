@@ -5,12 +5,12 @@
 }
 
 
-.rental-space-title-photo {
-  // border: 2px solid #2B3239;
-  display: flex;
-  flex-direction: column;
-  margin: 1em;
-}
+// .rental-space-title-photo {
+//   // border: 2px solid #2B3239;
+//   display: flex;
+//   flex-direction: column;
+//   margin: 1em;
+// }
 
 
 
@@ -19,22 +19,36 @@
   border: 2px solid #2B3239;
   box-shadow: 8px solid rgba(245, 245, 245, 0.685);
   border-radius: 3px;
+    padding: 3em 2em;
+  margin: 1em;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  margin: 1em;
-  width: 50%
+
+  @media screen and (max-width: 900px) {
+    width: 70%
+  }
+  @media screen and (max-width: 640px) {
+    width: 80%
+  }
+  
+
 }
 
 .rental-request-container {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 }
 
 .alt-payment {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .rental-request-submit {

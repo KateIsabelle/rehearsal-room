@@ -1,5 +1,6 @@
 import React from "react";
-import { TextField, Button, Checkbox } from '@material-ui/core';
+import { TextField, Checkbox } from '@material-ui/core';
+import { Button } from '../Button/Button'
 import axios from "axios";
 
 
@@ -39,7 +40,7 @@ export default function RequestForm(props) {
             }}
           />
         <br />
-        {/* <label for="start_time">Select a start time: </label> */}
+    
           <TextField
             id="time"
             name="start_time"
@@ -56,8 +57,7 @@ export default function RequestForm(props) {
             }}
           /> 
           <br />    
-        {/* <label for="end_time">Select an end time: </label>
-        <br /> */}
+
           <TextField
             id="time"
             name="end_time"
