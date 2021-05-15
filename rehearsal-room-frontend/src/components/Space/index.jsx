@@ -62,15 +62,17 @@ export default function Space(props) {
       <div className="space-banner">
 
         <div className="move-down">
-          <h1 className="mrg-med">{spaceData.title}</h1>
-          <h3 className="mrg-med">{spaceData.city}</h3>
+          <div>
+            <h1 className="mrg-med">{spaceData.title}</h1>
+            <h3 className="mrg-med">{spaceData.city}</h3>
+          </div>
           <div className="space-photo-cont">
             <img className="space-photo" src={spaceData.cover_photo_url} alt="property"></img>
           </div>
         </div>
         <div className="move-down">
-          <Button size="small" label="Go Back to Listings" onClick={routeChange}></Button>
-          <Map latitude={spaceData.latitude} longitude={spaceData.longitude}/>
+          <div className="mrg-med"><Button size="xlarge" label="Make a Request" onClick={() => setVisualMode("REQUEST_FORM")}/></div>
+          <div className="map-container"><Map className="" latitude={spaceData.latitude} longitude={spaceData.longitude}/></div>
         </div>
 
     </div>
@@ -80,11 +82,12 @@ export default function Space(props) {
       <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
       {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
       <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
-      <Button size="small" label="Make a Request" onClick={() => setVisualMode("REQUEST_FORM")}/>
 
       <h3>Features:</h3>
       <AmenitiesList spaceData={spaceData}/>
       <OpeningHoursTable/>
+      <Button size="small" label="Go Back to Listings" onClick={routeChange}></Button>
+
 
 
           <h3>Data from axios request:</h3>
