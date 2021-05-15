@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import { Button } from '../Button/Button'
 
 const picStyle = {
   height: "400px",
@@ -7,7 +8,7 @@ const picStyle = {
 }
 
 export default function SpaceListItem(props) {
-  const { id, thumbnail_photo_url, title, price_per_hour } = props
+  const { id, thumbnail_photo_url, title, price_per_hour, dashboard, onDeleteClick } = props
   console.log('SPACE LIST ITEM PROPS:',props)
   return (
     <div className="item" onClick={() => console.log("clicked on space", id, title)}>
@@ -22,6 +23,13 @@ export default function SpaceListItem(props) {
           <img src={thumbnail_photo_url} style={picStyle} alt=""/>
           </div>
       </Link>
+      {dashboard &&
+        <Button 
+          label="Unlist This Space"
+          backgroundColor="red"
+          onClick={() => onDeleteClick(id, title)}
+        />
+      }
     </div>
   )
 }
