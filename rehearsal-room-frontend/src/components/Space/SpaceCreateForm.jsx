@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Checkbox, FormControlLabel } from '@material-ui/core';
 import { Button as ButtonS } from '../Button/Button';
+import AutoComplete from '../AutoComplete'
 
 import axios from 'axios'
 
@@ -142,6 +143,9 @@ export default function SpaceCreateForm(props) {
         <h1>Create A New Space Listing</h1>
 
         <div className="text-inputs">
+
+        <AutoComplete/>
+
           <label for="title">
             Title for space listing:
           </label>
