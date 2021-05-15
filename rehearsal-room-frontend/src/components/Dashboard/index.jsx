@@ -52,7 +52,7 @@ export default function Dashboard(props) {
   return (
     <>
     {popUp &&
-      <PopUp>
+      <PopUp toggle={() => setPopUp(false)}>
         <h3>Your account is now a Host account!</h3>
         <p class="popup-content">
           You can list new Spaces and manage incoming booking requests from this page.
@@ -78,10 +78,12 @@ export default function Dashboard(props) {
               { user.organization_name && <p><strong>Organization: </strong>{user.organization_name}</p>}
               <img src={user.photo} width="90%" alt="profile"/>
               <p>{user.description}</p>
+              {!user.is_host &&
               <Button
                 onClick={makeUserHost}
                 label="Become a Host"
               ></Button>
+              }
             </Paper>
           </Grid>
 
