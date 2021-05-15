@@ -89,6 +89,46 @@ module.exports = {
     queryString += " RETURNING *;";
     return this.query(queryString, queryParams)
       .catch(err => console.error(err));
+  },
+
+  // Updates ONE entry in a table. Data object must contain an "id" key
+  // that matches the ID of a row in the "table" input.
+  update: function(table, data) {
+    // Save the id, then remove it from the data object
+    const targetId = data.id;
+    delete data.id;
+    
+    // Start the update query
+    let queryString = `
+      UPDATE ${table}
+      SET`;
+
+    // Now we build the variable string for the values, while adding each value to queryParams.
+    // PSQL variables start at $1, so we init varNumber to 1.
+    let varNumber = 1;
+    const queryParams = [];
+
+    // For each key in the data, create "[key1] = $1, [key2] = $2" and so on
+    // and add that string to the query.
+    const keys = Object.keys(data)
+    for (let key of keys) {
+      queryParams.push(data[key])
+      queryString += varNumber !== 1 ? ", " : ""
+      queryString += `
+      ${key} = $${varNumber}`
+      varNumber++
+    }
+
+    // Add the target ID as the final parameter and add "WHERE id = $[num]"
+    // to the query.
+    queryParams.push(targetId)
+    queryString += `
+      WHERE id = $${varNumber}
+      `
+    queryString += `RETURNING *`
+
+    return this.query(queryString, queryParams)
+      .catch(err => console.error(err));
   }
 
 };
