@@ -1,0 +1,9 @@
+.opening-hours-table {
+  background-color: $off-white;
+  font-size: 1.2em;
+  margin: auto;
+  table, th, td {
+    border: 2px solid lightgrey;
+    padding: 1%;
+  }
+}
