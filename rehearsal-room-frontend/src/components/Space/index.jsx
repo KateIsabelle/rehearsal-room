@@ -101,10 +101,7 @@ export default function Space(props) {
       <OpeningHoursTable/>
       <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={routeChange}></Button></div>
 
-          <h3>Data from axios request:</h3>
-          <ul>
-            {dataList}
-          </ul>
+          
     </Fragment>
   }
   {visualMode === "REQUEST_FORM" &&
