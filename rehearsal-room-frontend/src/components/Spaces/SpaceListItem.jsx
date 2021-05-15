@@ -27,7 +27,7 @@ export default function SpaceListItem(props) {
         <Button 
           label="Unlist This Space"
           backgroundColor="red"
-          onClick={onDeleteClick}
+          onClick={() => onDeleteClick(id, title)}
         />
       }
     </div>

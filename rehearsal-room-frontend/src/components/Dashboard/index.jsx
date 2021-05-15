@@ -22,7 +22,14 @@ export default function Dashboard(props) {
   const { user, updateUser } = props;
   const [createSpace, setCreateSpace] = useState(false)
   const [popUp, setPopUp] = useState(false)
-  const [popUpContent, setPopUpContent] = useState("")
+  const [popUpContent, setPopUpContent] = useState({
+    header: "",
+    body: "",
+    yesButton: "Yes",
+    yesButtonFunc: "",
+    noButton: "No",
+    noButtonFunc: () => {setPopUp(false)},
+  })
 
   // All bookings on the dashboard page are stored in the bookings state.
   // selectedBooking controls which booking is "expanded" currently.
@@ -47,21 +54,66 @@ export default function Dashboard(props) {
   const makeUserHost = () => {
     axios.put(`/api/users/${user.id}`, {is_host: true})
       .then(res => updateUser(user.email))
+      .then(() => setPopUpContent ({
+        header: "Your account is now a Host account!",
+        body: "You can now list new Spaces and manage incoming booking requests from your dashboard.",
+        yesButton: "Great!",
+        yesButtonFunc: () => setPopUp(false),
+        noButton: "",
+        noButtonFunc: () => null,
+      }
+      ))
       .then(() => setPopUp(true))
   }
 
-  const handleSpaceDelete = () => {
+  const handleSpaceDelete = (id, space_title) => {
+    setPopUpContent ({
+      header: "Are You Sure?",
+      body: `Unlisting ${space_title} will remove all bookings and data about it.`,
+      yesButton: "Yes, unlist it",
+      yesButtonFunc: () => deleteSpace(id, space_title),
+      noButton: "No, go back",
+      noButtonFunc: () => setPopUp(false),
+    }
+    )
+    setPopUp(true)
+  }
 
+  const deleteSpace = (id, space_title) => {
+    axios.delete(`/api/spaces/${id}`)
+    .then(res => {
+      const newPopUp = {
+        header: "Space Unlisted",
+        body: `${res.title} has been successfully unlisted.`,
+        yesButton: "Close",
+        yesButtonFunc: () => setPopUp(false),
+        noButton: "",
+        noButtonFunc: () => setPopUp(false),
+      }
+      setPopUpContent (newPopUp)
+    })
+    .then(() => axios.get(`/api/spaces/user/${user.id}`))
+    .then(res => setSpaces(res.data))
   }
 
   return (
     <>
     {popUp &&
       <PopUp toggle={() => setPopUp(false)}>
-        <h3>Your account is now a Host account!</h3>
+        <h3>{popUpContent.header}</h3>
         <p class="popup-content">
-          You can now list new Spaces and manage incoming booking requests from your dashboard.
+          {popUpContent.body}
         </p>
+        {popUpContent.yesButton && 
+          <Button 
+            label={popUpContent.yesButton}
+            onClick={popUpContent.yesButtonFunc}
+          />}
+        {popUpContent.noButton && 
+          <Button 
+            label={popUpContent.noButton}
+            onClick={popUpContent.noButtonFunc}
+          />}
       </PopUp>
     }
     {createSpace &&
