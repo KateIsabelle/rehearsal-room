@@ -5,17 +5,16 @@
   width: 400px;
   // margin-top: 2em;
   margin-bottom: 2em;
-  // border-radius: 3px;
-  // border-top:10px solid $light-grey;
-  // border-bottom:4px solid $light-grey;
-  // border-right:4px solid $light-grey;
-  // border-left:4px solid $light-grey;
+  border-radius: 3px;
+  border-top:10px solid $light-grey;
+  border-bottom:4px solid $light-grey;
+  border-right:4px solid $light-grey;
+  border-left:4px solid $light-grey;
 
   background-color: $light-grey;
   border-radius: 2px;
   padding: 2px;
   margin-top: 10px;
-
 }
 
 
@@ -26,9 +25,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 1em;
-  @media screen and (max-width: 900px) {
-    padding: 2em 1em;
-  }
+
 }
 
 .rental-space-title-photo h3 {
