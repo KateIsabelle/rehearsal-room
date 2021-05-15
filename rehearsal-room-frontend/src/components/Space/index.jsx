@@ -99,7 +99,7 @@ export default function Space(props) {
 
       </div>
       <OpeningHoursTable/>
-      <Button size="small" label="Go Back to Listings" onClick={routeChange}></Button>
+      <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={routeChange}></Button></div>
 
           <h3>Data from axios request:</h3>
           <ul>
