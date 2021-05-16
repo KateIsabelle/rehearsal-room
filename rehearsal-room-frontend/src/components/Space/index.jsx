@@ -9,11 +9,6 @@ import AmenitiesList from './AmenitiesList'
 import OpeningHoursTable from "./OpeningHoursTable";
 import PopUp from './PopUp'
 
-
-const requestButton = () => {
-  alert("Request")
-}
-
 export default function Space(props) {
   const [spaceData, setSpaceData] = useState({})
   const [popUp, setPopUp] = useState(false)
@@ -22,9 +17,14 @@ export default function Space(props) {
 
   const history = useHistory();
 
-  const routeChange = () =>{ 
-    let path = '/spaces/vancouver'; 
+  const mainSpacesReroute = () =>{ 
+    const path = '/spaces/vancouver'; 
     history.push(path);
+  }
+
+  const dashboardReroute = () => {
+    const path = '/dashboard';
+    history.push(path)
   }
 
   const togglePop = () => {
@@ -55,10 +55,11 @@ export default function Space(props) {
     <Fragment>
       { popUp &&
       <PopUp 
+        className="popup"
         header="Request Sent!"
         body="Some words"
         yesButton="Check My Bookings"
-        yesButtonFunc={togglePop}
+        yesButtonFunc={dashboardReroute}
         noButton="Go back to listing"
         noButtonFunc={togglePop}>
       <p className="popup-content">Request Made!</p>
@@ -106,7 +107,7 @@ export default function Space(props) {
 
       </div>
       <OpeningHoursTable/>
-      <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={routeChange}></Button></div>
+      <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={mainSpacesReroute}></Button></div>
 
           
     </Fragment>
