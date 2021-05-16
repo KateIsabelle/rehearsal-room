@@ -211,7 +211,7 @@ export default function Dashboard(props) {
                   selectedBooking={selectedBooking}
                   bookingType="all"
                   title="My Bookings"
-                  contentWhenEmpty="No booking requests!"
+                  contentWhenEmpty="You don't have any outgoing booking requests!"
                 />
               </div>
             </Grid>

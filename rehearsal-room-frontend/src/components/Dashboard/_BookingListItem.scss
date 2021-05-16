@@ -82,3 +82,11 @@
 .booking-list-item-section-header {
   margin-bottom: 3px;
 }
+
+.booking-list-item-previous-rental {
+  em {
+    font-family: Lato, sans-serif;
+    color: $light-grey;
+    font-weight: 300;
+  }
+}
