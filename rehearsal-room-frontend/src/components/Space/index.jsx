@@ -53,10 +53,17 @@ export default function Space(props) {
     <article className="space-container">
     { visualMode === "SPACE_SHOW" &&
     <Fragment>
-    { popUp &&
-      <PopUp toggle={togglePop}>
+      { popUp &&
+      <PopUp 
+        header="Request Sent!"
+        body="Some words"
+        yesButton="Check My Bookings"
+        yesButtonFunc={togglePop}
+        noButton="Go back to listing"
+        noButtonFunc={togglePop}>
       <p className="popup-content">Request Made!</p>
-      </PopUp> }
+      </PopUp> 
+      }
       
 
       <div className="space-banner">

@@ -99,22 +99,15 @@ export default function Dashboard(props) {
   return (
     <>
     {popUp &&
-      <PopUp toggle={() => setPopUp(false)}>
-        <h3>{popUpContent.header}</h3>
-        <p class="popup-content">
-          {popUpContent.body}
-        </p>
-        {popUpContent.yesButton && 
-          <Button 
-            label={popUpContent.yesButton}
-            onClick={popUpContent.yesButtonFunc}
-          />}
-        {popUpContent.noButton && 
-          <Button 
-            label={popUpContent.noButton}
-            onClick={popUpContent.noButtonFunc}
-          />}
-      </PopUp>
+      <PopUp 
+        className="popup"
+        header={popUpContent.header}
+        body={popUpContent.body}
+        yesButton={popUpContent.yesButton}
+        yesButtonFunc={popUpContent.yesButtonFunc}
+        noButton={popUpContent.noButton}
+        noButtonFunc={popUpContent.noButtonFunc}
+      />
     }
     {createSpace &&
       <SpaceCreateForm
