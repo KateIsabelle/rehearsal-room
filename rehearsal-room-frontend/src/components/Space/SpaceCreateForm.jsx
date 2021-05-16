@@ -336,7 +336,7 @@ export default function SpaceCreateForm(props) {
           <br />
           <p>Does your space include any of the following? Check if yes:</p>
           <br />
-          {<ul>{amenitiesList}</ul>}
+          {<ul className="sc-ammenities-list">{amenitiesList}</ul>}
           <br/>
           <ButtonS secondary="true" label="Submit" onClick={handleSubmit} /> 
         

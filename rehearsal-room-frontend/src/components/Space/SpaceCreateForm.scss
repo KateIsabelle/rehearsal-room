@@ -67,3 +67,17 @@
   justify-content: space-between;
 }
 
+.sc-ammenities-list {
+  background-color: $off-white;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1em;
+  border-radius: 3px;
+
+  label {
+    margin: .08em;
+    width: 210px;
+  }
+}
