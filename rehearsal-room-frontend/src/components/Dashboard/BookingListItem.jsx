@@ -17,57 +17,60 @@ export default function BookingListItem(props) {
   }
   const shortDesc = shortenedUsageDesc(props.usage_description)
 
+  const sectionClassName = `booking-list-item-section ${selected && "selected"}`
+
   return (
     <div
-      className={"booking-list-item " + props.status}
+      className={`booking-list-item ${selected && "selected"}`}
       onClick={() => handlers.select(props.id)}
     >
-    {/* If this component is not the currently-selected component,
-        we show a shortened listing with no buttons. */}
-    { !selected && host &&
-      <>
-      <strong> From: </strong>{props.requester_name} |
-      <strong> Space: </strong>{props.space_name} |
-      <strong> Description: </strong>{shortDesc} |
-      <strong> Time: </strong>{date} from {props.start_time} to {props.end_time}
-      </>
-    }
-    { !selected && !host &&
-      <>
-      <strong> Space: </strong>{props.space_name} |
-      <strong> Description: </strong>{shortDesc} |
-      <strong> Time: </strong>{date} from {props.start_time} to {props.end_time} |
-      <strong> Status: </strong>{upcase(props.status)}
-      </>
-    }
-    { selected && host &&
-      <>
-      <strong> From: </strong>{props.requester_name} |
-      <strong> Space: </strong>{props.space_name} |
-      <strong> Description: </strong>{props.usage_description} |
-      <strong> Time: </strong>{date} from {props.start_time} to {props.end_time}
-      {props.status === "pending" &&
-        <>
-        <Button onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
-        <Button onClick={() => handlers.reject(props.id)} label="Reject"></Button>
-        </>
+      <div className="booking-list-item-top">
+        { host &&
+          <div className={sectionClassName}>
+            <h4 className="booking-list-item-section-header">From</h4>
+            <p>{props.requester_name}</p>
+          </div>
+        }
+        { !host &&
+          <div className={sectionClassName}>
+            <h4 className="booking-list-item-section-header">Status</h4>
+            <p className={props.status}><strong>{upcase(props.status)}</strong></p>
+          </div>
+        }
+          <div className={sectionClassName}>
+            <h4 className="booking-list-item-section-header">Space</h4>
+            <p>{props.space_name}</p>
+          </div>
+        <div className={sectionClassName}>
+          <h4 className="booking-list-item-section-header">Usage Description</h4>
+          <p>{selected ? props.usage_description : shortDesc}</p>
+        </div>
+        <div className={sectionClassName}>
+          <h4 className="booking-list-item-section-header">Date</h4>
+          <p>{date}</p>
+          <p>{props.start_time} to {props.end_time}</p>
+        </div>
+      </div>
+      { selected &&
+      <div className="booking-list-item-expansion">
+        {props.status === "pending" && host &&
+          <>
+          <Button primary="true" onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
+          <Button danger="true" onClick={() => handlers.reject(props.id)} label="Reject"></Button>
+          </>
+        }
+        {props.status === "confirmed" && host &&
+          <Button danger="true" onClick={() => handlers.cancel(props.id)} label="Delete"></Button>
+        }
+        { !host &&
+          <Button
+            danger="true"
+            onClick={() => handlers.cancel(props.id)}
+            label={props.status === "rejected" ? "Delete" : "Cancel" }
+          />
+        }
+      </div>
       }
-      {props.status === "confirmed" &&
-        <Button onClick={() => handlers.cancel(props.id)} label="Cancel"></Button>
-      }
-      </>
-    }
-    { selected && !host && <>
-      <strong> Space: </strong>{props.space_name} |
-      <strong> Description: </strong>{props.usage_description} |
-      <strong> Time: </strong>{date} from {props.start_time} to {props.end_time} |
-      <strong> Status: </strong>{upcase(props.status)}
-      <Button
-        onClick={() => handlers.cancel(props.id)}
-        label={props.status === "rejected" ? "Delete" : "Cancel" }
-      ></Button>
-      </>
-    }
     </div>
   )
 }

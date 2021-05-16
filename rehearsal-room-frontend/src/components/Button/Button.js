@@ -5,8 +5,10 @@ import './_Button.scss';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = ({ primary, danger, specificMode, backgroundColor, size, label, ...props }) => {
+  let mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  mode = danger ? 'storybook-button--danger' : mode;
+  mode = specificMode ? `storybook-button--${specificMode}` : mode;
   return (
     <button
       type="button"

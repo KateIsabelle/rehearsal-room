@@ -1,3 +1,12 @@
 .booking-list {
-  background-color: whitesmoke;
+  background-color: white;
+}
+
+.booking-list-header {
+  padding: 10px;
+  border-style: solid;
+  border-color: $light-grey;
+  background-color: $off-white;
+  border-width: 0px 0px 2px 0px;
+  border-radius: 0px;
 }
