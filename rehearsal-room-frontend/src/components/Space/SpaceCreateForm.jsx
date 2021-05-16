@@ -265,11 +265,13 @@ export default function SpaceCreateForm(props) {
             <label for="city">
               City of listing:
             </label>
+            <br/>
             <TextField
               select 
               id="outlined-name"
               name='city' 
-              value={cities}
+              value={spaceFormState.city}
+              label='Select'
               onChange={handleChange}
               inputProps={{ 'aria-label': 'description' }} 
               helperText="Please select general area of listing"
