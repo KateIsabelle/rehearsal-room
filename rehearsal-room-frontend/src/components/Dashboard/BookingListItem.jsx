@@ -17,6 +17,11 @@ export default function BookingListItem(props) {
   }
   const shortDesc = shortenedUsageDesc(props.usage_description)
 
+  const prevRentalMsg = props.used_before ?
+    `${props.first_name} has rented this Space before.`
+    :
+    `This is ${props.first_name}'s first rental for this Space.`
+
   const sectionClassName = `booking-list-item-section ${selected && "selected"}`
 
   return (
@@ -55,6 +60,9 @@ export default function BookingListItem(props) {
       <div className="booking-list-item-expansion">
         {props.status === "pending" && host &&
           <>
+          <p className="booking-list-item-previous-rental">
+            <em>{prevRentalMsg}</em>
+          </p>
           <Button primary="true" onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
           <Button danger="true" onClick={() => handlers.reject(props.id)} label="Reject"></Button>
           </>
