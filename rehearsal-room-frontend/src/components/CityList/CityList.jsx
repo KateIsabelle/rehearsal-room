@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './_CityList.scss'
+// import './_CityList.scss'
 
 export default function CityList() {
   return (
