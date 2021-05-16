@@ -2,18 +2,18 @@
   margin-top: 2em;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
 }
 .city-list {
-  margin-top: 2em;
   display: flex;
-  justify-content: space-evenly;
+  
 
 }
 .city-item {
   font-weight: 900;
   color: white;
   padding:1em 5em 1em 5em;
+  margin: 2em 4em;
   border-radius: 3em;
-  background-color: #e64b67;
+  background-color: $dark-maroon;
 }
