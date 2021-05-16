@@ -11,6 +11,16 @@
 
 }
 
+.booking-list-item-empty {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  border-color: $lightest-blue;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px
+
+}
+
 .booking-list-item-top {
   display: flex;
   width: 100%;

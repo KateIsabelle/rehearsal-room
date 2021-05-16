@@ -167,6 +167,9 @@ export default function Dashboard(props) {
                     <SpaceList 
                       spaces={spaces}
                       dashboard={true}
+                      contentWhenEmpty={(
+                        <div className="booking-list-item-empty">You don't have any Spaces! <strong>List</strong> a new one with the "List a new Space" button!</div>
+                      )}
                       onDeleteClick={handleSpaceDelete}
                     />
                   </div>
@@ -180,7 +183,7 @@ export default function Dashboard(props) {
                       selectedBooking={selectedBooking}
                       bookingType="pending"
                       title="Pending Booking Requests"
-                      emptyMessage="No pending requests!"
+                      contentWhenEmpty="No pending requests!"
                     />
                   </div>
                 </Grid>
@@ -193,7 +196,7 @@ export default function Dashboard(props) {
                       selectedBooking={selectedBooking}
                       bookingType="confirmed"
                       title="Confirmed Bookings"
-                      emptyMessage="No bookings currently confirmed!"
+                      contentWhenEmpty="No bookings currently confirmed!"
                     />
                   </div>
                 </Grid>
@@ -208,7 +211,7 @@ export default function Dashboard(props) {
                   selectedBooking={selectedBooking}
                   bookingType="all"
                   title="My Bookings"
-                  emptyMessage="No booking requests!"
+                  contentWhenEmpty="No booking requests!"
                 />
               </div>
             </Grid>

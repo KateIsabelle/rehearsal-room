@@ -16,8 +16,15 @@ export default function SpaceList(props) {
     )
 
   return (
-    <div className="space_list">
-      {list}
-    </div>
+    <>
+    {list.length !== 0 &&
+      <div className="space_list">
+        {list}
+      </div>
+    }
+    {list.length === 0 && props.dashboard && 
+      props.contentWhenEmpty
+    }
+    </>
   )
 }
