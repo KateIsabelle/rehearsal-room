@@ -1,24 +1,33 @@
 import React from "react";
+import axios from 'axios'
+
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Checkbox, FormControlLabel } from '@material-ui/core';
-import { Button as ButtonS } from '../Button/Button';
-import AutoComplete from '../AutoComplete'
 
-import axios from 'axios'
+//Material-ui form stylings
+import { 
+  Input,
+  InputLabel,
+  InputAdornment, 
+  MenuItem, 
+  TextField, 
+  Checkbox, 
+  FormControlLabel 
+} from '@material-ui/core';
+
+//Component
+import { Button as ButtonS } from '../Button/Button';
+import Spinner from '../Spinner'
+import PopUp from '../Space/PopUp'
+
+//Google api
+import AutoComplete from '../AutoComplete'
 
 //for address input box - PlacesAutocomplete:
 import {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
-import Spinner from '../Spinner'
-import PopUp from '../Space/PopUp'
-
-
 // Constants
 import { AMENITIES } from '../../constants'
-
-
-// user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 
 
 export default function SpaceCreateForm(props) {
@@ -57,8 +66,6 @@ export default function SpaceCreateForm(props) {
 
 
   const handleChange = event => {
-    //console.log(event.target.name)
-
     let newValue
     switch (event.target.type) {
       case "checkbox":
@@ -95,15 +102,6 @@ export default function SpaceCreateForm(props) {
     let path = `/space/${space_id}`; 
     history.push(path);
   }
-
-  //  const handleSubmit = () => {
-  //   const newSpaceData = {...spaceFormState}
-  //   axios.post('/api/spaces', { newSpaceData })
-
-  //   props.setVisualMode("SPACE_SHOW")
-  //   routeChange();
-  //  }
-
 
   ////////FOR PHOTO UPLOAD///////////
    //sets previewSource when file chosen
@@ -154,6 +152,12 @@ export default function SpaceCreateForm(props) {
   
   /////////////////////////////////////////////
 
+  //for drop down selection bar in form
+    const cities = [
+      { value: "Vancouver", label: "Vancouver" },
+      { value: "Toronto", label: "Toronto" },
+      { value: "Montreal", label: "Montreal" }
+    ];
 
 
   return ( 
@@ -163,92 +167,174 @@ export default function SpaceCreateForm(props) {
         <p className="popup-content">Saving...</p>
         <Spinner />
       </PopUp>}
-      <form>
-        <h1>Create A New Space Listing</h1>
-        <br/> 
-        <div className="text-inputs">
 
-          <label for="title">
-            Title for space listing:
-          </label>
-          <input 
+      <div className="sc-wrapper">
+        <h1>Create A New Space Listing</h1>
+        <form className="sc-form-content">
+        <br />
+          <div className="text-inputs">
+
+            <label for="title">
+              Title for space listing:
+            </label>
+            <br/>
+            <TextField 
+              id="outlined-name"
+              name='title' 
+              value={spaceFormState.title}
+              onChange={handleChange} 
+              inputProps={{ 'aria-label': 'description' }} 
+              required helperText="required field"
+              variant="outlined"
+             />
+
+            {/* <Input
+            placeholder="Placeholder" 
             name='title' 
             value={spaceFormState.title}
             onChange={handleChange} 
-          />
+            inputProps={{ 'aria-label': 'description' }} 
+            /> */}
+
+            {/* <input 
+              name='title' 
+              value={spaceFormState.title}
+              onChange={handleChange} 
+            /> */}
+            <br/>
+
+            <label for="description">
+               Details to describe the space (Hint: this would be a good place to add a couple guidelines):
+            </label>
+            <br />
+            <TextField 
+              name='description'
+              id="outlined-basic" 
+              variant="outlined"
+              multiline
+              rows={2}
+              rowsMax={Infinity}
+              value={spaceFormState.description}
+              onChange={handleChange}
+            />
+            {/* <label for="description">
+              Details to describe the space (Hint: this would be a good place to add a couple guidelines):
+            </label>
+              <input 
+              name='description'
+              value={spaceFormState.description}
+              onChange={handleChange} 
+            /> */}
+
+            <br /> 
+
+            <h2 className="sc-category-titles">Photos</h2>
+            <br />
+            <label for="image">
+              Upload pictures:
+            </label> 
+            <br />
+            <div className="sc-upload-preview-set">
+              {previewSource && <img 
+                                src={previewSource} 
+                                alt="" 
+                                style={{
+                                  height: '200px', 
+                                  width: '200px'
+                                  }}/>}
+              <input 
+                name="image" 
+                type="file"
+                onChange={handleFileInputChange}
+              />
+              </div>
+
+            <br />
+
+            <h2 className="sc-category-titles">Address of listing</h2>
+            <br />
+            <label for="address">
+              Space address:
+            </label>
+            <AutoComplete 
+              address={spaceFormState.address} 
+              handleChange={handleAutocompleteChange} 
+              handleSelect={handleAutocompleteSelect}
+            />
+            <br />
+            <label for="city">
+              City of listing:
+            </label>
+            <TextField
+              select 
+              id="outlined-name"
+              name='city' 
+              value={cities}
+              onChange={handleChange}
+              inputProps={{ 'aria-label': 'description' }} 
+              helperText="Please select general area of listing"
+              variant="outlined"
+             >
+             {cities.map(option => (
+              <MenuItem
+                key={option.value} 
+                value={option.value}>
+                {option.label}
+              </MenuItem>
+              ))}
+              </TextField>
+            <br />
+            
+            <h2 className="sc-category-titles">Rates</h2>
+            <br />
+            <p>Rehearsal Room was built in the spirit of sharing resources. If you have an unused or extra space avaiable, consider listing it for free. Consider this a contribution to the cultivation of local Arts and Culture! We encourage conversations for alternative forms of payment (eg. workexchange, goods, services, etc.)</p>
+            <br />
+            <label for="price_per_hour">
+              Hourly Rate: 
+            </label>
+            {/* <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel> */}
+            <Input
+              name="price_per_hour"
+              id="standard-adornment-amount"
+              value={spaceFormState.price_per_hour}
+              onChange={handleChange}
+              startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            />
+            {/* <input 
+              name="price_per_hour" 
+              value={spaceFormState.price_per_hour}
+              onChange={handleChange}
+            /> */}
+            <br />
+
+            <label for="price_per_day">
+              Daily Rate: 
+            </label>
+            <Input
+              name="price_per_day"
+              id="standard-adornment-amount"
+              value={spaceFormState.price_per_day}
+              onChange={handleChange}
+              startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            />
+            {/* <input 
+              name="price_per_day" 
+              value={spaceFormState.price_per_day}
+              onChange={handleChange} 
+            /> */}
+            <br />
+          </div>
           <br/>
-          <label for="description">
-            Details to describe the space (Hint: this would be a good place to add a couple guidelines):
-          </label>
-            <input 
-            name='description'
-            value={spaceFormState.description}
-            onChange={handleChange} 
-          />
-
-           <br /> 
-
-          <h2>Photos</h2>
-
-          <label for="image">
-            Upload pictures:
-          </label>  
-          <input 
-            name="image" 
-            type="file"
-            onChange={handleFileInputChange}
-          />
-          {previewSource && <img src={previewSource} alt="" style={{height: '100px', width: '100px'}}/>}
-
-
-          <h2>Address of listing</h2>
-          <label for="address">
-            Space address:
-          </label>
-          <AutoComplete address={spaceFormState.address} handleChange={handleAutocompleteChange} handleSelect={handleAutocompleteSelect}/>
-
-          <label for="city">
-            General city area of listing - Vancouver, Toronto, or Montreal:
-          </label>
-          <input 
-            value={spaceFormState.city}
-            onChange={handleChange}
-            name="city" 
-          />
-
-          
-          <h2>Rates</h2>
-          <p>Rehearsal Room was built in the spirit of sharing resources. If you have an unused or extra space avaiable, consider listing it for free. Consider this a contribution to the cultivation of local Arts and Culture! We encourage conversations for alternative forms of payment (eg. workexchange, goods, services, etc.)</p>
-
-          <label for="price_per_hour">
-            Hourly Rate: 
-          </label>
-          <input 
-            name="price_per_hour" 
-            value={spaceFormState.price_per_hour}
-            onChange={handleChange}
-          />
-
-          <label for="price_per_day">
-            Daily Rate: 
-          </label>
-          <input 
-            name="price_per_day" 
-            value={spaceFormState.price_per_day}
-            onChange={handleChange} 
-          />
-        </div>
-        <br/>
-        <h2>Amenities</h2>
-
-        <p>Does your space include any of the following? Check if yes:</p>
-
-        {<ul>{amenitiesList}</ul>}
-
-        <ButtonS primary label="Submit" onClick={handleSubmit} /> 
-      
-      </form>
-      
+          <h2>Amenities</h2>
+          <br />
+          <p>Does your space include any of the following? Check if yes:</p>
+          <br />
+          {<ul>{amenitiesList}</ul>}
+          <br/>
+          <ButtonS secondary="true" label="Submit" onClick={handleSubmit} /> 
+        
+        </form>
+      </div>
     </>
  
   );
