@@ -57,6 +57,7 @@ export default function Dashboard(props) {
         header: "Your account is now a Host account!",
         body: "You can now list new Spaces and manage incoming booking requests from your dashboard.",
         yesButton: "Great!",
+        yesButtonMode: "secondary",
         yesButtonFunc: () => setPopUp(false),
         noButton: "",
         noButtonFunc: () => null,
@@ -70,8 +71,10 @@ export default function Dashboard(props) {
       header: "Are You Sure?",
       body: `Unlisting ${space_title} will remove all bookings and data about it.`,
       yesButton: "Yes, unlist it",
+      yesButtonMode: "danger",
       yesButtonFunc: () => deleteSpace(id, space_title),
       noButton: "No, go back",
+      noButtonMode: "secondary",
       noButtonFunc: () => setPopUp(false),
     }
     )
@@ -103,13 +106,15 @@ export default function Dashboard(props) {
         <p class="popup-content">
           {popUpContent.body}
         </p>
-        {popUpContent.yesButton && 
-          <Button 
+        {popUpContent.yesButton &&
+          <Button
+            specificMode={popUpContent.yesButtonMode}
             label={popUpContent.yesButton}
             onClick={popUpContent.yesButtonFunc}
           />}
-        {popUpContent.noButton && 
-          <Button 
+        {popUpContent.noButton &&
+          <Button
+            specificMode={popUpContent.noButtonMode}
             label={popUpContent.noButton}
             onClick={popUpContent.noButtonFunc}
           />}
