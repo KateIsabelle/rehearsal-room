@@ -16,6 +16,12 @@
   color: white;
   background-color: #639e00ff;
 }
+
+.storybook-button--primary:hover {
+  color: white;
+  background-color: rgb(116, 184, 0);
+}
+
 .storybook-button--secondary {
   color: white;
   background-color: #0078A2;
@@ -25,6 +31,17 @@
 .storybook-button--secondary:hover {
   color: white;
   background-color: #0078A2;
+}
+
+.storybook-button--danger {
+  color: white;
+  background-color: rgb(194, 34, 34);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+
+.storybook-button--danger:hover {
+  color: white;
+  background-color: rgb(228, 39, 39);;
 }
 
 .storybook-button--small {

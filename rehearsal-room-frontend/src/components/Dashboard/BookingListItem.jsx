@@ -17,39 +17,35 @@ export default function BookingListItem(props) {
   }
   const shortDesc = shortenedUsageDesc(props.usage_description)
 
-  const unselectedBooking = (
-    <>
-      
-    </>
-  )
+  const sectionClassName = `booking-list-item-section ${selected && "selected"}`
 
   return (
     <div
-      className={"booking-list-item " + props.status}
+      className={`booking-list-item ${selected && "selected"}`}
       onClick={() => handlers.select(props.id)}
     >
       <div className="booking-list-item-top">
         { host &&
-          <div className="booking-list-item-section">
+          <div className={sectionClassName}>
             <h4 className="booking-list-item-section-header">From</h4>
-            <p></p>
+            <p>{props.requester_name}</p>
           </div>
         }
         { !host &&
-          <div className="booking-list-item-section">
+          <div className={sectionClassName}>
             <h4 className="booking-list-item-section-header">Status</h4>
-            <p><strong>{upcase(props.status)}</strong></p>
+            <p className={props.status}><strong>{upcase(props.status)}</strong></p>
           </div>
         }
-          <div className="booking-list-item-section">
+          <div className={sectionClassName}>
             <h4 className="booking-list-item-section-header">Space</h4>
             <p>{props.space_name}</p>
           </div>
-        <div className="booking-list-item-section">
+        <div className={sectionClassName}>
           <h4 className="booking-list-item-section-header">Usage Description</h4>
           <p>{selected ? props.usage_description : shortDesc}</p>
         </div>
-        <div className="booking-list-item-section">
+        <div className={sectionClassName}>
           <h4 className="booking-list-item-section-header">Date</h4>
           <p>{date}</p>
           <p>{props.start_time} to {props.end_time}</p>
@@ -59,15 +55,16 @@ export default function BookingListItem(props) {
       <div className="booking-list-item-expansion">
         {props.status === "pending" && host &&
           <>
-          <Button onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
-          <Button onClick={() => handlers.reject(props.id)} label="Reject"></Button>
+          <Button primary="true" onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
+          <Button danger="true" onClick={() => handlers.reject(props.id)} label="Reject"></Button>
           </>
         }
         {props.status === "confirmed" && host &&
-          <Button onClick={() => handlers.cancel(props.id)} label="Cancel"></Button>
+          <Button danger="true" onClick={() => handlers.cancel(props.id)} label="Delete"></Button>
         }
         { !host &&
           <Button
+            danger="true"
             onClick={() => handlers.cancel(props.id)}
             label={props.status === "rejected" ? "Delete" : "Cancel" }
           />

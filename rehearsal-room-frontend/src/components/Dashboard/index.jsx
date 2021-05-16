@@ -144,7 +144,6 @@ export default function Dashboard(props) {
           </Grid>
 
           <Grid
-            container
             item
             direction="column"
             justify="flex-start"
@@ -155,11 +154,11 @@ export default function Dashboard(props) {
               <>
                 <Grid item>
                   <div className="dashboard-card">
-                    <h2>My Spaces</h2>
-                    <Button
+
+                    <h2 className="booking-list-header">My Spaces <Button
                       onClick={() => setCreateSpace(true)}
-                      label="Add a new Space"
-                    ></Button>
+                      label="List a new Space"
+                    ></Button></h2>
                     <SpaceList 
                       spaces={spaces}
                       dashboard={true}
