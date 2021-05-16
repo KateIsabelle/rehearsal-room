@@ -1,3 +1,28 @@
+.sc-banner {
+  height: 300px;
+  width: 100%;
+  // background: linear-gradient($light-green, $dark-green);
+  background-color: $dark-blue;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  // margin-bottom: 350px;
+  background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
+  // border-bottom: 20px solid $dark-green;
+
+  h1 {
+    color: white;
+    font-size: 220%;
+    text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4); 
+    // text-shadow: 1px 1px 2px #ccc9c2;
+  }
+  h3 {
+    color: white;
+    font-size: 120%
+  }
+}
+
+
 .text-inputs {
   display: flex;
   flex-direction: column;
@@ -6,29 +31,34 @@
 .sc-wrapper {
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
+  overflow: hidden;
+  margin-top: 55px;
+
+    input {
+    height: 1.5rem;
+    width: 60%;
+    border-radius: 3px;
+    margin-top: 5px;
+  }
+
+  form {
+    background-color: white;
+    border: 2px solid #2B3239;
+    box-shadow: 8px solid rgba(245, 245, 245, 0.685);
+    border-radius: 3px;
+    padding: 1em 2em;
+    // margin: 1em;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.sc-wrapper input {
-  height: 1.5rem;
-  width: 60%;
-  border-radius: 3px;
-  margin-top: 5px;
-}
-
-.sc-wrapper form {
-  background-color: white;
-  border: 2px solid #2B3239;
-  box-shadow: 8px solid rgba(245, 245, 245, 0.685);
-  border-radius: 3px;
-  padding: 1em 2em;
-  margin: 1em;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+// .sc-move-down {
+//   transform: translateY(50%);
+// }
 
 .sc-upload-preview-set {
   display: flex;

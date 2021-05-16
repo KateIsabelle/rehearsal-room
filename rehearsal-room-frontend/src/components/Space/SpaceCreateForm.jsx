@@ -168,10 +168,15 @@ export default function SpaceCreateForm(props) {
         <Spinner />
       </PopUp>}
 
+
+      <div className="sc-banner">
+        {/* <div className="sc-move-down"> */}
+          <h1>Create A New Space Listing</h1>
+        {/* </div> */}
+      </div>
+
       <div className="sc-wrapper">
-        <h1>Create A New Space Listing</h1>
         <form className="sc-form-content">
-        <br />
           <div className="text-inputs">
 
             <label for="title">
