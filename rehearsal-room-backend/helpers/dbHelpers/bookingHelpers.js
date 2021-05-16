@@ -29,6 +29,8 @@ module.exports = (db) => {
     SELECT
       bookings.*,
       users.id AS requester_id,
+      users.first_name AS first_name,
+      users.last_name AS last_name,
       CONCAT(users.first_name, ' ', users.last_name) AS requester_name,
       spaces.title AS space_name
     FROM bookings
