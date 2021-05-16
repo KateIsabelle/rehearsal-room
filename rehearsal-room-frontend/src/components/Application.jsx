@@ -26,7 +26,7 @@ import Dashboard from './Dashboard'
 import useApplicationData from '../hooks/useApplicationData'
 
 export default function App() {
-  const { state, dispatch, setUserInfo } = useApplicationData();
+  const { state, setUserInfo } = useApplicationData();
 
   return (
     <Router>

@@ -10,22 +10,15 @@ import OpeningHoursTable from "./OpeningHoursTable";
 import PopUp from './PopUp'
 
 export default function Space(props) {
-  const [spaceData, setSpaceData] = useState({})
-  const [popUp, setPopUp] = useState(false)
-  const [visualMode, setVisualMode] = useState("SPACE_SHOW")
+  const { 
+    state, 
+    mainSpacesReroute,
+    dashboardReroute
+   } = useSpaceData();
+ 
   const { space_id } = useParams();
 
-  const history = useHistory();
-
-  const mainSpacesReroute = () =>{ 
-    const path = '/spaces/vancouver'; 
-    history.push(path);
-  }
-
-  const dashboardReroute = () => {
-    const path = '/dashboard';
-    history.push(path)
-  }
+  
 
   const togglePop = () => {
     setPopUp(false)
@@ -43,16 +36,24 @@ export default function Space(props) {
     .catch((err) => console.log("ERROR", err));
   }, [space_id]);
 
+  const dataList = Object.keys(spaceData).map((key, index) => (
+    <li key={index}>
+      <strong>{key}</strong>: {`${spaceData[key]}`}
+    </li>
+  ))
+
+  const popUpMsg = `Your request has been sent to ${spaceData.first_name}`
+
   return (
 
     <article className="space-container">
-    { visualMode === "SPACE_SHOW" &&
+    { state.visualMode === "SPACE_SHOW" &&
     <Fragment>
-      { popUp &&
+      { state.popUp &&
       <PopUp 
         className="popup"
         header="Request Sent!"
-        body="Your request for May 21 at 2pm - 4pm has been sent to Mabel."
+        body={popUpMsg}
         yesButton="Check My Bookings"
         yesButtonFunc={dashboardReroute}
         noButton="Go back to listing"
@@ -66,11 +67,11 @@ export default function Space(props) {
 
         <div className="move-down">
           <div>
-            <h1 className="mrg-med">{spaceData.title}</h1>
-            <h3 className="mrg-med">{spaceData.city}</h3>
+            <h1 className="mrg-med">{state.spaceData.title}</h1>
+            <h3 className="mrg-med">{state.spaceData.city}</h3>
           </div>
           <div className="space-photo-cont">
-            <img className="space-photo" src={spaceData.cover_photo_url} alt="property"></img>
+            <img className="space-photo" src={state.spaceData.cover_photo_url} alt="property"></img>
           </div>
         </div>
 
@@ -79,13 +80,13 @@ export default function Space(props) {
           <div className="price-wrapper">
             <div className="mrg-med"><Button size="xlarge" label="Make a Request" onClick={() => setVisualMode("REQUEST_FORM")}/></div>
             <div className="make-flex-col">
-              <div>Price per day: ${spaceData.price_per_day / 100}</div>
-              <div>Price per hour: ${spaceData.price_per_hour / 100}</div>
+              <div>Price per day: ${state.spaceData.price_per_day / 100}</div>
+              <div>Price per hour: ${state.spaceData.price_per_hour / 100}</div>
             </div>
           </div>
-          <div className="map-container"><Map className="" latitude={spaceData.latitude} longitude={spaceData.longitude}/></div>
-          {spaceData.organization_name && <div>Affiliated organization: {spaceData.organization_name}</div>}
-          <div>Contact: {spaceData.first_name} {spaceData.last_name}, {spaceData.email}</div>
+          <div className="map-container"><Map className="" latitude={state.spaceData.latitude} longitude={state.spaceData.longitude}/></div>
+          {state.spaceData.organization_name && <div>Affiliated organization: {state.spaceData.organization_name}</div>}
+          <div>Contact: {state.spaceData.first_name} {state.spaceData.last_name}, {state.spaceData.email}</div>
 
         </div>
 
@@ -93,22 +94,25 @@ export default function Space(props) {
 
     <div className="space-info">
       <div className="space-desc">
-        <p>{spaceData.description}</p>
+        <p>{state.spaceData.description}</p>
       </div>
       <div className="space-features">
         <h3>Features:</h3>
-        <AmenitiesList spaceData={spaceData}/>
+        <AmenitiesList spaceData={state.spaceData}/>
       </div>
 
       </div>
       <OpeningHoursTable/>
       <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={mainSpacesReroute}></Button></div>
 
-          
+      <h3>Data from axios request:</h3>
+      <ul>
+        {dataList}
+      </ul>
     </Fragment>
   }
   {visualMode === "REQUEST_FORM" &&
-    <RentalRequest user_id={props.user_id} space_id={space_id} space={spaceData} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
+    <RentalRequest user_id={props.user_id} space_id={space_id} space={state.spaceData} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
 }
 
         </article>
