@@ -1,22 +1,30 @@
 .popup {
   position: fixed;
   z-index: 1;
-  background-color: white;
-  border: 5px solid #e6a2f2;
-  width: 500px;
+  background-color: $off-white;
+  border: 5px solid $dark-green;
+  border-radius: 8px;
   height: 200px;
+  width: 500px;
   top: 50%;
   left: 50%;
   margin-top: -100px; /* Negative half of height. */
   margin-left: -250px; /* Negative half of width. */
-}
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 
-.popup-content {
-  background-color: white;
-  // position: absolute;
-}
+  .pu {
+    margin: 5%;
+    text-align: center;
+  }
+  .pu-content {
 
-.close {
-  position: absolute;
-  margin: 10px
+  }
+  .pu-header {
+    font-size: 150%;
+  }
+  .pu-body{
+
+  }
 }

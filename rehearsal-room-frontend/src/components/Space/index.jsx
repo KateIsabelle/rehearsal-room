@@ -43,11 +43,6 @@ export default function Space(props) {
     .catch((err) => console.log("ERROR", err));
   }, [space_id]);
 
-  const dataList = Object.keys(spaceData).map((key, index) => (
-    <li key={index}>
-      <strong>{key}</strong>: {`${spaceData[key]}`}
-    </li>
-  ))
   return (
 
     <article className="space-container">
@@ -57,7 +52,7 @@ export default function Space(props) {
       <PopUp 
         className="popup"
         header="Request Sent!"
-        body="Some words"
+        body="Your request for May 21 at 2pm - 4pm has been sent to Mabel."
         yesButton="Check My Bookings"
         yesButtonFunc={dashboardReroute}
         noButton="Go back to listing"
