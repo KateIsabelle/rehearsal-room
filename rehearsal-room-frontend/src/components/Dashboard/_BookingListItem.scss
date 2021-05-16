@@ -1,3 +1,98 @@
-.booking-list-item:hover {
-  background-color: $light-green;
+.booking-list-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-color: $lightest-blue;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  &:hover, &.selected{
+    background-color: $even-more-lightest-blue;
+  }
+
+}
+
+.booking-list-item-empty {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  border-color: $lightest-blue;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px
+
+}
+
+.booking-list-item-top {
+  display: flex;
+  width: 100%;
+
+}
+
+.booking-list-item-section {
+  flex-basis: 25%;
+  max-width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-color: $off-white;
+  border-style: solid;
+  border-width: 0px 2px 0px 0px;
+
+  &:last-of-type {
+    border-width: 0px;
+  }
+  
+  &.selected {
+    border-color: $lightest-blue;
+  }
+
+  p {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  p.confirmed {
+    color: $dark-green;
+  }
+
+  p.rejected {
+    color: $dark-blue;
+  }
+
+  p.pending {
+    color: $dark-yellow;
+  }
+}
+
+.booking-list-item-expansion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  border-style: solid;
+  border-width: 2px 0px 0px 0px;
+  border-color: $lightest-blue;
+
+  button {
+    width: 30%;
+
+    &.confirm {
+      background-color: $button-yes;
+    }
+  }
+}
+
+.booking-list-item-section-header {
+  margin-bottom: 3px;
+}
+
+.booking-list-item-previous-rental {
+  em {
+    font-family: Lato, sans-serif;
+    color: $light-grey;
+    font-weight: 300;
+  }
 }

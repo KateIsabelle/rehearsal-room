@@ -25,8 +25,8 @@ export default function SpaceListItem(props) {
       </Link>
       {dashboard &&
         <Button 
-          label="Unlist This Space"
-          backgroundColor="red"
+          label="Unlist"
+          danger="true"
           onClick={() => onDeleteClick(id, title)}
         />
       }

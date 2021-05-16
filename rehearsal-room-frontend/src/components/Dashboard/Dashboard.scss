@@ -1,0 +1,39 @@
+.dashboard-container {
+  margin-top: 0em;
+  margin-bottom: 15em;
+}
+
+.dashboard-card {
+  background-color: $off-white;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin-top: 1em;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+.dashboard-profile {
+  position: sticky;
+  align-items: center;
+  justify-content: center;
+  top: 4em;
+  padding: 10px;
+
+
+  img {
+    margin: 10px 0px 10px 0px;
+  }
+
+  button {
+    margin-top: 10px;
+    background-color: $light-blue;
+    width: 75%;
+
+    &:hover {
+      background-color: $med-blue;
+    }
+  }
+}
+
