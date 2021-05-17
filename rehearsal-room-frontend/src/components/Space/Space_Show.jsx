@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 
-import Map1 from './Map'
+import StaticMap from './StaticMap'
 import { Button } from '../Button/Button'
 import AmenitiesList from './AmenitiesList'
 import OpeningHoursTable from "./OpeningHoursTable";
 import PopUp from './PopUp'
-// import { Map } from './DynamicMap'
+import MapSection from './DynamicMap'
 
 
 export default function Space_Show(props) {
@@ -53,8 +53,8 @@ return (
               <div>Price per hour: ${props.spaceData.price_per_hour / 100}</div>
             </div>
           </div>
-          { false && <div className="map-container"><Map1 className="" latitude={props.spaceData.latitude} longitude={props.spaceData.longitude}/></div> }
-         
+          { false && <div className="map-container"><StaticMap className="" latitude={props.spaceData.latitude} longitude={props.spaceData.longitude}/></div> }
+          { true && <MapSection location={location} zoomLevel={13} /> }
           { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
           <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
         </div>
