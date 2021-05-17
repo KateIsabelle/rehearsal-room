@@ -46,13 +46,12 @@ const useSpaceData = () => {
       url: `/api/space/${space_id}`,
     })
     .then(({ data }) => {
-      console.log("Data from space page:", data);
       dispatch({
         type: SET_SPACE_DATA,
         spaceData: data[0]
       })
     })
-    .catch((err) => console.log("ERROR", err));
+    .catch((err) => console.error(err));
   }, [space_id]);
 
   // useEffect(() => {

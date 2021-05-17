@@ -3,12 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
-  useParams
 } from "react-router-dom";
-import { Fragment, useEffect } from "react";
-import axios from "axios";
 
 import '../Sass/App.scss'
 
