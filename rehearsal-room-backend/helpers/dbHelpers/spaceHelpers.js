@@ -120,10 +120,6 @@ module.exports = (db) => {
     .catch(err => err)
   }
 
-  const updateSpace = (spaceData) => {
-    // TODO: Actually make this function work.
-  }
-
   const deleteSpace = id => {
     const queryString = `
       DELETE FROM spaces

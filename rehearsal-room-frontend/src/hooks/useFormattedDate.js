@@ -8,11 +8,6 @@ export default function useFormattedDate (date) {
     return dateObj.toLocaleDateString(undefined, options)
   }
 
-  const timestampToTime = (timestamp) => {
-    const dateObj = new Date(timestamp)
-    return dateObj.toLocaleTimeString()
-  }
-
   return [
     timestampToDate(date)
   ]

@@ -1,11 +1,8 @@
 // Custom components
 import BookingListItem from './BookingListItem'
 
-
-
 export default function BookingList(props) {
   const { bookingHandlers, selectedBooking, bookings, bookingType, host } = props;
-
 
   const bookingList =
     bookings

@@ -38,11 +38,10 @@ export default function useFilteredSpaces(city) {
       url: `/api/spaces/${city}`,
     })
     .then(({ data }) => {
-      console.log("getting city data: ", data);
       setSpaces(data)
       setFilteredSpaces(data)
     })
-    .catch((err) => console.log("get city data ERROR", err));
+    .catch((err) => console.error("get city data ERROR", err));
   }, [city]);
 
   // Creates an object of key/value pairs for each amenity to
@@ -76,20 +75,17 @@ export default function useFilteredSpaces(city) {
       }
       for (const key of Object.keys(AMENITIES)) {
         if(params[key] === true && space[key] === false) {
-          console.log(`filtering ${space.title}: search param is ${key}, search value ${params[key]}, space value ${space[key]}`)
           return false
         }
       }
       return true
     })
-    console.log(filtered)
     setFilteredSpaces(filtered);
   };
 
   // Called when the search inputs (keyword search OR amenity filters) change.
   const handleFormChange = (event) => {
     // Create the new state for the form.
-    console.log(event.target, `${event.target.value}`)
     let newValue
     switch (event.target.type) {
       case "text":

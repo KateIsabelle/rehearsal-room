@@ -10,31 +10,29 @@ import logo from './plans.svg'
 export default function Header(props) {
   let history = useHistory()
   return (
-
     <header>
     <div className="wrapper">
       <div>
-      <div className="header-list">
-        <NavLink to="/" component={Logo} />
-
-        <Link  to="/spaces/Vancouver" style={{textDecoration: 'none'}}><h3>Browse spaces</h3></Link>
-        <Link style={{textDecoration: 'none'}}><h3>About us</h3></Link>
-
+        <div className="header-list">
+          <NavLink to="/" component={Logo} />
+          <Link  to="/spaces/Vancouver" style={{textDecoration: 'none'}}><h3>Browse spaces</h3></Link>
+          {/* <Link style={{textDecoration: 'none'}}><h3>About us</h3></Link> */}
         </div>
       </div>
       <div>
         {props.user ? (
-            <tag className="user-greeting-logout">
-                <Link to={'/dashboard'} style={{paddingRight: 13, textDecoration: 'none'}}><h3>{props.user.first_name}'s Profile</h3></Link>
-                <Button primary size="small" label="Log out" />
-            </tag>
+          <div className="user-greeting-logout">
+            <Link to={'/dashboard'} style={{paddingRight: 13, textDecoration: 'none'}}>
+              <h3>{props.user.first_name}'s Profile</h3>
+            </Link>
+            <Button primary size="small" label="Log out" />
+          </div>
           ) : (
             <>
               <Button primary onClick={()=>{history.push('/login')}}size="small" label="Log in" />
               <Button primary size="small" label="Sign up" />
             </>
           )}
-
       </div>
     </div>
   </header>

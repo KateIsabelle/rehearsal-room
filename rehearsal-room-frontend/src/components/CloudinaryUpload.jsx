@@ -44,7 +44,6 @@ export default function CloudinaryUpload() {
   }
   //on submit, calls uploadImage with previewSource
   const handleSubmitFile = e => {
-    console.log("submitting")
     e.preventDefault();
     if(!previewSource) return; 
     uploadImage(previewSource);

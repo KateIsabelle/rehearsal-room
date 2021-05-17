@@ -1,7 +1,6 @@
 import { Button } from '../Button/Button'
 import useFormattedDate from '../../hooks/useFormattedDate'
 import upcase from '../../helpers/upcase'
-import axios from 'axios'
 
 export default function BookingListItem(props) {
   const { selected, host, handlers } = props
