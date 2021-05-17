@@ -20,6 +20,7 @@ import Space from './Space'
 import Spaces from './Spaces'
 import Login from './Login'
 import Dashboard from './Dashboard'
+import Footer from './Footer'
 
 
 // Custom hooks
@@ -58,7 +59,7 @@ export default function App() {
             { state.user && <Dashboard user={state.user} updateUser={setUserInfo} /> }
           </Route>
         </Switch>
-        
+        <Footer />
       </div >
     </Router>
   );
