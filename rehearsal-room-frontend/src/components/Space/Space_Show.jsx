@@ -6,6 +6,7 @@ import AmenitiesList from './AmenitiesList'
 import OpeningHoursTable from "./OpeningHoursTable";
 import PopUp from './PopUp'
 import MapSection from './DynamicMap'
+import PhotoGrid from './PhotoGrid'
 
 
 export default function Space_Show(props) {
@@ -53,6 +54,8 @@ return (
           <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
         </div>
       </div>
+
+      <PhotoGrid />
 
       <div className="space-info">
         <div className="space-desc">
