@@ -11,27 +11,23 @@ export default function useBookingManager(host, userId) {
   // Handlers for confirming/rejecting/cancelling bookings.
   // Put these on the buttons for individual bookings!
   const confirm = (id) => {
-    console.log("confirmed!", id)
     axios.put(`/api/bookings/${id}`, {status: 'confirmed'})
       .then(refreshBookings)
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
   }
   const reject = (id) => {
-    console.log("rejected!", id)
     axios.put(`/api/bookings/${id}`, {status: 'rejected'})
     .then(refreshBookings)
-    .catch(err => console.log(err))
+    .catch(err => console.error(err))
   }
   const cancel = (id) => {
-    console.log("cancelled!", id)
     axios.delete(`/api/bookings/${id}`)
     .then(refreshBookings)
-    .catch(err => console.log(err))
+    .catch(err => console.error(err))
   }
 
   // Handler for selecting bookings
   const select = (id) => {
-    console.log("handleClick fired")
     id !== selectedBooking ? setSelectedBooking(id) : setSelectedBooking(0)
   }
 
@@ -44,7 +40,7 @@ export default function useBookingManager(host, userId) {
         ...prev,
         host: res.data
       })))
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
     }
 
     // Get booking requests submitted by this user
@@ -53,7 +49,7 @@ export default function useBookingManager(host, userId) {
       ...prev,
       artist: res.data
     })))
-    .catch(err => console.log(err))
+    .catch(err => console.error(err))
   }
 
   const memoizedRefresh = useCallback(
