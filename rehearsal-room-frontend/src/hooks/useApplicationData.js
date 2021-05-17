@@ -35,7 +35,6 @@ const useApplicationData = () => {
   }
 
 
-
   useEffect(() => {
 
     const scriptTag = document.createElement('script')

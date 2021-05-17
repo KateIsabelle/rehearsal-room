@@ -2,6 +2,10 @@ export const SET_USERS = 'SET_USERS';
 export const SET_USER_INFO = 'SET_USER';
 export const SET_BOOKINGS = 'SET_BOOKINGS';
 export const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA';
+export const SET_POPUP = 'SET_POPUP';
+export const SET_SPACE_DATA = 'SET_SPACE_DATA';
+export const SET_SPACE_VISUAL_MODE = 'SET_SPACE_VISUAL_MODE';
+
 
 
 const dataReducer = (state, action) => {
@@ -30,6 +34,21 @@ const dataReducer = (state, action) => {
                 users: action.users,
                 // bookings: action.bookings 
             };
+        case SET_POPUP:
+            return {
+                ...state,
+                popUp: action.popUp,
+            }
+        case SET_SPACE_VISUAL_MODE:
+            return {
+                ...state,
+                visualMode: action.visualMode
+            }
+        case SET_SPACE_DATA:
+            return {
+                ...state,
+                spaceData: action.spaceData
+            }
         default:
             return state;
     }

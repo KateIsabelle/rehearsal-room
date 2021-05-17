@@ -9,40 +9,24 @@ import AmenitiesList from './AmenitiesList'
 import OpeningHoursTable from "./OpeningHoursTable";
 import PopUp from './PopUp'
 
+import useSpaceData from '../../hooks/useSpaceData'
+
 export default function Space(props) {
   const { 
     state, 
-    mainSpacesReroute,
-    dashboardReroute
+    togglePopUp,
+    setVisualMode,
+    reroute
    } = useSpaceData();
  
-  const { space_id } = useParams();
 
-  
-
-  const togglePop = () => {
-    setPopUp(false)
-   };
-
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `/api/space/${space_id}`,
-    })
-    .then(({ data }) => {
-      console.log("Data from space page:", data);
-      setSpaceData(data[0])
-    })
-    .catch((err) => console.log("ERROR", err));
-  }, [space_id]);
-
-  const dataList = Object.keys(spaceData).map((key, index) => (
+  const dataList = Object.keys(state.spaceData).map((key, index) => (
     <li key={index}>
-      <strong>{key}</strong>: {`${spaceData[key]}`}
+      <strong>{key}</strong>: {`${state.spaceData[key]}`}
     </li>
   ))
 
-  const popUpMsg = `Your request has been sent to ${spaceData.first_name}`
+  const popUpMsg = `Your request for ${state.spaceData.title} has been sent to ${state.spaceData.first_name} ${state.spaceData.organization_name ? `from ${state.spaceData.organization_name}` : ""}`
 
   return (
 
@@ -55,9 +39,9 @@ export default function Space(props) {
         header="Request Sent!"
         body={popUpMsg}
         yesButton="Check My Bookings"
-        yesButtonFunc={dashboardReroute}
+        yesButtonFunc={() => reroute('/dashboard')}
         noButton="Go back to listing"
-        noButtonFunc={togglePop}>
+        noButtonFunc={() => togglePopUp(false)}>
       <p className="popup-content">Request Made!</p>
       </PopUp> 
       }
@@ -103,7 +87,7 @@ export default function Space(props) {
 
       </div>
       <OpeningHoursTable/>
-      <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={mainSpacesReroute}></Button></div>
+      <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={() => reroute('/spaces/vancouver')}></Button></div>
 
       <h3>Data from axios request:</h3>
       <ul>
@@ -111,8 +95,8 @@ export default function Space(props) {
       </ul>
     </Fragment>
   }
-  {visualMode === "REQUEST_FORM" &&
-    <RentalRequest user_id={props.user_id} space_id={space_id} space={state.spaceData} setVisualMode={setVisualMode} setPopUp={setPopUp}/>
+  {state.visualMode === "REQUEST_FORM" &&
+    <RentalRequest user_id={props.user_id} space_id={state.spaceData.id} space={state.spaceData} setVisualMode={() => setVisualMode("SPACE_SHOW")} setPopUp={() => togglePopUp(true)}/>
 }
 
         </article>
