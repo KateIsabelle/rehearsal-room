@@ -20,8 +20,6 @@ export default function RentalRequest(props) {
   })
 
   const handleChange = event => {
-    console.log(event.target.name)
-
     let newValue
     switch (event.target.type) {
       case "checkbox":
