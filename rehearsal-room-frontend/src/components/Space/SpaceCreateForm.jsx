@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 //Material-ui form stylings
 import { 
   Input,
-  InputLabel,
   InputAdornment, 
   MenuItem, 
   TextField, 
@@ -249,8 +248,8 @@ export default function SpaceCreateForm(props) {
                 select 
                 id="outlined-name"
                 name='city' 
-                value={spaceFormState.city}
                 label='Select'
+                value={spaceFormState.city}
                 onChange={handleChange}
                 inputProps={{ 'aria-label': 'description' }} 
                 helperText="Please select general area of listing"
