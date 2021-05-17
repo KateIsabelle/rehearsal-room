@@ -24,3 +24,19 @@ $button-no: $dark-maroon;
 $banner-font: 'Lato', sans-serif;
 $header-font: 'Montserrat', sans-serif;
 $body-font: 'Roboto Slab', serif;
+
+/* Mixins */
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Assuming that the parent element has position: relative 
+.parent {
+  position: relative;
+}
+.child {
+  @include centerer;
+} 
+*/
