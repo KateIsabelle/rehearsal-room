@@ -1,3 +1,5 @@
+import gitHubIcon from './githubicon.png'
+
 export default function Footer() {
   return(
     <footer className="footer">
@@ -8,7 +10,7 @@ export default function Footer() {
         <em>
           Created by Adele Noronha, Kate Davis, and Paul Ladd for <a href="https://www.lighthouselabs.ca/">Lighthouse Labs</a></em>
         <a href="https://github.com/KateIsabelle/rehearsal-room">
-          <img src="GitHub-Mark-32px.png" alt="GitHub"/>
+          <img src={gitHubIcon} alt="GitHub"/>
         </a>
       </div>
     </footer>
