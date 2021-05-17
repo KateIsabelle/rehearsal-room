@@ -13,7 +13,6 @@ const LocationPin = ({ text }) => (
 const Map = ({ location, zoomLevel }) => {
   
   return (
-  <div className="map">
     <div className="google-map">
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
@@ -27,7 +26,6 @@ const Map = ({ location, zoomLevel }) => {
         />
       </GoogleMapReact>
     </div>
-  </div>
   )
 }
 
