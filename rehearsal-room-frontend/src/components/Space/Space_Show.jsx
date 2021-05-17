@@ -5,13 +5,18 @@ import { Button } from '../Button/Button'
 import AmenitiesList from './AmenitiesList'
 import OpeningHoursTable from "./OpeningHoursTable";
 import PopUp from './PopUp'
-import { DynamicMap } from './DynamicMap'
+// import { Map } from './DynamicMap'
 
 
 export default function Space_Show(props) {
   
   const popUpMsg = `Your request for ${props.spaceData.title} has been sent to ${props.spaceData.first_name} ${props.spaceData.organization_name ? `from ${props.spaceData.organization_name}` : ""}`
-
+  
+  const location = {
+    address: '1600 Amphitheatre Parkway, Mountain View, california.',
+    lat: 37.42216,
+    lng: -122.08427,
+  }
 
 return (  
     <Fragment>
@@ -49,7 +54,7 @@ return (
             </div>
           </div>
           { false && <div className="map-container"><Map1 className="" latitude={props.spaceData.latitude} longitude={props.spaceData.longitude}/></div> }
-          { true && <div className="dynamic-map"><Map /></div>}
+         
           { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
           <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
         </div>
