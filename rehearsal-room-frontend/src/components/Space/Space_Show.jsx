@@ -1,16 +1,16 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 
-import Map from './Map'
+import StaticMap from './StaticMap'
 import { Button } from '../Button/Button'
 import AmenitiesList from './AmenitiesList'
 import OpeningHoursTable from "./OpeningHoursTable";
 import PopUp from './PopUp'
+import MapSection from './DynamicMap'
 
 
 export default function Space_Show(props) {
   
   const popUpMsg = `Your request for ${props.spaceData.title} has been sent to ${props.spaceData.first_name} ${props.spaceData.organization_name ? `from ${props.spaceData.organization_name}` : ""}`
-
 
 return (  
     <Fragment>
@@ -47,7 +47,8 @@ return (
               <div>Price per hour: ${props.spaceData.price_per_hour / 100}</div>
             </div>
           </div>
-          <div className="map-container"><Map className="" latitude={props.spaceData.latitude} longitude={props.spaceData.longitude}/></div>
+          { false && <div className="map-container"><StaticMap className="" latitude={props.spaceData.latitude} longitude={props.spaceData.longitude}/></div> }
+          { true && <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} /> }
           { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
           <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
         </div>

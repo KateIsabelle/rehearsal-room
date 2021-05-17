@@ -12,7 +12,8 @@ const useSpaceData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
       popUp: false,
       visualMode: "SPACE_SHOW",
-      spaceData: {}
+      spaceData: {},
+      mapLoaded: false
   });
   //toggles the small request confirmation popup between visible and not visible
   const togglePopUp = bool => {
@@ -36,8 +37,9 @@ const useSpaceData = () => {
   }
   //grabs space_id from /space/:space_id
   const { space_id } = useParams();
-  //gets necessary data for this space & sets spaceData in state
+
   useEffect(() => {
+    //gets necessary data for this space & sets spaceData in state
     axios({
       method: 'GET',
       url: `/api/space/${space_id}`,
