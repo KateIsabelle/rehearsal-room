@@ -1,6 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
-import { useParams, useHistory } from 'react-router-dom';
-import axios from 'axios'
+import React, { Fragment } from "react";
 
 import Map from './Map'
 import { Button } from '../Button/Button'
@@ -9,34 +7,28 @@ import OpeningHoursTable from "./OpeningHoursTable";
 import PopUp from './PopUp'
 
 
-
 export default function Space_Show(props) {
   
   const popUpMsg = `Your request for ${props.spaceData.title} has been sent to ${props.spaceData.first_name} ${props.spaceData.organization_name ? `from ${props.spaceData.organization_name}` : ""}`
-  
-  const dataList = Object.keys(props.spaceData).map((key, index) => (
-    <li key={index}>
-    <strong>{key}</strong>: {`${props.spaceData[key]}`}
-    </li>
-    ))
 
-return (  <Fragment>
+
+return (  
+    <Fragment>
       { props.popUp &&
-      <PopUp 
-        className="popup"
-        header="Request Sent!"
-        body={popUpMsg}
-        yesButton="Check My Bookings"
-        yesButtonFunc={props.yesButtonFunc}
-        noButton="Go back to listing"
-        noButtonFunc={props.noButtonFunc}
-        >
-      <p className="popup-content">Request Made!</p>
-      </PopUp> 
+        <PopUp 
+          className="popup"
+          header="Request Sent!"
+          body={popUpMsg}
+          yesButton="Check My Bookings"
+          yesButtonFunc={props.yesButtonFunc}
+          noButton="Go back to listing"
+          noButtonFunc={props.noButtonFunc}
+          >
+        <p className="popup-content">Request Made!</p>
+        </PopUp> 
       }
-      
-      <div className="space-banner">
 
+      <div className="space-banner">
         <div className="move-down">
           <div>
             <h1 className="mrg-med">{props.spaceData.title}</h1>
@@ -48,7 +40,6 @@ return (  <Fragment>
         </div>
 
         <div className="move-down">
-
           <div className="price-wrapper">
             <div className="mrg-med"><Button size="xlarge" label="Make a Request" onClick={() => props.setVisualMode("REQUEST_FORM")}/></div>
             <div className="make-flex-col">
@@ -57,30 +48,25 @@ return (  <Fragment>
             </div>
           </div>
           <div className="map-container"><Map className="" latitude={props.spaceData.latitude} longitude={props.spaceData.longitude}/></div>
-          {props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div>}
+          { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
           <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
-
         </div>
-
-    </div>
-
-    <div className="space-info">
-      <div className="space-desc">
-        <p>{props.spaceData.description}</p>
-      </div>
-      <div className="space-features">
-        <h3>Features:</h3>
-        <AmenitiesList spaceData={props.spaceData}/>
       </div>
 
+      <div className="space-info">
+        <div className="space-desc">
+          <p>{props.spaceData.description}</p>
+        </div>
+        <div className="space-features">
+          <h3>Features:</h3>
+          <AmenitiesList spaceData={props.spaceData}/>
+        </div>
       </div>
+
       <OpeningHoursTable/>
-      <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
 
-      <h3>Data from axios request:</h3>
-      <ul>
-        {dataList}
-      </ul>
+      <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
+    
     </Fragment>
 )
 }
