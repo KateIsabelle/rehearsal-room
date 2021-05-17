@@ -3,7 +3,7 @@ import React from "react";
 import useSpaceData from '../../hooks/useSpaceData'
 
 import RentalRequest from '../RentalRequest/index'
-import Space_Show from './Space_Show'
+import SpaceShow from './Space_Show'
 
 export default function Space(props) {
   const { 
@@ -17,7 +17,7 @@ export default function Space(props) {
 
     <article className="space-container">
       { state.visualMode === "SPACE_SHOW" &&
-        <Space_Show 
+        <SpaceShow 
         spaceData={{...state.spaceData}}
         popUp={state.popUp}
         yesButtonFunc={() => reroute('/dashboard')}
