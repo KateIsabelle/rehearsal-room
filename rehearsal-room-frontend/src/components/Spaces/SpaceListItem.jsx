@@ -11,7 +11,7 @@ export default function SpaceListItem(props) {
   const { id, thumbnail_photo_url, title, price_per_hour, dashboard, onDeleteClick } = props
   return (
     <div className="sl-wrapper">
-      <div className="sl-item" onClick={() => console.log("clicked on space", id, title)}>
+      <div className="sl-item">
         <div className="sl-title">
           <p>{title}</p>
         </div>

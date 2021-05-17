@@ -7,7 +7,7 @@ export default function FeaturesListItem(props) {
 
   return (
     <li >
-      <div>{feature == "Wifi" && icon}{feature}</div>
+      <div>{feature === "Wifi" && icon}{feature}</div>
   </li>
   )
 }

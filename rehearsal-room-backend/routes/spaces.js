@@ -8,7 +8,6 @@ module.exports = ({
   getSpaces,
   getSpacesByUserId,
   getSpacesByCity,
-  getSpacesByKeyword,
   addSpace,
   deleteSpace,
   addMap,
@@ -43,7 +42,6 @@ module.exports = ({
     //upload image to cloudinary
     cloudinary.uploader.upload(imageData, { upload_preset: 'rehearsal_room' })
     .then(res => {
-      console.log("cloudinary response**", res)
       //public url where image is saved:
       const url = `https://res.cloudinary.com/davik/image/upload/v${res.version}/${res.public_id}.png`
       //formula to ensure new prices are x100

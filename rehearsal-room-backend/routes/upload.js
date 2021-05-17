@@ -13,7 +13,6 @@ module.exports = ({
     const fileStr = req.body.data
     cloudinary.uploader.upload(fileStr, { upload_preset: 'rehearsal_room' })
     .then(res => {
-      console.log("cloudinary response**", res)
       const url = `https://res.cloudinary.com/davik/image/upload/v${res.version}/${res.public_id}.png`
       const spaceData = {
         user_id: 1,
@@ -33,8 +32,8 @@ module.exports = ({
       .then(booking => res.json(booking))
     })
       .catch(err => {
-      console.log(err)
-      res.status(500).json({err:'Something went wrong***'})
+      console.error(err)
+      res.status(500).json({error: err.message})
     })
   })
 

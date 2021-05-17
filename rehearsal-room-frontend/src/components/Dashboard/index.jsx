@@ -11,7 +11,6 @@ import SpaceCreateForm from '../Space/SpaceCreateForm'
 import useBookingManager from '../../hooks/useBookingManager'
 
 // Material UI Components
-import { palette } from '@material-ui/system';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
@@ -46,7 +45,7 @@ export default function Dashboard(props) {
   useEffect(() => {
     axios.get(`/api/spaces/user/${user.id}`)
       .then(res => setSpaces(res.data))
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
   }, [user.id])
 
 
