@@ -15,8 +15,7 @@ export default function Header(props) {
       <div>
         <div className="header-list">
           <NavLink to="/" component={Logo} />
-          <Link  to="/spaces/Vancouver" style={{textDecoration: 'none'}}><h3>Browse spaces</h3></Link>
-          {/* <Link style={{textDecoration: 'none'}}><h3>About us</h3></Link> */}
+          <Button secondary="true" size="large" label="Browse Spaces" onClick={()=>{history.push('/spaces/Vancouver')}} />
         </div>
       </div>
       <div>
@@ -43,7 +42,7 @@ export default function Header(props) {
 function Logo() {
   return (
     <>
-    <Link to={'/'}><img src={logo} width="35" height="35" alt="" /></Link>
+    <Link className="h-logo" to={'/'}><img height="42" width="42" src={logo} alt="" /></Link>
     <h1>
       | Rehearsal Room |
     </h1>
