@@ -4,7 +4,6 @@
   background-color: $off-white;
   border: 5px solid $dark-green;
   border-radius: 8px;
-  height: 200px;
   width: 500px;
   top: 50%;
   left: 50%;
@@ -17,9 +16,11 @@
   .pu {
     margin: 5%;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
   }
   .pu-content {
-
+    width: 100%;
   }
   .pu-header {
     font-size: 150%;
