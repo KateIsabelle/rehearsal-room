@@ -37,9 +37,9 @@ const useApplicationData = () => {
 
   useEffect(() => {
 
-    // const scriptTag = document.createElement('script')
-    // scriptTag.src=`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_MAPS_API_KEY}&libraries=places`
-    // document.body.appendChild(scriptTag)
+    const scriptTag = document.createElement('script')
+    scriptTag.src=`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_MAPS_API_KEY}&libraries=places`
+    document.body.appendChild(scriptTag)
 
     // Promise.all([
     //   axios.get("/api/users"),
