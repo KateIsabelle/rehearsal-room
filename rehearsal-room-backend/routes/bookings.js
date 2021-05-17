@@ -35,7 +35,6 @@ module.exports = ({
   // POST a new booking in the db
   router.post('/', (req, res) => {
     const { bookingData } = req.body
-    console.log("Data:", bookingData)
     addBooking(bookingData)
       .then(booking => res.json(booking))
       .catch(err => res.json({error: err.message}));
