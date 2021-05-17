@@ -6,7 +6,6 @@ import dataReducer, {
   SET_POPUP,
   SET_SPACE_VISUAL_MODE,
   SET_SPACE_DATA,
-  SET_MAP_LOADED
 } from '../reducer/data_reducer';
 
 const useSpaceData = () => {
@@ -53,17 +52,6 @@ const useSpaceData = () => {
     })
     .catch((err) => console.error(err));
   }, [space_id]);
-
-  // useEffect(() => {
-  //   const scriptTag = document.createElement('script')
-  //   scriptTag.src=`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_MAPS_API_KEY}&callback=initMap` //https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_MAPS_API_KEY}&libraries=places
-  //   scriptTag.addEventListener('load', () => dispatch( { type: SET_MAP_LOADED, mapLoaded: true } )) 
-  //   document.body.appendChild(scriptTag)
-  // }, [])
-
-  useEffect(() => {
-    if(!state.mapLoaded) return
-  }, [state.mapLoaded])
 
   return {
       state,
