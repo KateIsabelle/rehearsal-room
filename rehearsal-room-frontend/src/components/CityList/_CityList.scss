@@ -8,13 +8,21 @@
 
 .city-list {
   display: flex;
+
+
 }
 
 .city-item {
   font-weight: 900;
-  color: white;
-  padding:1em 5em 1em 5em;
+  color: $dark-grey;
+  padding:1em 7em;
   margin: 2em 4em;
+  border: 2px solid $dark-grey;
   border-radius: 3em;
-  background-color: $dark-blue;
+  // background-color: $med-blue;
+
+}
+
+.city-item:hover {
+ background-color: $light-green;
 }
