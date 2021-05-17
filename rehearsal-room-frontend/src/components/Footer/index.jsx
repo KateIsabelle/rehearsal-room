@@ -6,7 +6,7 @@ export default function Footer() {
       </div>
       <div className="footer-section">
         <em>
-          Created by Adele Noronha, Kate Davis, and Paul Ladd</em>
+          Created by Adele Noronha, Kate Davis, and Paul Ladd for <a href="https://www.lighthouselabs.ca/">Lighthouse Labs</a></em>
         <a href="https://github.com/KateIsabelle/rehearsal-room">
           <img src="GitHub-Mark-32px.png" alt="GitHub"/>
         </a>
