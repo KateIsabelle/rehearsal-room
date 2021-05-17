@@ -8,8 +8,6 @@ import useFilteredSpaces from '../../hooks/useFilteredSpaces'
 import SpaceList from './SpaceList'
 import SearchForm from '../SearchForm'
 
-// Styling
-import './_Spaces.scss'
 
 
 export default function Spaces() {
