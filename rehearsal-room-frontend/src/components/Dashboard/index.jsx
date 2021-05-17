@@ -11,7 +11,6 @@ import SpaceCreateForm from '../Space/SpaceCreateForm'
 import useBookingManager from '../../hooks/useBookingManager'
 
 // Material UI Components
-import { palette } from '@material-ui/system';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
