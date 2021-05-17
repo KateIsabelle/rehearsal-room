@@ -15,8 +15,3 @@ export default function HeroV1(props) {
     </tag>
   )
 }
-
-
-
-
-//small change to correct merge error
