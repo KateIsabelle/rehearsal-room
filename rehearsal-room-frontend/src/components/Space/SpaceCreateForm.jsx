@@ -170,9 +170,9 @@ export default function SpaceCreateForm(props) {
 
       </div>
       <div className="sc-move-up">
-        <h1>Create A New Space Listing</h1>
 
         <div className="sc-wrapper">
+        <h1>Create A New Space Listing</h1>
           <form className="sc-form-content">
             <div className="text-inputs">
 
