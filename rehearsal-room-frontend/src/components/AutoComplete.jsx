@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
+import React from 'react';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
 export default function AutoComplete(props) {
   // const [ address, setAddress ] = useState("")
@@ -38,9 +38,9 @@ export default function AutoComplete(props) {
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
-              const className = suggestion.active
-                ? 'suggestion-item--active'
-                : 'suggestion-item';
+              //const className = suggestion.active
+              //  ? 'suggestion-item--active'
+              //  : 'suggestion-item';
               // inline style for demonstration purpose
               const style = suggestion.active
                 ? { backgroundColor: '#fafafa', cursor: 'pointer' }
