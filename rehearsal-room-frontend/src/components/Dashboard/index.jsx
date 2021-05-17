@@ -46,7 +46,7 @@ export default function Dashboard(props) {
   useEffect(() => {
     axios.get(`/api/spaces/user/${user.id}`)
       .then(res => setSpaces(res.data))
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
   }, [user.id])
 
 
