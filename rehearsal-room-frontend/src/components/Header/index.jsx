@@ -15,7 +15,7 @@ export default function Header(props) {
       <div>
         <div className="header-list">
           <NavLink to="/" component={Logo} />
-          <Button secondary="true" size="medium" label="Browse Spaces" onClick={()=>{history.push('/spaces/Vancouver')}} />
+          <Button secondary="true" size="large" label="Browse Spaces" onClick={()=>{history.push('/spaces/Vancouver')}} />
         </div>
       </div>
       <div>
