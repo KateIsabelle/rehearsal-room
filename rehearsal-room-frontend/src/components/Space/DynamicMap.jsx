@@ -5,7 +5,7 @@ import './DynamicMap.scss'
 
 const LocationPin = ({ text }) => (
   <div className="pin">
-    <i className="fas fa-map-marker-alt"></i>
+    <i className="fas fa-map-marker-alt fa-2x"></i>
     <p className="pin-text">{text}</p>
   </div>
 )
