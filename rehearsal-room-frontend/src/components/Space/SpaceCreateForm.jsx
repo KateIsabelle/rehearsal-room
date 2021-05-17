@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 //Material-ui form stylings
 import { 
   Input,
-  InputLabel,
   InputAdornment, 
   MenuItem, 
   TextField, 
@@ -170,9 +169,9 @@ export default function SpaceCreateForm(props) {
 
       </div>
       <div className="sc-move-up">
-        <h1>Create A New Space Listing</h1>
 
         <div className="sc-wrapper">
+          <h1>Create A New Space Listing</h1>
           <form className="sc-form-content">
             <div className="text-inputs">
 
@@ -249,8 +248,8 @@ export default function SpaceCreateForm(props) {
                 select 
                 id="outlined-name"
                 name='city' 
-                value={spaceFormState.city}
                 label='Select'
+                value={spaceFormState.city}
                 onChange={handleChange}
                 inputProps={{ 'aria-label': 'description' }} 
                 helperText="Please select general area of listing"
@@ -304,8 +303,9 @@ export default function SpaceCreateForm(props) {
             <br />
             {<ul className="sc-ammenities-list">{amenitiesList}</ul>}
             <br/>
-            <ButtonS secondary="true" label="Submit" onClick={handleSubmit} /> 
-          
+            <div className="sc-submit">
+              <ButtonS  size="bar" primary="true" label="Submit" onClick={handleSubmit} /> 
+            </div>
           </form>
         </div>
      </div> 
