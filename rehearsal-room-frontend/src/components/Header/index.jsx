@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from '../Button/Button';
 import { useHistory, NavLink, Link } from 'react-router-dom';
-import './_Header.scss'
+// import './_Header.scss'
 import logo from './plans.svg'
 
 
@@ -45,9 +45,9 @@ export default function Header(props) {
 function Logo() {
   return (
     <>
-    <Link to={'/'}><img src={logo} width="32" height="32" alt="" /></Link>
+    <Link to={'/'}><img src={logo} width="35" height="35" alt="" /></Link>
     <h1>
-      Rehearsal Room
+      | Rehearsal Room |
     </h1>
     </>
   )
