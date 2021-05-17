@@ -1,0 +1,17 @@
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+
+  .col{
+    // flex: 25%;
+    max-width: 50px;
+    // padding: 0 4px;
+
+    .img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+}
