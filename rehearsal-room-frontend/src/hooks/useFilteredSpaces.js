@@ -38,7 +38,6 @@ export default function useFilteredSpaces(city) {
       url: `/api/spaces/${city}`,
     })
     .then(({ data }) => {
-      console.log("getting city data: ", data);
       setSpaces(data)
       setFilteredSpaces(data)
     })

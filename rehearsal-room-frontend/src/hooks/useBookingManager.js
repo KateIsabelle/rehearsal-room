@@ -54,7 +54,6 @@ export default function useBookingManager(host, userId) {
 
   const memoizedRefresh = useCallback(
     () => {
-      console.log("in memo")
       refreshBookings();
     },
     []
