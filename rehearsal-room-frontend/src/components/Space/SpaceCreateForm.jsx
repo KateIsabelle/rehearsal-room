@@ -160,10 +160,11 @@ export default function SpaceCreateForm(props) {
   return ( 
     <>
       {popUp && 
-      <PopUp>
-        <p className="popup-content">Saving...</p>
-        <Spinner />
-      </PopUp>}
+      <PopUp 
+        className="popup"
+        header="Saving..."
+        body={<Spinner />}
+      />}
 
       <div className="sc-banner">
 
