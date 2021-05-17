@@ -172,7 +172,7 @@ export default function SpaceCreateForm(props) {
       <div className="sc-move-up">
 
         <div className="sc-wrapper">
-        <h1>Create A New Space Listing</h1>
+          <h1>Create A New Space Listing</h1>
           <form className="sc-form-content">
             <div className="text-inputs">
 
@@ -304,8 +304,9 @@ export default function SpaceCreateForm(props) {
             <br />
             {<ul className="sc-ammenities-list">{amenitiesList}</ul>}
             <br/>
-            <ButtonS secondary="true" label="Submit" onClick={handleSubmit} /> 
-          
+            <div className="sc-submit">
+              <ButtonS  size="bar" primary="true" label="Submit" onClick={handleSubmit} /> 
+            </div>
           </form>
         </div>
      </div> 
