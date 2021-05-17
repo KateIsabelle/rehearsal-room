@@ -8,10 +8,9 @@ const {
 module.exports = ({
     getUsers,
     getUserByEmail,
-    addUser, 
+    addUser,
     updateUser,
-    getBookingsByUser, 
-    getHostBookings
+    getBookingsByUser,
 }) => {
     /* GET users listing. */
     router.get('/', (req, res) => {
@@ -83,21 +82,3 @@ module.exports = ({
 
     return router;
 };
-
-// router.post('/login/:email', (req, res) => {
-
-//     getUserByEmail(req.params.email)
-//     .then(user => {
-//         if(user) {
-//         getBookingsByUser(user.id)
-//         .then(bookings => res.json({user: user, bookings: bookings})) 
-//         } else {
-//             res.json({
-//                 msg: 'Can\'t find email blahblahblah'
-//             })
-//         }
-//     })
-//     .catch(err => res.json({
-//         error: err.message
-//     }))
-// });
