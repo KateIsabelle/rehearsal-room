@@ -6,13 +6,15 @@ import dataReducer, {
   SET_POPUP,
   SET_SPACE_VISUAL_MODE,
   SET_SPACE_DATA,
+  SET_MAP_LOADED
 } from '../reducer/data_reducer';
 
 const useSpaceData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
       popUp: false,
       visualMode: "SPACE_SHOW",
-      spaceData: {}
+      spaceData: {},
+      mapLoaded: false
   });
   //toggles the small request confirmation popup between visible and not visible
   const togglePopUp = bool => {
@@ -36,8 +38,9 @@ const useSpaceData = () => {
   }
   //grabs space_id from /space/:space_id
   const { space_id } = useParams();
-  //gets necessary data for this space & sets spaceData in state
+
   useEffect(() => {
+    //gets necessary data for this space & sets spaceData in state
     axios({
       method: 'GET',
       url: `/api/space/${space_id}`,
@@ -51,6 +54,17 @@ const useSpaceData = () => {
     })
     .catch((err) => console.log("ERROR", err));
   }, [space_id]);
+
+  useEffect(() => {
+    const scriptTag = document.createElement('script')
+    scriptTag.src=`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_MAPS_API_KEY}&callback=initMap` //https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_MAPS_API_KEY}&libraries=places
+    scriptTag.addEventListener('load', () => dispatch( { type: SET_MAP_LOADED, mapLoaded: true } )) 
+    document.body.appendChild(scriptTag)
+  }, [])
+
+  useEffect(() => {
+    if(!state.mapLoaded) return
+  }, [state.mapLoaded])
 
   return {
       state,

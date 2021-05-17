@@ -5,8 +5,7 @@ export const SET_APPLICATION_DATA = 'SET_APPLICATION_DATA';
 export const SET_POPUP = 'SET_POPUP';
 export const SET_SPACE_DATA = 'SET_SPACE_DATA';
 export const SET_SPACE_VISUAL_MODE = 'SET_SPACE_VISUAL_MODE';
-
-
+export const SET_MAP_LOADED = 'SET_MAP_LOADED';
 
 const dataReducer = (state, action) => {
     switch (action.type) {
@@ -48,6 +47,11 @@ const dataReducer = (state, action) => {
             return {
                 ...state,
                 spaceData: action.spaceData
+            }
+        case SET_MAP_LOADED:
+            return {
+                ...state,
+                mapLoaded: action.mapLoaded
             }
         default:
             return state;
