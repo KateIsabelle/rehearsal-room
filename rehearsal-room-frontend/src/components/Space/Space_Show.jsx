@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 
 import StaticMap from './StaticMap'
 import { Button } from '../Button/Button'
@@ -11,12 +11,29 @@ import MapSection from './DynamicMap'
 export default function Space_Show(props) {
   
   const popUpMsg = `Your request for ${props.spaceData.title} has been sent to ${props.spaceData.first_name} ${props.spaceData.organization_name ? `from ${props.spaceData.organization_name}` : ""}`
-  
-  const location = {
-    address: '1600 Amphitheatre Parkway, Mountain View, california.',
-    lat: 37.42216,
-    lng: -122.08427,
+  let location = {
+    address: props.spaceData.address,
+    lat: props.spaceData.latitude,
+    lng: props.spaceData.longitude,
   }
+
+  useEffect(() => {
+    location = {
+      address: props.spaceData.address,
+      lat: props.spaceData.latitude,
+      lng: props.spaceData.longitude,
+    }
+    
+  }, [location]);
+  console.log("props.spaceData.latitude:", props.spaceData.latitude)
+  console.log("props.spaceData.longitude:", props.spaceData.longitude)
+
+
+  // const location = {
+  //   address: '1600 Amphitheatre Parkway, Mountain View, california.',
+  //   lat: 37.42216,
+  //   lng: -122.08427,
+  // }
 
 return (  
     <Fragment>
