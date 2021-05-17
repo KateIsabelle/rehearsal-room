@@ -47,7 +47,8 @@ return (
               <div>Price per hour: ${props.spaceData.price_per_hour / 100}</div>
             </div>
           </div>
-          <div className="map-container"><Map className="" latitude={props.spaceData.latitude} longitude={props.spaceData.longitude}/></div>
+          { false && <div className="map-container"><Map className="" latitude={props.spaceData.latitude} longitude={props.spaceData.longitude}/></div> }
+          { true && <div>MAP</div>}
           { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
           <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
         </div>
