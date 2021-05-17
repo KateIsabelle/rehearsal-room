@@ -1,42 +1,46 @@
-
-//adding comment to ensure master reads this file
 .space-image {
   height: 400px;
   width: 400px;
-  // margin-top: 2em;
+  margin-top: 10px;
   margin-bottom: 2em;
   border-radius: 3px;
   background-color: $light-grey;
   border-radius: 2px;
   padding: 2px;
-  margin-top: 10px;
 }
 
 
 .rental-space-title-photo {
   background-color: whitesmoke;
   background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
-  padding: 10em 5em;
+  padding: 3em 16em 10em 2em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 1em;
+  overflow: hidden;
 
+  h1 {
+    color: $dark-grey;
+    font-size: 200%;
+    text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4); 
+    margin-bottom: 4px;
+  }
+
+  h3 {
+   font-family: $body-font;
+   font-size: 150%
+  
+  }
 }
 
-.rental-space-title-photo h3 {
-  font-family: $body-font;
-  font-size: 1.5em;
-
-}
 
 
 
 .rental-request-form-wrapper {
+  transform: translateX(-10%);
   background-color: white;
-  border: 2px solid #2B3239;
+  border: 5px solid whitesmoke;
   box-shadow: 8px solid rgba(245, 245, 245, 0.685);
-  border-radius: 3px;
+  border-radius: 8px;
   padding: 3em 2em;
   margin: 1em;
   width: 60%;
@@ -55,9 +59,7 @@
 
 .rental-request-container {
   display: flex;
-  // flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 
   @media screen and (max-width: 900px) {
     flex-direction: column;

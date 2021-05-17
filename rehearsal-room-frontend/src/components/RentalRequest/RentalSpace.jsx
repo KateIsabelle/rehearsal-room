@@ -6,7 +6,7 @@ export default function RentalSpace (props) {
   return (
     <>
       <div className="rental-space-title-photo">
-        <h3><strong>{props.space.title}</strong></h3>
+        <h1>{props.space.title}</h1>
         <h3>Rental Request</h3>
         <br />
         <img className="space-image" src={props.space.cover_photo_url} alt="Space"></img>
