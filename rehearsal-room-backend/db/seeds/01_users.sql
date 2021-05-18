@@ -8,7 +8,7 @@ VALUES
     '16045551234', 
     'password', 
     'https://res.cloudinary.com/davik/image/upload/v1621366590/rehearsal_room/ac2n75odkueutpykiss1.png',
-    'Professional snowboarder, firefighter, and grandmother. No, I don''t know YOUR grandma.',
+    'Professional snowboarder, firefighter, and punk rock enthusiast. I''m way cooler than your grandma.',
     true);
 
 INSERT INTO --without organization_name
