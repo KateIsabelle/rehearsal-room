@@ -2,13 +2,15 @@
   display: flex;
   // padding: 0 4px;
   width: 100%;
+  border: solid $off-white 5px;
+  border-top: none;
 
   .img-cont {
     // width: 20%;
     height: auto;
     padding: 0 2px;
     transition: opacity 0.5s;
-        
+
     img {
       vertical-align: middle;
       width: 100%;

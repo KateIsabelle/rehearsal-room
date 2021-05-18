@@ -1,6 +1,8 @@
 .google-map {
-  width: 55%; // 100%; 
+  width: 55%; 
   height: 80vh; 
+  border: solid $off-white 5px;
+  margin-left: -5px;
 }
 
 .pin {

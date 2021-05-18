@@ -1,8 +1,6 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 
-import './DynamicMap.scss'
-
 const LocationPin = ({ text }) => (
   <div className="pin">
     <i className="fas fa-map-marker-alt fa-2x"></i>
