@@ -175,7 +175,7 @@ export default function SpaceCreateForm(props) {
           <form className="sc-form-content">
             <div className="text-inputs">
 
-              <label for="title">
+              <label htmlFor="title">
                 Title for space listing:
               </label>
               <br/>
@@ -190,7 +190,7 @@ export default function SpaceCreateForm(props) {
               />
               <br/>
 
-              <label for="description">
+              <label htmlFor="description">
                 Details to describe the space (Hint: this would be a good place to add a couple guidelines):
               </label>
               <br/>
@@ -208,7 +208,7 @@ export default function SpaceCreateForm(props) {
 
               <h2 className="sc-category-titles">Photos</h2>
               <br />
-              <label for="image">
+              <label htmlFor="image">
                 Upload pictures:
               </label> 
               <br/>
@@ -230,7 +230,7 @@ export default function SpaceCreateForm(props) {
 
               <h2 className="sc-category-titles">Address of listing</h2>
               <br />
-              <label for="address">
+              <label htmlFor="address">
                 Space address:
               </label>
               <AutoComplete 
@@ -240,7 +240,7 @@ export default function SpaceCreateForm(props) {
               />
               <br />
 
-              <label for="city">
+              <label htmlFor="city">
                 City of listing:
               </label>
               <br/>
@@ -271,7 +271,7 @@ export default function SpaceCreateForm(props) {
               <p>Rehearsal Room was built in the spirit of sharing resources. If you have an unused or extra space avaiable, consider listing it for free. Consider this a contribution to the cultivation of local Arts and Culture! We encourage conversations for alternative forms of payment (eg. workexchange, goods, services, etc.)</p>
               <br />
 
-              <label for="price_per_hour">
+              <label htmlFor="price_per_hour">
                 Hourly Rate: 
               </label>
               <Input
@@ -283,7 +283,7 @@ export default function SpaceCreateForm(props) {
               />
               <br />
 
-              <label for="price_per_day">
+              <label htmlFor="price_per_day">
                 Daily Rate: 
               </label>
               <Input
@@ -304,7 +304,7 @@ export default function SpaceCreateForm(props) {
             {<ul className="sc-ammenities-list">{amenitiesList}</ul>}
             <br/>
             <div className="sc-submit">
-              <ButtonS  size="bar" primary="true" label="Submit" onClick={handleSubmit} /> 
+              <ButtonS  size="bar" primary={true} label="Submit" onClick={handleSubmit} /> 
             </div>
           </form>
         </div>

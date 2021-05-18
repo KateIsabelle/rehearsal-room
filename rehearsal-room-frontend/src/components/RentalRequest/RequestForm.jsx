@@ -20,13 +20,13 @@ export default function RequestForm(props) {
       <>
       <form className="rental-request-form-wrapper">
       
-        <label for="usage_description">
+        <label htmlFor="usage_description">
           Brief description of activity:
         </label>
         <br />
             <TextField name="usage_description" value={formState.usage_descript} onChange={handleChange} id="outlined-basic" variant="outlined" />
         <br />
-        <label for="date">Select a date: </label>
+        <label htmlFor="date">Select a date: </label>
         <br />
           <TextField
             id="date"
@@ -77,7 +77,7 @@ export default function RequestForm(props) {
           />
         <br />
         <div>
-        <label for="used_before"> Have you rented this space before? </label>
+        <label htmlFor="used_before"> Have you rented this space before? </label>
           <Checkbox
             name="used_before"
             color="primary"
@@ -87,7 +87,7 @@ export default function RequestForm(props) {
           />
         </div>
         <div>
-        <label for="multi_day_rental">Is this a multi-day rental?</label>
+        <label htmlFor="multi_day_rental">Is this a multi-day rental?</label>
           
           <Checkbox
             name="multi_day_rental"
@@ -99,7 +99,7 @@ export default function RequestForm(props) {
         </div>
         <br />
         <div className="alt-payment">
-        <label for="alternative_payment"> 
+        <label htmlFor="alternative_payment"> 
           This host acknowledges the diverse realities of local artists. If you are interested in future alternative workexchange options to offset space rental rates please check here.
         </ label>
         <Checkbox
