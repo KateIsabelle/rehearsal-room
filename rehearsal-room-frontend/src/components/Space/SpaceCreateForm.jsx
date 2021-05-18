@@ -217,7 +217,7 @@ export default function SpaceCreateForm(props) {
                                   src={previewSource} 
                                   alt="" 
                                   style={{
-                                    height: '200px', 
+                                    height: 'auto', 
                                     width: '200px'
                                     }}/>}
                 <input 
