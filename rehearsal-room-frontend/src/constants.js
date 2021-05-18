@@ -27,6 +27,8 @@ module.exports = {
 }
 
 
+//ICON OPTIONS FOR FUTURE OPTIONS (as we have font awesome linked)
+
 // sound system = <i class="fas fa-volume-up"></i>
 // bathroom = <i class="fas fa-toilet-paper"></i>
 // private parking = <i class="fas fa-parking"></i>
