@@ -16,12 +16,12 @@
   margin-bottom: 5px;
 }
 
-.sl-wrapper:nth-last-child(2){
-  margin: auto;
-}
+// .sl-wrapper:nth-last-child(2){
+//   margin-left: auto;
+// }
 
 .sl-wrapper:last-of-type{
-  margin: auto;
+  margin-right: 35%;
 }
 
 .sl-title {
@@ -33,6 +33,10 @@
   font-weight: 500;
 }
 
+.sl-photo {
+  height: 300px;
+  width: 400px;
+}
 
 .sl-pricebox {
   float: right;
