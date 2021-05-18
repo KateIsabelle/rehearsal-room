@@ -1,6 +1,9 @@
 .space-container {
   width: 100%;
   margin-bottom: 7%;
+  .space-body {
+    margin: 0 15%;
+  }
   
   .space-banner {
     height: 300px;
@@ -19,7 +22,7 @@
   }
   .photos {
     height: auto;
-    width: 50%;
+    width: 100%;
 
     .space-photo-cont {
       width: 100%;
@@ -32,9 +35,6 @@
         border: solid $off-white 5px;
       }
     }
-  }
-  .photo-grid-cont {
-    width: 100%;
   }
   .map-cont {
     // width: 50%;
