@@ -32,15 +32,15 @@ export default function Space_Show(props) {
       <div className="space-container">
 
         <div className="space-banner">
-          <div>
+          <div className="title">
             <h1 className="">{props.spaceData.title}</h1>
             <h3 className="">{props.spaceData.city}</h3>
           </div>
           <div className="price-wrapper">
-            <div className=""><Button size="xlarge" label="Make a Request" onClick={() => props.setVisualMode("REQUEST_FORM")}/></div>
+            <div className=""><Button size="large" label="Make a Request" onClick={() => props.setVisualMode("REQUEST_FORM")}/></div>
             <div>
-              <div>Price per day: ${props.spaceData.price_per_day / 100}</div>
-              <div>Price per hour: ${props.spaceData.price_per_hour / 100}</div>
+              <p>Price per day: ${props.spaceData.price_per_day / 100}</p>
+              <p>Price per hour: ${props.spaceData.price_per_hour / 100}</p>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ export default function Space_Show(props) {
 
           <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
         </div>
-        
+
       </div>
       
     </Fragment>
