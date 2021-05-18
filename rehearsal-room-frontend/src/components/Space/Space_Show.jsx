@@ -51,7 +51,7 @@ export default function Space_Show(props) {
               <div className="space-photo-cont">
                 <img className="space-photo" src={props.spaceData.cover_photo_url} alt="property"></img>
               </div>
-              { true && <PhotoGrid /> }
+              <PhotoGrid /> 
             </div>
             <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} />
           </div>

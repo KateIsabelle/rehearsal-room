@@ -47,17 +47,21 @@
   .photos {
     height: auto;
     width: 100%;
+    background-color: white;
 
     .space-photo-cont {
       flex-grow: 2;
       width: 100%;
-      // text-align: center;
+      transition: opacity 0.5s;
       overflow: hidden;
+
       .space-photo {
-        // height: auto;
         max-width: 100%;
         border: solid $off-white 5px;
       }
+    }
+    .space-photo-cont:hover {
+      opacity: .85;
     }
   }
   .map-cont {
