@@ -17,18 +17,36 @@
       // justify-content: space-between;
     }
   }
-  .space-photo-cont {
+  .photos {
+    height: auto;
     width: 50%;
-    border: 2px pink solid;
-    // text-align: center;
-    overflow: hidden;
-    .space-photo {
 
+    .space-photo-cont {
+      width: 100%;
+      border: 2px pink solid;
+      // text-align: center;
+      overflow: hidden;
+      .space-photo {
+        // height: auto;
+        max-width: 100%;
+        border: solid $off-white 5px;
+      }
     }
   }
-  .map-cont {
-    width: 50%;
+  .photo-grid-cont {
+    width: 100%;
   }
+  .map-cont {
+    // width: 50%;
+  }
+  .map-img-cont {
+    // height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
 }
 
 

@@ -1,5 +1,5 @@
 .google-map {
-  width: 100%; 
+  width: 100%; // 100%; 
   height: 60vh; 
   border: 2px pink solid;
 }
@@ -7,7 +7,7 @@
 .pin {
   display: flex;
   align-items: center;
-  width: 180px;
+  width: 15vw;
   color: var(--main-blue);
 }
 

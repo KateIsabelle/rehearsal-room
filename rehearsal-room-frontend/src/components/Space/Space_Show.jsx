@@ -46,16 +46,16 @@ export default function Space_Show(props) {
         </div>
 
 
-        <div className="">
-          <div className="">
+        <div className="map-img-cont">
+          <div className="photos">
             <div className="space-photo-cont">
               <img className="space-photo" src={props.spaceData.cover_photo_url} alt="property"></img>
             </div>
-            <PhotoGrid />
+            <div className="photo-grid-cont">
+              { true && <PhotoGrid /> }
+            </div>
           </div>
-          <div className="map-cont">
-            <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} />
-          </div>
+          <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} />
         </div>
 
         { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
