@@ -31,7 +31,9 @@ export default function Spaces() {
         onClearClick={clearForm}
       />
       <SpaceList
-      photo_size_class="sl-photo"
+      custom_space_list="space-list"
+      // custom_sl_wrapper_style = "sl-wrapper"
+      // photo_size_class="sl-photo"
       spaces={filteredSpaces}
       />
     </>

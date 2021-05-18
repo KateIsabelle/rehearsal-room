@@ -17,7 +17,7 @@ export default function SpaceListItem(props) {
         </div>
         <Link className="sl-pict" to={"/space/" + id}>
           <div>
-            <img src={thumbnail_photo_url} className={props.photo_size_class} alt=""/>
+            <img src={thumbnail_photo_url} className="sl-photo" alt=""/>
             </div>
         </Link>
       </div>
