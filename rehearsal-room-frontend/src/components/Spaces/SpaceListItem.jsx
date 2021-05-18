@@ -16,12 +16,12 @@ export default function SpaceListItem(props) {
         <h2>${price_per_hour / 100}/hr</h2>
       </div>
       {dashboard &&
-          <Button 
-            label="Unlist"
-            danger="true"
-            onClick={() => onDeleteClick(id, title)}
-          />
-        }
+        <Button 
+          label="Unlist"
+          danger="true"
+          onClick={() => onDeleteClick(id, title)}
+        />
+      }
     </div>
   )
 }
