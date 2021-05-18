@@ -1,5 +1,5 @@
 export default function Spinner() {
   return (
-    <img class="spinner" src='/spinner.png' alt="Saving"/>
+    <img className="spinner" src='/spinner.png' alt="Saving"/>
   )
 }

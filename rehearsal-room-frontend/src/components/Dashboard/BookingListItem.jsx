@@ -62,16 +62,16 @@ export default function BookingListItem(props) {
           <p className="booking-list-item-previous-rental">
             <em>{prevRentalMsg}</em>
           </p>
-          <Button primary="true" onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
-          <Button danger="true" onClick={() => handlers.reject(props.id)} label="Reject"></Button>
+          <Button primary={true} onClick={() => handlers.confirm(props.id)} label="Confirm"></Button>
+          <Button danger={true} onClick={() => handlers.reject(props.id)} label="Reject"></Button>
           </>
         }
         {props.status === "confirmed" && host &&
-          <Button danger="true" onClick={() => handlers.cancel(props.id)} label="Delete"></Button>
+          <Button danger={true} onClick={() => handlers.cancel(props.id)} label="Delete"></Button>
         }
         { !host &&
           <Button
-            danger="true"
+            danger={true}
             onClick={() => handlers.cancel(props.id)}
             label={props.status === "rejected" ? "Delete" : "Cancel" }
           />
