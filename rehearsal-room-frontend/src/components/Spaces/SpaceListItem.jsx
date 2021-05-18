@@ -27,7 +27,7 @@ export default function SpaceListItem(props) {
       {dashboard &&
           <Button 
             label="Unlist"
-            danger="true"
+            danger={true}
             onClick={() => onDeleteClick(id, title)}
           />
         }
