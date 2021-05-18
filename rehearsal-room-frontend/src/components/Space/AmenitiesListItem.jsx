@@ -3,7 +3,7 @@ import React from "react";
 export default function FeaturesListItem(props) {
   const { feature } = props
 
-  const icon = <i class="fas fa-check"></i>
+  const icon = <i className="fas fa-check"></i>
 
   return (
     <li >
