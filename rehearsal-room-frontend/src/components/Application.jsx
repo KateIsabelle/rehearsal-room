@@ -48,7 +48,7 @@ export default function App() {
           </Route>
           <Route path="/space/:space_id">
             { !state.user && <Space user_id={null} /> }
-            { state.user && <Space user_id={state.user.id}/> }
+            { state.user && <Space user_id={state.user.id} user_email={state.user.email}/> }
           </Route>
           <Route path="/dashboard">
             { !state.user && <Redirect to="/login"/> }

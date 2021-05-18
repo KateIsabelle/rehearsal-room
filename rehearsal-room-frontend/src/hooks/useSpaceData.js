@@ -50,15 +50,18 @@ const useSpaceData = () => {
     ]
   } else {
     smallImgUrls = [
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png",
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png",
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png",
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png",
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png"
+      "https://res.cloudinary.com/davik/image/upload/v1621367637/rehearsal_room/inaeffzjseltvxrhp342.png",
+      "https://res.cloudinary.com/davik/image/upload/v1621367637/rehearsal_room/inaeffzjseltvxrhp342.png",
+      "https://res.cloudinary.com/davik/image/upload/v1621367637/rehearsal_room/inaeffzjseltvxrhp342.png",
+      "https://res.cloudinary.com/davik/image/upload/v1621367637/rehearsal_room/inaeffzjseltvxrhp342.png",
+      "https://res.cloudinary.com/davik/image/upload/v1621367637/rehearsal_room/inaeffzjseltvxrhp342.png"
     ]
   }
 
   useEffect(() => {
+    //open page at top of window
+    window.scrollTo(0, 0);
+    
     //gets necessary data for this space & sets spaceData in state
     axios({
       method: 'GET',
