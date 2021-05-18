@@ -8,8 +8,7 @@ export default function SpaceList(props) {
       key={s.id}
       dashboard={props.dashboard}
       onDeleteClick={props.onDeleteClick}
-      // photo_size_class={props.photo_size_class}
-      custom_sl_wrapper_style={props.custom_sl_wrapper_style}
+      custom_space_list={props.custom_space_list}
       {...s}
     />
     )

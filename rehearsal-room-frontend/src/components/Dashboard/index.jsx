@@ -156,10 +156,8 @@ export default function Dashboard(props) {
                     ></Button></h2>
                     <SpaceList 
                       spaces={spaces}
-                      custom_space_list="space-list-sm"
-                      // custom_sl_wrapper_style = "sl-wrapper-sm"
-                      // photo_size_class="sl-photo-xs"
                       dashboard={true}
+                      custom_space_list="space-list-sm"
                       contentWhenEmpty={(
                         <div className="booking-list-item-empty">You don't have any Spaces! <strong>List</strong> a new one with the "List a new Space" button!</div>
                       )}
