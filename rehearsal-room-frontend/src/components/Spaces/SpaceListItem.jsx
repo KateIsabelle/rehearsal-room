@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom"
 import { Button } from '../Button/Button'
 
-const picStyle = {
-  height: "300px",
-  width: "400px"
-}
+// const picStyle = {
+//   height: "300px",
+//   width: "400px"
+// }
 
 export default function SpaceListItem(props) {
   const { id, thumbnail_photo_url, title, price_per_hour, dashboard, onDeleteClick } = props
@@ -17,7 +17,7 @@ export default function SpaceListItem(props) {
         </div>
         <Link className="sl-pict" to={"/space/" + id}>
           <div>
-            <img src={thumbnail_photo_url} className="sl-photo" alt=""/>
+            <img src={thumbnail_photo_url} className={props.photo_size_class} alt=""/>
             </div>
         </Link>
       </div>
