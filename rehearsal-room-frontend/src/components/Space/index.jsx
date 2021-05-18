@@ -26,6 +26,7 @@ export default function Space(props) {
         setVisualMode={setVisualMode}
         reroute={reroute}
         smallImgUrls={smallImgUrls}
+        user_email={props.user_email}
         />
       }
       { state.visualMode === "REQUEST_FORM" &&

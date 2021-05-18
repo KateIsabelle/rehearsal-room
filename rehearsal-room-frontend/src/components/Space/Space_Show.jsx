@@ -38,7 +38,12 @@ export default function Space_Show(props) {
             <h3 className="">{props.spaceData.city}</h3>
           </div>
           <div className="price-wrapper">
-            { true && <div className=""><Button size="large" label="Make a Request" onClick={() => props.setVisualMode("REQUEST_FORM")}/></div> }
+            { props.user_email == props.spaceData.email ?
+              <div className=""><Button size="large" label="Go to my Spaces" onClick={() => props.reroute('/dashboard')}/></div> 
+              :
+              <div className=""><Button size="large" label="Make a Request" onClick={() => props.setVisualMode("REQUEST_FORM")}/></div> 
+            
+            }
             { props.spaceData.price_per_day == 0 ?
               <div>
                 <p className="free">Free</p>
