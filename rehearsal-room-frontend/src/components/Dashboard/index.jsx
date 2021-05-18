@@ -140,10 +140,7 @@ export default function Dashboard(props) {
 
           <Grid
             item
-            direction="column"
-            justify="flex-start"
             xs={9}
-            spacing={2}
           >
             { user.is_host && 
               <>
