@@ -29,34 +29,31 @@ export default function Space_Show(props) {
         </PopUp> 
       }
 
-      <div className="space-banner">
-        <div className="">
-          <div>
+      <div className="space-container">
+        <div className="space-banner">
             <h1 className="">{props.spaceData.title}</h1>
             <h3 className="">{props.spaceData.city}</h3>
-          </div>
         </div>
 
-        <div className="">
-          <div className="price-wrapper">
+          <div className="">
             <div className=""><Button size="xlarge" label="Make a Request" onClick={() => props.setVisualMode("REQUEST_FORM")}/></div>
             <div className="">
               <div>Price per day: ${props.spaceData.price_per_day / 100}</div>
               <div>Price per hour: ${props.spaceData.price_per_hour / 100}</div>
             </div>
           </div>
-        </div>
       </div>
 
-      <div className="lower-content">
-        <div className="flex">
-          <div className="photos">
-            <div className="space-photo-cont">
+      <div className="">
+
+        <div className="">
+          <div className="">
+            <div className="">
               <img className="space-photo" src={props.spaceData.cover_photo_url} alt="property"></img>
             </div>
             <PhotoGrid />
           </div>
-          <div className="">
+          <div className="map-cont">
             <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} />
           </div>
         </div>

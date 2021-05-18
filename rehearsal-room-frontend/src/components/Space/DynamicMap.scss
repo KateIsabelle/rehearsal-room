@@ -1,21 +1,13 @@
-.map-h2 {
-  text-transform: uppercase;
-  font-size: 1rem;
-  padding: 20px;
-  padding-left: 10px;
-  text-align: center;
-}
-
 .google-map {
-  width: 50vh; //100%;
-  height: 60vh; //60vh;
+  width: 100%; 
+  height: 60vh; 
   border: 2px pink solid;
 }
 
 .pin {
   display: flex;
   align-items: center;
-  // width: 180px;
+  width: 180px;
   color: var(--main-blue);
 }
 
