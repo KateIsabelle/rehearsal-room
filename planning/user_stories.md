@@ -18,7 +18,7 @@ City specific bubbles.
 
 - As a visitor who tries to reserve a space, I should be prompted to log in or register for an account.() ~~
 
-- Vistor can go back to search list after viewing a space -- 👨‍💻 [KATE - useHistory react-router-dom]
+- Vistor can go back to search list after viewing a space -- 👍
 
 
 
@@ -36,7 +36,7 @@ City specific bubbles.
 
 - Artist gets notified when request approved ~~
 
-- Can upgrade to host with button -- 👨‍💻 [PAUL]
+- Can upgrade to host with button -- 👍
 
 ## Host
 
