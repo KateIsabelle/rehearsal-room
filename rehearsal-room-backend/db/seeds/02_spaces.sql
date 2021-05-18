@@ -33,7 +33,7 @@
    self_entry,
    active
   )
-VALUES (1, 
+VALUES (3, 
    'PL1422',
    '42′ x 42′ rehearsal hall ||
     sprung wood floor ||
