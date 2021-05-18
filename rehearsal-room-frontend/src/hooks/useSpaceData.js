@@ -50,11 +50,12 @@ const useSpaceData = () => {
     ]
   } else {
     smallImgUrls = [
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png",
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png",
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png",
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png",
-      "https://res.cloudinary.com/davik/image/upload/v1621354468/rehearsal_room/v09wo1uz9cvwgybffmtl.png"
+      "https://res.cloudinary.com/davik/image/upload/v1621367225/rehearsal_room/glr295yh5u5bljygqshj.png",
+      "https://res.cloudinary.com/davik/image/upload/v1621367225/rehearsal_room/glr295yh5u5bljygqshj.png",
+      "https://res.cloudinary.com/davik/image/upload/v1621367225/rehearsal_room/glr295yh5u5bljygqshj.png",
+      "https://res.cloudinary.com/davik/image/upload/v1621367225/rehearsal_room/glr295yh5u5bljygqshj.png",
+      "https://res.cloudinary.com/davik/image/upload/v1621367225/rehearsal_room/glr295yh5u5bljygqshj.png"
+      
     ]
   }
 
