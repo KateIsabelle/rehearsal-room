@@ -154,6 +154,7 @@ export default function Dashboard(props) {
                     <SpaceList 
                       spaces={spaces}
                       dashboard={true}
+                      custom_space_list="space-list-sm"
                       contentWhenEmpty={(
                         <div className="booking-list-item-empty">You don't have any Spaces! <strong>List</strong> a new one with the "List a new Space" button!</div>
                       )}

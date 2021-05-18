@@ -1,65 +1,118 @@
-//small change
-.space_list { 
+////custom styling for /spaces/Vancouver
+.space-list { 
   padding: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-flow: wrap;
   margin-bottom: 4em;
   overflow: hidden;
+  transition: opacity 0.5s;
 
-  // transition: opacity 0.5s;
-}
-
-.sl-item {
-  border-radius: 2px;
-  padding: 2px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-// .sl-wrapper:nth-last-child(2){
-//   margin-left: auto;
-// }
-
-// .sl-wrapper:last-of-type{
-//   margin-right: 35%;
-// }
-
-.sl-title {
-  background-color: whitesmoke;
-  padding-top: 8px;
-  padding-left: 15px;
-  padding-bottom: 2px;
-  font-size: 120%;
-  font-weight: 500;
-}
-
-.sl-photo {
-  height: 300px;
-  width: 400px;
-}
-
-.sl-pricebox {
-  float: right;
-}
-
-.sl-price {
-  transform: translateY(-70%);
-  background-color: white;
-  border: 3px solid whitesmoke;
-  border-radius: 2px;
-  box-shadow: 5px solid rgba(245, 245, 245, 0.685);
-  font-size: 140%;
-  color: $dark-grey;
-  margin-right: 1em;
-  padding: 7px;
+  .sl-wrapper {
+    width: 405px;
+    margin: 20px;
   
+    .sl-item {
+      border-radius: 2px;
+      padding: 2px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+  
+    p {
+      background-color: whitesmoke;
+      padding: 8px 0 2px 10px;
+      font-size: 120%;
+      font-weight: 500;
+    }
+  
+    img {
+      height: 300px;
+      width: 400px;
+    }
+  
+    .sl-pricebox {
+      float: right;
+      h2 {
+        transform: translateY(-70%);
+        background-color: white;
+        border: 3px solid whitesmoke;
+        border-radius: 2px;
+        box-shadow: 5px solid rgba(245, 245, 245, 0.685);
+        font-size: 140%;
+        color: $dark-grey;
+        margin-right: 1em;
+        padding: 7px;
+        
+      }
+    }
+    
+    
+    .sl-item:hover {
+      background-color: #f5f5f5;
+      box-shadow: 0 0 10px;
+      font-weight: 400;
+      opacity: 0.95;
+    }
+  }
 }
 
-.sl-item:hover {
-  background-color: #f5f5f5;
-  box-shadow: 0 0 10px;
-  font-weight: 400;
-  // opacity: 0.9;
+
+/////custom settings for /dashboard
+
+.space-list-sm { 
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2em;
+  overflow: hidden;
+  .sl-wrapper {
+    margin: 20px;
+
+    .sl-item {
+      border-radius: 2px;
+      padding: 2px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      background-color: rgba(255, 255, 255, 0.856);
+      font-size: 120%;
+      font-weight: 500;
+      padding: 3px 0 2px 4px;
+    }
+
+    img {
+      height: 200px;
+      width: 300px; 
+    }
+
+    .sl-pricebox {
+      float: right;
+      h2 {
+        transform: translateY(-70%);
+        background-color: white;
+        border: 3px solid whitesmoke;
+        border-radius: 2px;
+        box-shadow: 5px solid rgba(245, 245, 245, 0.685);
+        font-size: 100%;
+        color: $dark-grey;
+        margin-right: 3em;
+        padding: 7px;
+        
+      }
+    }
+    
+    
+    .sl-item:hover {
+      background-color: #f5f5f5;
+      box-shadow: 0 0 10px;
+      font-weight: 400;
+      opacity: 0.95;
+    }
+  }
 }
