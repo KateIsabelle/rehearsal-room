@@ -65,7 +65,7 @@ export default function Space_Show(props) {
               </div>
               <PhotoGrid smallImgUrls={props.smallImgUrls}/> 
             </div>
-            <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} />
+            { props.spaceData.address && <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} /> }
           </div>
           <div className="contact-info">
             { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
