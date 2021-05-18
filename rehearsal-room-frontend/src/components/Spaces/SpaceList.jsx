@@ -15,9 +15,9 @@ export default function SpaceList(props) {
   return (
     <>
     {list.length !== 0 &&
-      <div className="space_list">
+      <article className="space-article">
         {list}
-      </div>
+      </article>
     }
     {list.length === 0 && props.dashboard && 
       props.contentWhenEmpty
