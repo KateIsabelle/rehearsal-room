@@ -7,7 +7,7 @@ export default function FeaturesListItem(props) {
 
   return (
     <li >
-      <div style={{"white-space": "pre"}}>{icon}   {feature}</div>
+      <div style={{"whiteSpace": "pre"}}>{icon}   {feature}</div>
   </li>
   )
 }
