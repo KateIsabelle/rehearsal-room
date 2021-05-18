@@ -1,107 +1,176 @@
 .space-container {
   width: 100%;
-  margin-bottom: 7%;
 
+  .space-body {
+    margin: 0 15%;
+    transform: translateY(-10%);
+  }
+  
   .space-banner {
     height: 300px;
     width: 100%;
     background-color: $dark-green;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-bottom: 350px;
-    background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
-
-    h1 {
-      color: white;
-      font-size: 220%;
-      text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4); 
-    }
-    h3 {
-      color: white;
-      font-size: 120%
-    }
-  }
-
-  .space-photo-cont {
-    height: 400px;
-    width: 600px;
-    overflow: hidden;
-    margin-top: 55px;
-   
-    .space-photo {
-      height: auto;
-      max-width: 100%;
-      border: solid $off-white 5px;
-      border-radius: 8px;
-    }
-  }
-  .price-wrapper {
-    display: flex;
+    justify-content: space-around;
     align-items: center;
-    // justify-content: space-between;
-    
+    background-image: url("https://www.transparenttextures.com/patterns/binding-light.png"); 
+
+    .title {
+      margin-bottom: 7%;
+
+      h1 {
+        color: white;
+        font-size: 220%;
+        text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4); 
+      }
+      h3 {
+        color: white;
+        font-size: 120%;
+        margin-top: 7%;
+      }
+    }
+
+    .price-wrapper {
+      display: flex;
+      gap: 20px;
+      // align-items: center;
+      // justify-content: space-between;
+      margin-left: -25%;
+      margin-top: -5%;
+
+      p {
+        color: white;
+        font-weight: 700;
+        // margin-left: 5%;
+      }
+    }
   }
-  .make-flex-col {
+  .photos {
+    height: auto;
+    width: 100%;
+    background-color: white;
+
+    .space-photo-cont {
+      flex-grow: 2;
+      width: 100%;
+      transition: opacity 0.5s;
+      overflow: hidden;
+
+      .space-photo {
+        max-width: 100%;
+        border: solid $off-white 5px;
+      }
+    }
+    .space-photo-cont:hover {
+      opacity: .85;
+    }
+  }
+  .map-img-cont {
+    // height: 300px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
-  .map-container {
-    border: 5px solid $off-white;
-    border-radius: 8px;
+  .contact-info {
+    width: 65%;
+    text-align: center;
   }
-  .move-down {
-    transform: translateY(50%);
+  
+  .space-info {
+    border: 2px lightgrey solid;
+    // border-radius: 8px;
+    background: $off-white;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 10%;
+    line-height: 1.5;
+    .space-desc {
+      width: 65%;
+      // border: 2px lightgrey solid;
+      border-radius: 8px;
+      padding: 2%;
+    }
+    .space-features {
+      border: 2px lightgrey solid;
+      border-radius: 8px;
+      padding: 2%;
+    }
   }
+
   .mrg-med {
-    margin: 20px;
+    margin: 5%;
   }
- .space-info {
-   border: 2px lightgrey solid;
-   border-radius: 8px;
-   background: $off-white;
-   padding: 2%;
-   display: flex;
-   justify-content: space-between;
-   margin: 0 13% 5%;
-   .space-desc {
-     width: 65%;
-     border: 2px lightgrey solid;
-     border-radius: 8px;
-     padding: 2%;
-   }
-   .space-features {
-     border: 2px lightgrey solid;
-     border-radius: 8px;
-     padding: 2%;
-   }
- }
- .browse-button {
-   margin: 2% 13%
- }
+  
 }
 
+//   }
 
-// <div className="container11"><div className="box11"></div><div className="box11 stack-top11"></div></div>
+//   .flex {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: flex-start;
+//   }
 
-.container11{
-  width: 200px;
-  height: 200px;
-  position: relative;
-  margin: 20px;
-  border: 2px yellow solid;
-}
-.box11{
-  width: 100%;
-  height: 100%;            
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.8;  /* for demo purpose  */
-  background-color: pink;
-}
-.stack-top11{
-  z-index: 9;
-  margin: 20px; /* for demo purpose  */
-  background-color: purple;
-}
+//   .space-photo-cont {
+//     width: 100%;
+//     // height: 400px;
+//     // width: 600px;
+//     overflow: hidden;
+//     border: 2px solid pink;
+   
+//     .space-photo {
+//       height: auto;
+//       max-width: 100%;
+//       border: solid $off-white 5px;
+//       // border-radius: 8px;
+//     }
+//   }
+  
+//   // .make-flex-col {
+//   //   display: flex;
+//   //   flex-direction: column;
+//   // }
+//   .map-cont {
+//     width: 50%;
+//     // border: 5px solid $off-white;
+//     // border-radius: 8px;
+//   }
+//   // .move-down {
+//   //   transform: translateY(50%);
+//   // }
+//   // .mrg-med {
+//   //   margin: 20px;
+  // }
+
+//  .browse-button {
+//    margin: 2% 13%
+//  }
+// }
+
+
+// // <div className="container11"><div className="box11"></div><div className="box11 stack-top11"></div></div>
+
+// .container11{
+//   width: 200px;
+//   height: 200px;
+//   position: relative;
+//   margin: 20px;
+//   border: 2px yellow solid;
+// }
+// .box11{
+//   width: 100%;
+//   height: 100%;            
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   opacity: 0.8;  /* for demo purpose  */
+//   background-color: pink;
+// }
+// .stack-top11{
+//   z-index: 9;
+//   margin: 20px; /* for demo purpose  */
+//   background-color: purple;
+// }
