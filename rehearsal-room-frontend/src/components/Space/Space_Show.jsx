@@ -10,6 +10,7 @@ import PhotoGrid from './PhotoGrid'
 
 
 export default function Space_Show(props) {
+
   
   const popUpMsg = `Your request for ${props.spaceData.title} has been sent to ${props.spaceData.first_name} ${props.spaceData.organization_name ? `from ${props.spaceData.organization_name}` : ""}`
 
@@ -51,7 +52,7 @@ export default function Space_Show(props) {
               <div className="space-photo-cont">
                 <img className="space-photo" src={props.spaceData.cover_photo_url} alt="property"></img>
               </div>
-              <PhotoGrid /> 
+              <PhotoGrid smallImgUrls={props.smallImgUrls}/> 
             </div>
             <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} />
           </div>

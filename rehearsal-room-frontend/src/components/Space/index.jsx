@@ -10,7 +10,8 @@ export default function Space(props) {
     state, 
     togglePopUp,
     setVisualMode,
-    reroute
+    reroute, 
+    smallImgUrls // array 
    } = useSpaceData();
 
   return (
@@ -24,6 +25,7 @@ export default function Space(props) {
         noButtonFunc={() => togglePopUp(false)}
         setVisualMode={setVisualMode}
         reroute={reroute}
+        smallImgUrls={smallImgUrls}
         />
       }
       { state.visualMode === "REQUEST_FORM" &&
