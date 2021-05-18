@@ -15,7 +15,7 @@ export default function SpaceList(props) {
   return (
     <>
     {list.length !== 0 &&
-      <article className="space-article">
+      <article className="space_list">
         {list}
       </article>
     }
