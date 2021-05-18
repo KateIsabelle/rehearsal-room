@@ -55,9 +55,10 @@ export default function Space_Show(props) {
             </div>
             <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} />
           </div>
-
-          { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
-          <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
+          <div className="contact-info">
+            { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
+            <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
+          </div>
 
           <div className="space-info">
             <div className="space-desc">
@@ -71,7 +72,7 @@ export default function Space_Show(props) {
 
           <OpeningHoursTable/>
 
-          <div className="browse-button"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
+          <div className="mrg-med"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
         </div>
 
       </div>
