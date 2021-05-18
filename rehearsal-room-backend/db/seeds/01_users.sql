@@ -7,8 +7,8 @@ VALUES
     'mabel.g@ythecultch.ca', 
     '16045551234', 
     'password', 
-    'https://image.shutterstock.com/image-photo/funny-grandmother-portraits-senior-old-260nw-1522642592.jpg',
-    'Maybe there was an old trapper that lived out here and maybe one day he went to check his beaver traps, and maybe he fell into the river and drowned. If we''re going to have animals around we all have to be concerned about them and take care of them. This is your world. It''s cold, but it''s beautiful.',
+    'https://res.cloudinary.com/davik/image/upload/v1621366590/rehearsal_room/ac2n75odkueutpykiss1.png',
+    'Professional snowboarder, firefighter, and punk rock enthusiast. I''m way cooler than your grandma.',
     true);
 
 INSERT INTO --without organization_name
@@ -46,8 +46,8 @@ VALUES
     'petty_s123@gmail.com',
     '16045553342',
     'password',
-    'https://uploads0.wikiart.org/images/pablo-picasso/woman-with-hat-olga-1935.jpg!Large.jpg',
-    'Maybe there''s a little something happening right here. It''s all a game of angles. It''s a super day, so why not make a beautiful sky?',
+    'https://res.cloudinary.com/davik/image/upload/v1621366462/rehearsal_room/wifg0iygkccoy6c74k0e.png',
+    'I''m Petunia, the co-author of Cicada Uprising (currently in-between projects)! I''m a Vancouver-based painter, dancer, and amateur taxidermist. It''s nice to meet you!',
     false
     )
 
