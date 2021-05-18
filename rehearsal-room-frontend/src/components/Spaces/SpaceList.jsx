@@ -8,6 +8,7 @@ export default function SpaceList(props) {
       key={s.id}
       dashboard={props.dashboard}
       onDeleteClick={props.onDeleteClick}
+      custom_space_list={props.custom_space_list}
       {...s}
     />
     )
@@ -15,7 +16,7 @@ export default function SpaceList(props) {
   return (
     <>
     {list.length !== 0 &&
-      <article className="space_list">
+      <article className={props.custom_space_list}>
         {list}
       </article>
     }
