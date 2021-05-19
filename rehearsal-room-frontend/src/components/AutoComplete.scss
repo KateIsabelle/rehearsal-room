@@ -8,24 +8,31 @@
   color: black;
 }
 .input-suggestion {
-  width: 60%;
-  height: 50px;
+  height: auto;
+  padding: 5px;
   border-bottom: 1px white dotted;
   background-color: $even-more-lightest-blue;
-  display: flex;
-  align-items: center;
-  // position: fixed;
-  // z-index: 99999;
-
-  // background-color:white;
-  // border:1px solid #C5DBEC;
-  // overflow:hidden;
-  // padding:0;
-  // z-index:99999;
-  // position: fixed;
-  // top: 0px;
-  // margin: 20px 0px 0px 0px;
+  display: block;
+  opacity: 100%;
 }
 .input-suggestion:hover {
   background-color: $light-blue;
+  position: absolute;
+  // display: block;
+  width: 800px;
+
+}
+
+.autocomplete-dropdown-container {
+  overflow: hidden;
+  background-color: pink;
+  border: 2px solid red;
+  position: absolute;
+  height: 11%;
+  width: 33%;
+ 
+}
+
+.pac-container {
+  z-index: 100000;
 }
