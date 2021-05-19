@@ -265,7 +265,8 @@ export default function SpaceCreateForm(props) {
                 handleChange={handleAutocompleteChange} 
                 handleSelect={handleAutocompleteSelect}
               />
-              <br />
+              <br /><br /><br />
+        
               
               <h2 className="sc-category-titles">Rates</h2>
               <br />
