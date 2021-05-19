@@ -234,6 +234,7 @@ export default function SpaceCreateForm(props) {
                 Space address:
               </label>
               <AutoComplete 
+                className="autocomplete"
                 address={spaceFormState.address} 
                 handleChange={handleAutocompleteChange} 
                 handleSelect={handleAutocompleteSelect}
