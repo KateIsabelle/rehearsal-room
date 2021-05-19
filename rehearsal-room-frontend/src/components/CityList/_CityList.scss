@@ -1,5 +1,5 @@
 .container {
-  margin-top: 2em;
+  // margin-top: 2em;
   margin-bottom: 4em;
   display: flex;
   flex-direction: column;
@@ -8,8 +8,6 @@
 
 .city-list {
   display: flex;
-
-
 }
 
 .city-item {
@@ -17,7 +15,7 @@
   font-weight: 900;
   color: $dark-grey;
   padding:1em 3em;
-  margin: 2em 4em;
+  margin: 1em 2em;
   border: 2px solid $dark-grey;
   border-radius: 3em;
  
