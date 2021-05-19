@@ -26,13 +26,13 @@ export default function AutoComplete(props) {
               //  ? 'suggestion-item--active'
               //  : 'suggestion-item';
               // inline style for demonstration purpose
-              const style = suggestion.active
-                ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                : { backgroundColor: '#ffffff', cursor: 'pointer' };
+              // const style = suggestion.active
+              //   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+              //   : { backgroundColor: '#ffffff', cursor: 'pointer' };
               return (
                 <div className="input-suggestion"
                   {...getSuggestionItemProps(suggestion, {
-                    style,
+                    
                   })}
                 >
                   <span>{suggestion.description}</span>
