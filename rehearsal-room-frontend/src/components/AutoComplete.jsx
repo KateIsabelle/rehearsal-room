@@ -22,17 +22,17 @@ export default function AutoComplete(props) {
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
-              //const className = suggestion.active
+              // const className = suggestion.active
               //  ? 'suggestion-item--active'
               //  : 'suggestion-item';
               // inline style for demonstration purpose
-              const style = suggestion.active
-                ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                : { backgroundColor: '#ffffff', cursor: 'pointer' };
+              // const style = suggestion.active
+              //   ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+              //   : { backgroundColor: '#ffffff', cursor: 'pointer' };
               return (
                 <div className="input-suggestion"
                   {...getSuggestionItemProps(suggestion, {
-                    style,
+                  
                   })}
                 >
                   <span>{suggestion.description}</span>
