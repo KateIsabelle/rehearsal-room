@@ -230,15 +230,6 @@ export default function SpaceCreateForm(props) {
 
               <h2 className="sc-category-titles">Address of listing</h2>
               <br />
-              <label htmlFor="address">
-                Space address:
-              </label>
-              <AutoComplete 
-                address={spaceFormState.address} 
-                handleChange={handleAutocompleteChange} 
-                handleSelect={handleAutocompleteSelect}
-              />
-              <br />
 
               <label htmlFor="city">
                 City of listing:
@@ -264,6 +255,16 @@ export default function SpaceCreateForm(props) {
                 ))
               }
               </TextField>
+              <br />
+
+              <label htmlFor="address">
+                Space address:
+              </label>
+              <AutoComplete 
+                address={spaceFormState.address} 
+                handleChange={handleAutocompleteChange} 
+                handleSelect={handleAutocompleteSelect}
+              />
               <br />
               
               <h2 className="sc-category-titles">Rates</h2>
