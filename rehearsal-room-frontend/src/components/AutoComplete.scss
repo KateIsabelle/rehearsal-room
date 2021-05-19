@@ -13,26 +13,16 @@
   border-bottom: 1px white dotted;
   background-color: $even-more-lightest-blue;
   display: block;
-  // position: absolute;
 }
 .input-suggestion:hover {
   background-color: $light-blue;
-  // position: absolute;
-  // display: block;
   width: 800px;
-
 }
 
 .autocomplete-dropdown-container {
   overflow: hidden;
-  // background-color: pink;
-  // border: 2px solid red;
   position: absolute;
   height: auto;
   width: 33%;
  
 }
-
-// .pac-container {
-//   z-index: 100000;
-// }
