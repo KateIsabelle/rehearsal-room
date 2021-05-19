@@ -8,16 +8,16 @@
   color: black;
 }
 .input-suggestion {
-  height: auto;
+  height: 50px;
   padding: 5px;
   border-bottom: 1px white dotted;
   background-color: $even-more-lightest-blue;
   display: block;
-  opacity: 100%;
+  // position: absolute;
 }
 .input-suggestion:hover {
   background-color: $light-blue;
-  position: absolute;
+  // position: absolute;
   // display: block;
   width: 800px;
 
@@ -25,14 +25,14 @@
 
 .autocomplete-dropdown-container {
   overflow: hidden;
-  background-color: pink;
-  border: 2px solid red;
+  // background-color: pink;
+  // border: 2px solid red;
   position: absolute;
-  height: 11%;
+  height: auto;
   width: 33%;
  
 }
 
-.pac-container {
-  z-index: 100000;
-}
+// .pac-container {
+//   z-index: 100000;
+// }
