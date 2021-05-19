@@ -25,13 +25,13 @@ const handleChange = function(e) {
   return (
     <>
     <form onSubmit={event => event.preventDefault()}>
-      <label>
+      <label >
         <p>Username</p>
-        <input type="text" id="email" onChange={handleChange}/>
+        <input className="login-mrg" type="text" id="email" onChange={handleChange}/>
       </label>
       <label>
         <p>Password</p>
-        <input type="password" />
+        <input className="login-mrg" type="password" />
       </label>
       <div>
         <Button size="small" label="Login"  onClick={() => handleSubmit(email)} ></Button>
@@ -41,9 +41,7 @@ const handleChange = function(e) {
         <Button size="small" label="Login as Derrick"  onClick={() => handleSubmit("blue.steel@gmail.com")} ></Button>
         <Button size="small" label="Login as Petunia"  onClick={() => handleSubmit("petty_s123@gmail.com")} ></Button>
       </div>
-      <div className="playing"></div>
       </form>
-      <CloudinaryUpload />
     </>
   )
 }
