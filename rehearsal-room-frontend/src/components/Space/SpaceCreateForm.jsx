@@ -232,7 +232,7 @@ export default function SpaceCreateForm(props) {
               <br />
 
               <label htmlFor="city">
-                City of listing:
+                General area of listing:
               </label>
               <br/>
               <TextField
