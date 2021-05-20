@@ -62,10 +62,6 @@ This app was created in a little over a week by <a href="https://github.com/Kate
 *Browse, filter, and search a list of spaces in a specific city.*
 <details><summary>Click to view</summary>
 
-```test code
-123
-```
-
 ![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/search_browse.gif)
 
 </details>
@@ -73,25 +69,33 @@ This app was created in a little over a week by <a href="https://github.com/Kate
 ## Space Details
 *View details about each space, including photos, amenities, and an interactive Google map.*
 <details><summary>Click to view</summary>
+
 ![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/space_tour.gif)
+
 </details>
 
 ## Requesting a Booking
 *Like a space? Submit a booking request to the host through our form!*
 <details><summary>Click to view</summary>
+
 ![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/booking_req.gif)
+
 </details>
 
 ## User Dashboard
 *Hosts can view and manage their listed spaces and incoming booking requests from their dashboard.*
 <details><summary>Click to view</summary>
-<img src="https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/host_bookings_management.gif") />
+
+![]https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/host_bookings_management.gif)
+
 </details>
 
 ## Listing a Space
 *Got a room you want to make available? List it! Users will be able to find the space in the city listings once you're done.*
 <details><summary>Click to view</summary>
+
 ![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/host_new_space.gif)
+
 </details>
 
 # 💬 Et cetera 
