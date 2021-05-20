@@ -58,11 +58,10 @@ This app was created in a little over a week by <a href="https://github.com/Kate
 
 # 📷  Screenshots
 
-(coming soon!)
 
 # 💬 Et cetera 
 - Checkout out Project [Planning](/planning)
   * [Erd](/planning/erd.md), [User_Stories](/planning/user_stories.md), [Wireframes](/planning/wireframe.md), [Routes](/planning/routes.md)
 
-- [Acknoledgements](/planning/acknowledgements.md)
+- [Acknowledgements](/planning/acknowledgements.md)
     
