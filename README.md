@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+<!-- TITLE -->
+<div align="center">
+<img src="rehearsal-room-frontend/src/components/Header/plans.svg" height="100" width="100">
+<h1>| Rehearsal Room |</h1>
+<h3>Artists Looking For Space. Spaces Available For Artists.</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>Built with <a href="https://reactjs.org/">React</a>, <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://expressjs.com/">Express</a>, <a href="https://www.postgresql.org/">PostgreSQL</a>, <a href="https://storybook.js.org/">Storybook</a>, <a href="https://sass-lang.com/">SASS</a>, <a href="https://material-ui.com/">Material UI</a>, </p>
+<p>using <a href="https://cloudinary.com/">Cloudinary</a> and <a href="https://developers.google.com/maps">Google Map</a> APIs</p>
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
 
-### `npm start`
+# 💡 About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<b>Rehearsal Room</b> is a space finding app that connects artists with hidden gem studios, multipurpose rooms, basements, etc. in their local area. Built in the spirit of resource sharing, artists and community memebers can also host spaces themselves.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This app was created in a little over a week by <a href="https://github.com/KateIsabelle">Kate Davis</a>, <a href="https://github.com/MrinalN">Adele Noronha</a>, and <a href="https://github.com/itspladd">Paul Ladd</a> for our final projects in the <a href="https://www.lighthouselabs.ca/en/web-development-bootcamp">Lighthouse Labs Web Development Bootcamp.</a>
 
-### `npm test`
+# 🌟 Features
+- Users can browse spaces using filters
+- Users can sign up for accounts, tracking booking requests in personalized dashboards
+- Users can become Hosts, enabling property listings and managing request capabilities
+- Spaces can be located through dynamic Google Map features
+- Users can request booking using dynamic calendar and time slots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 🧰 Installation
+1. Git clone this repo:
+  ```
+  https://github.com/KateIsabelle/rehearsal-room
+  ```
 
-### `npm run build`
+2. Open 2 terminal windows - client and server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. On one window, navigate to rehearsal-room-backend and install dependencies:
+  ```
+  cd rehearsal-room-backend
+  npm install
+  ```
+4. Run PostgreSQL command to set ad seed database:
+  ```
+  npm run db:reset
+  ```
+5. Start backend
+  ```
+  npm start
+  ```
+6. On another terminal window, navigate to rehearsal-room-frontend and install dependencies:
+  ```
+  cd rehearsal-room-frontend
+  npm install
+  ```
+7. Start frontend
+  ```
+  npm start
+  ```
+8. Navigate to local:3000 in your browser (preferably Chrome) to checkout listings specifically populated for Vancouver
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 📷  Screenshots
 
-### `npm run eject`
+(coming soon!)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 💬 Et cetera 
+- Checkout out Project [Planning](/planning)
+  * [Erd](/planning/erd.md), [User_Stories](/planning/user_stories.md), [Wireframes](/planning/wireframe.md), [Routes](/planning/routes.md)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Acknoledgements](/planning/acknowledgements.md)
+    
