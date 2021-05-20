@@ -57,19 +57,19 @@ This app was created in a little over a week by <a href="https://github.com/Kate
 
 
 # 📷  Screenshots
-![](https://github.com/itspladd/scheduler/blob/main/docs/search_browse.gif)
+![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/search_browse.gif)
 *Browse, filter, and search a list of spaces in a specific city.*
 
-![](https://github.com/itspladd/scheduler/blob/main/docs/space_tour.gif)
+![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/space_tour.gif)
 *View details about each space, including photos, amenities, and an interactive Google map.*
 
-![](https://github.com/itspladd/scheduler/blob/main/docs/booking_req.gif)
+![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/booking_req.gif)
 *Like a space? Submit a booking request to the host through our form!*
 
-![](https://github.com/itspladd/scheduler/blob/main/docs/host_bookings_management.gif)
+![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/host_bookings_management.gif)
 *Hosts can view and manage their listed spaces and incoming booking requests from their dashboard.*
 
-![](https://github.com/itspladd/scheduler/blob/main/docs/host_new_space.gif)
+![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/host_new_space.gif)
 *Got a room you want to make available? List it! Users will be able to find the space in the city listings once you're done.*
 
 # 💬 Et cetera 
