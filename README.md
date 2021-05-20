@@ -61,10 +61,13 @@ This app was created in a little over a week by <a href="https://github.com/Kate
 ## Searching and Filtering
 *Browse, filter, and search a list of spaces in a specific city.*
 <details><summary>Click to view</summary>
+
 ```test code
 123
 ```
+
 ![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/search_browse.gif)
+
 </details>
 
 ## Space Details
