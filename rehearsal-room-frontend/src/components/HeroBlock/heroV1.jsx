@@ -17,7 +17,7 @@ export default function HeroV1(props) {
   return (
     <>
       <div id="banner-container">
-      <img className="image" sizes="100vw" src={currentImage}/>
+      <img className="image" sizes="100vw" src={currentImage} alt="artist rehearsing banner"/>
       </div>
     </>
   )
