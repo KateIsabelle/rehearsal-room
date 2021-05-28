@@ -28,9 +28,14 @@ header {
 
 
     h3 {
-      font-weight: 100;
-      font-size: 16px;
+      font-family: 'Dancing Script', cursive;
+      color: $dark-blue;
+      font-size: 160%;
       margin: 6px 0 6px 10px;
+    }
+
+    h3:hover {
+      opacity: .5;
     }
 
 
@@ -69,10 +74,6 @@ header {
 
 .user-greeting-logout {
   display: flex;
-}
-
-.user-greeting-logout p {
-  margin-right: 8px;
 }
 
 

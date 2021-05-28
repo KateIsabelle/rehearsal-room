@@ -86,7 +86,7 @@ This app was created in a little over a week by <a href="https://github.com/Kate
 *Hosts can view and manage their listed spaces and incoming booking requests from their dashboard.*
 <details><summary>Click to view</summary>
 
-![]https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/host_bookings_management.gif)
+![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/host_bookings_management.gif)
 
 </details>
 
