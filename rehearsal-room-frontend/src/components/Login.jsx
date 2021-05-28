@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
 import {Button} from '../components/Button/Button'
-import CloudinaryUpload from './CloudinaryUpload';
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
