@@ -22,7 +22,7 @@ export default function Header(props) {
         {props.user ? (
           <div className="user-greeting-logout">
             <Link to={'/dashboard'} style={{paddingRight: 13, textDecoration: 'none'}}>
-              <h3>{props.user.first_name}'s Profile</h3>
+              <h3> {props.user.first_name}'s Profile</h3>
             </Link>
             <Button primary size="small" label="Log out" />
           </div>
