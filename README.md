@@ -12,9 +12,10 @@
 
 # 💡 About
 
-<b>Rehearsal Room</b> is a space finding app that connects artists with hidden gem studios, multipurpose rooms, basements, etc. in their local area. Built in the spirit of resource sharing, artists and community memebers can also host spaces themselves.
+<b>Rehearsal Room</b> is a space finding app that connects artists with hidden gem studios, multipurpose rooms, basements, etc. in their local area. Built in the spirit of resource sharing, artists and community members can also host spaces themselves.
 
 This app was created in a little over a week by <a href="https://github.com/KateIsabelle">Kate Davis</a>, <a href="https://github.com/MrinalN">Adele Noronha</a>, and <a href="https://github.com/itspladd">Paul Ladd</a> for our final projects in the <a href="https://www.lighthouselabs.ca/en/web-development-bootcamp">Lighthouse Labs Web Development Bootcamp.</a>
+
 
 # 🌟 Features
 - Users can browse spaces using filters
@@ -22,38 +23,6 @@ This app was created in a little over a week by <a href="https://github.com/Kate
 - Users can become Hosts, enabling property listings and managing request capabilities
 - Spaces can be located through dynamic Google Map features
 - Users can request booking using dynamic calendar and time slots
-
-# 🧰 Installation
-1. Git clone this repo:
-  ```
-  https://github.com/KateIsabelle/rehearsal-room
-  ```
-
-2. Open 2 terminal windows - client and server
-
-3. On one window, navigate to rehearsal-room-backend and install dependencies:
-  ```
-  cd rehearsal-room-backend
-  npm install
-  ```
-4. Run PostgreSQL command to set ad seed database:
-  ```
-  npm run db:reset
-  ```
-5. Start backend
-  ```
-  npm start
-  ```
-6. On another terminal window, navigate to rehearsal-room-frontend and install dependencies:
-  ```
-  cd rehearsal-room-frontend
-  npm install
-  ```
-7. Start frontend
-  ```
-  npm start
-  ```
-8. Navigate to local:3000 in your browser (preferably Chrome) to checkout listings specifically populated for Vancouver
 
 
 # 📷  Screenshots
@@ -97,6 +66,40 @@ This app was created in a little over a week by <a href="https://github.com/Kate
 ![](https://github.com/KateIsabelle/rehearsal-room/blob/master/docs/host_new_space.gif)
 
 </details>
+
+
+# 🧰 Installation
+1. Git clone this repo:
+  ```
+  https://github.com/KateIsabelle/rehearsal-room
+  ```
+
+2. Open 2 terminal windows - client and server
+
+3. On one window, navigate to rehearsal-room-backend and install dependencies:
+  ```
+  cd rehearsal-room-backend
+  npm install
+  ```
+4. Run PostgreSQL command to set ad seed database:
+  ```
+  npm run db:reset
+  ```
+5. Start backend
+  ```
+  npm start
+  ```
+6. On another terminal window, navigate to rehearsal-room-frontend and install dependencies:
+  ```
+  cd rehearsal-room-frontend
+  npm install
+  ```
+7. Start frontend
+  ```
+  npm start
+  ```
+8. Navigate to local:3000 in your browser (preferably Chrome) to checkout listings specifically populated for Vancouver
+
 
 # 💬 Et cetera 
 - Checkout out Project [Planning](/planning)
