@@ -9,7 +9,8 @@ import {
 import '../Sass/App.scss'
 
 // Components
-import Header from './Header'
+// import Header from './Header'
+import TopNav from './TopNav'
 import HeroV1 from './HeroBlock/heroV1'
 import CityList from './CityList/CityList'
 import Space from './Space'
@@ -28,7 +29,7 @@ export default function App() {
   return (
     <Router>
       <div className="App" >
-        <Header user={state.user}/>
+        <TopNav user={state.user}/>
         <Switch>
           <Route exact path="/">
             <HeroV1 />
