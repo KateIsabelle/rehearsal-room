@@ -71,8 +71,8 @@
     background-color: white;
 
     img {
-      flex-grow: 2;
-      width: 100%;
+      // flex-grow: 2;
+      // width: 100%;
       transition: opacity 0.5s;
       overflow: hidden;
       border: solid $off-white 5px;
@@ -220,9 +220,9 @@
 
 
       .map-img-container {
-        width: 100%;
+        width: 80%;
         display: flex;
-        justify-content: center;
+        // justify-content: center;
         align-items: flex-start;
       }
     }
