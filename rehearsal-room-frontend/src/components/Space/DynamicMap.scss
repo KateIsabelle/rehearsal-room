@@ -42,3 +42,10 @@
 //     font-size: 10vw;
 //   }
 // }
+
+@media screen and (min-width: 900px) {
+  .google-map {
+    width: 50%;
+    height: 80vh;
+  }
+}
