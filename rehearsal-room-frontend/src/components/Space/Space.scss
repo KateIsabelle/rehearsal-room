@@ -192,8 +192,10 @@
 
 @media screen and (min-width: 650px) {
   .space-container {
+    margin-bottom: 0;
     .space-banner {
       height: 300px;
+      justify-content: flex-start;
       h1 {
         font-size: 2rem;
         margin-top: 25px;
@@ -203,10 +205,14 @@
       }
       .price-wrapper {
         justify-content: flex-end;
+        margin-top: 2%
       }
       .price {
         padding-left: 10px;
       }
+    }
+    .space-page-body {
+      transform: translateY(-6%)
     }
 
     .space-info {

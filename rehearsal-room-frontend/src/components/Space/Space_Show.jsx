@@ -53,33 +53,33 @@ export default function Space_Show(props) {
             }
           </div>
         </div>
-
-          <div className="map-img-container body-margin">
-            <div className="photos">
-              <img src={props.spaceData.cover_photo_url} alt="property"></img>
-              <PhotoGrid smallImgUrls={props.smallImgUrls}/> 
+          <div className="space-page-body">
+            <div className="map-img-container body-margin">
+              <div className="photos">
+                <img src={props.spaceData.cover_photo_url} alt="property"></img>
+                <PhotoGrid smallImgUrls={props.smallImgUrls}/> 
+              </div>
+              { props.spaceData.address && <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} /> }
             </div>
-            { props.spaceData.address && <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} /> }
-          </div>
-          <div className="contact-info">
-            { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
-            <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
-          </div>
-
-          <div className="space-info body-margin">
-            <div className="space-desc">
-              <p>{props.spaceData.description}</p>
+            <div className="contact-info">
+              { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
+              <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
             </div>
-            <div className="space-features">
-              <h3>Features:</h3>
-              <AmenitiesList spaceData={props.spaceData}/>
+
+            <div className="space-info body-margin">
+              <div className="space-desc">
+                <p>{props.spaceData.description}</p>
+              </div>
+              <div className="space-features">
+                <h3>Features:</h3>
+                <AmenitiesList spaceData={props.spaceData}/>
+              </div>
             </div>
+
+            <OpeningHoursTable/>
+
+            <div className="body-margin"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
           </div>
-
-          <OpeningHoursTable/>
-
-          <div className="body-margin"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
-
       </article>
       
     </Fragment>
