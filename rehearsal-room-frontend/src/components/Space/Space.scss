@@ -53,7 +53,7 @@
     padding: 2%;
     justify-content: space-between;
     margin: 3% 5%;
-    line-height: 2;
+    line-height: 1.5;
 
     // .space-desc {
     //   width: 65%;
@@ -224,6 +224,7 @@
 
     .space-info {
       display: flex;
+      line-height: 2;
     }
     .body-margin {
       margin-left: 10%;
