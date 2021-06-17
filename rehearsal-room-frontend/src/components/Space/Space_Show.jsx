@@ -36,7 +36,7 @@ export default function Space_Show(props) {
             <h1>{props.spaceData.title}</h1>
             <p>{props.spaceData.city}</p>
           </div>
-          <div className="price-wrapper">
+          <div className="price-wrapper body-margin">
             { props.user_email === props.spaceData.email ?
             <div><Button size="large" label="Go to my Spaces" onClick={() => props.reroute('/dashboard')}/></div>
             :
@@ -54,7 +54,7 @@ export default function Space_Show(props) {
           </div>
         </div>
 
-          <div className="map-img-container">
+          <div className="map-img-container body-margin">
             <div className="photos">
               <img src={props.spaceData.cover_photo_url} alt="property"></img>
               <PhotoGrid smallImgUrls={props.smallImgUrls}/> 
@@ -66,7 +66,7 @@ export default function Space_Show(props) {
             <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
           </div>
 
-          <div className="space-info">
+          <div className="space-info body-margin">
             <div className="space-desc">
               <p>{props.spaceData.description}</p>
             </div>
@@ -78,7 +78,7 @@ export default function Space_Show(props) {
 
           <OpeningHoursTable/>
 
-          <div className="button-mrg"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
+          <div className="body-margin"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
 
       </article>
       

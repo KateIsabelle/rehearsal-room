@@ -45,7 +45,6 @@
     border: 2px lightgrey solid;
     background: $off-white;
     padding: 2%;
-    // display: flex;
     justify-content: space-between;
     margin: 3% 5%;
     line-height: 2;
@@ -182,8 +181,18 @@
     h1 + p {
       font-size: 1.2rem;
     }
+    // .price-wrapper {
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: space-between;
+    //   color: red;
+    // }
     .space-info {
       display: flex;
+    }
+    .body-margin {
+      margin-left: 10%;
+      margin-right: 10%;
     }
 
   }
