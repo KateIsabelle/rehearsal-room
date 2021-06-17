@@ -6,8 +6,7 @@ import logo from '../Header/plans.svg'
 export default function HeaderNew() {
   return (
     <nav>
-          <NavLink to="/" component={Logo} />
-          <div className="logo"></div>
+          <div className="logo"><NavLink to="/" component={Logo} /></div>
       <div className="open-menu"><i class="fas fa-bars"></i></div>
       <ul className="main-menu">
         <li>Browse Spaces</li>
