@@ -8,3 +8,10 @@
     padding: 1%;
   }
 }
+
+@media screen and (min-width: 900px) {
+  .opening-hours-table {
+    font-size: 1em;
+    width: 80%;
+  }
+}
