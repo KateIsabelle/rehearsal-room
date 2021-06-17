@@ -10,7 +10,7 @@
     line-height: 3;
   }
   .space-banner {
-    height: 300px;
+    height: 200px;
     text-align: center;
     background-color: $dark-green;
     color: white;
@@ -30,6 +30,10 @@
   .image-container img {
     width: 100%;
     height: auto;
+  }
+
+  .contact-info {
+    text-align: center;
   }
 
   .space-info {

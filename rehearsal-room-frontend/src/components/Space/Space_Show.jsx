@@ -62,7 +62,7 @@ export default function Space_Show(props) {
             </div>
             { props.spaceData.address && <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} /> }
           </div>
-          <div>
+          <div className="contact-info">
             { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
             <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
           </div>
