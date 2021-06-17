@@ -29,44 +29,40 @@ export default function Space_Show(props) {
         </PopUp> 
       }
 
-      <div className="space-container">
+      <article className="space-container">
 
         <div className="space-banner">
-          <div className="title">
-            <h1 className="">{props.spaceData.title}</h1>
-            <h3 className="">{props.spaceData.city}</h3>
+          <div>
+            <h1>{props.spaceData.title}</h1>
+            <p>{props.spaceData.city}</p>
           </div>
           <div className="price-wrapper">
             { props.user_email === props.spaceData.email ?
-              <div className=""><Button size="large" label="Go to my Spaces" onClick={() => props.reroute('/dashboard')}/></div> 
-              :
-              <div className=""><Button size="large" label="Make a Request" onClick={() => props.setVisualMode("REQUEST_FORM")}/></div> 
-            
+            <div><Button size="large" label="Go to my Spaces" onClick={() => props.reroute('/dashboard')}/></div>
+            :
+            <div><Button size="large" label="Make a Request" onClick={() => props.setVisualMode("REQUEST_FORM")}/></div>
             }
+
             { props.spaceData.price_per_day === 0 ?
-              <div>
-                <p className="free">Free</p>
-              </div> 
-              :
-              <div>
-                <p>Price per day: ${props.spaceData.price_per_day / 100}</p>
-                <p>Price per hour: ${props.spaceData.price_per_hour / 100}</p>
-              </div> 
+            <p>Free</p>
+            :
+            <div>
+              <p>Price per day: ${props.spaceData.price_per_day / 100}</p>
+              <p>Price per hour: ${props.spaceData.price_per_hour / 100}</p>
+            </div> 
             }
           </div>
         </div>
 
-        <div className="space-body">
-          <div className="map-img-cont">
-            <div className="photos">
-              <div className="space-photo-cont">
-                <img className="space-photo" src={props.spaceData.cover_photo_url} alt="property"></img>
-              </div>
+        <div>
+          <div className="image-container">
+            <div>
+              <img src={props.spaceData.cover_photo_url} alt="property"></img>
               <PhotoGrid smallImgUrls={props.smallImgUrls}/> 
             </div>
             { props.spaceData.address && <MapSection location={{address: props.spaceData.address, lat: props.spaceData.latitude, lng: props.spaceData.longitude}} zoomLevel={13} /> }
           </div>
-          <div className="contact-info">
+          <div>
             { props.spaceData.organization_name && <div>Affiliated organization: {props.spaceData.organization_name}</div> }
             <div>Contact: {props.spaceData.first_name} {props.spaceData.last_name}, {props.spaceData.email}</div>
           </div>
@@ -83,10 +79,10 @@ export default function Space_Show(props) {
 
           <OpeningHoursTable/>
 
-          <div className="mrg-med"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
+          <div><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
         </div>
 
-      </div>
+      </article>
       
     </Fragment>
   )
