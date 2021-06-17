@@ -187,22 +187,27 @@
   // }
   
 }
+}
 
 @media screen and (min-width: 650px) {
   .space-container {
-    h1 {
-      font-size: 2rem;
-      margin-top: 25px;
+    .space-banner {
+      height: 300px;
+      h1 {
+        font-size: 2rem;
+        margin-top: 25px;
+      }
+      h1 + p {
+        font-size: 1.2rem;
+      }
+      .price-wrapper {
+        justify-content: flex-end;
+      }
+      .price {
+        padding-left: 10px;
+      }
     }
-    h1 + p {
-      font-size: 1.2rem;
-    }
-    // .price-wrapper {
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: space-between;
-    //   color: red;
-    // }
+
     .space-info {
       display: flex;
     }
@@ -216,16 +221,15 @@
 }
 @media screen and (min-width: 900px) {
   .space-container {
+   
 
-
-
-      .map-img-container {
-        width: 80%;
-        display: flex;
-        // justify-content: center;
-        align-items: flex-start;
-      }
+    .map-img-container {
+      width: 80%;
+      display: flex;
+      // justify-content: center;
+      align-items: flex-start;
     }
+  
   }
 }
 
