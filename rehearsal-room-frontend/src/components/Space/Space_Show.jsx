@@ -54,7 +54,6 @@ export default function Space_Show(props) {
           </div>
         </div>
 
-        <div>
           <div className="image-container">
             <div>
               <img src={props.spaceData.cover_photo_url} alt="property"></img>
@@ -79,8 +78,7 @@ export default function Space_Show(props) {
 
           <OpeningHoursTable/>
 
-          <div><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
-        </div>
+          <div className="button-mrg"><Button size="large" label="Go Back to Listings" onClick={()=> props.reroute('/spaces/vancouver')}></Button></div>
 
       </article>
       
