@@ -28,9 +28,13 @@
     }
   }
 
-  .image-container img {
+  .map-img-container img {
     width: 100%;
     height: auto;
+  }
+
+  .map-img-container img:hover {
+    opacity: .85;
   }
 
   .contact-info {
@@ -184,6 +188,35 @@
 
   }
   
+}
+@media screen and (min-width: 900px) {
+  .space-container {
+
+    .photos {
+      height: auto;
+      width: 100%;
+      background-color: white;
+
+      img {
+        flex-grow: 2;
+        width: 100%;
+        transition: opacity 0.5s;
+        overflow: hidden;
+        border: solid $off-white 5px;
+
+        .space-photo-cont:hover {
+          opacity: .85;
+        }
+      }
+
+      .map-img-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+    }
+  }
 }
 
 
