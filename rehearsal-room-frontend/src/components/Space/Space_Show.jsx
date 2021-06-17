@@ -44,7 +44,7 @@ export default function Space_Show(props) {
             }
 
             { props.spaceData.price_per_day === 0 ?
-            <p>Free</p>
+            <p className="price free">Free</p>
             :
             <div className="price">
               <p>Price per day: ${props.spaceData.price_per_day / 100}</p>
