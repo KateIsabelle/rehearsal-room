@@ -1,6 +1,19 @@
+.header-logo {
+  font-size: 1rem;
+  display: flex;
+  padding: 5px;
+  text-decoration: none;
+}
+.header-logo h1 {
+  // margin-left: 10%;
+}
+.header-logo:visited {
+  color: $dark-blue;
+}
 nav {
   width: 100%;
   background-color: white;
+  color: $dark-blue;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -36,5 +49,40 @@ nav {
     font-size: 2rem;
     display: none;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+    .main-menu {
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 11;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      transition: top 1s ease;
+      display: none;
+
+      li:hover {
+        background: none;
+        color: $light-blue;
+        font-size: 1.6rem;
+      }
+
+      .close-menu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+    }
+    .open-menu {
+      display: block;
+    }
   }
 }
