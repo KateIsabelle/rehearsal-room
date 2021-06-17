@@ -54,8 +54,8 @@ export default function Space_Show(props) {
           </div>
         </div>
 
-          <div className="image-container">
-            <div>
+          <div className="map-img-container">
+            <div className="photos">
               <img src={props.spaceData.cover_photo_url} alt="property"></img>
               <PhotoGrid smallImgUrls={props.smallImgUrls}/> 
             </div>
