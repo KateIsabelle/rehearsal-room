@@ -169,4 +169,21 @@
   
 }
 
+@media screen and (min-width: 650px) {
+  .space-container {
+    h1 {
+      font-size: 2rem;
+      margin-top: 25px;
+    }
+    h1 + p {
+      font-size: 1.2rem;
+    }
+    .space-info {
+      display: flex;
+    }
+
+  }
+  
+}
+
 
