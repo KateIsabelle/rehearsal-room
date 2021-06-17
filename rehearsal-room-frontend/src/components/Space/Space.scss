@@ -196,12 +196,14 @@
     .space-banner {
       height: 300px;
       justify-content: flex-start;
+      text-align: left;
       h1 {
         font-size: 2rem;
         margin-top: 25px;
       }
-      h1 + p {
+      .title-wrapper {
         font-size: 1.2rem;
+
       }
       .price-wrapper {
         justify-content: flex-end;
@@ -228,7 +230,10 @@
 }
 @media screen and (min-width: 900px) {
   .space-container {
-   
+   h1 {
+    font-size: 3rem;
+     
+   }
 
     .map-img-container {
       width: 80%;

@@ -32,7 +32,7 @@ export default function Space_Show(props) {
       <article className="space-container">
 
         <div className="space-banner">
-          <div>
+          <div className="title-wrapper body-margin">
             <h1>{props.spaceData.title}</h1>
             <p>{props.spaceData.city}</p>
           </div>
