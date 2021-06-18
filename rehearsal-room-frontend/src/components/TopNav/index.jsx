@@ -6,9 +6,7 @@ import logo from '../Header/plans.svg'
 
 
 export default function TopNav() {
-  const [menuState, setMenuState] = useState(false)
-
-  // const mainMenu = `main-menu ${menuState ? 'display-menu' : ''}`
+  const [menuState, setMenuState] = useState(true)
 
   const menuShow = menuState ?
     {
@@ -20,22 +18,6 @@ export default function TopNav() {
       top: '-100%'
     }
 
-
-  // useEffect(() => {
-  //   const hamburgerMenu = (status) => {
-  //     const mainMenu = document.querySelector('.main-menu')
-    
-  //     switch (status) {
-  //       case 'open':
-  //         mainMenu.style.display = 'flex';
-  //         mainMenu.style.top = '0';
-  //         break;
-  //       case 'close':
-  //         mainMenu.style.top = '-100%'
-  //         break;
-  //     }
-  //   }
-  // })
   return (
     <nav>
       <div className="logo"><NavLink to="/" component={Logo} /></div>
