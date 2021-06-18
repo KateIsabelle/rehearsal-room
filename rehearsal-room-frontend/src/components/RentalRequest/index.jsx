@@ -11,7 +11,7 @@ export default function RentalRequest(props) {
     user_id: props.user_id, 
     space_id: props.space_id,
     usage_description: "",
-    date: "2021-05-20",
+    date: "2021-06-18",
     start_time: "10:30",
     end_time: "21:30",
     used_before: false,
