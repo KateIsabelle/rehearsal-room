@@ -8,9 +8,9 @@
   line-height: 1;
   visibility: visible;
 
-  @media screen and (max-width: 555px) {
-    visibility: hidden;
-  }
+  // @media screen and (max-width: 555px) {
+  //   visibility: hidden;
+  // }
 }
 .storybook-button--primary {
   color: white;

@@ -1,107 +1,137 @@
 .space-container {
   width: 100%;
+  margin-bottom: 35px;
 
-  .space-body {
-    margin: 0 15%;
-    transform: translateY(-10%);
+  h1 {
+    margin-top: 50px;
+    font-size: 1.3rem;
+    
   }
-  
+  h1 + p {
+    line-height: 3;
+  }
   .space-banner {
-    height: 300px;
-    width: 100%;
+    height: 200px;
+    text-align: center;
     background-color: $dark-green;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    color: white;
     background-image: url("https://www.transparenttextures.com/patterns/binding-light.png"); 
-
-    .title {
-      margin-bottom: 7%;
-
-      h1 {
-        color: white;
-        font-size: 220%;
-        text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4); 
-      }
-      h3 {
-        color: white;
-        font-size: 120%;
-        margin-top: 7%;
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     .price-wrapper {
       display: flex;
-      gap: 20px;
-      // align-items: center;
-      // justify-content: space-between;
-      margin-left: -25%;
-      margin-top: -5%;
+      align-items: center;
+      justify-content: space-around;
+      line-height: 1;
 
-      p {
-        color: white;
-        font-weight: 700;
-      }
       .free {
-        font-size: 2em;
+        font-size: 1.5rem;
+        font-weight: 600;
       }
     }
+  }
+
+  .map-img-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .map-img-container img:hover {
+    opacity: .85;
+  }
+
+  .contact-info {
+    text-align: center;
+    padding-top: 3%;
+  }
+
+  .space-info {
+    border: 2px lightgrey solid;
+    background: $off-white;
+    padding: 2%;
+    justify-content: space-between;
+    margin: 3% 5%;
+    line-height: 1.5;
+
+    .space-features {
+      border: 2px lightgrey solid;
+      border-radius: 8px;
+      padding: 2%;
+    }
+
   }
   .photos {
     height: auto;
     width: 100%;
     background-color: white;
 
-    .space-photo-cont {
-      flex-grow: 2;
-      width: 100%;
+    img {
       transition: opacity 0.5s;
       overflow: hidden;
+      border: solid $off-white 5px;
 
-      .space-photo {
-        max-width: 100%;
-        border: solid $off-white 5px;
+      .space-photo-cont:hover {
+        opacity: .85;
       }
     }
-    .space-photo-cont:hover {
-      opacity: .85;
-    }
   }
-  .map-img-cont {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .contact-info {
-    width: 65%;
-    text-align: center;
-  }
-  
-  .space-info {
-    border: 2px lightgrey solid;
-    background: $off-white;
-    padding: 2%;
-    display: flex;
-    justify-content: space-between;
-    margin: 3% 10%;
-    line-height: 2;
-    .space-desc {
-      width: 65%;
-      border-radius: 8px;
-      padding: 2%;
-    }
-    .space-features {
-      border: 2px lightgrey solid;
-      border-radius: 8px;
-      padding: 2%;
-    }
-  }
+}
 
-  .mrg-med {
-    margin: 5%;
+@media screen and (min-width: 650px) {
+  .space-container {
+    margin-bottom: 0;
+    .space-banner {
+      height: 300px;
+      justify-content: flex-start;
+      text-align: left;
+      h1 {
+        font-size: 2rem;
+        margin-top: 25px;
+      }
+      .title-wrapper {
+        font-size: 1.2rem;
+
+      }
+      .price-wrapper {
+        justify-content: flex-end;
+        margin-top: 2%
+      }
+      .price {
+        padding-left: 10px;
+      }
+    }
+    .space-page-body {
+      transform: translateY(-6%)
+    }
+
+    .space-info {
+      display: flex;
+      line-height: 2;
+    }
+    .body-margin {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
   }
   
+}
+@media screen and (min-width: 900px) {
+  .space-container {
+   h1 {
+    font-size: 3rem;
+     
+   }
+
+    .map-img-container {
+      width: 80%;
+      display: flex;
+      align-items: flex-start;
+    }
+  
+  }
 }
 
 
