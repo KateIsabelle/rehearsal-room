@@ -55,21 +55,12 @@
     margin: 3% 5%;
     line-height: 1.5;
 
-    // .space-desc {
-    //   width: 65%;
-    //   border-radius: 8px;
-    //   padding: 2%;
-    // }
     .space-features {
       border: 2px lightgrey solid;
       border-radius: 8px;
       padding: 2%;
     }
 
-    // .button-mrg {
-    //   margin: 100px;
-    // }
-   
   }
   .photos {
     height: auto;
@@ -77,8 +68,6 @@
     background-color: white;
 
     img {
-      // flex-grow: 2;
-      // width: 100%;
       transition: opacity 0.5s;
       overflow: hidden;
       border: solid $off-white 5px;
@@ -87,112 +76,7 @@
         opacity: .85;
       }
     }
-
-
-
-
-
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////
-  // .space-body {
-  //   margin: 0 15%;
-  //   transform: translateY(-10%);
-  // }
-  
-
-  //   .title {
-  //     margin-bottom: 7%;
-
-  //     h1 {
-  //       color: white;
-  //       font-size: 220%;
-  //       text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4); 
-  //     }
-  //     h3 {
-  //       color: white;
-  //       font-size: 120%;
-  //       margin-top: 7%;
-  //     }
-  //   }
-
-  //   .price-wrapper {
-  //     display: flex;
-  //     gap: 20px;
-  //     // align-items: center;
-  //     // justify-content: space-between;
-  //     margin-left: -25%;
-  //     margin-top: -5%;
-
-  //     p {
-  //       color: white;
-  //       font-weight: 700;
-  //     }
-  //     .free {
-  //       font-size: 2em;
-  //     }
-  //   }
-  // }
-  // .photos {
-  //   height: auto;
-  //   width: 100%;
-  //   background-color: white;
-
-  //   .space-photo-cont {
-  //     flex-grow: 2;
-  //     width: 100%;
-  //     transition: opacity 0.5s;
-  //     overflow: hidden;
-
-  //     .space-photo {
-  //       max-width: 100%;
-  //       border: solid $off-white 5px;
-  //     }
-  //   }
-  //   .space-photo-cont:hover {
-  //     opacity: .85;
-  //   }
-  // }
-  // .map-img-cont {
-  //   width: 100%;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: flex-start;
-  // }
-  // .contact-info {
-  //   width: 65%;
-  //   text-align: center;
-  // }
-  
-  // .space-info {
-  //   border: 2px lightgrey solid;
-  //   background: $off-white;
-  //   padding: 2%;
-  //   display: flex;
-  //   justify-content: space-between;
-  //   margin: 3% 10%;
-  //   line-height: 2;
-  //   .space-desc {
-  //     width: 65%;
-  //     border-radius: 8px;
-  //     padding: 2%;
-  //   }
-  //   .space-features {
-  //     border: 2px lightgrey solid;
-  //     border-radius: 8px;
-  //     padding: 2%;
-  //   }
-  // }
-
-  // .mrg-med {
-  //   margin: 5%;
-  // }
-  
-}
+  }
 }
 
 @media screen and (min-width: 650px) {
@@ -244,7 +128,6 @@
     .map-img-container {
       width: 80%;
       display: flex;
-      // justify-content: center;
       align-items: flex-start;
     }
   
