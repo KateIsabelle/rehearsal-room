@@ -33,7 +33,8 @@ nav {
       text-transform: uppercase;
 
       &:hover {
-        background-color: $light-blue
+        background-color: $light-blue;
+        cursor: pointer;
       }
     }
     .close-menu {
