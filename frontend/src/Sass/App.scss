@@ -1,6 +1,6 @@
 // This is where we will import all of our other .scss files
 
-@import './sass_vars';
+@import './globals';
 @import '../components/Login';
 @import '../components/CityList/CityList';
 @import '../components/Space/OpeningHoursTable';
