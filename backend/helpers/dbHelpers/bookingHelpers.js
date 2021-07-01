@@ -48,7 +48,6 @@ module.exports = (db) => {
   }
 
   const addBooking = (bookingData) => {
-    // TODO: Test that addBooking actually works the way I think it should.
     return db.insert('bookings', bookingData)
       .then(result => result.rows)
       .catch(err => err);
