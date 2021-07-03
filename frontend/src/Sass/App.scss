@@ -2,26 +2,26 @@
 
 @import './globals';
 @import './Login';
-@import '../components/CityList/CityList';
+@import './CityList';
 @import './OpeningHoursTable';
-@import '../components/Dashboard/Dashboard';
-@import '../components/Dashboard/BookingList';
-@import '../components/Dashboard/BookingListItem';
+@import './Dashboard';
+@import './BookingList';
+@import './BookingListItem';
 @import './PopUp';
 @import './CloudinaryUpload';
 @import './AutoComplete';
 @import './Spinner';
-@import './Space.scss';
+@import './Space';
 @import './SpaceCreateForm';
 @import './SearchForm';
 @import './RentalRequest';
 @import '../components/Footer/Footer';
 @import './Spaces';
-@import '../components/Header/Header.scss';
+@import './Header';
 @import './DynamicMap';
 @import './PhotoGrid';
 
-@import './TopNav.scss';
+@import './TopNav';
 
 
 
