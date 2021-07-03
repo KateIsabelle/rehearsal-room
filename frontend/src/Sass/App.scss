@@ -1,26 +1,25 @@
 // This is where we will import all of our other .scss files
 
 @import './globals';
-@import '../components/Login';
+@import './Login';
 @import '../components/CityList/CityList';
-@import '../components/Space/OpeningHoursTable';
+@import './OpeningHoursTable';
 @import '../components/Dashboard/Dashboard';
 @import '../components/Dashboard/BookingList';
 @import '../components/Dashboard/BookingListItem';
-@import '../components/Space/PopUp';
-@import '../components/CloudinaryUpload';
-@import '../components/AutoComplete';
-@import '../components/Spinner';
-@import '../components/Space/Space.scss';
-@import '../components/Space/SpaceCreateForm';
-@import '../components/SearchForm';
-@import '../components/RentalRequest/RentalRequest';
+@import './PopUp';
+@import './CloudinaryUpload';
+@import './AutoComplete';
+@import './Spinner';
+@import './Space.scss';
+@import './SpaceCreateForm';
+@import './SearchForm';
+@import './RentalRequest';
 @import '../components/Footer/Footer';
-@import '../components/Spaces/Spaces';
+@import './Spaces';
 @import '../components/Header/Header.scss';
-@import '../components/Space/DynamicMap';
-@import '../components/Space/PhotoGrid';
-@import '../components/Space/DynamicMap';
+@import './DynamicMap';
+@import './PhotoGrid';
 
 @import './TopNav.scss';
 
