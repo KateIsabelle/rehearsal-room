@@ -1,6 +1,6 @@
 <!-- TITLE -->
 <div align="center">
-<img src="rehearsal-room-frontend/src/components/Header/plans.svg" height="100" width="100">
+<img src="frontend/src/components/Header/plans.svg" height="100" width="100">
 <h1>| Rehearsal Room |</h1>
 <h3>Artists Looking For Space. Spaces Available For Artists.</h3>
 
