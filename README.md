@@ -81,7 +81,7 @@ This app was created in a little over a week by <a href="https://github.com/Kate
   cd rehearsal-room-backend
   npm install
   ```
-4. Run PostgreSQL command to set ad seed database:
+4. Run PostgreSQL command to set and seed database:
   ```
   npm run db:reset
   ```
